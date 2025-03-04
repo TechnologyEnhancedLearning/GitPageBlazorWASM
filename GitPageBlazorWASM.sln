@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedPages", "SharedPages\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Package.BlazorComponentLibrary", "Package.BlazorComponentLibrary\Package.BlazorComponentLibrary.csproj", "{2E99AC55-7D92-42AD-9D85-7AACA5022A0A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlaywrightBUnitGoesHere", "PlaywrightXUnitGoesHere\PlaywrightBUnitGoesHere.csproj", "{3A0A52E1-117C-4E4B-9731-5AAA8CED114A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{2E99AC55-7D92-42AD-9D85-7AACA5022A0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E99AC55-7D92-42AD-9D85-7AACA5022A0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E99AC55-7D92-42AD-9D85-7AACA5022A0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A0A52E1-117C-4E4B-9731-5AAA8CED114A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A0A52E1-117C-4E4B-9731-5AAA8CED114A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A0A52E1-117C-4E4B-9731-5AAA8CED114A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A0A52E1-117C-4E4B-9731-5AAA8CED114A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
