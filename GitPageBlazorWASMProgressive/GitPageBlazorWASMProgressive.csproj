@@ -6,7 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>
 	  <!--added qqqq-->
-	  <PublishDir>$(MSBuildProjectDirectory)\docs\</PublishDir>
+	  <PublishDir>$(MSBuildProjectDirectory)\..\docs\</PublishDir>
 	  <!--added qqqq-->
 	  <!--<PublishSingleFile>false</PublishSingleFile>
 	  <StaticWebAssetBasePath>/GitPageBlazorWASM/</StaticWebAssetBasePath>-->
