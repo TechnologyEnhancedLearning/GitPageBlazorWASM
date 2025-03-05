@@ -13,11 +13,11 @@
 
 	<!--<ItemGroup Condition="'$(Configuration)'=='Release'">
 		<Content Include="wwwroot\index.html" />
-	</ItemGroup>
+	</ItemGroup> Dont need to reinclude because publish does this by default?-->
 
 	<ItemGroup Condition="'$(Configuration)'!='Release'">
 		<Content Remove="wwwroot\index.html" />
-	</ItemGroup>-->
+	</ItemGroup>
 	<Target Name="PublishGitHubPages" AfterTargets="Publish">
 		<Message Text="SolutionDir: $(SolutionDir)" Importance="high" />
 		<Message Text="MSBuildProjectDirectory: $(MSBuildProjectDirectory)" Importance="high" />
