@@ -4,9 +4,9 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>
+    <!--<ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>-->
 	  <!--added qqqq-->
-	  <PublishDir>$(MSBuildProjectDirectory)\..\docs\</PublishDir>
+	  <PublishDir>$(MSBuildProjectDirectory)\..\..\docs\</PublishDir>
 	  <WwwRootDir>$(PublishDir)\wwwroot</WwwRootDir>
 	  <!--added qqqq-->
 	  <!--<PublishSingleFile>false</PublishSingleFile>
@@ -19,9 +19,6 @@
 		<Message Text="SolutionDir: $(SolutionDir)" Importance="high" />
 		<Message Text="MSBuildProjectDirectory: $(MSBuildProjectDirectory)" Importance="high" />
 		<Message Text="PublishDir: $(PublishDir)" Importance="high" />
-
-
-
 
 		<!-- Create .nojekyll file -->
 		<Touch Files="$(PublishDir).nojekyll" AlwaysCreate="true" />
@@ -49,8 +46,8 @@
     <ProjectReference Include="..\SharedPages\SharedPages.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
+  <!--<ItemGroup>
     <ServiceWorker Include="wwwroot\service-worker.js" PublishedContent="wwwroot\service-worker.published.js" />
-  </ItemGroup>
+  </ItemGroup>-->
 
 </Project>
