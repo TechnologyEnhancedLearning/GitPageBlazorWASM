@@ -10,15 +10,14 @@
 	  <PublishDir>$(MSBuildProjectDirectory)\..\..\docs\</PublishDir>
 	  <WwwRootDir>$(PublishDir)\wwwroot</WwwRootDir>
   </PropertyGroup>
-	<!--only want for publishing otherwise too entry points-->
-	<!--<ItemGroup Condition="'$(Publish)'!='true'">
-		<Content Remove="wwwroot\index.html" />
-	</ItemGroup>-->
 
-	
+	<!--<ItemGroup Condition="'$(Configuration)'=='Release'">
+		<Content Include="wwwroot\index.html" />
+	</ItemGroup>
+
 	<ItemGroup Condition="'$(Configuration)'!='Release'">
 		<Content Remove="wwwroot\index.html" />
-	</ItemGroup>
+	</ItemGroup>-->
 	<Target Name="PublishGitHubPages" AfterTargets="Publish">
 		<Message Text="SolutionDir: $(SolutionDir)" Importance="high" />
 		<Message Text="MSBuildProjectDirectory: $(MSBuildProjectDirectory)" Importance="high" />
@@ -43,8 +42,10 @@
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.13" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.13" />
   </ItemGroup>
-
+	
+	
   <ItemGroup>
+    <ProjectReference Include="..\..\Package.BlazorComponentLibrary\Package.BlazorComponentLibrary.csproj" />
     <ProjectReference Include="..\..\SharedPages\SharedPages.csproj" />
   </ItemGroup>
 
