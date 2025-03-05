@@ -24,9 +24,7 @@
 			<WwwRootFiles Include="$(WwwRootDir)\**\*.*" />
 		</ItemGroup>
 
-		<Copy SourceFiles="@(WwwRootFiles)"
-			   DestinationFolder="$(PublishDir)\%(RecursiveDir)"
-			   OverwriteReadOnlyFiles="true" />
+		<Copy SourceFiles="@(WwwRootFiles)" DestinationFolder="$(PublishDir)\%(RecursiveDir)" OverwriteReadOnlyFiles="true" />
 
 		<!-- Remove wwwroot folder after moving contents -->
 		<RemoveDir Directories="$(WwwRootDir)" />
@@ -35,10 +33,14 @@
 	
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.13" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.13" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\SharedPages\SharedPages.csproj" />
   </ItemGroup>
-
+	<!--only want for publishing otherwise too entry points-->
+	<ItemGroup Condition="'$(Publish)'!='true'">
+		<Content Remove="wwwroot\index.html" />
+	</ItemGroup>
 </Project>
