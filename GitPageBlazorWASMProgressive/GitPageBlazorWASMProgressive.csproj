@@ -5,11 +5,11 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>
-	  
-	  
 	  <!--added qqqq-->
-	  <PublishSingleFile>false</PublishSingleFile>
-	  <StaticWebAssetBasePath>/GitPageBlazorWASM/</StaticWebAssetBasePath>
+	  <PublishDir>$(MSBuildProjectDirectory)\docs\</PublishDir>
+	  <!--added qqqq-->
+	  <!--<PublishSingleFile>false</PublishSingleFile>
+	  <StaticWebAssetBasePath>/GitPageBlazorWASM/</StaticWebAssetBasePath>-->
   </PropertyGroup>
 
   <ItemGroup>
