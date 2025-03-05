@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.13.35806.99
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitPageBlazorWASM", "GitPageBlazorWASM\GitPageBlazorWASM.csproj", "{E23AA238-FA4F-400F-B615-17F2C9ED80D4}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestHostPrerenderWASM", "TestHostPrerenderWASM\TestHostPrerenderWASM\TestHostPrerenderWASM.csproj", "{58F22C95-434F-4ABF-99B3-B2D1481DB0D6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestHostPrerenderWASM.Client", "TestHostPrerenderWASM\TestHostPrerenderWASM.Client\TestHostPrerenderWASM.Client.csproj", "{A0572B2F-4669-40C4-B501-7C8F7666CFEA}"
@@ -17,16 +15,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlaywrightBUnitGoesHere", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitPageBlazorWASMProgressive", "GitPageBlazorWASMProgressive\GitPageBlazorWASMProgressive.csproj", "{1A4888E4-D985-4FEB-B6C4-B84EB845C6BA}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E23AA238-FA4F-400F-B615-17F2C9ED80D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E23AA238-FA4F-400F-B615-17F2C9ED80D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E23AA238-FA4F-400F-B615-17F2C9ED80D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E23AA238-FA4F-400F-B615-17F2C9ED80D4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{58F22C95-434F-4ABF-99B3-B2D1481DB0D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{58F22C95-434F-4ABF-99B3-B2D1481DB0D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{58F22C95-434F-4ABF-99B3-B2D1481DB0D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
