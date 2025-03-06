@@ -9,6 +9,7 @@
 	  <!--added qqqq-->
 	  <PublishDir>$(MSBuildProjectDirectory)\..\..\docs\</PublishDir>
 	  <WwwRootDir>$(PublishDir)\wwwroot</WwwRootDir>
+	  <StaticWebAssetBasePath>$(PublishDir)</StaticWebAssetBasePath>
   </PropertyGroup>
 
 	<!--<ItemGroup Condition="'$(Configuration)'=='Release'">
