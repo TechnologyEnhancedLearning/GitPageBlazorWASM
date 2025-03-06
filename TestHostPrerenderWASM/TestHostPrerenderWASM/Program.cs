@@ -28,7 +28,7 @@ app.UseAntiforgery();
 app.MapRazorComponents<App>()
     .AddInteractiveWebAssemblyRenderMode()
     .AddAdditionalAssemblies(typeof(TestHostPrerenderWASM.Client._Imports).Assembly)
-    //.AddAdditionalAssemblies(typeof(Package.BlazorComponentLibrary._Imports).Assembly);
+    //put back in qqqq.AddAdditionalAssemblies(typeof(Package.BlazorComponentLibrary._Imports).Assembly)
     .AddAdditionalAssemblies(typeof(SharedPages._Imports).Assembly);
 
 app.Run();

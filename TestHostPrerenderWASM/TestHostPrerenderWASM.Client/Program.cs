@@ -13,6 +13,7 @@ if (builder.HostEnvironment.IsProduction())
     builder.RootComponents.Add<App>("#app");
     builder.RootComponents.Add<HeadOutlet>("head::after");
     builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+    //qqqqq here change the index to gitpage-index so the code is easier to understand that it is both self serving on publish and served by the other project for text
 }
 
 await builder.Build().RunAsync();
