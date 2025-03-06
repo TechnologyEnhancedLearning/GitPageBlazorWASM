@@ -10,6 +10,7 @@
 	  <PublishDir>$(MSBuildProjectDirectory)\..\..\docs\</PublishDir>
 	  <WwwRootDir>$(PublishDir)\wwwroot</WwwRootDir>
 	  <StaticWebAssetBasePath>$(PublishDir)</StaticWebAssetBasePath>
+	  <!--<StaticWebAssetBasePath>/GitPageBlazorWASM/</StaticWebAssetBasePath>qqqq try at somepoint-->
   </PropertyGroup>
 
 	<!--<ItemGroup Condition="'$(Configuration)'=='Release'">
