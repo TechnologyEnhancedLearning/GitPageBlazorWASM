@@ -21,16 +21,16 @@
 		<Content Include="wwwroot\index.html" />
 	</ItemGroup> Dont need to reinclude because publish does this by default?-->
 
-	<ItemGroup Condition="'$(Configuration)'!='Release'">
+	<!--<ItemGroup Condition="'$(Configuration)'!='Release'">
 		<Content Remove="wwwroot\index.html" />
-		<!--<Content Remove="wwwroot\404.html" />  qqqqq try next-->
-	</ItemGroup>
+		--><!--<Content Remove="wwwroot\404.html" />  qqqqq try next--><!--
+	</ItemGroup>-->
 	<Target Name="PublishGitHubPages" AfterTargets="Publish">
 		<Message Text="SolutionDir: $(SolutionDir)" Importance="high" />
 		<Message Text="MSBuildProjectDirectory: $(MSBuildProjectDirectory)" Importance="high" />
 		<Message Text="PublishDir: $(PublishDir)" Importance="high" />
 		<!-- Remove the destination directory before copying -->
-		<RemoveDir Directories="$(PublishDir)" />
+		<!--<RemoveDir Directories="$(PublishDir)" />-->
 
 		<!-- Create the directory again if it doesn't exist -->
 		<MakeDir Directories="$(PublishDir)" />
