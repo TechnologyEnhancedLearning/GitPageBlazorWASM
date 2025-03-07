@@ -1,17 +1,37 @@
-<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+﻿<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>
-	  
-	  
-	  <!--added qqqq-->
-	  <PublishSingleFile>false</PublishSingleFile>
-	  <StaticWebAssetBasePath>/GitPageBlazorWASM/</StaticWebAssetBasePath>
+
+	  <PublishDir>$(MSBuildProjectDirectory)\..\docsReferenceNow\</PublishDir>
+	  <WwwRootDir>$(PublishDir)\wwwroot</WwwRootDir>
+
   </PropertyGroup>
 
+	<Target Name="PublishGitHubPages" AfterTargets="Publish">
+		<Message Text="SolutionDir: $(SolutionDir)" Importance="high" />
+		<Message Text="MSBuildProjectDirectory: $(MSBuildProjectDirectory)" Importance="high" />
+		<Message Text="PublishDir: $(PublishDir)" Importance="high" />
+
+		<!-- Create .nojekyll file -->
+		<Touch Files="$(PublishDir).nojekyll" AlwaysCreate="true" />
+
+		<!-- Move wwwroot contents to docs root and remove wwwroot folder -->
+		<ItemGroup>
+			<WwwRootFiles Include="$(WwwRootDir)\**\*.*" />
+		</ItemGroup>
+
+		<Copy SourceFiles="@(WwwRootFiles)"
+			   DestinationFolder="$(PublishDir)\%(RecursiveDir)"
+			   OverwriteReadOnlyFiles="true" />
+
+		<!-- Remove wwwroot folder after moving contents -->
+		<RemoveDir Directories="$(WwwRootDir)" />
+	</Target>
+	
+	
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.13" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.13" PrivateAssets="all" />
@@ -21,8 +41,6 @@
     <ProjectReference Include="..\SharedPages\SharedPages.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ServiceWorker Include="wwwroot\service-worker.js" PublishedContent="wwwroot\service-worker.published.js" />
-  </ItemGroup>
+
 
 </Project>
