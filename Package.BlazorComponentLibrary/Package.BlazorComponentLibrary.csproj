@@ -4,6 +4,9 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+
+	  <EnableDefaultEmbeddedResources>true</EnableDefaultEmbeddedResources>
+	  <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
   </PropertyGroup>
 
 

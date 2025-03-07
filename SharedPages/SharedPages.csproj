@@ -6,8 +6,14 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+	<!--<ItemGroup>
+	put back in
+		<None Update="wwwroot\**">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>-->
 
-  <ItemGroup>
+	<ItemGroup>
     <SupportedPlatform Include="browser" />
   </ItemGroup>
 
