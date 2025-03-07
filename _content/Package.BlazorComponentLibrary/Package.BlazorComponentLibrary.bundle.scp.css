@@ -1,0 +1,17 @@
+/* _content/Package.BlazorComponentLibrary/Components/SimpleCounter.razor.rz.scp.css */
+h3[b-y7cips57ri] {
+    color: blue;
+    font-size: 24px;
+}
+
+button[b-y7cips57ri] {
+    background-color: darkblue;
+    color: white;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 16px;
+}
+
+    button:hover[b-y7cips57ri] {
+        background-color: navy;
+    }
