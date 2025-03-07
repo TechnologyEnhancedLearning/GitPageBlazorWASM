@@ -6,31 +6,19 @@
     <Nullable>enable</Nullable>
     <NoDefaultLaunchSettingsFile>true</NoDefaultLaunchSettingsFile>
     <StaticWebAssetProjectMode>Default</StaticWebAssetProjectMode>
-	  <!--added qqqq put back in-->
+
 	<PublishDir>$(MSBuildProjectDirectory)\..\..\docs\</PublishDir>
-	  <!--qqqq think below doesnt work for prerender build but maybe also not for publish either-->
-	  <WwwRootDir Condition="'$(Configuration)'=='Release'">$(PublishDir)\wwwroot</WwwRootDir>
-	  <!-- <StaticWebAssetBasePath>$(PublishDir)</StaticWebAssetBasePath>-->
 	  
-	  
-	  
-	  <!--<StaticWebAssetBasePath>/GitPageBlazorWASM/</StaticWebAssetBasePath>qqqq try at somepoint-->
+	 <WwwRootDir Condition="'$(Configuration)'=='Release'">$(PublishDir)\wwwroot</WwwRootDir>
+
   </PropertyGroup>
 
-	<!--<ItemGroup Condition="'$(Configuration)'=='Release'">
-		<Content Include="wwwroot\index.html" />
-	</ItemGroup> Dont need to reinclude because publish does this by default?-->
 
-	<!--<ItemGroup Condition="'$(Configuration)'!='Release'">
-		<Content Remove="wwwroot\index.html" />
-		--><!--<Content Remove="wwwroot\404.html" />  qqqqq try next--><!--
-	</ItemGroup>-->
 	<Target Name="PublishGitHubPages" AfterTargets="Publish">
 		<Message Text="SolutionDir: $(SolutionDir)" Importance="high" />
 		<Message Text="MSBuildProjectDirectory: $(MSBuildProjectDirectory)" Importance="high" />
 		<Message Text="PublishDir: $(PublishDir)" Importance="high" />
-		<!-- Remove the destination directory before copying -->
-		<!--<RemoveDir Directories="$(PublishDir)" />-->
+	
 
 		<!-- Create the directory again if it doesn't exist -->
 		<MakeDir Directories="$(PublishDir)" />
@@ -52,10 +40,6 @@
 		<!-- Remove wwwroot folder after moving contents -->
 		<RemoveDir Directories="$(WwwRootDir)" />
 	</Target>
-	<!--<ItemGroup>
-	  <Content Remove="wwwroot\404.html" />
-	  <Content Remove="wwwroot\nothing-client.txt" />
-	</ItemGroup>-->
 	
 	
   <ItemGroup>

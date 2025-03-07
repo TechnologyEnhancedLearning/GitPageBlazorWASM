@@ -4,15 +4,10 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <!--<ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>-->
-	  <!--added qqqq-->
+
 	  <PublishDir>$(MSBuildProjectDirectory)\..\docsReferenceNow\</PublishDir>
 	  <WwwRootDir>$(PublishDir)\wwwroot</WwwRootDir>
-	  <!--added qqqq-->
-	  <!--<PublishSingleFile>false</PublishSingleFile>
-	  <StaticWebAssetBasePath>/GitPageBlazorWASM/</StaticWebAssetBasePath>-->
-	  <!-- Add this for GitHub Pages base href Recommended but i havent seemed to need it yet-->
-	  <!--<PublishBase>/YourRepositoryName/</PublishBase>-->
+
   </PropertyGroup>
 
 	<Target Name="PublishGitHubPages" AfterTargets="Publish">
@@ -46,8 +41,6 @@
     <ProjectReference Include="..\SharedPages\SharedPages.csproj" />
   </ItemGroup>
 
-  <!--<ItemGroup>
-    <ServiceWorker Include="wwwroot\service-worker.js" PublishedContent="wwwroot\service-worker.published.js" />
-  </ItemGroup>-->
+
 
 </Project>
