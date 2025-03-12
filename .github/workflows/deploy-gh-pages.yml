@@ -24,7 +24,7 @@ jobs:
         
         
       # Add your tests here if needed
-      # - name: Test
+      # - name: Test qqqqTODO
       #   run: dotnet test --no-build --verbosity normal
         
       - name: Publish client using client release .csproj logic
