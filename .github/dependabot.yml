@@ -1,9 +1,24 @@
 version: 2
 updates:
-  # Configuration for minor and patch updates
-  # NuGet packages (.NET projects)
+  # Configuration for GitPageBlazorWASMProgressive
   - package-ecosystem: "nuget"
-    directory: "/"
+    directory: "/GitPageBlazorWASMProgressive/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 10
+    target-branch: "Automatic_version_update_dependabot"
+
+  # Configuration for Package.BlazorComponentLibrary
+  - package-ecosystem: "nuget"
+    directory: "/Package.BlazorComponentLibrary/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 10
+    target-branch: "Automatic_version_update_dependabot"
+
+  # Configuration for TestHostPrerenderWASM
+  - package-ecosystem: "nuget"
+    directory: "/TestHostPrerenderWASM/"
     schedule:
       interval: "weekly"
     open-pull-requests-limit: 10
