@@ -1,0 +1,42 @@
+version: 2
+updates:
+  # Configuration for minor and patch updates
+  # NuGet packages (.NET projects)
+  - package-ecosystem: "nuget"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 10
+    target-branch: "Automatic_version_update_dependabot"
+    
+    automerge: 
+        enable: true
+        allow: 
+          - dependency-type: "all"
+          - update-type: "minor"
+          - update-type: "patch"
+          - update-type: "pin"
+          - update-type: "digest"
+    automerge-types: ["minor", "patch", "pin", "digest"]
+    # Optional: Set version requirement for automerge
+  versioning-strategy: auto
+    
+    
+    
+    
+        #ignore:
+    #  - dependency-name: "*"
+    #    update-types: ["version-update:semver-major"]
+        
+    # Enable automatic merging
+ # Configuration for major updates only       
+  #- package-ecosystem: "nuget"
+  #  directory: "/"
+  #  schedule:
+  #    interval: "weekly"
+  #  open-pull-requests-limit: 5
+ #   target-branch: "Automatic_version_update_dependabot"
+ #   ignore:
+ #     - dependency-name: "*"
+  #      update-types:  ["version-update:semver-minor", "version-update:semver-patch"]
+  #  versioning-strategy: auto
