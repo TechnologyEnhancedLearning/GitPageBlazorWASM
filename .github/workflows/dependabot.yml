@@ -8,17 +8,27 @@ updates:
       interval: "weekly"
     open-pull-requests-limit: 10
     target-branch: "Automatic_version_update_dependabot"
-    #ignore:
+    
+    automerge: 
+        enable: true
+        allow: 
+          - dependency-type: "all"
+          - update-type: "minor"
+          - update-type: "patch"
+          - update-type: "pin"
+          - update-type: "digest"
+    automerge-types: ["minor", "patch", "pin", "digest"]
+    # Optional: Set version requirement for automerge
+  versioning-strategy: auto
+    
+    
+    
+    
+        #ignore:
     #  - dependency-name: "*"
     #    update-types: ["version-update:semver-major"]
         
     # Enable automatic merging
-    automerge: true
-    automerge-types: ["minor", "patch", "pin", "digest"]
-    # Optional: Set version requirement for automerge
-    versioning-strategy: auto
-    
-    
  # Configuration for major updates only       
   #- package-ecosystem: "nuget"
   #  directory: "/"
