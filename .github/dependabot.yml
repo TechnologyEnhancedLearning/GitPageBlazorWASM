@@ -1,0 +1,37 @@
+version: 2
+updates:
+  # Configuration for GitPageBlazorWASMProgressive
+  - package-ecosystem: "nuget"
+    directory: "/GitPageBlazorWASMProgressive/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 10
+    target-branch: "Automatic_version_update_dependabot"
+
+  # Configuration for Package.BlazorComponentLibrary
+  - package-ecosystem: "nuget"
+    directory: "/Package.BlazorComponentLibrary/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 10
+    target-branch: "Automatic_version_update_dependabot"
+
+  # Configuration for TestHostPrerenderWASM
+  - package-ecosystem: "nuget"
+    directory: "/TestHostPrerenderWASM/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 10
+    target-branch: "Automatic_version_update_dependabot"
+
+# Root-level configuration for automerge and versioning
+automerge:
+  enable: true
+  allow:
+    - dependency-type: "all"
+    - update-type: "minor"
+    - update-type: "patch"
+    - update-type: "pin"
+    - update-type: "digest"
+
+#versioning-strategy: auto
