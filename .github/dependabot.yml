@@ -18,11 +18,35 @@ updates:
 
   # Configuration for TestHostPrerenderWASM
   - package-ecosystem: "nuget"
-    directory: "/TestHostPrerenderWASM/"
+    directory: "/TestHostPrerenderWASM/TestHostPrerenderWASM/"
     schedule:
       interval: "weekly"
     open-pull-requests-limit: 10
     target-branch: "Automatic_version_update_dependabot"
+    
+      # Configuration for TestHostPrerenderWASM
+  - package-ecosystem: "nuget"
+    directory: "/TestHostPrerenderWASM/TestHostPrerenderWASM.Client/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 10
+    target-branch: "Automatic_version_update_dependabot"
+    
+  - package-ecosystem: "nuget"
+    directory: "/SharedPages/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 10
+    target-branch: "Automatic_version_update_dependabot"
+ 
+  - package-ecosystem: "nuget"
+    directory: "/PlaywrightBunitGoesHere/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 10
+    target-branch: "Automatic_version_update_dependabot
+    
+
 
 # Root-level configuration for automerge and versioning
 automerge:
