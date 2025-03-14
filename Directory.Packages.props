@@ -1,0 +1,23 @@
+<Project>
+  <PropertyGroup>
+    <!-- Enable central management of package versions -->
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- Define each package version centrally -->
+    <PackageVersion Include="Newtonsoft.Json" Version="13.0.1" />
+	<PackageVersion Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.13" />
+	<PackageVersion Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.13" PrivateAssets="all" />
+	<PackageVersion Include="Microsoft.AspNetCore.Components.Web" Version="8.0.13" />
+	<PackageVersion Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.13" />
+
+
+
+    <PackageVersion Include="AutoMapper" Version="1.1.0.118" />
+	<PackageVersion Include="coverlet.collector" Version="6.0.0" />
+	<PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
+	<PackageVersion Include="xunit" Version="2.5.3" />
+	<PackageVersion Include="xunit.runner.visualstudio" Version="2.5.3" />
+
+  </ItemGroup>
+</Project>
