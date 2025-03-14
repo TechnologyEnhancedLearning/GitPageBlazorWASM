@@ -59,4 +59,8 @@
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
+  <ItemGroup>
+	  <Content Remove="packages.lock.json" />
+  </ItemGroup>
+
 </Project>

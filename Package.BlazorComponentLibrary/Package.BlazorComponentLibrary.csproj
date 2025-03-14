@@ -17,5 +17,8 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" />
   </ItemGroup>
+	<ItemGroup>
+		<Content Remove="packages.lock.json" />
+	</ItemGroup>
 
 </Project>

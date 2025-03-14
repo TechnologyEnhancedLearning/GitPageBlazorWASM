@@ -20,5 +20,8 @@
   <ItemGroup>
     <Using Include="Xunit" />
   </ItemGroup>
+	<ItemGroup>
+		<Content Remove="packages.lock.json" />
+	</ItemGroup>
 
 </Project>
