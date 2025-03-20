@@ -12,4 +12,4 @@ jobs:
       - name: GitGuardian Scan
         uses: GitGuardian/gg-shield-action@v1
         env:
-          GITGUARDIAN: ${{ secrets.BINON_GITGUARDIAN_API_KEY }}
+          GITGUARDIAN_API_KEY: ${{ secrets.GITGUARDIAN_API_KEY  }}
