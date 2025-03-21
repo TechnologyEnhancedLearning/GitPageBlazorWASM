@@ -204,17 +204,11 @@
         "resolved": "8.0.0",
         "contentHash": "FHNOatmUq0sqJOkTx+UF/9YK1f180cnW5FVqnQMvYUN0elp6wFzbtPSiqbo1/ru8ICp43JM1i7kKkk6GsNGHlA=="
       },
-      "package.blazorcomponentlibrary": {
-        "type": "Project",
-        "dependencies": {
-          "Microsoft.AspNetCore.Components.Web": "[8.0.14, )"
-        }
-      },
       "sharedpages": {
         "type": "Project",
         "dependencies": {
           "Microsoft.AspNetCore.Components.Web": "[8.0.14, )",
-          "Package.BlazorComponentLibrary": "[1.0.0, )"
+          "TELBlazorComponentLibrary.GitPageBlazorWasm": "[1.0.2, )"
         }
       },
       "Microsoft.AspNetCore.Components.Web": {
@@ -229,6 +223,15 @@
           "Microsoft.Extensions.Primitives": "8.0.0",
           "Microsoft.JSInterop": "8.0.14",
           "System.IO.Pipelines": "8.0.0"
+        }
+      },
+      "TELBlazorComponentLibrary.GitPageBlazorWasm": {
+        "type": "CentralTransitive",
+        "requested": "[1.0.2, )",
+        "resolved": "1.0.2",
+        "contentHash": "wfcxYTCnoDoOp3/nB71wOkakCUuqbWO8dOkicwmeZLAvvtjbbm13BwsSfXRvVlwQ+aKM3zGPhXPiWoU1Ql50mQ==",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components.Web": "8.0.14"
         }
       }
     },

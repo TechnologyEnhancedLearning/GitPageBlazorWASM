@@ -8,6 +8,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestHostPrerenderWASM.Client", "TestHostPrerenderWASM\TestHostPrerenderWASM.Client\TestHostPrerenderWASM.Client.csproj", "{A0572B2F-4669-40C4-B501-7C8F7666CFEA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedPages", "SharedPages\SharedPages.csproj", "{0E0B57E0-D02F-46FD-B7F6-5AB1D3218635}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2E99AC55-7D92-42AD-9D85-7AACA5022A0A} = {2E99AC55-7D92-42AD-9D85-7AACA5022A0A}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Package.BlazorComponentLibrary", "Package.BlazorComponentLibrary\Package.BlazorComponentLibrary.csproj", "{2E99AC55-7D92-42AD-9D85-7AACA5022A0A}"
 EndProject

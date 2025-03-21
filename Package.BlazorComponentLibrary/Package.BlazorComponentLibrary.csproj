@@ -1,5 +1,9 @@
-<Project Sdk="Microsoft.NET.Sdk.Razor">
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+	<Import Project="PackageSettings.props" Condition="Exists('PackageSettings.props')" />
 
+	<ItemGroup>
+		<None Include="..\README.md" Pack="true" PackagePath="\" />
+	</ItemGroup>
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
@@ -7,6 +11,24 @@
 
 	  <EnableDefaultEmbeddedResources>true</EnableDefaultEmbeddedResources>
 	  <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+
+
+	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	  <PackageId>TELBlazorComponentLibrary.GitPageBlazorWasm</PackageId>
+	  <Version>1.0.2</Version>
+	  <Authors>TEL</Authors>
+	  <Company>NHS</Company>
+	  <Description>WCAG Progressive Enhancement Blazor Component Library</Description>
+	  <PackageTags>NHS, TEL, blazor, components, library</PackageTags>
+	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
+	  <RepositoryUrl>https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM</RepositoryUrl>
+	  <RepositoryType>git</RepositoryType>
+	  <PackageReadmeFile>ReadMe.md</PackageReadmeFile>
+	  <!--qqqq would have its own changelog genereate readme later anyway -->
+
+	  <!--qqqq gitignored-->
+	  <PackageOutputPath>$(NupkgOutputPath)</PackageOutputPath>
+
   </PropertyGroup>
 
 
@@ -20,5 +42,6 @@
 	<ItemGroup>
 		<Content Remove="packages.lock.json" />
 	</ItemGroup>
+
 
 </Project>
