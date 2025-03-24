@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
-	<Import Project="PackageSettings.props" Condition="Exists('PackageSettings.props')" />
-
+	<!--<Import Project="PackageSettings.props" Condition="Exists('PackageSettings.props')" />-->
+	<!--<Import Project="..\PackageSettings.props" Condition="Exists('..\PackageSettings.props')" /> auto imported by solution-->
 	<ItemGroup>
 		<None Include="..\README.md" Pack="true" PackagePath="\" />
 	</ItemGroup>
@@ -15,7 +15,7 @@
 
 	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	  <PackageId>TELBlazorComponentLibrary.GitPageBlazorWasm</PackageId>
-	  <Version>1.0.2</Version>
+	  <Version>1.0.9.5</Version>
 	  <Authors>TEL</Authors>
 	  <Company>NHS</Company>
 	  <Description>WCAG Progressive Enhancement Blazor Component Library</Description>
@@ -30,7 +30,11 @@
 	  <PackageOutputPath>$(NupkgOutputPath)</PackageOutputPath>
 
   </PropertyGroup>
-
+	<Target Name="DebugProperties" BeforeTargets="Build">
+		<Message Importance="high" Text="NupkgOutputPath: $(NupkgOutputPath)" />
+		<Message Importance="high" Text="PackageOutputPath: $(PackageOutputPath)" />
+		<Message Importance="high" Text="LocalPackagePath: $(LocalPackagePath)" />
+	</Target>
 
   <ItemGroup>
     <SupportedPlatform Include="browser" />

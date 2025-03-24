@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <!-- Define the output path where the package will be stored -->
+	  <!--<NupkgOutputPath>$(Env:LocalPackagePath)</NupkgOutputPath>-->
+    <NupkgOutputPath>$(LocalPackagePath)</NupkgOutputPath>
+	<IsLocalDevVS Condition="'$(IsLocalDev)' == '' ">false</IsLocalDevVS>
+	<IsLocalDevVS Condition="'$(IsLocalDev)' != '' ">$(IsLocalDev)</IsLocalDevVS>
+  </PropertyGroup>
+    <!-- it is there <Target Name="EnsureLocalFeed">
+    <Exec Command="echo $(LocalPackagePath)" />
+  </Target>-->
+ <!--<Target Name="EnsureLocalFeed">
+    <Exec Command="echo $(IsLocalDev)" />
+  </Target>
+	<Target Name="DiagnoseIsLocalDev" BeforeTargets="Build">
+		<Message Text="!!!!!!!!!!!!!!!!!  Property IsLocalDevVS: $(IsLocalDevVS)" Importance="high" />
+	</Target>-->
+</Project>

@@ -5,7 +5,9 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
-
+	<Target Name="PrintIsLocalDev" BeforeTargets="Build">
+		<Message Text="!!!!!!!!!!!!!!!!!!!!!!!    !!!!!!!!!!!!   IsLocalDevVS: $(IsLocalDevVS)" Importance="high" />
+	</Target>
 	<!--<ItemGroup>
 	put back in
 		<None Update="wwwroot\**">
@@ -19,10 +21,15 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" />
+	  <!--not for production ideally we test against package version but for expedience can overide nuget package with project reference-->
     <PackageReference Include="TELBlazorComponentLibrary.GitPageBlazorWasm" />
   </ItemGroup>
 	<ItemGroup>
 		<Content Remove="packages.lock.json" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\Package.BlazorComponentLibrary\Package.BlazorComponentLibrary.csproj" Condition="$(IsLocalDevVS)" />	  
+		<!--<ProjectReference Include="..\Package.BlazorComponentLibrary\Package.BlazorComponentLibrary.csproj" Condition="false" />-->
+    </ItemGroup>
 </Project>
