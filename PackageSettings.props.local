@@ -3,6 +3,14 @@
   <PropertyGroup>
   <!--warning unless do nuget.config.template localpackagepath for nuget will still use sys environment values-->
     <LocalPackagePath>C:\LocalDevelopmentPackageVersions</LocalPackagePath>
+    <NupkgOutputPath>C:\LocalDevelopmentPackageVersions</NupkgOutputPath>
     <IsLocalDev>true</IsLocalDev>
+
+    <UseBCLProjectReference>false</UseBCLProjectReference>
+    <BCLVersion>1.3.3</BCLVersion>
+
+
+
+    <UseHighestBCLVersionAvailable>false</UseHighestBCLVersionAvailable><!--cant work-->
   </PropertyGroup>
 </Project>

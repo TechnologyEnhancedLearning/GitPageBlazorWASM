@@ -15,7 +15,8 @@
 
 	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	  <PackageId>TELBlazorComponentLibrary.GitPageBlazorWasm</PackageId>
-	  <Version>1.0.9.5</Version>
+	  <Version>$(BCLVersion)</Version>
+	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	  <Authors>TEL</Authors>
 	  <Company>NHS</Company>
 	  <Description>WCAG Progressive Enhancement Blazor Component Library</Description>

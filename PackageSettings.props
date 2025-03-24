@@ -6,6 +6,11 @@
     <NupkgOutputPath>$(LocalPackagePath)</NupkgOutputPath>
 	<IsLocalDevVS Condition="'$(IsLocalDev)' == '' ">false</IsLocalDevVS>
 	<IsLocalDevVS Condition="'$(IsLocalDev)' != '' ">$(IsLocalDev)</IsLocalDevVS>
+  
+	<!--allows us to just use build versions while testing packages locally-->
+	<UseHighestBCLVersionAvailable>false</UseHighestBCLVersionAvailable>
+    <UseBCLProjectReference>true</UseBCLProjectReference>
+	<BCLVersion>1.3.1</BCLVersion>
   </PropertyGroup>
     <!-- it is there <Target Name="EnsureLocalFeed">
     <Exec Command="echo $(LocalPackagePath)" />

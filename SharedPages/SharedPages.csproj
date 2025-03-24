@@ -22,14 +22,20 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" />
 	  <!--not for production ideally we test against package version but for expedience can overide nuget package with project reference-->
-    <PackageReference Include="TELBlazorComponentLibrary.GitPageBlazorWasm" />
+	  <!-- Fixed version when UseHighestBCLVersionAvailable is false -->
+	  <PackageReference  Include="TELBlazorComponentLibrary.GitPageBlazorWasm"/>
+
+	  <!-- Use the latest available version when UseHighestBCLVersionAvailable is true -->
+	  <!--having floating just isnt possible-->
+	  <!--<PackageVersion  Include="TELBlazorComponentLibrary.GitPageBlazorWasm" Version="1.0.2" Condition=" '$(UseHighestBCLVersionAvailable)' == 'true' "/>-->
   </ItemGroup>
 	<ItemGroup>
 		<Content Remove="packages.lock.json" />
 	</ItemGroup>
 
+
 	<ItemGroup>
-	  <ProjectReference Include="..\Package.BlazorComponentLibrary\Package.BlazorComponentLibrary.csproj" Condition="$(IsLocalDevVS)" />	  
+	  <ProjectReference Include="..\Package.BlazorComponentLibrary\Package.BlazorComponentLibrary.csproj" Condition="$(UseBCLProjectReference)" />	  
 		<!--<ProjectReference Include="..\Package.BlazorComponentLibrary\Package.BlazorComponentLibrary.csproj" Condition="false" />-->
     </ItemGroup>
 </Project>
