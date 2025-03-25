@@ -18,9 +18,9 @@
       },
       "TELBlazorComponentLibrary.GitPageBlazorWasm": {
         "type": "Direct",
-        "requested": "[1.3.3, )",
-        "resolved": "1.3.3",
-        "contentHash": "yxAB7GzeGACjbveaIWkf45TP9Pu1HJmo+vGnWSJ0sNQJNSjcpRLPInzmKMDoQ1yIXFPNuQ1P7CqfDCsvrQE80w==",
+        "requested": "[3.0.2, )",
+        "resolved": "3.0.2",
+        "contentHash": "iz2gi5NPvrgwB1nce0Rp0uZOYj6sXfWj8jcRqTZAZRlLGHx2nLrGrRyZ5gG+BikfRIt9DstLCHa18doKtmrMzw==",
         "dependencies": {
           "Microsoft.AspNetCore.Components.Web": "8.0.14"
         }
