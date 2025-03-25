@@ -31,11 +31,11 @@
 	  <PackageOutputPath>$(NupkgOutputPath)</PackageOutputPath>
 
   </PropertyGroup>
-	<Target Name="DebugProperties" BeforeTargets="Build">
+	<!--<Target Name="DebugProperties" BeforeTargets="Build">
 		<Message Importance="high" Text="NupkgOutputPath: $(NupkgOutputPath)" />
 		<Message Importance="high" Text="PackageOutputPath: $(PackageOutputPath)" />
 		<Message Importance="high" Text="LocalPackagePath: $(LocalPackagePath)" />
-	</Target>
+	</Target>-->
 
   <ItemGroup>
     <SupportedPlatform Include="browser" />

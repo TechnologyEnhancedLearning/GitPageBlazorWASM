@@ -8,9 +8,11 @@
 	<IsLocalDevVS Condition="'$(IsLocalDev)' != '' ">$(IsLocalDev)</IsLocalDevVS>
   
 	<!--allows us to just use build versions while testing packages locally-->
-	<UseHighestBCLVersionAvailable>false</UseHighestBCLVersionAvailable>
-    <UseBCLProjectReference>true</UseBCLProjectReference>
-	<BCLVersion>1.3.1</BCLVersion>
+	<!--<UseHighestBCLVersionAvailable>false</UseHighestBCLVersionAvailable>-->
+    <UseBCLProjectReference>$(UseBCLProjectReference)</UseBCLProjectReference>
+	  <!--wont have in environmental variable but useful for pipeline-->
+	<BCLVersion>$(BCLVersion)</BCLVersion>
+	  <!--wont have in environmental variable but useful for pipeline-->
   </PropertyGroup>
     <!-- it is there <Target Name="EnsureLocalFeed">
     <Exec Command="echo $(LocalPackagePath)" />

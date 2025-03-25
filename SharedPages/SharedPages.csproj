@@ -5,9 +5,9 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
-	<Target Name="PrintIsLocalDev" BeforeTargets="Build">
+	<!--<Target Name="PrintIsLocalDev" BeforeTargets="Build">
 		<Message Text="!!!!!!!!!!!!!!!!!!!!!!!    !!!!!!!!!!!!   IsLocalDevVS: $(IsLocalDevVS)" Importance="high" />
-	</Target>
+	</Target>-->
 	<!--<ItemGroup>
 	put back in
 		<None Update="wwwroot\**">

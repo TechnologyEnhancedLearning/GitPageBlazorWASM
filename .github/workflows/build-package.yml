@@ -1,0 +1,100 @@
+name: Build Package
+
+
+on: [push, pull_request]
+# put in later
+  # workflow_run:
+    # workflows: ["GitGuardian Scan"]  # This workflow will trigger after "Release to NuGet" finishes
+    # types:
+      # - completed
+env:
+
+  # BUILD_CONFIGURATION: 'Debug'
+  #DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
+  #DOTNET_CLI_TELEMETRY_OPTOUT: 1
+  BCL_VERSION: ${{ vars.BCL_VERSION || '1.0.0-local' }}
+  NUPKG_OUTPUT_PATH: ${{ github.workspace }}/artifacts/packages
+  LOCAL_PACKAGE_PATH: ${{ github.workspace }}/artifacts/packages
+  IS_LOCAL_DEV: false
+  USE_BCL_PROJECT_REFERENCE: false
+
+  # might need to do this NUPKG_OUTPUT_PATH: ${{ github.workspace || './artifacts/packages' }}
+
+
+jobs:
+  build-blazor-component-library-package:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+          #dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      - name: Restore dependencies
+        run: dotnet restore GitPageBlazorWASM.sln
+        
+        # to catch issues early but i expect it to break due to both packing the package and referencing it
+      - name: Build solution
+        run: |
+          dotnet build GitPageBlazorWASM.sln -c Release \
+            /p:IsLocalDev=$IS_LOCAL_DEV    
+            /p:LocalPackagePath=$LOCAL_PACKAGE_PATH    
+            /p:BCLVersion=$BCL_VERSION     
+            /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE
+
+    
+      - name: Echo Package Version
+        run: |
+          echo "Using BCL Version: $BCL_VERSION"
+          echo "Using Nupkg Output Path: $NUPKG_OUTPUT_PATH"
+    
+      - name: Build and Pack BlazorComponentLibrary
+        run: |
+          dotnet build Package.BlazorComponentLibrary -c Release \
+            /p:BCLVersion=$BCL_VERSION \
+            /p:NupkgOutputPath=$NUPKG_OUTPUT_PATH
+    
+      - name: Upload Artifacts BlazorComponentLibrary Package
+        uses: actions/upload-artifact@v4
+        with:
+          name: blazor-component-library-package
+          path: ${{ env.NUPKG_OUTPUT_PATH }}
+          #retention-days: 5
+  
+  build-shared-pages-using-blazor-component-library-package-artifact:
+    needs: build-blazor-component-library-package
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+      - uses: actions/checkout@v4
+
+      - name: Download BCL NuGet Package
+        uses: actions/download-artifact@v4
+        with:
+          name: blazor-component-library-package
+          path: ${{ env.LocalPackagePath }}
+          
+      - name: Restore dependencies
+        run: dotnet restore GitPageBlazorWASM.sln -c Release \
+            /p:IsLocalDev=$IS_LOCAL_DEV    
+            /p:LocalPackagePath=$LOCAL_PACKAGE_PATH    
+            /p:BCLVersion=$BCL_VERSION     
+            /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE
+        
+        # to catch issues early but i expect it to break due to both packing the package and referencing it
+      - name: Build solution
+        run: |
+          dotnet build GitPageBlazorWASM.sln -c Release \
+            /p:IsLocalDev=$IS_LOCAL_DEV    
+            /p:LocalPackagePath=$LOCAL_PACKAGE_PATH    
+            /p:BCLVersion=$BCL_VERSION     
+            /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE
+            
+      - name: Build SharedPages Using BlazorComponentLibraryPackage
+        run: |
+          dotnet build Package.BlazorComponentLibrary -c Release \
+            /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE
