@@ -35,7 +35,7 @@
 
 
 	<ItemGroup>
-	  <ProjectReference Include="..\Package.BlazorComponentLibrary\Package.BlazorComponentLibrary.csproj" Condition="$(UseBCLProjectReference)" />	  
+	  <ProjectReference Include="..\Package.BlazorComponentLibrary\Package.BlazorComponentLibrary.csproj"  Condition="'$(UseBCLProjectReference)' == 'true'" />	  
 		<!--<ProjectReference Include="..\Package.BlazorComponentLibrary\Package.BlazorComponentLibrary.csproj" Condition="false" />-->
     </ItemGroup>
 </Project>

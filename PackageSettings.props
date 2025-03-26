@@ -6,10 +6,13 @@
     <NupkgOutputPath>$(LocalPackagePath)</NupkgOutputPath>
 	<IsLocalDevVS Condition="'$(IsLocalDev)' == '' ">false</IsLocalDevVS>
 	<IsLocalDevVS Condition="'$(IsLocalDev)' != '' ">$(IsLocalDev)</IsLocalDevVS>
+
+	<UseBCLProjectReference Condition="'$(UseBCLProjectReference)' == '' ">false</UseBCLProjectReference>
+	<UseBCLProjectReference Condition="'$(UseBCLProjectReference)' != '' ">$(UseBCLProjectReference)</UseBCLProjectReference>
   
 	<!--allows us to just use build versions while testing packages locally-->
 	<!--<UseHighestBCLVersionAvailable>false</UseHighestBCLVersionAvailable>-->
-    <UseBCLProjectReference>$(UseBCLProjectReference)</UseBCLProjectReference>
+    <!--<UseBCLProjectReference>$(UseBCLProjectReference)</UseBCLProjectReference>-->
 	  <!--wont have in environmental variable but useful for pipeline-->
 	<BCLVersion>$(BCLVersion)</BCLVersion>
 	  <!--wont have in environmental variable but useful for pipeline-->
