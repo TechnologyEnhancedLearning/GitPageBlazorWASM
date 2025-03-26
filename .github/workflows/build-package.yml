@@ -10,7 +10,7 @@ env:
   #DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
   #DOTNET_CLI_TELEMETRY_OPTOUT: 1
   # qqqq check package version is working!!!
-  BCL_VERSION: "3.0.3"
+  BCL_VERSION: "3.0.4"
   NUPKG_OUTPUT_PATH: ${{ github.workspace }}/artifacts/packages
   LOCAL_PACKAGE_PATH: ${{ github.workspace }}/artifacts/packages
   IS_LOCAL_DEV: false
