@@ -1,4 +1,4 @@
-name: Build Package
+name: Build BCL Package
 on: [push, pull_request]
 # put in later
   # workflow_run:

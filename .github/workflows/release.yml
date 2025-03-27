@@ -1,9 +1,9 @@
 name: Release
-
-on:
-  push:
-    branches:
-      - [master, main]  # Only trigger on main branch pushes
+on: [push, pull_request]
+#on:
+#  push:
+#    branches:
+#      - [master, main]  # Only trigger on main branch pushes
 ## qqqq want regular releases so maybe not release branch but would be nice as part of pr to have a branch have its own gh-deploy
 
 jobs:
