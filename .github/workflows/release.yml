@@ -24,9 +24,22 @@ jobs:
       ## dont lint, secret scan, and dont test will happen elsewhere qqqq
       
 
-      - name: Install Semantic Release
-        run: npm install -g semantic-release
-
+     # - name: Install Semantic Release
+      #  run: npm install -g semantic-release
+        
+      - name: Install Semantic Release Packages
+        run: |
+         npm install -D \
+         semantic-release \
+         @semantic-release/changelog \
+         @semantic-release/git \
+         @semantic-release/commit-analyzer \
+         @semantic-release/release-notes-generator
+         
+         
+         
+         
+         
 ##configured with .releaseseec
       - name: Run Semantic Release
         env:
