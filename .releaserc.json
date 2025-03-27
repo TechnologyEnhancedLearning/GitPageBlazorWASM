@@ -1,0 +1,21 @@
+//todo (this specifys rules for auto sermantic versioning, may be able to use our keywords for version controll here)
+  //qqqq todo link to our git commit naming rules when find it looked before
+//{
+//  "branches": [ "main" ],
+//  "plugins": [
+//    "@semantic-release/commit-analyzer",
+//    "@semantic-release/release-notes-generator",
+//    [
+//      "@semantic-release/changelog",
+//      { "changelogFile": "CHANGELOG.md" }
+//    ],
+//    [
+//      "@semantic-release/git",
+//      { "assets": [ "CHANGELOG.md" ] }
+//    ],
+//    [
+//      "@semantic-release/github",
+//      { "assets": "bin/Release/*.nupkg" }
+//    ]
+//  ]
+//}

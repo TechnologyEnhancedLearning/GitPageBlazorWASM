@@ -1,21 +1,35 @@
-# qqqq TODO: heres a starting point
-changelog:
-  exclude:
-    labels:
-      - build
-      - docs
-      - tests
-      - dependency
-  categories:
-    - title: Breaking Changes
-      labels:
-        - breaking change
-    - title: New Features
-      labels:
-        - enhancement
-    - title: Bug Fixes
-      labels:
-        - bug
-    - title: Other Changes
-      labels:
-        - "*"
+name: Release
+
+on:
+  push:
+    branches:
+      - main  # Only trigger on main branch pushes
+## qqqq want regular releases so maybe not release branch but would be nice as part of pr to have a branch have its own gh-deploy
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Required for Semantic Release to analyze commit history
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+          
+      ## dont lint, secret scan, and dont test will happen elsewhere qqqq
+      
+
+      - name: Install Semantic Release
+        run: npm install -g semantic-release
+
+      - name: Run Semantic Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npx semantic-release
+        
+     ## qqqq after nuget release do run deploy script - try and have a dev/test/stage area for sharing before release
