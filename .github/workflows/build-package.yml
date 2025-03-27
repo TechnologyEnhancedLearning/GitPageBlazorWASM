@@ -140,7 +140,7 @@ jobs:
         run: |
           dotnet nuget push "$LOCAL_PACKAGE_PATH/TELBlazorComponentLibrary.GitPageBlazorWasm.*.nupkg" \
           --source "https://nuget.pkg.github.com/phil-nhs/index.json" \
-          --api-key ${{ secrets.GITHUB_TOKEN }}
+          --api-key ${{ secrets.PACKAGES_TOKEN }}
             
      #qqqq put back in
       # - name: Upload Artifacts BlazorComponentLibrary Package
