@@ -1,3 +1,11 @@
+# [1.1.0](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.0.11...v1.1.0) (2025-03-28)
+
+
+### Features
+
+* **hi:** hi ([2a32180](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/2a3218021d5d26ef6da930e915652d9120b7588b))
+* **more-cake:** we need a major version i think ([299787d](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/299787d211f8a37612fbe1e350d209d3deaab81f))
+
 ## [1.0.11](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.0.10...v1.0.11) (2025-03-28)
 
 
