@@ -143,7 +143,7 @@ jobs:
         run: |
           dotnet nuget push "$LOCAL_PACKAGE_PATH/TELBlazorComponentLibrary.GitPageBlazorWasm.*.nupkg" \
           --source "https://nuget.pkg.github.com/phil-nhs/index.json" \
-          --api-key ${{ secrets.PACKAGES_TOKEN }}
+          --api-key ${{ secrets.PACKAGES_TOKEN }} \
           --skip-duplicate
        
       - name: Todo qqqq organisation privilages and admin should allow the package to be public
