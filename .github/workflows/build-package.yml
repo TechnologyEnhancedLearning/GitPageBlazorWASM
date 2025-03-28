@@ -7,17 +7,13 @@ on: [push, pull_request]
       # - completed
 env:
   # BUILD_CONFIGURATION: 'Debug'
-  #DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
-  #DOTNET_CLI_TELEMETRY_OPTOUT: 1
-  # qqqq check package version is working!!!
+
   BCL_VERSION: "3.0.5"
-  NUPKG_OUTPUT_PATH: ${{ github.workspace }}/artifacts/packages
-  LOCAL_PACKAGE_PATH: ${{ github.workspace }}/artifacts/packages
+  NUPKG_OUTPUT_PATH: ${{ github.workspace }}/CICDPackageLocation
+  LOCAL_PACKAGE_PATH: ${{ github.workspace }}/CICDPackageLocation
   IS_LOCAL_DEV: false
   USE_BCL_PROJECT_REFERENCE: false
 
-  # > act -W .github/workflows/build-package.yml
-  #  act -W .github/workflows/build-package.yml --artifact-server-path $PWD/.artifacts
 
 
 jobs:
@@ -31,37 +27,37 @@ jobs:
         uses: actions/setup-dotnet@v4
         with:
           global-json-file: global.json
-          #dotnet-version: ${{ env.DOTNET_VERSION }}
+
         
-      - name: Ensure Package Directory Exists
-        run: mkdir -p $LOCAL_PACKAGE_PATH
+      #- name: Ensure Package Directory Exists
+      #  run: mkdir -p $BCL_Source
         
       # the restore cant be given env values to override values like it can in build so we need to remove this file so we use the env values
       - name: Remove Local PackageSettings (CI Only)
         run: rm -f PackageSettings.props.local
         
       - name: Replace local environment variable in nuget config because cant provide it as a parameter
-        run: sed -i "s|%LocalPackagePath%|$LOCAL_PACKAGE_PATH|g" nuget.config
+        run: sed -i "s|%LocalPackagePath%|$BCL_Source|g" nuget.config
         
       - name: Build and Pack BlazorComponentLibrary before solution restore
         run: |
           dotnet build Package.BlazorComponentLibrary -c Release \
             /p:BCLVersion=$BCL_VERSION \
             /p:NupkgOutputPath=$NUPKG_OUTPUT_PATH
-##qqqq when refactor check if restoring anyway
+
       - name: List Created Package
-        run: ls -l $LOCAL_PACKAGE_PATH
+        run: ls -l $BCL_Source
   
       - name: Debug Environment Variables
         run: |
-          echo "!!!!!!!!!!!        !!!!!!!!!!        !!!!!!!!!!!!!!!       LOCAL_PACKAGE_PATH: $LOCAL_PACKAGE_PATH"
-          ls -al $LOCAL_PACKAGE_PATH || echo "Directory does not exist"
+          echo "!!!!!!!!!!!        !!!!!!!!!!        !!!!!!!!!!!!!!!       BCL_Source: $BCL_Source"
+          ls -al $BCL_Source || echo "Directory does not exist"
 
       - name: Debug Print Workspace and File Path
         run: |
           echo "!!!!!!!!!     !!!!!!!!!!!    GitHub Workspace: ${{ github.workspace }}"
-          echo "!!!!!!!!!     !!!!!!!!!!!    Expected LOCAL_PACKAGE_PATH: $LOCAL_PACKAGE_PATH"
-          ls -al $LOCAL_PACKAGE_PATH || echo "Directory does not exist"
+          echo "!!!!!!!!!     !!!!!!!!!!!    Expected BCL_Source: $BCL_Source"
+          ls -al $BCL_Source || echo "Directory does not exist"
           ls -la ${{ github.workspace }}  # List all files in the workspace
           echo "!!!!!!!!! nuget below"
           ls -la ${{ github.workspace }}/nuget.config  # Check if the file exists
@@ -74,7 +70,7 @@ jobs:
 
       - name: echo path for artifact
         run: echo "${{ env.NUPKG_OUTPUT_PATH }}"
-         # - name: Restore dependencies
+
       
       - name: echo hint information about restore
         run: echo "if a hash error occurs for the bcl package the version number may need increasing or a clean step"
@@ -84,30 +80,13 @@ jobs:
         run: |
           find . -name "packages.lock.json" -type f -exec rm -f {} \;
         
-      #- name: Restore dependencies qqqq its is not using environmental variables
-      # run: dotnet restore
         
       - name: Echo the environment variables
         run: |
           echo IS_LOCAL_DEV=$IS_LOCAL_DEV
           echo BCL_VERSION=$BCL_VERSION
           echo USE_BCL_PROJECT_REFERENCE=$USE_BCL_PROJECT_REFERENCE
-    
-      # - name: Restore dependencies
-        # run: |
-          # dotnet restore GitPageBlazorWASM.sln \
-            # /p:IsLocalDev=$IS_LOCAL_DEV \
-            # /p:BCLVersion=$BCL_VERSION \
-            # /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE
-
-      # - name: build if have to
-        # run: |
-          # dotnet build GitPageBlazorWASM.sln -c Debug \
-            # /p:IsLocalDev=$IS_LOCAL_DEV \
-            # /p:BCLVersion=$BCL_VERSION \
-            # /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE   
-       
-      #/p:LocalPackagePath=$LOCAL_PACKAGE_PATH     provided by nuget.config
+   
          
       - name: echo hint information about restore
         run: >
@@ -135,13 +114,10 @@ jobs:
             /p:BCLVersion=$BCL_VERSION \
             /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE
             
-      - name: Todo qqqq
-        run: >
-          echo "next we may build and artifact, and we will publish to nuget, but for now may just publish to git packages for ease in prototype, and move logic to a release script "
-          
-      - name: Publish to GitHub Packages
+   
+      - name: Publish to GitHub Packages as a dev commit release
         run: |
-          dotnet nuget push "$LOCAL_PACKAGE_PATH/TELBlazorComponentLibrary.GitPageBlazorWasm.*.nupkg" \
+          dotnet nuget push "$BCL_Source/TELBlazorComponentLibrary.GitPageBlazorWasm.*.nupkg" \
           --source "https://nuget.pkg.github.com/phil-nhs/index.json" \
           --api-key ${{ secrets.PACKAGES_TOKEN }} \
           --skip-duplicate
