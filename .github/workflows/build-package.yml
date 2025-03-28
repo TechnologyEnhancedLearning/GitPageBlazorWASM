@@ -51,7 +51,7 @@ jobs:
           echo "FULL_VERSION=$FULL_VERSION" >> $GITHUB_OUTPUT
           
       - name: Debug Version Output
-        run: echo "Extracted Version: ${{ needs.version-job.outputs.FULL_VERSION }}"
+        run: echo "Extracted Version ${{ needs.version-job.outputs.FULL_VERSION }}"
           
   build-bcl-package-and-sharedpages-and-artifact-in-single-job:
     needs: version-job
@@ -68,9 +68,9 @@ jobs:
           global-json-file: global.json
 
       - name: Debug Version Output github out put var
-        run: echo "Extracted Version: ${{ needs.version-job.outputs.FULL_VERSION }}"
+        run: echo "Extracted Version ${{ needs.version-job.outputs.FULL_VERSION }}"
       - name: Debug Version Output BCL var
-        run: echo "Extracted Version: ${{ BCL_VERSION }}"
+        run: echo "Extracted Version ${{ BCL_VERSION }}"
         
       #- name: Ensure Package Directory Exists
       #  run: mkdir -p $BCL_Source
@@ -170,4 +170,5 @@ jobs:
        
 
 
+  
   
