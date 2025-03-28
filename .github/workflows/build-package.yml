@@ -40,6 +40,8 @@ jobs:
          
       - name: Get Semantic Version
         id: semver
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           VERSION=$(npx semantic-release --dry-run | grep -oP 'Published release \K[\d.]+')
           echo "Extracted Version: $VERSION"
