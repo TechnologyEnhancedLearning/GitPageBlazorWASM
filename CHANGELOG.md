@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.1.0...v1.2.0) (2025-03-28)
+
+
+### Features
+
+* **why-no-run:** not looking right ([22b34e3](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/22b34e3cb2b7508c2362a2b7f410e35382ec0f50))
+
 # [1.1.0](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.0.11...v1.1.0) (2025-03-28)
 
 
