@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.0.2...v1.0.3) (2025-03-28)
+
+
+### Bug Fixes
+
+* **yup:** biscuits ([cff4dbd](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/cff4dbd1d0f8be3ac041059fddaf89b9fb03d276))
+
 ## [1.0.2](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.0.1...v1.0.2) (2025-03-28)
 
 
