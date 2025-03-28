@@ -149,9 +149,9 @@ jobs:
                  
       - name: Set Package to Public qqqq shouldnt need this with correct git settings
         uses: actions/github-script@v6
-          with:
+        with:
             github-token: ${{ secrets.PACKAGES_TOKEN }}
-              script: |
+            script: |
                 const { owner, repo } = context.repo
                 const packageName = 'TELBlazorComponentLibrary.GitPageBlazorWasm'
       
@@ -161,7 +161,7 @@ jobs:
                 package_type: 'nuget',
                 package_name: packageName,
                 visibility: 'public'
-            })
+                })
             
      #qqqq put back in
       # - name: Upload Artifacts BlazorComponentLibrary Package
