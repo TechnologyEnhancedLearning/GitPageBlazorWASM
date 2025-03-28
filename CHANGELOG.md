@@ -1,3 +1,10 @@
+## [1.0.6](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.0.5...v1.0.6) (2025-03-28)
+
+
+### Bug Fixes
+
+* **packagelocationchange:** chips ([c947fd7](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/c947fd79c31cb3147d3ea5a595428ef3ec3df3f3))
+
 ## [1.0.5](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.0.4...v1.0.5) (2025-03-28)
 
 
