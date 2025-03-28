@@ -44,8 +44,11 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           VERSION=$(npx semantic-release --dry-run | grep -oP 'Published release \K[\d.]+')
-          echo "Extracted Version: $VERSION"
-          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          TIMESTAMP=$(date +"%y%m%d-%H-%M-%S")
+          BRANCH_NAME=$(echo "${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" | sed 's/[^a-zA-Z0-9.-]/_/g')
+          FULL_VERSION="${VERSION}-${BRANCH_NAME}-${TIMESTAMP}"
+          echo "Extracted Version: $FULL_VERSION"
+          echo "version=$FULL_VERSION" >> $GITHUB_OUTPUT
           
   build-bcl-package-and-sharedpages-and-artifact-in-single-job:
     needs: version-job
