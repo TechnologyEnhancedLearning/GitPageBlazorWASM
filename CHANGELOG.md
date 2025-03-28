@@ -1,3 +1,14 @@
+## [1.0.2](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.0.1...v1.0.2) (2025-03-28)
+
+
+### Bug Fixes
+
+* **bla:** wa ([6a069d2](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/6a069d26c648ccbbfe42256f8eb56eef1140b992))
+* **more permission in remote:** goats are funny ([c085878](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/c0858789fdd8b7fd3c50b71fdd843059ceb60507))
+* **not-a-fix-need-a-version-increment:** hello ([2b02238](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/2b02238dfe6f6ad01226d578638a56af03a97bf0))
+* **nuget:** source mapping ([6188b08](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/6188b089d206a8d32f81eafbdfcef9bec61d7bdf))
+* **w:** ffhf ([bbbdc0b](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/bbbdc0b8619fdbb6d3818cd642997b7a9b621e21))
+
 ## [1.0.1](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.0.0...v1.0.1) (2025-03-27)
 
 
