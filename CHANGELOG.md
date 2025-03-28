@@ -1,3 +1,10 @@
+## [1.0.7](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.0.6...v1.0.7) (2025-03-28)
+
+
+### Bug Fixes
+
+* **version:** FERRETS ([9aa05a7](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/9aa05a79010624cfcb4cdbe261003864315ad77b))
+
 ## [1.0.6](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.0.5...v1.0.6) (2025-03-28)
 
 
