@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.0.3...v1.0.4) (2025-03-28)
+
+
+### Bug Fixes
+
+* **token renewal:** CAAAAARL ([9b0480f](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/9b0480fa3727d549518193cfab1703dbdb1d9ab8))
+
 ## [1.0.3](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.0.2...v1.0.3) (2025-03-28)
 
 
