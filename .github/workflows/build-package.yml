@@ -8,7 +8,7 @@ on: [push, pull_request]
 env:
   # BUILD_CONFIGURATION: 'Debug'
 
-  BCL_VERSION: "3.0.5"
+  BCL_VERSION: ${{ steps.semver.outputs.version }}
   NUPKG_OUTPUT_PATH: ${{ github.workspace }}/CICDPackageLocation
   BCL_Source: ${{ github.workspace }}/CICDPackageLocation
   IS_LOCAL_DEV: false
@@ -39,6 +39,14 @@ jobs:
       - name: Replace local environment variable in nuget config because cant provide it as a parameter
         run: sed -i "s|%LocalPackagePath%|$BCL_Source|g" nuget.config
         
+        
+      - name: Get Semantic Version
+        id: semver
+        run: |
+          npm install -D semantic-release
+          VERSION=$(npx semantic-release --dry-run | grep -oP 'Published release \K[\d.]+')
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          
       - name: Build and Pack BlazorComponentLibrary before solution restore
         run: |
           dotnet build Package.BlazorComponentLibrary -c Release \
