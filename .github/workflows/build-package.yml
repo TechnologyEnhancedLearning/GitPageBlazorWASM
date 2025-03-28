@@ -8,7 +8,7 @@ on: [push, pull_request]
 env:
   # BUILD_CONFIGURATION: 'Debug'
 
-  BCL_VERSION: ${{ steps.semver.outputs.version }}
+
   NUPKG_OUTPUT_PATH: ${{ github.workspace }}/CICDPackageLocation
   BCL_Source: ${{ github.workspace }}/CICDPackageLocation
   IS_LOCAL_DEV: false
@@ -17,8 +17,24 @@ env:
 
 
 jobs:
-  build-bcl-package-and-sharedpages-and-artifact-in-single-job:
+  version-job:
     runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.semver.outputs.version }}
+    steps:
+      - name: Get Semantic Version
+        id: semver
+        run: |
+          npm install -D semantic-release
+          VERSION=$(npx semantic-release --dry-run | grep -oP 'Published release \K[\d.]+')
+          echo "Extracted Version: $VERSION"
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          
+  build-bcl-package-and-sharedpages-and-artifact-in-single-job:
+    needs: version-job
+    runs-on: ubuntu-latest
+    env:
+      BCL_VERSION: ${{ needs.semver.outputs.version }}
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -40,12 +56,7 @@ jobs:
         run: sed -i "s|%LocalPackagePath%|$BCL_Source|g" nuget.config
         
         
-      - name: Get Semantic Version
-        id: semver
-        run: |
-          npm install -D semantic-release
-          VERSION=$(npx semantic-release --dry-run | grep -oP 'Published release \K[\d.]+')
-          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
           
       - name: Build and Pack BlazorComponentLibrary before solution restore
         run: |
