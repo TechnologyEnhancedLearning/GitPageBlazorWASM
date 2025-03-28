@@ -20,7 +20,7 @@ jobs:
   version-job:
     runs-on: ubuntu-latest
     outputs:
-      version: ${{ steps.semver.outputs.version }}
+      version: ${{ steps.semver.outputs.FULL_VERSION }}
     steps:
     
       - name: Checkout repository
@@ -48,13 +48,13 @@ jobs:
           BRANCH_NAME=$(echo "${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" | sed 's/[^a-zA-Z0-9.-]/_/g')
           FULL_VERSION="${VERSION}-DEV-${BRANCH_NAME}-${TIMESTAMP}"
           echo "Extracted Version: $FULL_VERSION"
-          echo "version=$FULL_VERSION" >> $GITHUB_OUTPUT
+          echo "FULL_VERSION=$FULL_VERSION" >> $GITHUB_OUTPUT
           
   build-bcl-package-and-sharedpages-and-artifact-in-single-job:
     needs: version-job
     runs-on: ubuntu-latest
     env:
-      BCL_VERSION: ${{ needs.version-job.outputs.version }}
+      BCL_VERSION: ${{ needs.version-job.outputs.FULL_VERSION }}
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
