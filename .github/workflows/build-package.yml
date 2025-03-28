@@ -10,7 +10,7 @@ env:
 
   BCL_VERSION: "3.0.5"
   NUPKG_OUTPUT_PATH: ${{ github.workspace }}/CICDPackageLocation
-  LOCAL_PACKAGE_PATH: ${{ github.workspace }}/CICDPackageLocation
+  BCL_Source: ${{ github.workspace }}/CICDPackageLocation
   IS_LOCAL_DEV: false
   USE_BCL_PROJECT_REFERENCE: false
 
