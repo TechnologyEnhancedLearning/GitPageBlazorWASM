@@ -28,10 +28,19 @@ jobs:
         with:
             fetch-depth: 0  # Required for Semantic Release to analyze commit history
           
+          
+      - name: Install Semantic Release Packages
+        run: |
+         npm install -D \
+         semantic-release \
+         @semantic-release/changelog \
+         @semantic-release/git \
+         @semantic-release/commit-analyzer \
+         @semantic-release/release-notes-generator
+         
       - name: Get Semantic Version
         id: semver
         run: |
-          npm install -D semantic-release
           VERSION=$(npx semantic-release --dry-run | grep -oP 'Published release \K[\d.]+')
           echo "Extracted Version: $VERSION"
           echo "version=$VERSION" >> $GITHUB_OUTPUT
