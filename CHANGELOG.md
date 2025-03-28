@@ -1,3 +1,10 @@
+## [1.0.9](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.0.8...v1.0.9) (2025-03-28)
+
+
+### Bug Fixes
+
+* **go-on:** hR ([76dc4d5](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/76dc4d5e43cecf4e2c689cce672b97b7912c1ba1))
+
 ## [1.0.8](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.0.7...v1.0.8) (2025-03-28)
 
 
