@@ -10,7 +10,7 @@ env:
   #DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
   #DOTNET_CLI_TELEMETRY_OPTOUT: 1
   # qqqq check package version is working!!!
-  BCL_VERSION: "3.0.4"
+  BCL_VERSION: "3.0.5"
   NUPKG_OUTPUT_PATH: ${{ github.workspace }}/artifacts/packages
   LOCAL_PACKAGE_PATH: ${{ github.workspace }}/artifacts/packages
   IS_LOCAL_DEV: false
@@ -48,7 +48,10 @@ jobs:
           dotnet build Package.BlazorComponentLibrary -c Release \
             /p:BCLVersion=$BCL_VERSION \
             /p:NupkgOutputPath=$NUPKG_OUTPUT_PATH
-
+##qqqq when refactor check if restoring anyway
+      - name: List Created Package
+        run: ls -l $LOCAL_PACKAGE_PATH
+  
       - name: Debug Environment Variables
         run: |
           echo "!!!!!!!!!!!        !!!!!!!!!!        !!!!!!!!!!!!!!!       LOCAL_PACKAGE_PATH: $LOCAL_PACKAGE_PATH"
