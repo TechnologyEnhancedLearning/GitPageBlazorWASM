@@ -1,8 +1,12 @@
 name: Deploy to GitHub Pages
 
 on:
-  push:
-    branches: [ master ] 
+  #push:
+  #  branches: [ master ] 
+  workflow_run:
+    workflows: ["Build BCL Package"] # Name of the workflow to trigger from.
+    types:
+      - completed
 
 permissions:
   contents: write
