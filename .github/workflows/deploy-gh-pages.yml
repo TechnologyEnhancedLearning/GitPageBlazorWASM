@@ -29,7 +29,7 @@ jobs:
           
           # qqqq if doing one per branch it will need to find the branch version
       - name: Set BCL Version to Latest NuGet Package Version
-      - id: get-latest-bcl-version
+        id: get-latest-bcl-version
         run: |
           TOKEN="${{ secrets.GITHUB_TOKEN }}"
           OWNER="Phil-NHS"
