@@ -80,6 +80,18 @@ jobs:
       
       # - name: Set up Git authentication
         # run: git config --global url."https://${PACKAGES_TOKEN}@github.com/".insteadOf "https://github.com/"
+      
+      #qqqq if this is needed then really we want to be using the project as built in other pipeline
+      # - name: Clean lock files
+        # run: |
+          # find . -name "packages.lock.json" -type f -exec rm -f {} \;
+      
+      # - name: Build SharedPages Using BlazorComponentLibraryPackage
+        # run: |
+          # dotnet build SharedPages -c Debug \
+            # /p:IsLocalDev=$IS_LOCAL_DEV \
+            # /p:BCLVersion=$BCL_VERSION \
+            # /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE
         
       - name: Publish client using client release .csproj logic
         run: |
