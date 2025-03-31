@@ -14,7 +14,7 @@ env:
   
   BCL_Source: "https://nuget.pkg.github.com/phil-nhs/index.json"
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
+  PACKAGES_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
 jobs:
 
   get-bcl-version:
@@ -71,7 +71,7 @@ jobs:
       #   run: dotnet test --no-build --verbosity normal
       
       - name: Set up Git authentication
-        run: git config --global url."https://${GITHUB_TOKEN}@github.com/".insteadOf "https://github.com/"
+        run: git config --global url."https://${PACKAGES_TOKEN}@github.com/".insteadOf "https://github.com/"
         
       - name: Publish client using client release .csproj logic
         run: dotnet publish ./TestHostPrerenderWASM/TestHostPrerenderWASM.Client/TestHostPrerenderWASM.Client.csproj --configuration Release
