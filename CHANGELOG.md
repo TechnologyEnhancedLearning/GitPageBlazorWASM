@@ -1,3 +1,10 @@
+## [1.2.10](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.2.9...v1.2.10) (2025-03-31)
+
+
+### Bug Fixes
+
+* **changed route:** not running ([3909bea](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/3909bea2f269a0f9c76708f2d38866b8348a0dff))
+
 ## [1.2.9](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.2.8...v1.2.9) (2025-03-31)
 
 
