@@ -1,3 +1,10 @@
+## [1.2.18](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.2.17...v1.2.18) (2025-03-31)
+
+
+### Bug Fixes
+
+* **c:** pipes ([61929b0](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/61929b06065de5bd1c7b029f79f21cafc10992f3))
+
 ## [1.2.17](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.2.16...v1.2.17) (2025-03-31)
 
 
