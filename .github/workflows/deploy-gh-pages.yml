@@ -82,10 +82,11 @@ jobs:
         # run: git config --global url."https://${PACKAGES_TOKEN}@github.com/".insteadOf "https://github.com/"
         
       - name: Publish client using client release .csproj logic
-        run: dotnet publish ./TestHostPrerenderWASM/TestHostPrerenderWASM.Client/TestHostPrerenderWASM.Client.csproj --configuration Release \
-          /p:IsLocalDev=$IS_LOCAL_DEV \
-          /p:BCLVersion=$BCL_VERSION \
-          /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE
+        run: |
+          dotnet publish ./TestHostPrerenderWASM/TestHostPrerenderWASM.Client/TestHostPrerenderWASM.Client.csproj --configuration Release \
+            /p:IsLocalDev=$IS_LOCAL_DEV \
+            /p:BCLVersion=$BCL_VERSION \
+            /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE
         
         
       - name: Deploy to GitHub Pages
