@@ -1,3 +1,10 @@
+## [1.2.20](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.2.19...v1.2.20) (2025-03-31)
+
+
+### Bug Fixes
+
+* **works but wont have gh-pages per branch so need testing environment?:** yeah ([2b6fa48](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/2b6fa483bae057639d8ca925074a330c0068aac3))
+
 ## [1.2.19](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.2.18...v1.2.19) (2025-03-31)
 
 
