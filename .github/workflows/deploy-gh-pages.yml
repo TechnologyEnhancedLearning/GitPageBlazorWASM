@@ -6,6 +6,10 @@ on:
 
 permissions:
   contents: write
+env:
+  
+  BCL_Source: "https://nuget.pkg.github.com/phil-nhs/index.json"
+  BCL_Version: ${{ steps.get-latest-bcl-version.outputs.latest-version }}
 
 jobs:
   build-and-deploy:
@@ -19,8 +23,22 @@ jobs:
         with:
           dotnet-version: '8.0.x'
           
-      - name: Restore dependencies
-        run: dotnet restore
+          # qqqq if doing one per branch it will need to find the branch version
+      - name: Set BCL Version to Latest NuGet Package Version
+      - id: get-latest-bcl-version
+        run: |
+          TOKEN="${{ secrets.GITHUB_TOKEN }}"
+          OWNER="Phil-NHS"
+          PACKAGE_NAME="TELBlazorComponentLibrary.GitPageBlazorWasm"
+          VERSION_JSON=$(curl -s -H "Authorization: Bearer $TOKEN" -H "Accept: application/vnd.github+json" "https://api.github.com/users/$OWNER/packages/nuget/packages/$PACKAGE_NAME/versions")
+          LATEST_VERSION=$(echo "$VERSION_JSON" | jq -r '.[0].name')
+          echo "latest-version=$LATEST_VERSION" >> $GITHUB_ENV
+
+      - name: Replace local environment variable in nuget config because cant provide it as a parameter
+        run: sed -i "s|%LocalPackagePath%|$BCL_Source|g" nuget.config
+        
+      # - name: Restore dependencies
+        # run: dotnet restore
         
         
       # Add your tests here if needed
