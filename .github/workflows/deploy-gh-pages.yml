@@ -13,7 +13,7 @@ permissions:
 env:
   
   BCL_Source: "https://nuget.pkg.github.com/phil-nhs/index.json"
-
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
 
@@ -28,9 +28,6 @@ jobs:
     
       - name: Get BCL Version from Git Packages
         id: get-bcl-version-from-git-packages
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          #  https://api.github.com/user/packages/PACKAGE_TYPE/PACKAGE_NAME/restore
         run: |
           TOKEN="${{ secrets.GITHUB_TOKEN }}"
           OWNER="Phil-NHS"
@@ -42,11 +39,12 @@ jobs:
           LATEST_VERSION=$(echo "$VERSION_JSON" | jq -r '.[0].name')
           echo "latest-bcl-version=$LATEST_VERSION" >> $GITHUB_OUTPUT
           
-  build-and-deploy:
+  update-gh-page:
     needs: get-bcl-version
     runs-on: ubuntu-latest
     env:
       BCL_VERSION: ${{ needs.get-bcl-version.outputs.bcl-version }}
+
 
     steps:
       - name: Checkout repository
@@ -59,6 +57,10 @@ jobs:
           
       - name: Replace local environment variable in nuget config because cant provide it as a parameter
         run: sed -i "s|%LocalPackagePath%|$BCL_Source|g" nuget.config
+        
+      - name: debug values
+        run: |
+          echo "BCL_VERSION  $BCL_VERSION"
         
       # - name: Restore dependencies
         # run: dotnet restore
