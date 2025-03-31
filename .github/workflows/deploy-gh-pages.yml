@@ -13,7 +13,7 @@ permissions:
 env:
   
   BCL_Source: "https://nuget.pkg.github.com/phil-nhs/index.json"
-  BCL_Version: ${{ steps.get-latest-bcl-version.outputs.latest-version }}
+
 
 jobs:
 
