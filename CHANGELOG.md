@@ -1,3 +1,10 @@
+## [1.2.15](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.2.14...v1.2.15) (2025-03-31)
+
+
+### Bug Fixes
+
+* **packagetok:** ee ([1df012e](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/1df012e72830cfda2c3292ba143b60ae2aeb7147))
+
 ## [1.2.14](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.2.13...v1.2.14) (2025-03-31)
 
 
