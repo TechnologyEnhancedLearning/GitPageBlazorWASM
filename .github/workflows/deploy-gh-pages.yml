@@ -20,15 +20,16 @@ jobs:
   get-bcl-version:
     runs-on: ubuntu-latest
     outputs:
-      bcl-version: ${{ steps.get-version.outputs.latest-bcl-version }}
+      bcl-version: ${{ steps.get-bcl-version-from-git-packages.outputs.latest-bcl-version }}
     steps:
-      - name: Get BCL Version
-        id: get-version
+      - name: Get BCL Version from Git Packages
+        id: get-bcl-version-from-git-packages
         run: |
           TOKEN="${{ secrets.GITHUB_TOKEN }}"
           OWNER="Phil-NHS"
           PACKAGE_NAME="TELBlazorComponentLibrary.GitPageBlazorWasm"
           VERSION_JSON=$(curl -s -H "Authorization: Bearer $TOKEN" -H "Accept: application/vnd.github+json" "https://api.github.com/users/$OWNER/packages/nuget/packages/$PACKAGE_NAME/versions")
+          echo "$VERSION_JSON"
           LATEST_VERSION=$(echo "$VERSION_JSON" | jq -r '.[0].name')
           echo "latest-bcl-version=$LATEST_VERSION" >> $GITHUB_OUTPUT
           
@@ -36,7 +37,7 @@ jobs:
     needs: get-bcl-version
     runs-on: ubuntu-latest
     env:
-      BCL_VERSION: ${{ needs.version-job.outputs.bcl-version }}
+      BCL_VERSION: ${{ needs.get-bcl-version.outputs.bcl-version }}
 
     steps:
       - name: Checkout repository
