@@ -39,7 +39,7 @@ jobs:
          @semantic-release/release-notes-generator
          
       - name: Get Semantic Version
-        id: semver
+        id: set-version
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
