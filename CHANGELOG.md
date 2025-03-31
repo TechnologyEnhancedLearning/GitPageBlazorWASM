@@ -1,3 +1,10 @@
+## [1.2.5](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.2.4...v1.2.5) (2025-03-31)
+
+
+### Bug Fixes
+
+* **salt-n-peppa:** yo ([49d3c74](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/49d3c74656b4db442dacf47d119f6e4116c1e095))
+
 ## [1.2.4](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.2.3...v1.2.4) (2025-03-31)
 
 
