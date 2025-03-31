@@ -20,7 +20,7 @@ jobs:
   version-job:
     runs-on: ubuntu-latest
     outputs:
-      version: ${{ steps.semver.outputs.version }}
+      package-version: ${{ steps.set-version.outputs.full-version }}
     steps:
     
       - name: Checkout repository
@@ -43,21 +43,21 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          VERSION=$(npx semantic-release --dry-run | grep -oP 'Published release \K[\d.]+')
+          SEMVER_VERSION=$(npx semantic-release --dry-run | grep -oP 'Published release \K[\d.]+')
           TIMESTAMP=$(date +"%y%m%d-%H-%M-%S")
           BRANCH_NAME=$(echo "${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" | sed 's/[^a-zA-Z0-9.-]/_/g')
-          FULL_VERSION="${VERSION}-DEV-${BRANCH_NAME}-${TIMESTAMP}"
+          FULL_VERSION="${SEMVER_VERSION}-DEV-${BRANCH_NAME}-${TIMESTAMP}"
           echo "Extracted Version: $FULL_VERSION"
-          echo "$FULL_VERSION" >> $GITHUB_OUTPUT
+          echo "full-version=$FULL_VERSION" >> $GITHUB_OUTPUT
           
       - name: Debug Version Output
-        run: echo "Extracted Version ${{ needs.version-job.outputs.verison }}"
+        run: echo "Extracted Version ${{ steps.set-version.outputs.full-version  }}"
           
   build-bcl-package-and-sharedpages-and-artifact-in-single-job:
     needs: version-job
     runs-on: ubuntu-latest
     env:
-      BCL_VERSION: ${{ needs.version-job.outputs.version }}
+      BCL_VERSION: ${{ needs.version-job.outputs.package-version }}
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -68,7 +68,7 @@ jobs:
           global-json-file: global.json
 
       - name: Debug Version Output github out put var
-        run: echo "Extracted Version ${{ needs.version-job.outputs.version }}"
+        run: echo "Extracted Version ${{ needs.version-job.outputs.package-version }}"
         
       - name: Debug Version Output BCL var
         run: echo "Extracted Version $BCL_VERSION "
