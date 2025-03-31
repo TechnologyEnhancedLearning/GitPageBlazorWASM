@@ -30,12 +30,13 @@ jobs:
         id: get-bcl-version-from-git-packages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          #  https://api.github.com/user/packages/PACKAGE_TYPE/PACKAGE_NAME/restore
         run: |
           TOKEN="${{ secrets.GITHUB_TOKEN }}"
           OWNER="Phil-NHS"
           PACKAGE_NAME="TELBlazorComponentLibrary.GitPageBlazorWasm"
-          BCL_PACKAGE_PATH="https://api.github.com/users/$OWNER/packages/nuget/packages/$PACKAGE_NAME/versions"
-          echo "$BCL_PACKAGE_PATH"
+          BCL_PACKAGE_PATH="https://api.github.com/users/$OWNER/packages/nuget/$PACKAGE_NAME/versions"
+          echo "API Path: $BCL_PACKAGE_PATH"
           VERSION_JSON=$(curl -s -H "Authorization: Bearer $TOKEN" -H "Accept: application/vnd.github+json" $BCL_PACKAGE_PATH)
           echo "$VERSION_JSON"
           LATEST_VERSION=$(echo "$VERSION_JSON" | jq -r '.[0].name')
