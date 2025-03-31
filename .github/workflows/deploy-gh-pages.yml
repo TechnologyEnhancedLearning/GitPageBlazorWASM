@@ -15,6 +15,8 @@ env:
   BCL_Source: "https://nuget.pkg.github.com/phil-nhs/index.json"
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   PACKAGES_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
+  GITHUB_USERNAME: "Phil-NHS"
+  
 jobs:
 
   get-bcl-version:
@@ -56,7 +58,11 @@ jobs:
           dotnet-version: '8.0.x'
           
       - name: Replace local environment variable in nuget config because cant provide it as a parameter
-        run: sed -i "s|%LocalPackagePath%|$BCL_Source|g" nuget.config
+        run: |
+          sed -i "s|%LocalPackagePath%|$BCL_Source|g" nuget.config
+          sed -i "s|%GITHUB_USERNAME%|$GITHUB_USERNAME|g" nuget.config
+          sed -i "s|%GITHUB_PACKAGES_TOKEN%|$PACKAGES_TOKEN |g" nuget.config
+
         
       - name: debug values
         run: |
@@ -70,8 +76,8 @@ jobs:
       # - name: Test qqqqTODO
       #   run: dotnet test --no-build --verbosity normal
       
-      - name: Set up Git authentication
-        run: git config --global url."https://${PACKAGES_TOKEN}@github.com/".insteadOf "https://github.com/"
+      # - name: Set up Git authentication
+        # run: git config --global url."https://${PACKAGES_TOKEN}@github.com/".insteadOf "https://github.com/"
         
       - name: Publish client using client release .csproj logic
         run: dotnet publish ./TestHostPrerenderWASM/TestHostPrerenderWASM.Client/TestHostPrerenderWASM.Client.csproj --configuration Release
