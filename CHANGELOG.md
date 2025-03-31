@@ -1,3 +1,10 @@
+## [1.2.12](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.2.11...v1.2.12) (2025-03-31)
+
+
+### Bug Fixes
+
+* **mutitias-tweak-multi:** dh ([9da1972](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/9da1972abc9a65d339a52d2e2af0d560cffccc42))
+
 ## [1.2.11](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.2.10...v1.2.11) (2025-03-31)
 
 
