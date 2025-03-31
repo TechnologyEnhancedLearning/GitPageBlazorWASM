@@ -1,3 +1,10 @@
+## [1.2.6](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.2.5...v1.2.6) (2025-03-31)
+
+
+### Bug Fixes
+
+* **giv-it-a-poke:** woo ([61c74e2](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/61c74e2fcc15b608de54ecafeaeb0ef078e1aebe))
+
 ## [1.2.5](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.2.4...v1.2.5) (2025-03-31)
 
 
