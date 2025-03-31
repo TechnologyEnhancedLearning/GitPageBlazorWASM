@@ -61,7 +61,7 @@ This project is public which is required to be github page hosted
 
 It should be at 
 https://github.com/TechnologyEnhancedLearning.github.io/GitPageBlazorWASM
-
+https://technologyenhancedlearning.github.io/GitPageBlazorWASM/
 # References
 
 - [microsoft official docs (didn't actually use these but if end up needing to change it could start here)](https://learn.microsoft.com/en-us/aspnet/core/blazor/host-and-deploy/webassembly?view=aspnetcore-8.0#github-pages)
