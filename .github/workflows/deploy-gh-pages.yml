@@ -34,7 +34,6 @@ jobs:
           TOKEN="${{ secrets.GITHUB_TOKEN }}"
           OWNER="Phil-NHS"
           PACKAGE_NAME="TELBlazorComponentLibrary.GitPageBlazorWasm"
-          "https://api.github.com/orgs/$OWNER/packages/nuget/packages/$PACKAGE_NAME/versions"
           BCL_PACKAGE_PATH="https://api.github.com/users/$OWNER/packages/nuget/packages/$PACKAGE_NAME/versions"
           echo "$BCL_PACKAGE_PATH"
           VERSION_JSON=$(curl -s -H "Authorization: Bearer $TOKEN" -H "Accept: application/vnd.github+json" $BCL_PACKAGE_PATH)
