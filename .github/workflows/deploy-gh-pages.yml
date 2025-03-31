@@ -22,6 +22,10 @@ jobs:
     outputs:
       bcl-version: ${{ steps.get-bcl-version-from-git-packages.outputs.latest-bcl-version }}
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+          
+    
       - name: Get BCL Version from Git Packages
         id: get-bcl-version-from-git-packages
         run: |
