@@ -1,3 +1,10 @@
+## [1.2.16](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.2.15...v1.2.16) (2025-03-31)
+
+
+### Bug Fixes
+
+* **creds to consum package:** go ([e1b296f](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/e1b296f11cd7ba8fe45168251a40232b913bcc65))
+
 ## [1.2.15](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.2.14...v1.2.15) (2025-03-31)
 
 
