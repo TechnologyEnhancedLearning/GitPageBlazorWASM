@@ -9,7 +9,9 @@ on:
       - completed
 
 permissions:
-  contents: write
+  contents: read
+  actions: write
+  repository_dispatch: write
 env:
   
   BCL_Source: "https://nuget.pkg.github.com/phil-nhs/index.json"
@@ -70,28 +72,6 @@ jobs:
         run: |
           echo "BCL_VERSION  $BCL_VERSION"
         
-      # - name: Restore dependencies
-        # run: dotnet restore
-        
-        
-      # Add your tests here if needed
-      # - name: Test qqqqTODO
-      #   run: dotnet test --no-build --verbosity normal
-      
-      # - name: Set up Git authentication
-        # run: git config --global url."https://${PACKAGES_TOKEN}@github.com/".insteadOf "https://github.com/"
-      
-      #qqqq if this is needed then really we want to be using the project as built in other pipeline
-      # - name: Clean lock files
-        # run: |
-          # find . -name "packages.lock.json" -type f -exec rm -f {} \;
-      
-      # - name: Build SharedPages Using BlazorComponentLibraryPackage
-        # run: |
-          # dotnet build SharedPages -c Debug \
-            # /p:IsLocalDev=$IS_LOCAL_DEV \
-            # /p:BCLVersion=$BCL_VERSION \
-            # /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE
         
       - name: Publish client using client release .csproj logic
         run: |
@@ -107,6 +87,14 @@ jobs:
           name: gh-blazor-components-wiki-site-using-package-${{env.BCL_VERSION}}
           path: ./docs
           retention-days: 90
+          
+      
+      - name: Dispatch artifact ready event to test environment gh page
+        run: |
+          ARTIFACT_URL=$(gh api "repos/${{ github.repository }}/actions/artifacts?name=gh-blazor-components-wiki-site-using-package-${{ env.BCL_VERSION }}" | jq -r '.artifacts[0].archive_download_url')
+          gh api "TechnologyEnhancedLearning/GitPageBlazorWASM-TestGHPage/dispatches" \
+            -f event_type=artifact_ready \
+            -f client_payload='{"artifact_url": "'"$ARTIFACT_URL"'"}'
         
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
