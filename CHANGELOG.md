@@ -1,3 +1,10 @@
+## [1.2.28](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.2.27...v1.2.28) (2025-04-01)
+
+
+### Bug Fixes
+
+* **fdjklh:** giveusago ([8d1a87b](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/8d1a87b729fe2bce1bf33707255edb323136b84c))
+
 ## [1.2.27](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.2.26...v1.2.27) (2025-04-01)
 
 
