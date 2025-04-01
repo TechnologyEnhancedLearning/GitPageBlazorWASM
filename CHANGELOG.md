@@ -1,3 +1,10 @@
+## [1.2.30](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.2.29...v1.2.30) (2025-04-01)
+
+
+### Bug Fixes
+
+* **token change:** toooke ([cc2c1ff](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/cc2c1ffea9d2f716fd94c05e4ba70d558d7fe752))
+
 ## [1.2.29](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.2.28...v1.2.29) (2025-04-01)
 
 
