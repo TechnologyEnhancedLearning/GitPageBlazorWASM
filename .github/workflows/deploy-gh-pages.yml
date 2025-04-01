@@ -135,8 +135,8 @@ jobs:
         # run: |
           # echo ${{ secrets.PACKAGES_TOKEN }} | gh auth login --with-token
 
-      - name: one line
-        run: gh api repos/TechnologyEnhancedLearning/GitPageBlazorWASM-TestGHPage/dispatches -H "Authorization: token $PACKAGES_TOKEN" -f event_type=artifact_ready -f client_payload="{\"artifact_url\": \"$artifact_url\"}"
+      # - name: one line
+        # run: gh api repos/TechnologyEnhancedLearning/GitPageBlazorWASM-TestGHPage/dispatches -H "Authorization: token $PACKAGES_TOKEN" -f event_type=artifact_ready -f client_payload="{\"artifact_url\": \"$artifact_url\"}"
         
         
       - name: gh api dispatch
