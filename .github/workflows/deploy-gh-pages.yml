@@ -11,7 +11,7 @@ on:
 permissions:
   contents: read
   actions: write
-  repository_dispatch: write
+#  repository_dispatch: write
 env:
   
   BCL_Source: "https://nuget.pkg.github.com/phil-nhs/index.json"
