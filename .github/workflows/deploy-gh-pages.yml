@@ -129,10 +129,10 @@ jobs:
           sudo apt update
           sudo apt install gh -y
 
-      # need gh or curl using gh for gh api actions
-      - name: Authenticate GitHub CLI
-        run: |
-          echo ${{ secrets.PACKAGES_TOKEN }} | gh auth login --with-token
+      # need gh or curl using gh for gh api actions - we have a token
+      # - name: Authenticate GitHub CLI
+        # run: |
+          # echo ${{ secrets.PACKAGES_TOKEN }} | gh auth login --with-token
 
 
       
@@ -142,6 +142,7 @@ jobs:
           echo "Artifact URL: $artifact_url"  # Should print the artifact URL passed from the previous step
           # Dispatch the artifact URL to the other repository
           gh api "repos/TechnologyEnhancedLearning/GitPageBlazorWASM-TestGHPage/dispatches" \
+          -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
           -f event_type=artifact_ready \
           -f client_payload='{"artifact_url": "'"$artifact_url"'"}'
         
