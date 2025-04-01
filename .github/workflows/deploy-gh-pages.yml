@@ -141,8 +141,9 @@ jobs:
           # Use the artifact URL that was passed from the previous step
           echo "Artifact URL: $artifact_url"  # Should print the artifact URL passed from the previous step
           # Dispatch the artifact URL to the other repository
+          # dont think token has what it needs -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
           gh api "repos/TechnologyEnhancedLearning/GitPageBlazorWASM-TestGHPage/dispatches" \
-          -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+          -H "Authorization: token ${{ secrets.PACKAGES_TOKEN }}" \          
           -f event_type=artifact_ready \
           -f client_payload='{"artifact_url": "'"$artifact_url"'"}'
         
