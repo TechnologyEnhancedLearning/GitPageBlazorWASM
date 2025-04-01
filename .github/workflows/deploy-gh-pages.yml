@@ -101,14 +101,14 @@ jobs:
           echo "Artifact URL: $ARTIFACT_URL"
           echo "artifact_url=$ARTIFACT_URL" >> $GITHUB_ENV
       
-        - name: Dispatch artifact ready event to test environment gh page
-           run: |
-             # Use the artifact URL that was passed from the previous step
-             echo "Artifact URL: $ARTIFACT_URL"  # Should print the artifact URL passed from the previous step
-             # Dispatch the artifact URL to the other repository
-             gh api "TechnologyEnhancedLearning/GitPageBlazorWASM-TestGHPage/dispatches" \
-               -f event_type=artifact_ready \
-               -f client_payload='{"artifact_url": "'"$ARTIFACT_URL"'"}'
+      - name: Dispatch artifact ready event to test environment gh page
+        run: |
+          # Use the artifact URL that was passed from the previous step
+          echo "Artifact URL: $ARTIFACT_URL"  # Should print the artifact URL passed from the previous step
+          # Dispatch the artifact URL to the other repository
+          gh api "TechnologyEnhancedLearning/GitPageBlazorWASM-TestGHPage/dispatches" \
+          -f event_type=artifact_ready \
+          -f client_payload='{"artifact_url": "'"$ARTIFACT_URL"'"}'
         
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
