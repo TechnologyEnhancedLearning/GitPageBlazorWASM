@@ -96,19 +96,54 @@ jobs:
           # Echo the entire artifact list for debugging purposes
           echo "Artifact List: $ARTIFACT_LIST"
           # Extract the download URL from the artifact list (first artifact in the list)
-          ARTIFACT_URL=$(echo "$ARTIFACT_LIST" | jq -r '.artifacts[0].archive_download_url')
+          #ARTIFACT_URL=$(echo "$ARTIFACT_LIST" | jq -r '.artifacts[0].archive_download_url')
+          ARTIFACT_URL=$(echo "$ARTIFACT_LIST" | jq -r '.artifacts[0].url')
           # Echo the artifact URL to confirm
           echo "Artifact URL: $ARTIFACT_URL"
           echo "artifact_url=$ARTIFACT_URL" >> $GITHUB_ENV
+
+# {
+  # "id": 2859123465,
+  # "node_id": "MDg6QXJ0aWZhY3QyODU5MTIzNDY1",
+  # "name": "gh-blazor-components-wiki-site-using-package-1.2.27-DEV-master-250401-12-36-20",
+  # "size_in_bytes": 8934640,
+  # "url": "https://api.github.com/repos/TechnologyEnhancedLearning/GitPageBlazorWASM/actions/artifacts/2859123465",
+  # "archive_download_url": "https://api.github.com/repos/TechnologyEnhancedLearning/GitPageBlazorWASM/actions/artifacts/2859123465/zip",
+  # "expired": false,
+  # "digest": "sha256:0f2f65b4ee432facd62b1558a2d3feaf59a9a58f2d5d8cfc066cb3a84194fd2c",
+  # "created_at": "2025-04-01T12:38:01Z",
+  # "updated_at": "2025-04-01T12:38:01Z",
+  # "expires_at": "2025-06-30T12:37:04Z",
+  # "workflow_run": {
+    # "id": 14195776281,
+    # "repository_id": 942679037,
+    # "head_repository_id": 942679037,
+    # "head_branch": "master",
+    # "head_sha": "aa71ffeaee45e4f5d9edbe84c0da15dee5397eb2"
+  # }
+# }
+
+      # need gh or curl using gh for gh api actions
+      - name: Install GitHub CLI
+        run: |
+          sudo apt update
+          sudo apt install gh -y
+
+      # need gh or curl using gh for gh api actions
+      - name: Authenticate GitHub CLI
+        run: |
+          echo ${{ secrets.PACKAGES_TOKEN }} | gh auth login --with-token
+
+
       
       - name: Dispatch artifact ready event to test environment gh page
         run: |
           # Use the artifact URL that was passed from the previous step
-          echo "Artifact URL: $ARTIFACT_URL"  # Should print the artifact URL passed from the previous step
+          echo "Artifact URL: $artifact_url"  # Should print the artifact URL passed from the previous step
           # Dispatch the artifact URL to the other repository
-          gh api "TechnologyEnhancedLearning/GitPageBlazorWASM-TestGHPage/dispatches" \
+          gh api "repos/TechnologyEnhancedLearning/GitPageBlazorWASM-TestGHPage/dispatches" \
           -f event_type=artifact_ready \
-          -f client_payload='{"artifact_url": "'"$ARTIFACT_URL"'"}'
+          -f client_payload='{"artifact_url": "'"$artifact_url"'"}'
         
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
