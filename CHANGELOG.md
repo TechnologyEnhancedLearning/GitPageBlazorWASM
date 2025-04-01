@@ -1,3 +1,10 @@
+## [1.2.32](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.2.31...v1.2.32) (2025-04-01)
+
+
+### Bug Fixes
+
+* **wwwww:** ffkhf ([437625a](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/437625acb53c5f7b5d6553c819e04349a1696f7b))
+
 ## [1.2.31](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.2.30...v1.2.31) (2025-04-01)
 
 
