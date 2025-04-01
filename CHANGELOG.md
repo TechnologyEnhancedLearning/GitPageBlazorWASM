@@ -1,3 +1,10 @@
+## [1.2.22](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.2.21...v1.2.22) (2025-04-01)
+
+
+### Bug Fixes
+
+* **indent:** tation ([4d89844](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/4d89844c9fc24c9a9f89905749ada1772fce87ba))
+
 ## [1.2.21](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.2.20...v1.2.21) (2025-04-01)
 
 
