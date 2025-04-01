@@ -100,6 +100,13 @@ jobs:
             /p:BCLVersion=$BCL_VERSION \
             /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE
         
+      # qqqq nice to have would be only running if version number increase 
+      - name: Creating artifact of publish folder for test gh page workflow
+          uses: actions/upload-artifact@v3
+          with:
+            name: gh-blazor-components-wiki-site-using-package-${{env.BCL_VERSION}}
+            path: ./docs
+            retention-days: 90
         
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
