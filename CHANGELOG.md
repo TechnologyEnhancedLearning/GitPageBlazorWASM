@@ -1,3 +1,10 @@
+## [1.2.21](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.2.20...v1.2.21) (2025-04-01)
+
+
+### Bug Fixes
+
+* **commit-lint:** gotcha ([550a062](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/550a062261e706e920ba734d4cabdb7fcc355e4c))
+
 ## [1.2.20](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.2.19...v1.2.20) (2025-03-31)
 
 
