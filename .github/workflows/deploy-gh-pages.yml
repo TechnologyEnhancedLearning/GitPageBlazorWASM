@@ -15,7 +15,8 @@ permissions:
 env:
   
   BCL_Source: "https://nuget.pkg.github.com/phil-nhs/index.json"
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  GITHUB_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
   PACKAGES_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
   GITHUB_USERNAME: "Phil-NHS"
   IS_LOCAL_DEV: false
@@ -35,7 +36,7 @@ jobs:
       - name: Get BCL Version from Git Packages
         id: get-bcl-version-from-git-packages
         run: |
-          TOKEN="${{ secrets.GITHUB_TOKEN }}"
+          TOKEN="$GITHUB_TOKEN"
           OWNER="Phil-NHS"
           PACKAGE_NAME="TELBlazorComponentLibrary.GitPageBlazorWasm"
           BCL_PACKAGE_PATH="https://api.github.com/users/$OWNER/packages/nuget/$PACKAGE_NAME/versions"
@@ -134,7 +135,24 @@ jobs:
         # run: |
           # echo ${{ secrets.PACKAGES_TOKEN }} | gh auth login --with-token
 
-
+      - name: one line
+        run: gh api repos/TechnologyEnhancedLearning/GitPageBlazorWASM-TestGHPage/dispatches -H "Authorization: token $PACKAGES_TOKEN" -f event_type=artifact_ready -f client_payload="{\"artifact_url\": \"$artifact_url\"}"
+        
+        
+      - name: gh api dispatch
+        run: |
+          gh api repos/TechnologyEnhancedLearning/GitPageBlazorWASM-TestGHPage/dispatches \
+            --method POST \
+            --field event_type=artifact_ready \
+            --field client_payload='{"artifact_url": "'"$artifact_url"'" }' || echo "gh api failed, continuing..."
+      
+      - name: curl dispatch
+        run: |
+          curl -X POST https://api.github.com/repos/TechnologyEnhancedLearning/GitPageBlazorWASM-TestGHPage/dispatches \
+            -H "Authorization: token $GITHUB_TOKEN" \
+            -H "Accept: application/vnd.github.v3+json" \
+            -d '{"event_type": "artifact_ready", "client_payload": {"artifact_url": "'"$artifact_url"'"}}' || echo "curl failed, continuing..."
+  
                 # dont think token has what it needs -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" 
       - name: Dispatch artifact ready event to test environment gh page
         run: |
@@ -142,8 +160,7 @@ jobs:
           echo "Artifact URL: $artifact_url"  
           # Dispatch the artifact URL to the other repository
           gh api \
-            "repos/TechnologyEnhancedLearning/GitPageBlazorWASM-TestGHPage/dispatches" \
-            -H "Authorization: token $PACKAGES_TOKEN" \          
+            "repos/TechnologyEnhancedLearning/GitPageBlazorWASM-TestGHPage/dispatches" \      
             -f event_type=artifact_ready \
             -f client_payload='{"artifact_url": "'"$artifact_url"'"}'
         
