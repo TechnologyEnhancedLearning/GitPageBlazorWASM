@@ -146,23 +146,23 @@ jobs:
             --field event_type=artifact_ready \
             --field client_payload='{"artifact_url": "'"$artifact_url"'" }' || echo "gh api failed, continuing..."
       
-      - name: curl dispatch
-        run: |
-          curl -X POST https://api.github.com/repos/TechnologyEnhancedLearning/GitPageBlazorWASM-TestGHPage/dispatches \
-            -H "Authorization: token $GITHUB_TOKEN" \
-            -H "Accept: application/vnd.github.v3+json" \
-            -d '{"event_type": "artifact_ready", "client_payload": {"artifact_url": "'"$artifact_url"'"}}' || echo "curl failed, continuing..."
+      # - name: curl dispatch
+        # run: |
+          # curl -X POST https://api.github.com/repos/TechnologyEnhancedLearning/GitPageBlazorWASM-TestGHPage/dispatches \
+            # -H "Authorization: token $GITHUB_TOKEN" \
+            # -H "Accept: application/vnd.github.v3+json" \
+            # -d '{"event_type": "artifact_ready", "client_payload": {"artifact_url": "'"$artifact_url"'"}}' || echo "curl failed, continuing..."
   
-                # dont think token has what it needs -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" 
-      - name: Dispatch artifact ready event to test environment gh page
-        run: |
-          # Use the artifact URL that was passed from the previous step
-          echo "Artifact URL: $artifact_url"  
-          # Dispatch the artifact URL to the other repository
-          gh api \
-            "repos/TechnologyEnhancedLearning/GitPageBlazorWASM-TestGHPage/dispatches" \      
-            -f event_type=artifact_ready \
-            -f client_payload='{"artifact_url": "'"$artifact_url"'"}'
+                # # dont think token has what it needs -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" 
+      # - name: Dispatch artifact ready event to test environment gh page
+        # run: |
+          # # Use the artifact URL that was passed from the previous step
+          # echo "Artifact URL: $artifact_url"  
+          # # Dispatch the artifact URL to the other repository
+          # gh api \
+            # "repos/TechnologyEnhancedLearning/GitPageBlazorWASM-TestGHPage/dispatches" \      
+            # -f event_type=artifact_ready \
+            # -f client_payload='{"artifact_url": "'"$artifact_url"'"}'
         
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
