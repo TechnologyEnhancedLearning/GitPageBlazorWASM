@@ -1,3 +1,10 @@
+## [1.2.29](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.2.28...v1.2.29) (2025-04-01)
+
+
+### Bug Fixes
+
+* **token change:** hdsdd ([c76df7f](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/c76df7fcfc68af1025c8ebadf6b1f1900dbe5284))
+
 ## [1.2.28](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.2.27...v1.2.28) (2025-04-01)
 
 
