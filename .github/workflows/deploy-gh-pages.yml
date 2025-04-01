@@ -135,7 +135,7 @@ jobs:
           # echo ${{ secrets.PACKAGES_TOKEN }} | gh auth login --with-token
 
 
-                # dont think token has what it needs -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+                # dont think token has what it needs -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" 
       - name: Dispatch artifact ready event to test environment gh page
         run: |
           # Use the artifact URL that was passed from the previous step
@@ -143,7 +143,7 @@ jobs:
           # Dispatch the artifact URL to the other repository
           gh api \
             "repos/TechnologyEnhancedLearning/GitPageBlazorWASM-TestGHPage/dispatches" \
-            -H "Authorization: token $PACKAGES_TOKEN " \          
+            -H "Authorization: token $PACKAGES_TOKEN" \          
             -f event_type=artifact_ready \
             -f client_payload='{"artifact_url": "'"$artifact_url"'"}'
         
