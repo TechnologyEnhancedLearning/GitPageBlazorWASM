@@ -89,12 +89,26 @@ jobs:
           retention-days: 90
           
       
-      - name: Dispatch artifact ready event to test environment gh page
+      - name: Debug artifact location
         run: |
-          ARTIFACT_URL=$(gh api "repos/${{ github.repository }}/actions/artifacts?name=gh-blazor-components-wiki-site-using-package-${{ env.BCL_VERSION }}" | jq -r '.artifacts[0].archive_download_url')
-          gh api "TechnologyEnhancedLearning/GitPageBlazorWASM-TestGHPage/dispatches" \
-            -f event_type=artifact_ready \
-            -f client_payload='{"artifact_url": "'"$ARTIFACT_URL"'"}'
+          # Get the artifact list for the current workflow run
+          ARTIFACT_LIST=$(gh api "repos/TechnologyEnhancedLearning/GitPageBlazorWASM/actions/runs/${GITHUB_RUN_ID}/artifacts")
+          # Echo the entire artifact list for debugging purposes
+          echo "Artifact List: $ARTIFACT_LIST"
+          # Extract the download URL from the artifact list (first artifact in the list)
+          ARTIFACT_URL=$(echo "$ARTIFACT_LIST" | jq -r '.artifacts[0].archive_download_url')
+          # Echo the artifact URL to confirm
+          echo "Artifact URL: $ARTIFACT_URL"
+          echo "artifact_url=$ARTIFACT_URL" >> $GITHUB_ENV
+      
+        - name: Dispatch artifact ready event to test environment gh page
+           run: |
+             # Use the artifact URL that was passed from the previous step
+             echo "Artifact URL: $ARTIFACT_URL"  # Should print the artifact URL passed from the previous step
+             # Dispatch the artifact URL to the other repository
+             gh api "TechnologyEnhancedLearning/GitPageBlazorWASM-TestGHPage/dispatches" \
+               -f event_type=artifact_ready \
+               -f client_payload='{"artifact_url": "'"$ARTIFACT_URL"'"}'
         
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
