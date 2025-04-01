@@ -1,3 +1,10 @@
+## [1.2.33](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.2.32...v1.2.33) (2025-04-01)
+
+
+### Bug Fixes
+
+* **just while:** i do something else ([562bb5c](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/562bb5c0edc5659d963b08d5c111de5750995dfa))
+
 ## [1.2.32](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.2.31...v1.2.32) (2025-04-01)
 
 
