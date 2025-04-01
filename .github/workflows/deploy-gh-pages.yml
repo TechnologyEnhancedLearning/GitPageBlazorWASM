@@ -102,7 +102,7 @@ jobs:
         
       # qqqq nice to have would be only running if version number increase 
       - name: Creating artifact of publish folder for test gh page workflow
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: gh-blazor-components-wiki-site-using-package-${{env.BCL_VERSION}}
           path: ./docs
