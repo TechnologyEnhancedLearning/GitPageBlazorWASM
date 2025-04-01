@@ -1,3 +1,10 @@
+## [1.2.27](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.2.26...v1.2.27) (2025-04-01)
+
+
+### Bug Fixes
+
+* **commit-lint:** hdbf ([dbbeb07](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/dbbeb076270f93b1b9eb1d27bb755f31077f9521))
+
 ## [1.2.26](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.2.25...v1.2.26) (2025-04-01)
 
 
