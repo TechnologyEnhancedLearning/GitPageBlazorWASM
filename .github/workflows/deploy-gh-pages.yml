@@ -121,6 +121,13 @@ jobs:
             https://api.github.com/repos/$repo_owner/$repo_name/dispatches \
             -d "{\"event_type\": \"$event_type\", \"client_payload\": {\"artifact_url\": \"$artifact_url\"}}"      
         
+      - name: debug Check artifact and docs folder match
+        run: |
+        ls ./docs
+        ls 
+        echo $(gh api "repos/TechnologyEnhancedLearning/GitPageBlazorWASM/actions/runs/${GITHUB_RUN_ID}/artifacts")
+
+      
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
