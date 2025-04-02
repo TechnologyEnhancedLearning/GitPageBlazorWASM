@@ -1,3 +1,10 @@
+## [1.2.38](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.2.37...v1.2.38) (2025-04-02)
+
+
+### Bug Fixes
+
+* **try logging the difference:** dsd ([d0453b5](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/d0453b52bdcb0e477956bf35085b937ec64f7d47))
+
 ## [1.2.37](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.2.36...v1.2.37) (2025-04-02)
 
 
