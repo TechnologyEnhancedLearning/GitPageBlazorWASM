@@ -1,3 +1,10 @@
+## [1.2.40](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.2.39...v1.2.40) (2025-04-02)
+
+
+### Bug Fixes
+
+* **jekyll:** jehyll ([f5d4969](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/f5d496950b14837d721a8a0f55d11bcf420adc48))
+
 ## [1.2.39](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.2.38...v1.2.39) (2025-04-02)
 
 
