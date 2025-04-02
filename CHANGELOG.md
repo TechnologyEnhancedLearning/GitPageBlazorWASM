@@ -1,3 +1,11 @@
+## [1.2.36](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.2.35...v1.2.36) (2025-04-02)
+
+
+### Bug Fixes
+
+* **token change but think need token can do both:** fjfjf ([e12fc02](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/e12fc02d981c4cfd06919bd84bbd0922bdac465b))
+* **token change:** hdskf ([02a7f7e](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/02a7f7e6a4adeeaf04b119baf6b611a103c4fbca))
+
 ## [1.2.35](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.2.34...v1.2.35) (2025-04-02)
 
 
