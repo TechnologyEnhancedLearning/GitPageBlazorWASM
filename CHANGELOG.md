@@ -1,3 +1,10 @@
+## [1.2.39](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.2.38...v1.2.39) (2025-04-02)
+
+
+### Bug Fixes
+
+* **why are they different:** new echo while waiting for meeting ([ef13fa1](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/ef13fa1e048235d1e1fc73a450a8b511275dbc41))
+
 ## [1.2.38](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.2.37...v1.2.38) (2025-04-02)
 
 
