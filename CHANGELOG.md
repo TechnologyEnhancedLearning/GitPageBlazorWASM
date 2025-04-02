@@ -1,3 +1,10 @@
+## [1.2.37](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.2.36...v1.2.37) (2025-04-02)
+
+
+### Bug Fixes
+
+* **write permission for gh page:** kdsf ([5a0e322](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/5a0e322abe56786d5a2827480f4e6c06f08d4f11))
+
 ## [1.2.36](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.2.35...v1.2.36) (2025-04-02)
 
 
