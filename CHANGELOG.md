@@ -1,3 +1,11 @@
+## [1.2.35](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.2.34...v1.2.35) (2025-04-02)
+
+
+### Bug Fixes
+
+* **needed merge:** now can go ([3f10c61](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/3f10c61334313d77ad2a7d1da3d4f497aa4327ec))
+* **to test github page:** do i work ([26384c3](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/26384c3f53dc20daf6f52e3b044a3f139a5ccc41))
+
 ## [1.2.34](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.2.33...v1.2.34) (2025-04-01)
 
 
