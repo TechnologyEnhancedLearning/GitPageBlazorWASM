@@ -1,3 +1,10 @@
+## [1.2.41](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.2.40...v1.2.41) (2025-04-02)
+
+
+### Bug Fixes
+
+* **full cyle:** hohoh ([77d4d74](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/77d4d74b3ecc58c8c2f4a1ddc2bed9c58a3219c7))
+
 ## [1.2.40](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.2.39...v1.2.40) (2025-04-02)
 
 
