@@ -1,3 +1,10 @@
+## [1.2.34](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.2.33...v1.2.34) (2025-04-01)
+
+
+### Bug Fixes
+
+* **eee:** gggg ([eceecd3](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/eceecd31d75f22b8caacab344674160fa1fd4632))
+
 ## [1.2.33](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.2.32...v1.2.33) (2025-04-01)
 
 
