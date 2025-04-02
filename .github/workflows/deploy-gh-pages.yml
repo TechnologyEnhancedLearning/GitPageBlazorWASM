@@ -83,11 +83,15 @@ jobs:
             /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE
         
       # qqqq nice to have would be only running if version number increase 
+      #include hidden so we get jekyll
       - name: Creating artifact of publish folder for test gh page workflow
         uses: actions/upload-artifact@v4
         with:
           name: gh-blazor-components-wiki-site-using-package-${{env.BCL_VERSION}}
-          path: ./docs
+          include-hidden-files: true
+          path: | 
+            ./docs
+            ./docs/.nojekyll  # explicitly include the .nojekyll file
           retention-days: 90
           
       
