@@ -61,6 +61,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: See other project pipeline for Tests
+          run: echo "qqqq See other project pipeline for Tests this is a placeholder"
           continue-on-error: false
           
   
@@ -68,6 +69,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: See other project pipeline for Tests
+          run: echo "qqqq See other project pipeline for Tests this is a placeholder"
           continue-on-error: false
 
   #now weve done duediligence 
