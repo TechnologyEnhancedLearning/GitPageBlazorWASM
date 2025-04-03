@@ -1,3 +1,31 @@
+## [1.2.45](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.2.44...v1.2.45) (2025-04-03)
+
+
+### Bug Fixes
+
+* **taking other yml out pipeline:** yml ([f5b44f2](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/f5b44f2119616288f9d05f44b435535e3cf2cf42))
+
+## [1.2.44](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.2.43...v1.2.44) (2025-04-03)
+
+
+### Bug Fixes
+
+* **runit:** ff ([0d27e84](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/0d27e84fb9c04e843e0aa56203f1c9b4e7e7ab22))
+
+## [1.2.43](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.2.42...v1.2.43) (2025-04-03)
+
+
+### Bug Fixes
+
+* **yml:** yml ([0c8097f](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/0c8097f93e03ef90ff0038c95be6674841d88110))
+
+## [1.2.42](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.2.41...v1.2.42) (2025-04-03)
+
+
+### Bug Fixes
+
+* **centalising yaml:** yaml ([8334d02](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/8334d022b4603e8040bc87a8cada1d2c8b1ff34b))
+
 ## [1.2.41](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.2.40...v1.2.41) (2025-04-02)
 
 

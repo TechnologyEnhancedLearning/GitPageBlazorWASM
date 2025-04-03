@@ -5,24 +5,18 @@ name: Dev pipeline for test lint packaging artifact and gh-page trigger
 on:
   # Trigger the workflow for push and pull requests to all branches except 'main' and 'master'
   push:
-    branches:
-      - '**'  # Match all branches
-    # Exclude 'main' and 'master' branches
     branches-ignore:
       - 'main'
-      - 'master'
+    # qqqq put back in  - 'master'
 
   pull_request:
-    branches:
-      - '**'  # Match all branches
-    # Exclude 'main' and 'master' branches
     branches-ignore:
       - 'main'
-      - 'master'
+    #qqqq  - 'master'
       
-  permissions:
-    contents: write
-    actions: write
+permissions:
+  contents: write
+  actions: write
 
 env:
   # BUILD_CONFIGURATION: 'Debug'
@@ -38,10 +32,6 @@ env:
   
   BCL_Local_Source: ${{ github.workspace }}/CICDPackageLocation
   BCL_Source: "https://nuget.pkg.github.com/phil-nhs/index.json"
-
-  #qqqq try bcl version here later     but think it needs to be local    env:
-  #    BCL_VERSION: ${{ needs.generate-dev-semantic-version.outputs.dev-package-version }}
-
 
 
 jobs:
@@ -71,6 +61,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: See other project pipeline for Tests
+          run: echo "qqqq See other project pipeline for Tests this is a placeholder"
           continue-on-error: false
           
   
@@ -78,11 +69,12 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: See other project pipeline for Tests
+          run: echo "qqqq See other project pipeline for Tests this is a placeholder"
           continue-on-error: false
 
-#now weve done duediligence 
+  # Now we've done due diligence
   generate-dev-semantic-version:
-    needs: [commitlint, gitguardian-scan,Unit-Tests,E2E-Tests]
+    needs: [commitlint, gitguardian-scan, Unit-Tests, E2E-Tests]
     runs-on: ubuntu-latest
     outputs:
       dev-package-version: ${{ steps.set-dev-semantic-version.outputs.dev-semantic-version }}
@@ -114,9 +106,6 @@ jobs:
           FULL_VERSION="${SEMVER_VERSION}-DEV-${BRANCH_NAME}-${TIMESTAMP}"
           echo "Extracted Version: $FULL_VERSION"
           echo "dev-semantic-version=$FULL_VERSION" >> $GITHUB_OUTPUT
-          
-      - name: Debug Version Output
-        run: echo "Extracted Version ${{ steps.set-version.outputs.dev-semantic-version  }}"
           
   build-bcl-dev-package-and-publish:
     needs: [generate-dev-semantic-version, commitlint, gitguardian-scan,Unit-Tests,E2E-Tests]
