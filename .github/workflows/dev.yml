@@ -12,7 +12,7 @@ on:
   pull_request:
     branches-ignore:
       - 'main'
-      - 'master'
+    #qqqq  - 'master'
       
 permissions:
   contents: write
