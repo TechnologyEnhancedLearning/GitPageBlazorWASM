@@ -7,12 +7,12 @@ on:
   push:
     branches-ignore:
       - 'main'
-    # qqqq put back in  - 'master'
+      - 'master'
 
   pull_request:
     branches-ignore:
       - 'main'
-    #qqqq  - 'master'
+      - 'master'
       
 permissions:
   contents: write
@@ -98,22 +98,6 @@ jobs:
           echo "Semantic Release packages installed."
           npm ls --depth=0 # Debug: List installed packages
        
-      - name: Debug Git Context
-        run: |
-          echo "Current branch: $(git branch --show-current)"
-          echo "Last few commits:"
-          git log -n 5 --oneline
-          echo "Tags:"
-          git tag -l
-          echo "Remote info:"
-          git remote -v
-          echo "GitHub Ref: ${{ github.ref }}"
-          echo "GitHub Head Ref: ${{ github.head_ref }}"
-          echo "GitHub Base Ref: ${{ github.base_ref }}"
-          echo "GitHub SHA: ${{ github.sha }}"
-       
-      - name: Debug Git Context
-        run: echo "QQQQ return to thisWARNING if it fails will set version to 0.1.0 at the moment"
       
       - name: Get Semantic Version
         id: set-dev-semantic-version
@@ -129,7 +113,9 @@ jobs:
           echo "Semantic Release Exit Code: $SEMVER_EXIT_CODE"    
           
           SEMVER_VERSION=$(npx semantic-release --dry-run | grep -oP 'Published release \K[\d.]+')
+          
           #SEMVER_VERSION=$(npx semantic-release --dry-run | grep -oP 'Published release \K[\d.]+' || echo "0.1.0")
+          
           TIMESTAMP=$(date +"%y%m%d-%H-%M-%S")
           BRANCH_NAME=$(echo "${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" | sed 's/[^a-zA-Z0-9.-]/_/g')
           FULL_VERSION="${SEMVER_VERSION}-DEV-${BRANCH_NAME}-${TIMESTAMP}"
@@ -184,37 +170,6 @@ jobs:
 
       - name: echo hint information about restore
         run: echo "if a hash error occurs for the bcl package the version number may need increasing or a clean step"
-        
-        #qqqq not sure this is a good idea but are trying to regenerate one file, and do want to update it. concern is dont want other files to change
-
-      # this is for gitpages          
-      # - name: Build SharedPages Using BlazorComponentLibraryPackage
-        # run: |
-          # dotnet build SharedPages -c Debug \
-            # /p:IsLocalDev=$IS_LOCAL_DEV \
-            # /p:BCLVersion=$BCL_VERSION \
-            # /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE   
- 
-      # will be need for testing playwright but not here yet qqqq
-      # - name: Build Blazor hosted debug
-        # run: |
-          # dotnet build "TestHostPrerenderWASM/TestHostPrerenderWASM/TestHostPrerenderWASM.csproj" -c Debug \
-            # /p:IsLocalDev=$IS_LOCAL_DEV \
-            # /p:BCLVersion=$BCL_VERSION \
-            # /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE
-            
-      # this is needed for gh-pages     
-      # - name: Build Blazor Pure WASM Release
-        # run: |
-          # dotnet build "TestHostPrerenderWASM/TestHostPrerenderWASM.Client/TestHostPrerenderWASM.Client.csproj" -c Release \
-            # /p:IsLocalDev=$IS_LOCAL_DEV \
-            # /p:BCLVersion=$BCL_VERSION \
-            # /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE
-            
-         # - name: echo hint information about restore
-        # run: >
-          # echo "careful of building wasm and wasm.client they have particular set up for release and debug so they can be used in 
-          # testing and standalone as gitpages"
 
       - name: Publish to GitHub DEV BCL Packages
         run: |
@@ -223,13 +178,9 @@ jobs:
           --api-key ${{ secrets.PACKAGES_TOKEN }} \
           --skip-duplicate
        
-
-
-
-
           
   Make-Blazor-Wiki-Artifact-Trigger-GH-Pages-In-BlazorWasmTest:
-    needs: [ build-bcl-dev-package-and-publish,generate-dev-semantic-version, commitlint, gitguardian-scan]
+    needs: [ build-bcl-dev-package-and-publish,generate-dev-semantic-version, commitlint, gitguardian-scan, Unit-Tests, E2E-Tests]
     runs-on: ubuntu-latest
     env:
       BCL_VERSION: ${{ needs.generate-dev-semantic-version.outputs.dev-package-version }}
@@ -260,8 +211,6 @@ jobs:
         run: |
           find . -name "packages.lock.json" -type f -exec rm -f {} \;
        
-      #qqqq added this in 
-      #qqqq think i do need to restore projects it relies on too! but if i restore solution will have issues with client proj as it has specific needs
       - name: Restore NuGet Packages for Specifically the BCL Package Library Project
         run: dotnet restore TestHostPrerenderWASM/TestHostPrerenderWASM.Client/TestHostPrerenderWASM.Client.csproj      
         
