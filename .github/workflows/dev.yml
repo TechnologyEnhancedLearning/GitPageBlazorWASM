@@ -90,11 +90,13 @@ jobs:
         run: |
           echo "Installing semantic-release packages..."
           npm install -D \
-          semantic-release \
-          @semantic-release/changelog \
-          @semantic-release/git \
-          @semantic-release/commit-analyzer \
-          @semantic-release/release-notes-generator
+            semantic-release \
+            @semantic-release/changelog \
+            @semantic-release/git \
+            @semantic-release/commit-analyzer \
+            @semantic-release/release-notes-generator
+          echo "Semantic Release packages installed."
+          npm ls --depth=0 # Debug: List installed packages
        
       - name: Debug Git Context
         run: |
@@ -105,6 +107,10 @@ jobs:
           git tag -l
           echo "Remote info:"
           git remote -v
+          echo "GitHub Ref: ${{ github.ref }}"
+          echo "GitHub Head Ref: ${{ github.head_ref }}"
+          echo "GitHub Base Ref: ${{ github.base_ref }}"
+          echo "GitHub SHA: ${{ github.sha }}"
        
       - name: Debug Git Context
         run: echo "QQQQ return to thisWARNING if it fails will set version to 0.1.0 at the moment"
@@ -114,9 +120,16 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          echo "Running Semantic Release dry run..."
           SEMVER_OUTPUT=$(npx semantic-release --dry-run)
           echo "Semantic Release Output: $SEMVER_OUTPUT"
-          SEMVER_VERSION=$(npx semantic-release --dry-run | grep -oP 'Published release \K[\d.]+' || echo "0.1.0")
+          
+          # Debug: Check exit code of semantic-release
+          SEMVER_EXIT_CODE=$?
+          echo "Semantic Release Exit Code: $SEMVER_EXIT_CODE"    
+          
+          SEMVER_VERSION=$(npx semantic-release --dry-run | grep -oP 'Published release \K[\d.]+')
+          #SEMVER_VERSION=$(npx semantic-release --dry-run | grep -oP 'Published release \K[\d.]+' || echo "0.1.0")
           TIMESTAMP=$(date +"%y%m%d-%H-%M-%S")
           BRANCH_NAME=$(echo "${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" | sed 's/[^a-zA-Z0-9.-]/_/g')
           FULL_VERSION="${SEMVER_VERSION}-DEV-${BRANCH_NAME}-${TIMESTAMP}"
