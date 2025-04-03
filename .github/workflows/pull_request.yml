@@ -1,0 +1,67 @@
+name: Pull Request Checks
+
+on:
+  pull_request:
+    branches:
+      - '**' 
+      
+jobs:
+
+  # qqqq repo will need branch protection rules and PR Template
+  commitlint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: wagoid/commitlint-github-action@v5
+        continue-on-error: false #we dont want to package etc if bad commits also pre-commit preferred
+        
+  gitguardian-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: GitGuardian Scan
+        uses: GitGuardian/gg-shield-action@v1
+        env:
+          GITGUARDIAN_API_KEY: ${{ secrets.GITGUARDIAN_API_KEY  }}
+        continue-on-error: false # we dont want secrets going further and the keys need to be changed if this is triggered
+
+  Unit-Tests:
+      runs-on: ubuntu-latest
+      steps:
+        - name: See other project pipeline for Tests
+          run: echo "qqqq See other project pipeline for Tests this is a placeholder"
+          continue-on-error: false
+          
+  
+  E2E-Tests:
+      runs-on: ubuntu-latest
+      steps:
+        - name: See other project pipeline for Tests
+          run: echo "qqqq See other project pipeline for Tests this is a placeholder"
+          continue-on-error: false
+          
+  Code-Coverage:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Code Coverage
+          run: echo "TODO Code Coverage"
+          continue-on-error: false
+  
+  Check-Merge-Conflicts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Check for merge conflicts
+        run: |
+          git fetch origin main:main
+          if git merge-tree $(git merge-base main HEAD) main HEAD | grep -i "<<<<<"; then
+            echo "Merge conflicts detected!"
+            exit 1
+          else
+            echo "No merge conflicts detected"
+          fi
