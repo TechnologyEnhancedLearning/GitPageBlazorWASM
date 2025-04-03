@@ -154,9 +154,7 @@ jobs:
           find . -name "packages.lock.json" -type f -exec rm -f {} \;
           
       - name: Restore NuGet Packages for Specifically the BCL Package Library Project
-        run: |
-          ls -la
-          dotnet restore Package.BlazorComponentLibrary/Package.BlazorComponentLibrary.csproj
+        run: dotnet restore Package.BlazorComponentLibrary/Package.BlazorComponentLibrary.csproj
        
        
       - name: Build and Pack BlazorComponentLibrary
@@ -252,7 +250,7 @@ jobs:
       #qqqq added this in 
       #qqqq think i do need to restore projects it relies on too! but if i restore solution will have issues with client proj as it has specific needs
       - name: Restore NuGet Packages for Specifically the BCL Package Library Project
-        run: dotnet restore TestHostPrerenderWASM.Client/TestHostPrerenderWASM.Client.csproj      
+        run: dotnet restore TestHostPrerenderWASM/TestHostPrerenderWASM.Client/TestHostPrerenderWASM.Client.csproj      
         
       - name: Publish client using client release .csproj logic
         run: |
