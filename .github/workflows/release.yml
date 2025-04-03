@@ -1,47 +1,47 @@
-name: Release
-on: [push]
+# name: Release
+# on: [push]
 
-jobs:
-  release:
-    runs-on: ubuntu-latest
+# jobs:
+  # release:
+    # runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0  # Required for Semantic Release to analyze commit history
+    # steps:
+      # - name: Checkout repository
+        # uses: actions/checkout@v4
+        # with:
+          # fetch-depth: 0  # Required for Semantic Release to analyze commit history
 
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v4
-        with:
-          global-json-file: global.json
+      # - name: Setup .NET
+        # uses: actions/setup-dotnet@v4
+        # with:
+          # global-json-file: global.json
           
         
-      - name: Install Semantic Release Packages
-        run: |
-         npm install -D \
-         semantic-release \
-         @semantic-release/changelog \
-         @semantic-release/git \
-         @semantic-release/commit-analyzer \
-         @semantic-release/release-notes-generator
+      # - name: Install Semantic Release Packages
+        # run: |
+         # npm install -D \
+         # semantic-release \
+         # @semantic-release/changelog \
+         # @semantic-release/git \
+         # @semantic-release/commit-analyzer \
+         # @semantic-release/release-notes-generator
          
          
          
          
          
-##configured with .releaseseec
-      - name: Run Semantic Release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npx semantic-release
+# ##configured with .releaseseec
+      # - name: Run Semantic Release
+        # env:
+          # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        # run: npx semantic-release
         
-      - name: Create Packages
-        run: echo "todo"
+      # - name: Create Packages
+        # run: echo "todo"
       
-      - name: Make BCL-Wiki-Page
-        run: echo "todo"
+      # - name: Make BCL-Wiki-Page
+        # run: echo "todo"
       
-      - name: gh-page update
-        run: echo "todo"
+      # - name: gh-page update
+        # run: echo "todo"
         
