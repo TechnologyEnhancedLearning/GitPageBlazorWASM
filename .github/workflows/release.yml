@@ -1,11 +1,6 @@
 name: Release
-on: [push, pull_request]
-#on:
-#  push:
-#    branches:
-#      - [master, main]  # Only trigger on main branch pushes
-## qqqq want regular releases so maybe not release branch but would be nice as part of pr to have a branch have its own gh-deploy
-## qqqq this is on merge into release branch and we need to generate a release package and a gh page
+on: [push]
+
 jobs:
   release:
     runs-on: ubuntu-latest
@@ -40,4 +35,13 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npx semantic-release
+        
+      - name: Create Packages
+        run: echo "todo"
+      
+      - name: Make BCL-Wiki-Page
+        run: echo "todo"
+      
+      - name: gh-page update
+        run: echo "todo"
         

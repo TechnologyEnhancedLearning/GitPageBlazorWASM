@@ -88,12 +88,13 @@ jobs:
           
       - name: Install Semantic Release Packages
         run: |
-         npm install -D \
-         semantic-release \
-         @semantic-release/changelog \
-         @semantic-release/git \
-         @semantic-release/commit-analyzer \
-         @semantic-release/release-notes-generator
+          echo "Installing semantic-release packages..."
+          npm install -D \
+          semantic-release \
+          @semantic-release/changelog \
+          @semantic-release/git \
+          @semantic-release/commit-analyzer \
+          @semantic-release/release-notes-generator
          
       - name: Get Semantic Version
         id: set-dev-semantic-version
