@@ -1,3 +1,10 @@
+## [1.2.45](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.2.44...v1.2.45) (2025-04-03)
+
+
+### Bug Fixes
+
+* **taking other yml out pipeline:** yml ([f5b44f2](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/f5b44f2119616288f9d05f44b435535e3cf2cf42))
+
 ## [1.2.44](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.2.43...v1.2.44) (2025-04-03)
 
 
