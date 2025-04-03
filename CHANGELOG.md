@@ -1,3 +1,15 @@
+# [1.3.0](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.2.45...v1.3.0) (2025-04-03)
+
+
+### Bug Fixes
+
+* **remember pull before name:** jfwsfd ([a2faf8e](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/a2faf8e2a95276489456f547fcce71f01c936102))
+
+
+### Features
+
+* **is semantic failing due to git ui commits:** do we need some commits ([6d2cc63](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/6d2cc631113d227058347acb11b4fffe6b7572c7))
+
 ## [1.2.45](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.2.44...v1.2.45) (2025-04-03)
 
 
