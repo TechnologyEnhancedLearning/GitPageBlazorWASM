@@ -5,17 +5,11 @@ name: Dev pipeline for test lint packaging artifact and gh-page trigger
 on:
   # Trigger the workflow for push and pull requests to all branches except 'main' and 'master'
   push:
-    branches:
-      - '**'  # Match all branches
-    # Exclude 'main' and 'master' branches
     branches-ignore:
       - 'main'
       - 'master'
 
   pull_request:
-    branches:
-      - '**'  # Match all branches
-    # Exclude 'main' and 'master' branches
     branches-ignore:
       - 'main'
       - 'master'
