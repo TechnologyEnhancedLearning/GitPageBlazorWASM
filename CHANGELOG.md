@@ -1,3 +1,10 @@
+## [1.2.42](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.2.41...v1.2.42) (2025-04-03)
+
+
+### Bug Fixes
+
+* **centalising yaml:** yaml ([8334d02](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/8334d022b4603e8040bc87a8cada1d2c8b1ff34b))
+
 ## [1.2.41](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.2.40...v1.2.41) (2025-04-02)
 
 
