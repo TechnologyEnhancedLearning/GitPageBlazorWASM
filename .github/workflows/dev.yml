@@ -33,10 +33,6 @@ env:
   BCL_Local_Source: ${{ github.workspace }}/CICDPackageLocation
   BCL_Source: "https://nuget.pkg.github.com/phil-nhs/index.json"
 
-  #qqqq try bcl version here later     but think it needs to be local    env:
-  #    BCL_VERSION: ${{ needs.generate-dev-semantic-version.outputs.dev-package-version }}
-
-
 
 jobs:
 
@@ -74,9 +70,9 @@ jobs:
         - name: See other project pipeline for Tests
           continue-on-error: false
 
-#now weve done duediligence 
+  #now weve done duediligence 
   generate-dev-semantic-version:
-    needs: [commitlint, gitguardian-scan,Unit-Tests,E2E-Tests]
+    needs: [commitlint, gitguardian-scan, Unit-Tests, E2E-Tests]
     runs-on: ubuntu-latest
     outputs:
       dev-package-version: ${{ steps.set-dev-semantic-version.outputs.dev-semantic-version }}
@@ -108,9 +104,6 @@ jobs:
           FULL_VERSION="${SEMVER_VERSION}-DEV-${BRANCH_NAME}-${TIMESTAMP}"
           echo "Extracted Version: $FULL_VERSION"
           echo "dev-semantic-version=$FULL_VERSION" >> $GITHUB_OUTPUT
-          
-      - name: Debug Version Output
-        run: echo "Extracted Version ${{ steps.set-version.outputs.dev-semantic-version  }}"
           
   build-bcl-dev-package-and-publish:
     needs: [generate-dev-semantic-version, commitlint, gitguardian-scan,Unit-Tests,E2E-Tests]
