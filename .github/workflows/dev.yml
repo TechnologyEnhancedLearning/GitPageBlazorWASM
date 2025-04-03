@@ -72,7 +72,7 @@ jobs:
           run: echo "qqqq See other project pipeline for Tests this is a placeholder"
           continue-on-error: false
 
-  #now weve done duediligence 
+  # Now we've done due diligence
   generate-dev-semantic-version:
     needs: [commitlint, gitguardian-scan, Unit-Tests, E2E-Tests]
     runs-on: ubuntu-latest
