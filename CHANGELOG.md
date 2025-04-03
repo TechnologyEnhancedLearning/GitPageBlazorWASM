@@ -7,6 +7,25 @@
 * **commit history git ui commits break semver:** fix semver ([a6ef9e3](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/a6ef9e374a953b3ec112e087dc1a693d0ecb9004))
 * **dddd:** gggg ([9295645](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/929564593220945ad89e3d3a9f7f25a05af24cd0))
 * **go:** go ([1a3faf0](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/1a3faf0604f0d61c2e3caeb55e466ed9bd60c881))
+* **more debugging:** jhfhf ([9d934f9](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/9d934f9ac2149344e8e866df6ea9a5c276a1575e))
+* **post version reset does it work:** sdh ([08a55c1](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/08a55c185e425b7c077df331f97f269333d068a1))
+* **yml:** still trying to fix ([0f7ad99](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/0f7ad99787399feabe9c38c435d4ad66280014ae))
+
+
+### Features
+
+* **just try:** sdf ([04cd1c8](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/04cd1c8bc8cec89fbe1cb5503b8b0f04d685dd7a))
+* **semver still:** lets go ([f2f87cd](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/f2f87cd5bc1e376cc0a865a72350d22bf37d224c))
+
+# [1.3.0](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.2.41...v1.3.0) (2025-04-03)
+
+
+### Bug Fixes
+
+* **centalising yaml:** yaml ([8334d02](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/8334d022b4603e8040bc87a8cada1d2c8b1ff34b))
+* **commit history git ui commits break semver:** fix semver ([a6ef9e3](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/a6ef9e374a953b3ec112e087dc1a693d0ecb9004))
+* **dddd:** gggg ([9295645](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/929564593220945ad89e3d3a9f7f25a05af24cd0))
+* **go:** go ([1a3faf0](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/1a3faf0604f0d61c2e3caeb55e466ed9bd60c881))
 * **post version reset does it work:** sdh ([08a55c1](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/08a55c185e425b7c077df331f97f269333d068a1))
 * **yml:** still trying to fix ([0f7ad99](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/0f7ad99787399feabe9c38c435d4ad66280014ae))
 
