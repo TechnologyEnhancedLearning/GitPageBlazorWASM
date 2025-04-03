@@ -5,7 +5,7 @@ on: [push, pull_request]
 #    branches:
 #      - [master, main]  # Only trigger on main branch pushes
 ## qqqq want regular releases so maybe not release branch but would be nice as part of pr to have a branch have its own gh-deploy
-
+## qqqq this is on merge into release branch and we need to generate a release package and a gh page
 jobs:
   release:
     runs-on: ubuntu-latest
@@ -21,11 +21,6 @@ jobs:
         with:
           global-json-file: global.json
           
-      ## dont lint, secret scan, and dont test will happen elsewhere qqqq
-      
-
-     # - name: Install Semantic Release
-      #  run: npm install -g semantic-release
         
       - name: Install Semantic Release Packages
         run: |
@@ -46,25 +41,3 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npx semantic-release
         
-      # may not need this
-              # - name: Upload release asset
-        # id: upload-release-asset
-        # uses: actions/upload-release-asset@v1
-        # env:
-          # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        # with:
-          # upload_url: ${{ steps.create_release.outputs.upload_url }}
-          # asset_path: ./dist/nhsuk-frontend-${{ steps.get_version.outputs.VERSION }}.zip
-          # asset_name: nhsuk-frontend-${{ steps.get_version.outputs.VERSION }}.zip
-          # asset_content_type: application/zip
-
-
-#todo qqqq
-      # - name: Publish NPM package
-        # run: npm publish
-        # env:
-          # NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-
-  ## qqqq after nuget release do run deploy script - try and have a dev/test/stage area for sharing before release
-        ## our deploy will have own yaml and be dependant on this one as has few steps
-     

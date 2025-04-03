@@ -1,4 +1,3 @@
-# qqqq TODO: need gitguardian need credentials
 name: GitGuardian Scan
 
 on: [push, pull_request]

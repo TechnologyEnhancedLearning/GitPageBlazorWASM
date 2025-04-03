@@ -1,10 +1,21 @@
-name: Build BCL Package
-on: [push, pull_request]
-# put in later
-  # workflow_run:
-    # workflows: ["GitGuardian Scan"]  # This workflow will trigger after "Release to NuGet" finishes
-    # types:
-      # - completed
+name: Build BCL DEV Package On DEV Branch ONLY
+on:
+  # Trigger the workflow for push and pull requests to all branches except 'main' and 'master'
+  push:
+    branches:
+      - '**'  # Match all branches
+    # Exclude 'main' and 'master' branches
+    branches-ignore:
+      - 'main'
+      - 'master'
+
+  pull_request:
+    branches:
+      - '**'  # Match all branches
+    # Exclude 'main' and 'master' branches
+    branches-ignore:
+      - 'main'
+      - 'master'
 env:
   # BUILD_CONFIGURATION: 'Debug'
 
