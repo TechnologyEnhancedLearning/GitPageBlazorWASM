@@ -106,6 +106,9 @@ jobs:
           echo "Remote info:"
           git remote -v
        
+      - name: Debug Git Context
+        run: echo "QQQQ return to thisWARNING if it fails will set version to 0.1.0 at the moment"
+      
       - name: Get Semantic Version
         id: set-dev-semantic-version
         env:
@@ -151,7 +154,9 @@ jobs:
           find . -name "packages.lock.json" -type f -exec rm -f {} \;
           
       - name: Restore NuGet Packages for Specifically the BCL Package Library Project
-        run: dotnet restore Package.BlazorComponentLibrary.csproj
+        run: |
+          ls -la
+          dotnet restore Package.BlazorComponentLibrary/Package.BlazorComponentLibrary.csproj
        
        
       - name: Build and Pack BlazorComponentLibrary
