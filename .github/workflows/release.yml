@@ -24,7 +24,7 @@ env:
   BCL_Source: "https://nuget.pkg.github.com/phil-nhs/index.json"
 
 jobs:
-  release:
+  generate-semantic-version:
     runs-on: ubuntu-latest
     outputs:
       semantic-release-version: ${{ steps.set-semantic-version.outputs.dev-semantic-version }}
@@ -34,24 +34,17 @@ jobs:
         with:
           fetch-depth: 0  # required for semantic release to analyze commit history
 
-# needed somewhere else qqqq
-      # - name: setup .net
-        # uses: actions/setup-dotnet@v4
-        # with:
-          # global-json-file: global.json
-          
-        
       - name: install semantic release packages
         run: |
-         npm install -d \
-           semantic-release \
-           @semantic-release/changelog \
-           @semantic-release/git \
-           @semantic-release/commit-analyzer \
-           @semantic-release/release-notes-generator
+          npm install -d \
+            semantic-release \
+            @semantic-release/changelog \
+            @semantic-release/git \
+            @semantic-release/commit-analyzer \
+            @semantic-release/release-notes-generator
          
 
-      ##configured with .releaseseec
+          ##configured with .releaseseec
       - name: run semantic release
         id: set-semantic-version
         env:
@@ -60,11 +53,11 @@ jobs:
           SEMVER_VERSION=$(npx semantic-release | grep -oP 'Published release \K[\d.]+')
           echo "semantic-release-version=$SEMVER_VERSION" >> $GITHUB_OUTPUT
     
-build-bcl-package-and-publish:
-    needs: [generate-dev-semantic-version, commitlint, gitguardian-scan,Unit-Tests,E2E-Tests]
+  build-bcl-package-and-publish:
+    needs: [generate-semantic-version]
     runs-on: ubuntu-latest
     env:
-      BCL_VERSION: ${{ needs.generate-semantic-version.outputs.package-version }}
+      BCL_VERSION: ${{ needs.generate-semantic-version.outputs.semantic-release-version }}
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -100,12 +93,6 @@ build-bcl-package-and-publish:
             /p:BCLVersion=$BCL_VERSION \
             /p:NupkgOutputPath=$NUPKG_OUTPUT_PATH
 
-      # - name: List Created Package
-        # run: ls -l $BCL_Local_Source
-
-      # - name: echo path for artifact
-        # run: echo "${{ env.NUPKG_OUTPUT_PATH }}"
-
       - name: echo hint information about restore
         run: echo "if a hash error occurs for the bcl package the version number may need increasing or a clean step"
 
@@ -117,47 +104,49 @@ build-bcl-package-and-publish:
           --skip-duplicate
 
 
-Update-gh-pages-site:
+  Update-gh-pages-site:
+      needs: [build-bcl-package-and-publish, generate-semantic-version]
       runs-on: ubuntu-latest
-      needs: [build-bcl-package-and-publish, ]
       env:
-       BCL_VERSION: ${{ needs.generate-semantic-version.outputs.package-version }}
+        BCL_VERSION: ${{ needs.generate-semantic-version.outputs.semantic-release-version }}
       steps:
-    
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v3
-        with:
-          dotnet-version: '8.0.x'
+        - name: Checkout Code
+          uses: actions/checkout@v4
+
+        - name: Setup .NET
+          uses: actions/setup-dotnet@v4
+          with:
+            global-json-file: global.json
           
-      - name: Replace local environment variable in nuget config because cant provide it as a parameter
-        run: |
-          sed -i "s|%LocalPackagePath%|$BCL_Source|g" nuget.config
-          sed -i "s|%GITHUB_USERNAME%|$GITHUB_USERNAME|g" nuget.config
-          sed -i "s|%GITHUB_PACKAGES_TOKEN%|$PACKAGES_TOKEN |g" nuget.config
+        - name: Replace local environment variable in nuget config because cant provide it as a parameter
+          run: |
+            sed -i "s|%LocalPackagePath%|$BCL_Source|g" nuget.config
+            sed -i "s|%GITHUB_USERNAME%|$GITHUB_USERNAME|g" nuget.config
+            sed -i "s|%GITHUB_PACKAGES_TOKEN%|$PACKAGES_TOKEN |g" nuget.config
 
       
-      - name: Clean lock files because the newly generated package file will superseed the locks
-        run: |
-          find . -name "packages.lock.json" -type f -exec rm -f {} \;
+        - name: Clean lock files because the newly generated package file will superseed the locks
+          run: |
+            find . -name "packages.lock.json" -type f -exec rm -f {} \;
        
-      - name: Restore NuGet Packages for Specifically the BCL Package Library Project
-        run: dotnet restore TestHostPrerenderWASM/TestHostPrerenderWASM.Client/TestHostPrerenderWASM.Client.csproj      
+        - name: Restore NuGet Packages for Specifically the BCL Package Library Project
+          run: dotnet restore TestHostPrerenderWASM/TestHostPrerenderWASM.Client/TestHostPrerenderWASM.Client.csproj      
         
-      - name: Create docs directory
-        run: mkdir -p docs
+        - name: Create docs directory
+          run: mkdir -p docs
         
-      - name: Publish client using client release .csproj logic
-        run: |
-          dotnet publish ./TestHostPrerenderWASM/TestHostPrerenderWASM.Client/TestHostPrerenderWASM.Client.csproj --configuration Release \
-            /p:IsLocalDev=$IS_LOCAL_DEV \
-            /p:BCLVersion=$BCL_VERSION \
-            /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE
+        - name: Publish client using client release .csproj logic
+          run: |
+            dotnet publish ./TestHostPrerenderWASM/TestHostPrerenderWASM.Client/TestHostPrerenderWASM.Client.csproj --configuration Release \
+              /p:IsLocalDev=$IS_LOCAL_DEV \
+              /p:BCLVersion=$BCL_VERSION \
+              /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE
                   
       
       # No this will be in the release branch that we do a prod wiki host
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          folder: docs  # The folder the action should deploy
-          branch: gh-pages  # The branch the action should deploy to
+        - name: Deploy to GitHub Pages
+          uses: JamesIves/github-pages-deploy-action@v4
+          with:
+            folder: docs  # The folder the action should deploy
+            branch: gh-pages  # The branch the action should deploy to
         
