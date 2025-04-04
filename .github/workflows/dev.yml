@@ -125,24 +125,25 @@ jobs:
           PACKAGES_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
         run: |
           #echo "Running Semantic Release dry run..."
-          #SEMVER_OUTPUT=$(npx semantic-release --dry-run)
+          SEMVER_OUTPUT_DRY=$(npx semantic-release --dry-run)
+          echo SEMVER_OUTPUT_DRY
           SEMVER_OUTPUT_RAW=$(npx semantic-release | grep -oP 'Published release \K[\d.]+')
           
           echo "Semantic Release Output: $SEMVER_OUTPUT_RAW"
-          SEMVER_OUTPUT=$(echo SEMVER_OUTPUT_RAW | grep -oP 'Published release \K[\d.]+')
-          echo "!!!!!!!!"
-          echo SEMVER_OUTPUT
-          echo "!!!!!!!!"
-          # Debug: Check exit code of semantic-release
-          SEMVER_EXIT_CODE=$?
-          echo "Semantic Release Exit Code: $SEMVER_EXIT_CODE"    
+          # SEMVER_OUTPUT=$(echo SEMVER_OUTPUT_RAW | grep -oP 'Published release \K[\d.]+')
+          # echo "!!!!!!!!"
+          # echo SEMVER_OUTPUT
+          # echo "!!!!!!!!"
+          # # Debug: Check exit code of semantic-release
+          # SEMVER_EXIT_CODE=$?
+          # echo "Semantic Release Exit Code: $SEMVER_EXIT_CODE"    
 
-          TIMESTAMP=$(date +"%y%m%d-%H-%M-%S")
-          BRANCH_NAME=$(echo "${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" | sed 's/[^a-zA-Z0-9.-]/_/g')
+          # TIMESTAMP=$(date +"%y%m%d-%H-%M-%S")
+          # BRANCH_NAME=$(echo "${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" | sed 's/[^a-zA-Z0-9.-]/_/g')
 
-          FULL_VERSION="${SEMVER_OUTPUT}-${BRANCH_NAME}-${TIMESTAMP}"
-          echo "Extracted Version: $FULL_VERSION"
-          echo "dev-semantic-version=$FULL_VERSION" >> $GITHUB_OUTPUT
+          # FULL_VERSION="${SEMVER_OUTPUT}-${BRANCH_NAME}-${TIMESTAMP}"
+          # echo "Extracted Version: $FULL_VERSION"
+          # echo "dev-semantic-version=$FULL_VERSION" >> $GITHUB_OUTPUT
           
       #SEMVER_VERSION=$(npx semantic-release --dry-run | grep -oP 'Published release \K[\d.]+')
       #SEMVER_VERSION=$(npx semantic-release --dry-run | grep -oP 'Published release \K[\d.]+' || echo "0.1.0")
