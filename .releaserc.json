@@ -3,7 +3,8 @@
     "master",
     {
       "name": "feat-*",
-      "prerelease": true
+      "prerelease": true,
+      "channel": "dev"
     }
   ],
   "plugins": [
