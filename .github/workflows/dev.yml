@@ -139,7 +139,7 @@ jobs:
           echo "dev-semantic-version=$FULL_VERSION" >> $GITHUB_OUTPUT
           
           
-     - name: debug github commands
+      - name: debug github commands
         run: |
           echo "as we will name commits like fix(broken-thing): changed broken line, and branches fix/broken-thing  we should be able to use them in package names"
           echo "branch tag $(git describe --tags --abbrev=0)"
