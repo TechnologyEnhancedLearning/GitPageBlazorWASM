@@ -1,3 +1,10 @@
+# [1.3.0-feat-no-slashes-in-branches.11](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.3.0-feat-no-slashes-in-branches.10...v1.3.0-feat-no-slashes-in-branches.11) (2025-04-04)
+
+
+### Features
+
+* **cale:** kale ([e302d08](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/e302d08f8d67147fddb2575213f297c62f275cd0))
+
 # [1.3.0-feat-no-slashes-in-branches.10](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.3.0-feat-no-slashes-in-branches.9...v1.3.0-feat-no-slashes-in-branches.10) (2025-04-04)
 
 
