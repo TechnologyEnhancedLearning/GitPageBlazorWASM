@@ -137,7 +137,7 @@ jobs:
           set +e
           SEMVER_OUTPUT_RAW=$(npx semantic-release | grep -oP 'Published release \K[^\s]+')
           STATUS=$?
-          echo "SEMVER_OUTPUT_RAW=$semver_output_raw" >> $GITHUB_ENV
+          echo "SEMVER_OUTPUT_RAW=$SEMVER_OUTPUT_RAW" >> $GITHUB_ENV
           set -e
           
 
