@@ -21,3 +21,30 @@
 //    ]
 //  ]
 //}
+
+///
+    {
+      "name": "feat/*",
+      "prerelease": "dev",
+      "channel": "dev"
+    },
+    {
+      "name": "feature/*",
+      "prerelease": "dev",
+      "channel": "dev"
+    },
+    {
+      "name": "fix/*",
+      "prerelease": "dev",
+      "channel": "dev"
+    },
+    {
+      "name": "bugfix/*",
+      "prerelease": "dev",
+      "channel": "dev"
+    },
+    {
+      "name": "hotfix/*",
+      "prerelease": "dev",
+      "channel": "dev"
+    },
