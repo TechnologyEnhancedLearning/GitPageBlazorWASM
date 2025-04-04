@@ -3,68 +3,55 @@
     "master",
     {
       "name": "feat-*",
-      "prerelease": true,
-      "channel": "dev"
+      "prerelease": true
     },
     {
       "name": "fix-*",
-      "prerelease": true,
-      "channel": "dev"
+      "prerelease": true
     },
     {
       "name": "bugfix-*",
-      "prerelease": true,
-      "channel": "dev"
+      "prerelease": true
     },
     {
       "name": "hotfix-*",
-      "prerelease": true,
-      "channel": "dev"
+      "prerelease": true
     },
     {
       "name": "build-*",
-      "prerelease": true,
-      "channel": "dev"
+      "prerelease": true
     },
     {
       "name": "chore-*",
-      "prerelease": true,
-      "channel": "dev"
+      "prerelease": true
     },
     {
       "name": "ci-*",
-      "prerelease": true,
-      "channel": "dev"
+      "prerelease": true
     },
     {
       "name": "docs-*",
-      "prerelease": true,
-      "channel": "dev"
+      "prerelease": true
     },
     {
       "name": "perf-*",
-      "prerelease": true,
-      "channel": "dev"
+      "prerelease": true
     },
     {
       "name": "refactor-*",
-      "prerelease": true,
-      "channel": "dev"
+      "prerelease": true
     },
     {
       "name": "revert-*",
-      "prerelease": true,
-      "channel": "dev"
+      "prerelease": true
     },
     {
       "name": "style-*",
-      "prerelease": true,
-      "channel": "dev"
+      "prerelease": true
     },
     {
       "name": "test-*",
-      "prerelease": true,
-      "channel": "dev"
+      "prerelease": true
     }
   ],
   "plugins": [
