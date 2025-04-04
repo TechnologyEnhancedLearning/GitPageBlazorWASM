@@ -116,17 +116,6 @@ jobs:
     
       # - name: Debug Git Remote Branches
         # run: git remote show origin
-        
-      #qqqq new approach version the branch
-      - name: Run Semantic Version
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PACKAGES_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
-        run: |
-          SEMVER_OUTPUT_RAW=$(npx semantic-release | grep -oP 'Published release \K[^\s]+')
-          echo "SEMVER_OUTPUT_RAW=$semver_output_raw" >> $GITHUB_ENV
-          
-          
       - name: Check Existing Tags
         run: |
           echo "Checking existing tags..."
@@ -138,6 +127,18 @@ jobs:
           echo "Running Semantic Release dry run..."
           SEMVER_OUTPUT_DRY=$(npx semantic-release --dry-run)
           echo "Dry run output $SEMVER_OUTPUT_DRY"
+          
+      #qqqq new approach version the branch
+      - name: Run Semantic Version
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PACKAGES_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
+        run: |
+          SEMVER_OUTPUT_RAW=$(npx semantic-release | grep -oP 'Published release \K[^\s]+')
+          echo "SEMVER_OUTPUT_RAW=$semver_output_raw" >> $GITHUB_ENV
+          
+          
+
           
       - name: Rename Semver Version With Date Time Dev
         id: set-dev-semantic-version
