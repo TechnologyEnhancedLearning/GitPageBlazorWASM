@@ -1,3 +1,10 @@
+# [1.3.0-feat-no-slashes-in-branches.2](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.3.0-feat-no-slashes-in-branches.1...v1.3.0-feat-no-slashes-in-branches.2) (2025-04-04)
+
+
+### Features
+
+* **plz:** plz ([4420cae](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/4420cae9d5acc00edcbeee5b20a86f663b330fd1))
+
 # [1.3.0-feat-no-slashes-in-branches.1](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.2.41...v1.3.0-feat-no-slashes-in-branches.1) (2025-04-04)
 
 
