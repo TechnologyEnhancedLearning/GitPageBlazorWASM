@@ -102,13 +102,13 @@ jobs:
        
       #qqqq now pipeline is in use maybe just use git tag
       
-      - name: Run Semantic Dev Release
-        id: set-dev-semantic-version
-        run: |
-          npx semantic-release
-          echo "dev-version=$(git describe --tags --abbrev=0)" >> $GITHUB_OUTPUT
-        env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # - name: Run Semantic Dev Release
+        # id: set-dev-semantic-version
+        # run: |
+          # npx semantic-release
+          # echo "dev-version=$(git describe --tags --abbrev=0)" >> $GITHUB_OUTPUT
+        # env:
+            # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     
       #qqqq new approach version the branch
       - name: Run Semantic Version
@@ -141,6 +141,7 @@ jobs:
           
       - name: debug github commands
         run: |
+          echo "but we want more complex versioning currently so wont use tag but will for release qqqq"
           echo "as we will name commits like fix(broken-thing): changed broken line, and branches fix/broken-thing  we should be able to use them in package names"
           echo "branch tag $(git describe --tags --abbrev=0)"
           echo "branch name $(git branch --show-current)"
