@@ -1,0 +1,23 @@
+//if we were setting the semver chore against its own release branch we would do for a bigger project then having it publish the package would make sense
+  //but we are happy with them all together and less branches
+//qqqq we are using nuget push currently to phil-nhs but i semantic-release can do it for us
+//qqqq this does a few powerful things we could reduce the code in the ymls
+//qqqq this worked{
+//  "branches": [ "master" ],
+//  "plugins": [
+//    "@semantic-release/commit-analyzer",
+//    "@semantic-release/release-notes-generator",
+//    [
+//      "@semantic-release/changelog",
+//      { "changelogFile": "CHANGELOG.md" }
+//    ],
+//    [
+//      "@semantic-release/git",
+//      { "assets": [ "CHANGELOG.md" ] }
+//    ],
+//    [
+//      "@semantic-release/github",
+//      { "assets": "bin/Release/*.nupkg" }
+//    ]
+//  ]
+//}
