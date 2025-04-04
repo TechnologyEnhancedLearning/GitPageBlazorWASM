@@ -17,6 +17,7 @@
       "@semantic-release/git",
       { "assets": [ "CHANGELOG.md" ] }
     ]
-  ]
+  ],
+  "repositoryUrl": "https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM"
 }
 
