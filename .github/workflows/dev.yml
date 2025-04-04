@@ -116,27 +116,29 @@ jobs:
     
       # - name: Debug Git Remote Branches
         # run: git remote show origin
-      - name: Check Existing Tags
-        run: |
-          echo "Checking existing tags..."
-          git fetch --tags
-          git tag -l  # List all tags to see if there are any conflicts
+      # - name: Check Existing Tags
+        # run: |
+          # echo "Checking existing tags..."
+          # git fetch --tags
+          # git tag -l  # List all tags to see if there are any conflicts
 
-      - name: Run Semantic Release Dry Run
-        run: |
-          echo "Running Semantic Release dry run..."
-          SEMVER_OUTPUT_DRY=$(npx semantic-release --dry-run)
-          echo "Dry run output $SEMVER_OUTPUT_DRY"
+      # - name: Run Semantic Release Dry Run
+        # run: |
+          # echo "Running Semantic Release dry run..."
+          # SEMVER_OUTPUT_DRY=$(npx semantic-release --dry-run)
+          # echo "Dry run output $SEMVER_OUTPUT_DRY"
           
       #qqqq new approach version the branch
-      - name: Run Semantic Version
+      - name: Run Semantic Version (None Blocking)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PACKAGES_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
         run: |
+          set +e
           SEMVER_OUTPUT_RAW=$(npx semantic-release | grep -oP 'Published release \K[^\s]+')
+          STATUS=$?
           echo "SEMVER_OUTPUT_RAW=$semver_output_raw" >> $GITHUB_ENV
-          
+          set -e
           
 
           
@@ -149,7 +151,7 @@ jobs:
           echo "Timestamp $timestamp"
           
           echo "shouldnt timestamp but ok for now qqqq"
-          full_version="${timestamp}-${SEMVER_OUTPUT_RAW}"
+          full_version="${SEMVER_OUTPUT_RAW}-${timestamp}"
           echo "extracted version $full_version"
           echo "dev-semantic-version=$full_version" >> $GITHUB_OUTPUT
 
