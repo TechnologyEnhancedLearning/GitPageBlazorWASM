@@ -126,6 +126,19 @@ jobs:
           SEMVER_OUTPUT_RAW=$(npx semantic-release | grep -oP 'Published release \K[^\s]+')
           echo "SEMVER_OUTPUT_RAW=$semver_output_raw" >> $GITHUB_ENV
           
+          
+      - name: Check Existing Tags
+        run: |
+          echo "Checking existing tags..."
+          git fetch --tags
+          git tag -l  # List all tags to see if there are any conflicts
+
+      - name: Run Semantic Release Dry Run
+        run: |
+          echo "Running Semantic Release dry run..."
+          SEMVER_OUTPUT_DRY=$(npx semantic-release --dry-run)
+          echo "Dry run output $SEMVER_OUTPUT_DRY"
+          
       - name: Rename Semver Version With Date Time Dev
         id: set-dev-semantic-version
         run: |        
