@@ -1,3 +1,40 @@
+# [1.3.0-namingWithSlashAndFailingMaybe.1](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.2.41...v1.3.0-namingWithSlashAndFailingMaybe.1) (2025-04-04)
+
+
+### Bug Fixes
+
+* **centalising yaml:** yaml ([8334d02](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/8334d022b4603e8040bc87a8cada1d2c8b1ff34b))
+* **commit history git ui commits break semver:** fix semver ([a6ef9e3](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/a6ef9e374a953b3ec112e087dc1a693d0ecb9004))
+* **dddd:** gggg ([9295645](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/929564593220945ad89e3d3a9f7f25a05af24cd0))
+* **debug:** gogogo ([a2c9fbb](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/a2c9fbb11c84a39bde62ed6acbe51fb9afd6e32a))
+* **eurggh:** ee ([5c7212d](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/5c7212d0491a916721b24ff3860439709a2be584))
+* **go:** go ([1a3faf0](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/1a3faf0604f0d61c2e3caeb55e466ed9bd60c881))
+* **more debugging:** jhfhf ([9d934f9](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/9d934f9ac2149344e8e866df6ea9a5c276a1575e))
+* **post version reset does it work:** sdh ([08a55c1](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/08a55c185e425b7c077df331f97f269333d068a1))
+* **spacing:** ffhf ([67bbd20](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/67bbd2045b92a407e8963543b07d0c68631a0569))
+* **yml:** still trying to fix ([0f7ad99](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/0f7ad99787399feabe9c38c435d4ad66280014ae))
+
+
+### Features
+
+* **123:** feat ([c525139](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/c525139513398eec83786cd36c6c0851208db8f8))
+* **a feat:** feat ([618d197](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/618d197f0f0517f0e2f2d59cfa77513a89228460))
+* **go:** feat ([11dc77e](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/11dc77e86b6a97f7c53985762af9ef8e3d8642f0))
+* **just try:** sdf ([04cd1c8](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/04cd1c8bc8cec89fbe1cb5503b8b0f04d685dd7a))
+* **last go:** please ([1c55d91](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/1c55d91a5eafa01b82157fa13a939a2445d838ed))
+* **last:** gogog ([0f459c5](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/0f459c5f48a7043cc25a447b6a71d321522e14f2))
+* **maybe:** fhfh ([6d71a8a](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/6d71a8a5b2324d7be39a47dbf6ff1cbfc60712a6))
+* **new-feat:** new feature ([fdaad2b](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/fdaad2b0cc5acb8018a3dd8320e0ae7e8fff6829))
+* **only:** go ([c4ddfc3](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/c4ddfc36111e6a3150e11e8c85c1d6c15132fe66))
+* **oop:** oops ([7056e73](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/7056e73f9d9f40e8613fd428058c14eb6f5f0117))
+* **sd:** ff is release intearing ([85d1d71](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/85d1d7184cca624d9fc3771768ea33adf7f7f413))
+* **semver still:** lets go ([f2f87cd](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/f2f87cd5bc1e376cc0a865a72350d22bf37d224c))
+* **seperate yml pr release dev:** gogogo ([6b7d1cb](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/6b7d1cbcf10c8bec05828d923ab27071b2eb65d0))
+* **simplex:** over complex ([cb7c95e](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/cb7c95ef453d823319354b05be9ad4a913c3a31a))
+* **tags been set elsewhere may fix itself:** dsfjb ([1411625](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/1411625c209582874efb22cf260b2bf580fd9118))
+* **why:** dfsf ([0a67750](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/0a677501b480e810b2e061b82d648e9d9ecd45af))
+* **yogog:** gooo ([f77fb91](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/f77fb916ef505aadb19cf6bf3fef97f884a96246))
+
 # [1.3.0](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.2.41...v1.3.0) (2025-04-03)
 
 
