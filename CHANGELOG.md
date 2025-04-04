@@ -1,3 +1,14 @@
+# [1.3.0-feat-no-slashes-in-branches.12](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.3.0-feat-no-slashes-in-branches.11...v1.3.0-feat-no-slashes-in-branches.12) (2025-04-04)
+
+
+### Features
+
+* **cant handle merges so pull before push:** gogog ([9893d8c](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/9893d8c8d94096313f406ae6c61b03b42c0a2280))
+* **channel:** isit ([62e0204](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/62e0204d5ede61a210968dcee9e8e341348341fc))
+* **sdfd:** sdfsdf ([a25b40f](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/a25b40fa6c1bcba171c2bed38b83d9c650139e6d))
+* **sfsf:** sdfsdf ([48f99a1](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/48f99a1e12aeaa0bdd2e12833fda1adafa657bbd))
+* **worked now try channel:** channel ([0ae18e6](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/0ae18e6a81d2692d8a8c0671488e905da637dd7e))
+
 # [1.3.0-feat-no-slashes-in-branches.1](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.2.41...v1.3.0-feat-no-slashes-in-branches.1) (2025-04-04)
 
 
