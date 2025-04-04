@@ -1,3 +1,16 @@
+# [1.3.0-feat-no-slashes-in-branches.8](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.3.0-feat-no-slashes-in-branches.7...v1.3.0-feat-no-slashes-in-branches.8) (2025-04-04)
+
+
+### Bug Fixes
+
+* **coke:** pepse ([0079810](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/00798109fa0a30b3280f52db960cf1a6f4ce65d7))
+
+
+### Features
+
+* **cc:** ffff ([71c1e42](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/71c1e42b3f93ee542a0cc662e84f0573c752a4e8))
+* **pain:** ahhhh ([cafc6b5](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/cafc6b523a628e63bb23504741b9b7f3675f57e5))
+
 # [1.3.0-feat-no-slashes-in-branches.7](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.3.0-feat-no-slashes-in-branches.6...v1.3.0-feat-no-slashes-in-branches.7) (2025-04-04)
 
 
