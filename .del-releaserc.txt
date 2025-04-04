@@ -58,62 +58,62 @@
       "channel": "dev"
     },
     {
-      "name": "fix/*",
+      "name": "fix-*",
       "prerelease": true,
       "channel": "dev"
     },
     {
-      "name": "bugfix/*",
+      "name": "bugfix-*",
       "prerelease": true,
       "channel": "dev"
     },
     {
-      "name": "hotfix/*",
+      "name": "hotfix-*",
       "prerelease": true,
       "channel": "dev"
     },
     {
-      "name": "build/*",
+      "name": "build-*",
       "prerelease": true,
       "channel": "dev"
     },
     {
-      "name": "chore/*",
+      "name": "chore-*",
       "prerelease": true,
       "channel": "dev"
     },
     {
-      "name": "ci/*",
+      "name": "ci-*",
       "prerelease": true,
       "channel": "dev"
     },
     {
-      "name": "docs/*",
+      "name": "docs-*",
       "prerelease": true,
       "channel": "dev"
     },
     {
-      "name": "perf/*",
+      "name": "perf-*",
       "prerelease": true,
       "channel": "dev"
     },
     {
-      "name": "refactor/*",
+      "name": "refactor-*",
       "prerelease": true,
       "channel": "dev"
     },
     {
-      "name": "revert/*",
+      "name": "revert-*",
       "prerelease": true,
       "channel": "dev"
     },
     {
-      "name": "style/*",
+      "name": "style-*",
       "prerelease": true,
       "channel": "dev"
     },
     {
-      "name": "test/*",
+      "name": "test-*",
       "prerelease": true,
       "channel": "dev"
     }    {

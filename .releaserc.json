@@ -5,6 +5,66 @@
       "name": "feat-*",
       "prerelease": true,
       "channel": "dev"
+    },
+    {
+      "name": "fix-*",
+      "prerelease": true,
+      "channel": "dev"
+    },
+    {
+      "name": "bugfix-*",
+      "prerelease": true,
+      "channel": "dev"
+    },
+    {
+      "name": "hotfix-*",
+      "prerelease": true,
+      "channel": "dev"
+    },
+    {
+      "name": "build-*",
+      "prerelease": true,
+      "channel": "dev"
+    },
+    {
+      "name": "chore-*",
+      "prerelease": true,
+      "channel": "dev"
+    },
+    {
+      "name": "ci-*",
+      "prerelease": true,
+      "channel": "dev"
+    },
+    {
+      "name": "docs-*",
+      "prerelease": true,
+      "channel": "dev"
+    },
+    {
+      "name": "perf-*",
+      "prerelease": true,
+      "channel": "dev"
+    },
+    {
+      "name": "refactor-*",
+      "prerelease": true,
+      "channel": "dev"
+    },
+    {
+      "name": "revert-*",
+      "prerelease": true,
+      "channel": "dev"
+    },
+    {
+      "name": "style-*",
+      "prerelease": true,
+      "channel": "dev"
+    },
+    {
+      "name": "test-*",
+      "prerelease": true,
+      "channel": "dev"
     }
   ],
   "plugins": [
