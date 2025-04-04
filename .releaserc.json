@@ -2,8 +2,8 @@
   "branches": [
     "master",
     {
-      "name": "feat/**",
-      "prerelease": "namingWithSlashAndFailingMaybe"
+      "name": "feat-*",
+      "prerelease": true
     }
   ],
   "plugins": [
