@@ -119,34 +119,28 @@ jobs:
         
       #qqqq new approach version the branch
       - name: Run Semantic Version
-        id: set-dev-semantic-version
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PACKAGES_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
         run: |
-          #echo "Running Semantic Release dry run..."
-          SEMVER_OUTPUT_DRY=$(npx semantic-release --dry-run)
-          echo SEMVER_OUTPUT_DRY
-          SEMVER_OUTPUT_RAW=$(npx semantic-release | grep -oP 'Published release \K[\d.]+')
+          SEMVER_OUTPUT_RAW=$(npx semantic-release | grep -oP 'Published release \K[^\s]+')
+          echo "SEMVER_OUTPUT_RAW=$semver_output_raw" >> $GITHUB_ENV
           
+      - name: Rename Semver Version With Date Time Dev
+        id: set-dev-semantic-version      
           echo "Semantic Release Output: $SEMVER_OUTPUT_RAW"
-          # SEMVER_OUTPUT=$(echo SEMVER_OUTPUT_RAW | grep -oP 'Published release \K[\d.]+')
-          # echo "!!!!!!!!"
-          # echo SEMVER_OUTPUT
-          # echo "!!!!!!!!"
-          # # Debug: Check exit code of semantic-release
-          # SEMVER_EXIT_CODE=$?
-          # echo "Semantic Release Exit Code: $SEMVER_EXIT_CODE"    
+  
 
-          # TIMESTAMP=$(date +"%y%m%d-%H-%M-%S")
-          # BRANCH_NAME=$(echo "${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" | sed 's/[^a-zA-Z0-9.-]/_/g')
-
-          # FULL_VERSION="${SEMVER_OUTPUT}-${BRANCH_NAME}-${TIMESTAMP}"
-          # echo "Extracted Version: $FULL_VERSION"
-          # echo "dev-semantic-version=$FULL_VERSION" >> $GITHUB_OUTPUT
+          timestamp=$(date +"%y%m%d-%h-%m-%s")
+          echo "Timestamp: $timestamp"
           
-      #SEMVER_VERSION=$(npx semantic-release --dry-run | grep -oP 'Published release \K[\d.]+')
-      #SEMVER_VERSION=$(npx semantic-release --dry-run | grep -oP 'Published release \K[\d.]+' || echo "0.1.0")
+          branch_name=$(echo "${github_head_ref:-${github_ref#refs/heads/}}" | sed 's/[^a-za-z0-9.-]/_/g')
+          echo "Branch Name: $branch_name"
+          
+          full_version="${SEMVER_OUTPUT_RAW"}-${branch_name}-${timestamp}"
+          echo "extracted version: $full_version"
+          echo "dev-semantic-version=$full_version" >> $github_output
+
       - name: debug github commands
         run: |
           echo "but we want more complex versioning currently so wont use tag but will for release qqqq"
