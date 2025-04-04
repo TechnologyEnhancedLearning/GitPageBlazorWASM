@@ -117,7 +117,7 @@ jobs:
       - name: Run Semantic Version
         id: set-dev-semantic-version
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
         run: |
           #echo "Running Semantic Release dry run..."
           #SEMVER_OUTPUT=$(npx semantic-release --dry-run)
