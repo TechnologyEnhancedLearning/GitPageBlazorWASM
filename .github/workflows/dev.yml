@@ -128,17 +128,17 @@ jobs:
           
       - name: Rename Semver Version With Date Time Dev
         id: set-dev-semantic-version      
-          echo "Semantic Release Output: $SEMVER_OUTPUT_RAW"
+          echo "Semantic Release Output $SEMVER_OUTPUT_RAW"
   
 
           timestamp=$(date +"%y%m%d-%h-%m-%s")
-          echo "Timestamp: $timestamp"
+          echo "Timestamp $timestamp"
           
           branch_name=$(echo "${github_head_ref:-${github_ref#refs/heads/}}" | sed 's/[^a-za-z0-9.-]/_/g')
-          echo "Branch Name: $branch_name"
+          echo "Branch Name $branch_name"
           
           full_version="${SEMVER_OUTPUT_RAW"}-${branch_name}-${timestamp}"
-          echo "extracted version: $full_version"
+          echo "extracted version $full_version"
           echo "dev-semantic-version=$full_version" >> $github_output
 
       - name: debug github commands
