@@ -23,6 +23,47 @@
 
 * **123:** feat ([c525139](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/c525139513398eec83786cd36c6c0851208db8f8))
 * **cale:** kale ([e302d08](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/e302d08f8d67147fddb2575213f297c62f275cd0))
+* **cant handle merges so pull before push:** gogog ([9893d8c](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/9893d8c8d94096313f406ae6c61b03b42c0a2280))
+* **cc:** ffff ([71c1e42](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/71c1e42b3f93ee542a0cc662e84f0573c752a4e8))
+* **ddd:** ddd ([d6331f1](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/d6331f17586f52f9eae28a7eb8494ac855135958))
+* **desperate:** without debug as new weird error ([b653585](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/b65358503e8619831e63857086b52cee343ec6aa))
+* **dev:** dev ([17468c7](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/17468c740e97092949012b63c829949b5e072604))
+* **gogog:** gogog ([7b6f5f9](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/7b6f5f9a146aa05fecd5d049365a70dd04b405ee))
+* **just try:** sdf ([04cd1c8](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/04cd1c8bc8cec89fbe1cb5503b8b0f04d685dd7a))
+* **pain:** ahhhh ([cafc6b5](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/cafc6b523a628e63bb23504741b9b7f3675f57e5))
+* **plz:** plz ([4420cae](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/4420cae9d5acc00edcbeee5b20a86f663b330fd1))
+* **sd:** ff is release intearing ([85d1d71](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/85d1d7184cca624d9fc3771768ea33adf7f7f413))
+* **semver still:** lets go ([f2f87cd](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/f2f87cd5bc1e376cc0a865a72350d22bf37d224c))
+* **seperate yml pr release dev:** gogogo ([6b7d1cb](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/6b7d1cbcf10c8bec05828d923ab27071b2eb65d0))
+* **slashless:** googog ([11a8e5b](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/11a8e5b0510e79215f9e611e8fc9bebc4500867a))
+* **tags been set elsewhere may fix itself:** dsfjb ([1411625](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/1411625c209582874efb22cf260b2bf580fd9118))
+* **worked now try channel:** channel ([0ae18e6](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/0ae18e6a81d2692d8a8c0671488e905da637dd7e))
+
+# [1.3.0-feat-no-slashes-in-branches.1](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.2.41...v1.3.0-feat-no-slashes-in-branches.1) (2025-04-04)
+
+
+### Bug Fixes
+
+* **centalising yaml:** yaml ([8334d02](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/8334d022b4603e8040bc87a8cada1d2c8b1ff34b))
+* **coke:** pepse ([0079810](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/00798109fa0a30b3280f52db960cf1a6f4ce65d7))
+* **commit history git ui commits break semver:** fix semver ([a6ef9e3](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/a6ef9e374a953b3ec112e087dc1a693d0ecb9004))
+* **dddd:** gggg ([9295645](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/929564593220945ad89e3d3a9f7f25a05af24cd0))
+* **eurggh:** ee ([5c7212d](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/5c7212d0491a916721b24ff3860439709a2be584))
+* **goes:** nothing ([4a02265](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/4a02265bee93c78c2f00834ea4c9d49ec423c588))
+* **go:** go ([1a3faf0](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/1a3faf0604f0d61c2e3caeb55e466ed9bd60c881))
+* **more debugging:** jhfhf ([9d934f9](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/9d934f9ac2149344e8e866df6ea9a5c276a1575e))
+* **post version reset does it work:** sdh ([08a55c1](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/08a55c185e425b7c077df331f97f269333d068a1))
+* **spacing:** ffhf ([67bbd20](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/67bbd2045b92a407e8963543b07d0c68631a0569))
+* **token:** unlikely ([182cd83](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/182cd835d27a69113e43a0461e5a27e228e67248))
+* **ttt:** fgh ([41229ff](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/41229ff63e449794159d06202e22b0085cae4b0b))
+* **where really is the error:** error ([65971d8](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/65971d8ddb5256e6e70dafc4ede719c73b598131))
+* **yml:** still trying to fix ([0f7ad99](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/0f7ad99787399feabe9c38c435d4ad66280014ae))
+
+
+### Features
+
+* **123:** feat ([c525139](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/c525139513398eec83786cd36c6c0851208db8f8))
+* **cale:** kale ([e302d08](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/e302d08f8d67147fddb2575213f297c62f275cd0))
 * **cc:** ffff ([71c1e42](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/71c1e42b3f93ee542a0cc662e84f0573c752a4e8))
 * **ddd:** ddd ([d6331f1](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/d6331f17586f52f9eae28a7eb8494ac855135958))
 * **desperate:** without debug as new weird error ([b653585](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/b65358503e8619831e63857086b52cee343ec6aa))
