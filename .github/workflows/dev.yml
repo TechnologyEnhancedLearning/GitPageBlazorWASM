@@ -110,6 +110,9 @@ jobs:
         # env:
             # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     
+      - name: Debug Git Remote Branches
+        run: git remote show origin
+        
       #qqqq new approach version the branch
       - name: Run Semantic Version
         id: set-dev-semantic-version
