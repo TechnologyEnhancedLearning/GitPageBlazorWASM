@@ -130,13 +130,12 @@ jobs:
         id: set-dev-semantic-version
         run: |        
           echo "Semantic Release Output $SEMVER_OUTPUT_RAW"
-  
 
           timestamp=$(date +"%y%m%d-%h-%m-%s")
           echo "Timestamp $timestamp"
           
           echo "shouldnt timestamp but ok for now qqqq"
-          full_version="${timestamp}-${SEMVER_OUTPUT_RAW"}"
+          full_version="${timestamp}-${SEMVER_OUTPUT_RAW}"
           echo "extracted version $full_version"
           echo "dev-semantic-version=$full_version" >> $github_output
 
