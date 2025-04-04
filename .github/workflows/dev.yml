@@ -135,10 +135,8 @@ jobs:
           timestamp=$(date +"%y%m%d-%h-%m-%s")
           echo "Timestamp $timestamp"
           
-          branch_name=$(echo "${github_head_ref:-${github_ref#refs/heads/}}" | sed 's/[^a-za-z0-9.-]/_/g')
-          echo "Branch Name $branch_name"
-          
-          full_version="${SEMVER_OUTPUT_RAW"}-${branch_name}-${timestamp}"
+          echo "shouldnt timestamp but ok for now qqqq"
+          full_version="${timestamp}-${SEMVER_OUTPUT_RAW"}"
           echo "extracted version $full_version"
           echo "dev-semantic-version=$full_version" >> $github_output
 
