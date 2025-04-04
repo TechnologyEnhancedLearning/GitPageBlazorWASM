@@ -1,3 +1,11 @@
+# [1.3.0-feat-no-slashes-in-branches.13](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.3.0-feat-no-slashes-in-branches.12...v1.3.0-feat-no-slashes-in-branches.13) (2025-04-04)
+
+
+### Features
+
+* **dfsd:** looop ([320ea67](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/320ea67e49e32e7a6980f4d3de4efe70fdf6872b))
+* **dggg:** gggg ([101fea4](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/101fea41bce28416e7010a5b27118e8eb7e822ee))
+
 # [1.3.0-feat-no-slashes-in-branches.12](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.3.0-feat-no-slashes-in-branches.11...v1.3.0-feat-no-slashes-in-branches.12) (2025-04-04)
 
 
