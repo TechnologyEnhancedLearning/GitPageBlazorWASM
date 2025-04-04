@@ -1,6 +1,9 @@
 name: Triggerable workflow using blazorwasm dev artifact
 
 on:
+  push:
+    branches:
+      - non-existent-branch
   # workflow_dispatch:
     # inputs:
       # artifact_url:

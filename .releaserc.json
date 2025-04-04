@@ -1,5 +1,11 @@
 {
-  "branches": [ "master" ],
+  "branches": [
+    "master",
+    {
+      "name": "feat/**",
+      "prerelease": "namingWithSlashAndFailingMaybe"
+    }
+  ],
   "plugins": [
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
@@ -13,7 +19,8 @@
     ],
     [
       "@semantic-release/github",
-      { "assets": "bin/Release/*.nupkg" }
+      { "assets": "/CICDPackageLocation/TELBlazorComponentLibrary.GitPageBlazorWasm.*.nupkg" }
     ]
   ]
 }
+
