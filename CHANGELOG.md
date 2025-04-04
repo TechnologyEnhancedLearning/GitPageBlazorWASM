@@ -1,3 +1,10 @@
+# [1.3.0-feat-no-slashes-in-branches.9](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.3.0-feat-no-slashes-in-branches.8...v1.3.0-feat-no-slashes-in-branches.9) (2025-04-04)
+
+
+### Features
+
+* **gogog:** gogog ([7b6f5f9](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/7b6f5f9a146aa05fecd5d049365a70dd04b405ee))
+
 # [1.3.0-feat-no-slashes-in-branches.8](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.3.0-feat-no-slashes-in-branches.7...v1.3.0-feat-no-slashes-in-branches.8) (2025-04-04)
 
 
