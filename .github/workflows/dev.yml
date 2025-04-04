@@ -126,11 +126,11 @@ jobs:
         run: |
           #echo "Running Semantic Release dry run..."
           #SEMVER_OUTPUT=$(npx semantic-release --dry-run)
-          SEMVER_OUTPUT_RAW=$(npx semantic-release --debug | grep -oP 'Published release \K[\d.]+')
+          SEMVER_OUTPUT_RAW=$(npx semantic-release | grep -oP 'Published release \K[\d.]+')
           
           echo "Semantic Release Output: $SEMVER_OUTPUT_RAW"
           SEMVER_OUTPUT=$(echo SEMVER_OUTPUT_RAW | grep -oP 'Published release \K[\d.]+')
-          
+          echo "!!!!!!!!"
           echo SEMVER_OUTPUT
           echo "!!!!!!!!"
           # Debug: Check exit code of semantic-release
