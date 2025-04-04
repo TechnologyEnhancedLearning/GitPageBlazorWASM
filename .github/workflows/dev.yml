@@ -127,7 +127,8 @@ jobs:
           echo "SEMVER_OUTPUT_RAW=$semver_output_raw" >> $GITHUB_ENV
           
       - name: Rename Semver Version With Date Time Dev
-        id: set-dev-semantic-version      
+        id: set-dev-semantic-version
+        run: |        
           echo "Semantic Release Output $SEMVER_OUTPUT_RAW"
   
 
