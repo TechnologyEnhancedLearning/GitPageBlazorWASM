@@ -36,7 +36,25 @@ env:
 
 jobs:
 
-   
+  branch-name-check:
+    name: Enforce Branch Name Convention
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate Branch Name
+        run: |
+          BRANCH_NAME="${GITHUB_HEAD_REF}"
+          echo "Validating branch name: $BRANCH_NAME"
+
+          if [[ "$BRANCH_NAME" =~ ^(feat|fix|bugfix|hotfix|build|chore|ci|docs|perf|refactor|revert|style|test)-[a-zA-Z0-9._/-]+$ ]] || [[ "$BRANCH_NAME" == "master" ]]; then
+            echo "✅ Branch name is valid"
+          else
+            echo "❌ Invalid branch name: $BRANCH_NAME"
+            echo "Branch names must follow one of the allowed prefixes:"
+            echo "  feat-*, fix-*, bugfix-*, hotfix-*, build-*, chore-*, ci-*, docs-*, perf-*, refactor-*, revert-*, style-*, test-*"
+            exit 1
+          fi
+        continue-on-error: false
+
   commitlint:
     runs-on: ubuntu-latest
     steps:
@@ -74,7 +92,7 @@ jobs:
 
   # Now we've done due diligence
   generate-dev-semantic-version:
-    needs: [commitlint, gitguardian-scan, Unit-Tests, E2E-Tests]
+    needs: [commitlint, gitguardian-scan, Unit-Tests, E2E-Tests, branch-name-check]
     runs-on: ubuntu-latest
     outputs:
       dev-package-version: ${{ steps.set-dev-semantic-version.outputs.dev-semantic-version }}
@@ -189,7 +207,7 @@ jobs:
           # echo "dev-semantic-version=$FULL_VERSION" >> $GITHUB_OUTPUT
           
   build-bcl-dev-package-and-publish:
-    needs: [generate-dev-semantic-version, commitlint, gitguardian-scan,Unit-Tests,E2E-Tests]
+    needs: [generate-dev-semantic-version, commitlint, gitguardian-scan,Unit-Tests,E2E-Tests, branch-name-check]
     runs-on: ubuntu-latest
     env:
       BCL_VERSION: ${{ needs.generate-dev-semantic-version.outputs.dev-package-version }}
@@ -246,7 +264,7 @@ jobs:
        
           
   Make-Blazor-Wiki-Artifact-Trigger-GH-Pages-In-BlazorWasmTest:
-    needs: [ build-bcl-dev-package-and-publish,generate-dev-semantic-version, commitlint, gitguardian-scan, Unit-Tests, E2E-Tests]
+    needs: [ branch-name-check, build-bcl-dev-package-and-publish,generate-dev-semantic-version, commitlint, gitguardian-scan, Unit-Tests, E2E-Tests]
     runs-on: ubuntu-latest
     env:
       BCL_VERSION: ${{ needs.generate-dev-semantic-version.outputs.dev-package-version }}
