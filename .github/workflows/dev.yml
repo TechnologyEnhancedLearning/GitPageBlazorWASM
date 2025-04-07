@@ -136,11 +136,18 @@ jobs:
           SEMVER_OUTPUT_RAW=$(npx semantic-release)
           echo "Raw SEMVER_OUTPUT_RAW=$SEMVER_OUTPUT_RAW"
           
-          # Correct the piping and assignment
           SEMVER_OUTPUT=$(echo "$SEMVER_OUTPUT_RAW" | grep -oP 'Published release \K[^\s]+')
 
-          # Export the result to the environment
+          # In dev even if there is no version change we will package and update the website, this means it will for ci which isnt necessary
+          # but also if we squash a load of commits we will still get the package updated
+          echo "In dev even if there is no version change we will package and update the website, this means it will for ci which isnt necessary  but also if we squash a load of commits we will still get the package updated"
+          
           STATUS=$?
+          if [ -z "$SEMVER_OUTPUT" ]; then
+            SEMVER_OUTPUT=$(echo "$SEMVER_OUTPUT_RAW" | grep -oP 'Found git tag v\K[^\s]+')
+          fi
+          
+          # Export the result to the environment
           echo "SEMVER_OUTPUT=$SEMVER_OUTPUT" >> $GITHUB_ENV
           set -e
 
