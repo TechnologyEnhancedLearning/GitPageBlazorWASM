@@ -99,8 +99,6 @@ jobs:
       dev-package-version: ${{ steps.set-dev-semantic-version.outputs.dev-semantic-version }}
     steps:
     
-
-      
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
@@ -125,27 +123,7 @@ jobs:
        
       #qqqq now pipeline is in use maybe just use git tag
       
-      # - name: Run Semantic Dev Release
-        # id: set-dev-semantic-version
-        # run: |
-          # npx semantic-release
-          # echo "dev-version=$(git describe --tags --abbrev=0)" >> $GITHUB_OUTPUT
-        # env:
-            # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    
-      # - name: Debug Git Remote Branches
-        # run: git remote show origin
-      # - name: Check Existing Tags
-        # run: |
-          # echo "Checking existing tags..."
-          # git fetch --tags
-          # git tag -l  # List all tags to see if there are any conflicts
 
-      # - name: Run Semantic Release Dry Run
-        # run: |
-          # echo "Running Semantic Release dry run..."
-          # SEMVER_OUTPUT_DRY=$(npx semantic-release --dry-run)
-          # echo "Dry run output $SEMVER_OUTPUT_DRY"
           
       #qqqq new approach version the branch
       - name: Run Semantic Version (None Blocking)
@@ -154,11 +132,15 @@ jobs:
           PACKAGES_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
         run: |
           set +e
-          SEMVER_OUTPUT_RAW=$(npx semantic-release | grep -oP 'Published release \K[^\s]+')
+          SEMVER_OUTPUT_RAW=$(npx semantic-release)
+          echo "Raw SEMVER_OUTPUT_RAW=$SEMVER_OUTPUT_RAW"
+          
+          SEMVER_OUTPUT_RAW=$SEMVER_OUTPUT_RAW | grep -oP 'Published release \K[^\s]+'
+
+          # Export the result to the environment
           STATUS=$?
           echo "SEMVER_OUTPUT_RAW=$SEMVER_OUTPUT_RAW" >> $GITHUB_ENV
           set -e
-          
 
           
       - name: Rename Semver Version With Date Time Dev
@@ -184,28 +166,7 @@ jobs:
           echo "Triggering Commit Subject: $(git log -1 --pretty=%s $GITHUB_SHA)"
           echo "Commit Type/Scope: $(git log -1 --pretty=%s $GITHUB_SHA | cut -d':' -f1)"
       
-      # - name: Get Semantic Version
-        # id: set-dev-semantic-version
-        # env:
-          # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        # run: |
-          # echo "Running Semantic Release dry run..."
-          # SEMVER_OUTPUT=$(npx semantic-release --dry-run)
-          # echo "Semantic Release Output: $SEMVER_OUTPUT"
-          
-          # # Debug: Check exit code of semantic-release
-          # SEMVER_EXIT_CODE=$?
-          # echo "Semantic Release Exit Code: $SEMVER_EXIT_CODE"    
-          
-          # SEMVER_VERSION=$(npx semantic-release --dry-run | grep -oP 'Published release \K[\d.]+')
-          
-          # #SEMVER_VERSION=$(npx semantic-release --dry-run | grep -oP 'Published release \K[\d.]+' || echo "0.1.0")
-          
-          # TIMESTAMP=$(date +"%y%m%d-%H-%M-%S")
-          # BRANCH_NAME=$(echo "${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" | sed 's/[^a-zA-Z0-9.-]/_/g')
-          # FULL_VERSION="${SEMVER_VERSION}-DEV-${BRANCH_NAME}-${TIMESTAMP}"
-          # echo "Extracted Version: $FULL_VERSION"
-          # echo "dev-semantic-version=$FULL_VERSION" >> $GITHUB_OUTPUT
+
           
   build-bcl-dev-package-and-publish:
     needs: [generate-dev-semantic-version, commitlint, gitguardian-scan,Unit-Tests,E2E-Tests, branch-name-check]
@@ -400,3 +361,47 @@ jobs:
           # echo "$VERSION_JSON"
           # LATEST_VERSION=$(echo "$VERSION_JSON" | jq -r '.[0].name')
           # echo "latest-bcl-version=$LATEST_VERSION" >> $GITHUB_OUTPUT 
+      # - name: Run Semantic Dev Release
+        # id: set-dev-semantic-version
+        # run: |
+          # npx semantic-release
+          # echo "dev-version=$(git describe --tags --abbrev=0)" >> $GITHUB_OUTPUT
+        # env:
+            # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    
+      # - name: Debug Git Remote Branches
+        # run: git remote show origin
+      # - name: Check Existing Tags
+        # run: |
+          # echo "Checking existing tags..."
+          # git fetch --tags
+          # git tag -l  # List all tags to see if there are any conflicts
+
+      # - name: Run Semantic Release Dry Run
+        # run: |
+          # echo "Running Semantic Release dry run..."
+          # SEMVER_OUTPUT_DRY=$(npx semantic-release --dry-run)
+          # echo "Dry run output $SEMVER_OUTPUT_DRY"
+          
+      # - name: Get Semantic Version
+        # id: set-dev-semantic-version
+        # env:
+          # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        # run: |
+          # echo "Running Semantic Release dry run..."
+          # SEMVER_OUTPUT=$(npx semantic-release --dry-run)
+          # echo "Semantic Release Output: $SEMVER_OUTPUT"
+          
+          # # Debug: Check exit code of semantic-release
+          # SEMVER_EXIT_CODE=$?
+          # echo "Semantic Release Exit Code: $SEMVER_EXIT_CODE"    
+          
+          # SEMVER_VERSION=$(npx semantic-release --dry-run | grep -oP 'Published release \K[\d.]+')
+          
+          # #SEMVER_VERSION=$(npx semantic-release --dry-run | grep -oP 'Published release \K[\d.]+' || echo "0.1.0")
+          
+          # TIMESTAMP=$(date +"%y%m%d-%H-%M-%S")
+          # BRANCH_NAME=$(echo "${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" | sed 's/[^a-zA-Z0-9.-]/_/g')
+          # FULL_VERSION="${SEMVER_VERSION}-DEV-${BRANCH_NAME}-${TIMESTAMP}"
+          # echo "Extracted Version: $FULL_VERSION"
+          # echo "dev-semantic-version=$FULL_VERSION" >> $GITHUB_OUTPUT
