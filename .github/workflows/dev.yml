@@ -42,7 +42,8 @@ jobs:
     steps:
       - name: Validate Branch Name
         run: |
-          BRANCH_NAME="${GITHUB_HEAD_REF}"
+          #BRANCH_NAME="${GITHUB_HEAD_REF}"
+          BRANCH_NAME="${GITHUB_HEAD_REF:-${GITHUB_REF_NAME}}"
           echo "Validating branch name: $BRANCH_NAME"
 
           if [[ "$BRANCH_NAME" =~ ^(feat|fix|bugfix|hotfix|build|chore|ci|docs|perf|refactor|revert|style|test)-[a-zA-Z0-9._/-]+$ ]] || [[ "$BRANCH_NAME" == "master" ]]; then
