@@ -86,7 +86,19 @@ jobs:
             echo "No merge conflicts detected"
           fi
         continue-on-error: true
-          
+        
+  check-ci-by-failing-here:
+    runs-on: ubuntu-latest
+    steps:
+      - name: cause a fail
+        run: |
+          echo "This will fail"
+          exit 1  # Causes a failure
+        continue-on-error: true
+        
+     
+
+  
   final-validation:
     name: Final Validation (Fails if any previous job fails)
     runs-on: ubuntu-latest
@@ -98,7 +110,8 @@ jobs:
       needs.unit-tests.result == 'success' && 
       needs.e2e-tests.result == 'success' && 
       needs.code-coverage.result == 'success' && 
-      needs.Check-Merge-Conflicts.result == 'success' 
+      needs.Check-Merge-Conflicts.result == 'success' &&
+      needs.check-ci-by-failing-here.result == 'success' 
       }}
     steps:
       - name: Check all previous jobs

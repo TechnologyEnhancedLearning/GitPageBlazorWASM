@@ -9,10 +9,10 @@ on:
       - 'main'
       - 'master'
 
-  pull_request:
-    branches-ignore:
-      - 'main'
-      - 'master'
+  # pull_request:
+    # branches-ignore:
+      # - 'main'
+      # - 'master'
       
 permissions:
   contents: write
