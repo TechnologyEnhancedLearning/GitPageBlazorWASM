@@ -1,3 +1,11 @@
+# [1.3.0-feat-no-slashes-in-branches.15](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.3.0-feat-no-slashes-in-branches.14...v1.3.0-feat-no-slashes-in-branches.15) (2025-04-07)
+
+
+### Features
+
+* **branch regulation:** ci really ([2e9d50a](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/2e9d50a280542950e2f507927718bf04fa919da2))
+* **hmm:** ok meb ([099cf76](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/099cf76878a2d07c77319d31c5c54833170dee67))
+
 # [1.3.0-feat-no-slashes-in-branches.14](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.3.0-feat-no-slashes-in-branches.13...v1.3.0-feat-no-slashes-in-branches.14) (2025-04-04)
 
 
