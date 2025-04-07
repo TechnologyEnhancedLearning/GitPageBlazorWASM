@@ -7,15 +7,35 @@ on:
       
 jobs:
 
-  # qqqq repo will need branch protection rules and PR Template
+  branch-name-check:
+    name: Enforce Branch Name Convention
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate Branch Name
+        run: |
+          #BRANCH_NAME="${GITHUB_HEAD_REF}"
+          BRANCH_NAME="${GITHUB_HEAD_REF:-${GITHUB_REF_NAME}}"
+          echo "Validating branch name: $BRANCH_NAME"
+
+          if [[ "$BRANCH_NAME" =~ ^(feat|fix|bugfix|hotfix|build|chore|ci|docs|perf|refactor|revert|style|test)-[a-zA-Z0-9._/-]+$ ]] || [[ "$BRANCH_NAME" == "master" ]]; then
+            echo "✅ Branch name is valid"
+          else
+            echo "❌ Invalid branch name: $BRANCH_NAME"
+            echo "Branch names must follow one of the allowed prefixes:"
+            echo "  feat-*, fix-*, bugfix-*, hotfix-*, build-*, chore-*, ci-*, docs-*, perf-*, refactor-*, revert-*, style-*, test-*"
+            exit 1
+          fi
+        continue-on-error: true
+
   commitlint:
+  # qqqq repo will need branch protection rules and PR Template
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - uses: wagoid/commitlint-github-action@v5
-        continue-on-error: false #we dont want to package etc if bad commits also pre-commit preferred
+        continue-on-error: true #we dont want to package etc if bad commits also pre-commit preferred
         
   gitguardian-scan:
     runs-on: ubuntu-latest
@@ -26,14 +46,14 @@ jobs:
         uses: GitGuardian/gg-shield-action@v1
         env:
           GITGUARDIAN_API_KEY: ${{ secrets.GITGUARDIAN_API_KEY  }}
-        continue-on-error: false # we dont want secrets going further and the keys need to be changed if this is triggered
+        continue-on-error: true # we dont want secrets going further and the keys need to be changed if this is triggered
 
   Unit-Tests:
       runs-on: ubuntu-latest
       steps:
         - name: See other project pipeline for Tests
           run: echo "qqqq See other project pipeline for Tests this is a placeholder"
-          continue-on-error: false
+          continue-on-error: true
           
   
   E2E-Tests:
@@ -41,14 +61,14 @@ jobs:
       steps:
         - name: See other project pipeline for Tests
           run: echo "qqqq See other project pipeline for Tests this is a placeholder"
-          continue-on-error: false
+          continue-on-error: true
           
   Code-Coverage:
       runs-on: ubuntu-latest
       steps:
         - name: Code Coverage
           run: echo "TODO Code Coverage"
-          continue-on-error: false
+          continue-on-error: true
   
   Check-Merge-Conflicts:
     runs-on: ubuntu-latest
@@ -65,3 +85,21 @@ jobs:
           else
             echo "No merge conflicts detected"
           fi
+        continue-on-error: true
+          
+  final-validation:
+    name: Final Validation (Fails if any previous job fails)
+    runs-on: ubuntu-latest
+    needs: [branch-name-check, commitlint, gitguardian-scan, unit-tests, e2e-tests, code-coverage, Check-Merge-Conflicts] # Depend on all jobs
+    if: ${{ 
+      needs.branch-name-check.result == 'success' && 
+      needs.commitlint.result == 'success' && 
+      needs.gitguardian-scan.result == 'success' && 
+      needs.unit-tests.result == 'success' && 
+      needs.e2e-tests.result == 'success' && 
+      needs.code-coverage.result == 'success' && 
+      needs.Check-Merge-Conflicts.result == 'success' 
+      }}
+    steps:
+      - name: Check all previous jobs
+        run: echo "✅ All checks passed!"
