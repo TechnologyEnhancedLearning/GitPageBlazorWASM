@@ -126,6 +126,7 @@ jobs:
 
           
       #qqqq new approach version the branch
+      #qqqq do we really need to timestamp yeah but not in release so will grep only publish release there
       - name: Run Semantic Version (None Blocking)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
