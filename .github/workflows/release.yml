@@ -113,7 +113,7 @@ jobs:
   Update-gh-pages-site:
       needs: [build-bcl-package-and-publish, generate-semantic-version]
       runs-on: ubuntu-latest
-      if: ${{ steps.set-semantic-version.outputs.dsemantic-release-version  != '' }}  # Only run if there's a version
+      if: ${{ steps.set-semantic-version.outputs.semantic-release-version  != '' }}  # Only run if there's a version
       env:
         BCL_VERSION: ${{ needs.generate-semantic-version.outputs.semantic-release-version }}
       steps:
