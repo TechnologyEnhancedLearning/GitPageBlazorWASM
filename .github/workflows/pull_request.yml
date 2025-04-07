@@ -96,23 +96,82 @@ jobs:
           exit 1  # Causes a failure
         continue-on-error: true
         
-     
-
-  
   final-validation:
     name: Final Validation (Fails if any previous job fails)
     runs-on: ubuntu-latest
-    needs: [branch-name-check, commitlint, gitguardian-scan, unit-tests, e2e-tests, code-coverage, Check-Merge-Conflicts] # Depend on all jobs
-    if: ${{ 
-      needs.branch-name-check.result == 'success' && 
-      needs.commitlint.result == 'success' && 
-      needs.gitguardian-scan.result == 'success' && 
-      needs.unit-tests.result == 'success' && 
-      needs.e2e-tests.result == 'success' && 
-      needs.code-coverage.result == 'success' && 
-      needs.Check-Merge-Conflicts.result == 'success' &&
-      needs.check-ci-by-failing-here.result == 'success' 
-      }}
+    needs: 
+      - branch-name-check
+      - commitlint
+      - gitguardian-scan
+      - Unit-Tests
+      - E2E-Tests
+      - Code-Coverage
+      - Check-Merge-Conflicts
+      - check-ci-by-failing-here
     steps:
       - name: Check all previous jobs
-        run: echo "✅ All checks passed!"
+        run: |
+          failed_jobs=""
+          
+          # Check if any job failed and append to the failed_jobs list
+          if [[ "${{ needs.branch-name-check.result }}" != "success" ]]; then
+            failed_jobs+="branch-name-check, "
+          fi
+          
+          if [[ "${{ needs.commitlint.result }}" != "success" ]]; then
+            failed_jobs+="commitlint, "
+          fi
+          
+          if [[ "${{ needs.gitguardian-scan.result }}" != "success" ]]; then
+            failed_jobs+="gitguardian-scan, "
+          fi
+          
+          if [[ "${{ needs.Unit-Tests.result }}" != "success" ]]; then
+            failed_jobs+="Unit-Tests, "
+          fi
+          
+          if [[ "${{ needs.E2E-Tests.result }}" != "success" ]]; then
+            failed_jobs+="E2E-Tests, "
+          fi
+          
+          if [[ "${{ needs.Code-Coverage.result }}" != "success" ]]; then
+            failed_jobs+="Code-Coverage, "
+          fi
+          
+          if [[ "${{ needs.Check-Merge-Conflicts.result }}" != "success" ]]; then
+            failed_jobs+="Check-Merge-Conflicts, "
+          fi
+          
+          if [[ "${{ needs.check-ci-by-failing-here.result }}" != "success" ]]; then
+            failed_jobs+="check-ci-by-failing-here, "
+          fi
+
+          # Remove the last comma if there were failures
+          failed_jobs=$(echo $failed_jobs | sed 's/, $//')
+          
+          if [[ -n "$failed_jobs" ]]; then
+            echo "❌ The following jobs failed: $failed_jobs"
+            exit 1  # Fail the final validation if any job failed
+          else
+            echo "✅ All checks passed!"
+          fi
+     
+
+  
+  # final-validation:
+    # name: Final Validation (Fails if any previous job fails)
+    # runs-on: ubuntu-latest
+    # needs: [branch-name-check, commitlint, gitguardian-scan, unit-tests, e2e-tests, code-coverage, Check-Merge-Conflicts, check-ci-by-failing-here.result] # Depend on all jobs
+    # if: ${{ 
+      # needs.branch-name-check.result == 'success' && 
+      # needs.commitlint.result == 'success' && 
+      # needs.gitguardian-scan.result == 'success' && 
+      # needs.unit-tests.result == 'success' && 
+      # needs.e2e-tests.result == 'success' && 
+      # needs.code-coverage.result == 'success' && 
+      # needs.Check-Merge-Conflicts.result == 'success' &&
+      # needs.check-ci-by-failing-here.result == 'success' 
+      # }}
+    # steps:
+      # - name: Check all previous jobs
+        # run: echo "✅ All checks passed!"
