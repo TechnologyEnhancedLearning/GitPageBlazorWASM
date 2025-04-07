@@ -27,7 +27,7 @@ jobs:
   generate-semantic-version:
     runs-on: ubuntu-latest
     outputs:
-      semantic-release-version: ${{ steps.set-semantic-version.outputs.dev-semantic-version }}
+      semantic-release-version: ${{ steps.set-semantic-version.outputs.semantic-release-version }}
     steps:
       - name: checkout repository
         uses: actions/checkout@v4
@@ -52,10 +52,16 @@ jobs:
         run: |
           SEMVER_VERSION=$(npx semantic-release | grep -oP 'Published release \K[\d.]+')
           echo "semantic-release-version=$SEMVER_VERSION" >> $GITHUB_OUTPUT
+          
+          # Check if SEMVER_VERSION is empty and echo the message if so
+          if [ -z "$SEMVER_VERSION" ]; then
+            echo "Changes do not warrant a version change. gh_pages and packages won't be updated."
+          fi
     
   build-bcl-package-and-publish:
     needs: [generate-semantic-version]
     runs-on: ubuntu-latest
+    if: ${{ steps.set-semantic-version.outputs.semantic-release-version  != '' }}  # Only run if there's a version
     env:
       BCL_VERSION: ${{ needs.generate-semantic-version.outputs.semantic-release-version }}
     steps:
@@ -107,6 +113,7 @@ jobs:
   Update-gh-pages-site:
       needs: [build-bcl-package-and-publish, generate-semantic-version]
       runs-on: ubuntu-latest
+      if: ${{ steps.set-semantic-version.outputs.dsemantic-release-version  != '' }}  # Only run if there's a version
       env:
         BCL_VERSION: ${{ needs.generate-semantic-version.outputs.semantic-release-version }}
       steps:
