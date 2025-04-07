@@ -135,24 +135,25 @@ jobs:
           SEMVER_OUTPUT_RAW=$(npx semantic-release)
           echo "Raw SEMVER_OUTPUT_RAW=$SEMVER_OUTPUT_RAW"
           
-          SEMVER_OUTPUT_RAW=$SEMVER_OUTPUT_RAW | grep -oP 'Published release \K[^\s]+'
+          # Correct the piping and assignment
+          SEMVER_OUTPUT=$(echo "$SEMVER_OUTPUT_RAW" | grep -oP 'Published release \K[^\s]+')
 
           # Export the result to the environment
           STATUS=$?
-          echo "SEMVER_OUTPUT_RAW=$SEMVER_OUTPUT_RAW" >> $GITHUB_ENV
+          echo "SEMVER_OUTPUT=$SEMVER_OUTPUT" >> $GITHUB_ENV
           set -e
 
           
       - name: Rename Semver Version With Date Time Dev
         id: set-dev-semantic-version
         run: |        
-          echo "Semantic Release Output $SEMVER_OUTPUT_RAW"
+          echo "Semantic Release Output $SEMVER_OUTPUT"
 
           timestamp=$(date +"%y%m%d-%H%M")
           echo "Timestamp $timestamp"
           
           echo "shouldnt timestamp but ok for now qqqq"
-          full_version="${SEMVER_OUTPUT_RAW}-${timestamp}"
+          full_version="${SEMVER_OUTPUT}-${timestamp}"
           echo "extracted version $full_version"
           echo "dev-semantic-version=$full_version" >> $GITHUB_OUTPUT
 
