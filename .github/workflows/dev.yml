@@ -38,6 +38,7 @@ jobs:
 
   branch-name-check:
     name: Enforce Branch Name Convention
+    if: success() || failure() #Run all checks incase multiple fixes needed but dont make packages if there are fails
     runs-on: ubuntu-latest
     steps:
       - name: Validate Branch Name
@@ -58,6 +59,7 @@ jobs:
 
   commitlint:
     runs-on: ubuntu-latest
+    if: success() || failure() #Run all checks incase multiple fixes needed but dont make packages if there are fails
     steps:
       - uses: actions/checkout@v4
         with:
@@ -67,6 +69,7 @@ jobs:
         
   gitguardian-scan:
     runs-on: ubuntu-latest
+    if: success() || failure() #Run all checks incase multiple fixes needed but dont make packages if there are fails
     steps:
       - uses: actions/checkout@v3
 
@@ -78,6 +81,7 @@ jobs:
 
   Unit-Tests:
       runs-on: ubuntu-latest
+      if: success() || failure() #Run all checks incase multiple fixes needed but dont make packages if there are fails
       steps:
         - name: See other project pipeline for Tests
           run: echo "qqqq See other project pipeline for Tests this is a placeholder"
@@ -86,6 +90,7 @@ jobs:
   
   E2E-Tests:
       runs-on: ubuntu-latest
+      if: success() || failure() #Run all checks incase multiple fixes needed but dont make packages if there are fails
       steps:
         - name: See other project pipeline for Tests
           run: echo "qqqq See other project pipeline for Tests this is a placeholder"
@@ -93,6 +98,7 @@ jobs:
 
   # Now we've done due diligence
   generate-dev-semantic-version:
+    if: success()
     needs: [commitlint, gitguardian-scan, Unit-Tests, E2E-Tests, branch-name-check]
     runs-on: ubuntu-latest
     outputs:
@@ -178,6 +184,7 @@ jobs:
 
           
   build-bcl-dev-package-and-publish:
+    if: success() #not needed but being explicit
     needs: [generate-dev-semantic-version, commitlint, gitguardian-scan,Unit-Tests,E2E-Tests, branch-name-check]
     runs-on: ubuntu-latest
     env:
@@ -235,6 +242,7 @@ jobs:
        
           
   Make-Blazor-Wiki-Artifact-Trigger-GH-Pages-In-BlazorWasmTest:
+    if: success() #not needed but being explicit
     needs: [ branch-name-check, build-bcl-dev-package-and-publish,generate-dev-semantic-version, commitlint, gitguardian-scan, Unit-Tests, E2E-Tests]
     runs-on: ubuntu-latest
     env:
