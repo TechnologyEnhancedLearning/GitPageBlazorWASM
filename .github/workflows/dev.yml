@@ -65,6 +65,8 @@ jobs:
         with:
           fetch-depth: 0
       - uses: wagoid/commitlint-github-action@v5
+        with:
+          configFile: .commitlintrc.json
         continue-on-error: false #we dont want to package etc if bad commits also pre-commit prefered
         
   gitguardian-scan:
