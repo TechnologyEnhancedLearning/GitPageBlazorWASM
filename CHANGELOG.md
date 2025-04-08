@@ -1,3 +1,10 @@
+## [5.5.8-feat-try-branch-versioning.1](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v5.5.7...v5.5.8-feat-try-branch-versioning.1) (2025-04-08)
+
+
+### Bug Fixes
+
+* **so far fix works:** does it work for branch prerelease ([aab9195](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/aab919512b067fa0040ccbd9e267cb1c7a6f619e))
+
 ## [5.5.7](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v5.5.6...v5.5.7) (2025-04-08)
 
 
