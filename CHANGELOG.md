@@ -1,3 +1,10 @@
+## [5.5.9](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v5.5.8...v5.5.9) (2025-04-08)
+
+
+### Bug Fixes
+
+* **gitignore changed with squash:** fix,breaking change not cause major ([5fddc87](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/5fddc87d445b376576531cab1cbf42f1d66e977f))
+
 ## [5.5.8](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v5.5.7...v5.5.8) (2025-04-08)
 
 
