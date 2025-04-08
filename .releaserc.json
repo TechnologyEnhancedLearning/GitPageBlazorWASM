@@ -54,6 +54,18 @@
     {
       "name": "test-*",
       "prerelease": true
+    },
+    {
+      "name": "sample-*",
+      "prerelease": true
+    },
+    {
+      "name": "security-*",
+      "prerelease": true
+    },
+    {
+      "name": "config-*",
+      "prerelease": true
     }
   ],
   "plugins": [
