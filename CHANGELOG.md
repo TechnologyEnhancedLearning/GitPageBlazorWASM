@@ -1,3 +1,15 @@
+# [6.0.0](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v5.5.9...v6.0.0) (2025-04-08)
+
+
+### Features
+
+* **breaking change is a footer:** breaking change ([f4fa5b3](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/f4fa5b30ca0264aa21389424584e26a05b8241fd))
+
+
+### BREAKING CHANGES
+
+* **breaking change is a footer:** The breaking change is a footer
+
 ## [5.5.9](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v5.5.8...v5.5.9) (2025-04-08)
 
 
