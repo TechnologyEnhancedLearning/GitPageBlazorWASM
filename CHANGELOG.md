@@ -1,3 +1,10 @@
+## [7.0.2](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v7.0.1...v7.0.2) (2025-04-08)
+
+
+### Bug Fixes
+
+* **does it still work:** added commitlintrc ([43341ab](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/43341abbefbadcb457bbfb8eee837944c9a8c2d7))
+
 ## [7.0.1](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v7.0.0...v7.0.1) (2025-04-08)
 
 
