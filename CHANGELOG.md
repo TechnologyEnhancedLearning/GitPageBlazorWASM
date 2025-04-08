@@ -1,3 +1,15 @@
+# [8.0.0](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v7.0.4...v8.0.0) (2025-04-08)
+
+
+### Bug Fixes
+
+* **changed alot:** maybe ([2a878f4](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/2a878f40cfbc84abd3cf0c2c5994a69a59b69cc8))
+
+
+### BREAKING CHANGES
+
+* **changed alot:** maybe
+
 ## [7.0.4](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v7.0.3...v7.0.4) (2025-04-08)
 
 
