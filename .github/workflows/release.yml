@@ -121,6 +121,16 @@ jobs:
       - name: Remove Local PackageSettings (CI Only)
         run: rm -f PackageSettings.props.local
         
+      - name: List files in the directory and check for nuget.config
+        run: |
+          ls
+          ls -l nuget.config
+      
+      - name: Print environment variables
+        run: |
+          echo "BCL_Local_Source=$BCL_Local_Source"
+          echo "BCL_VERSION=$BCL_VERSION"
+    
       - name: Replace local environment variable in nuget config because cant provide it as a parameter
         run: sed -i "s|%LocalPackagePath%|$BCL_Local_Source|g" nuget.config
         
