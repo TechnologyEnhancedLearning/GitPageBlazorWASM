@@ -154,7 +154,7 @@ jobs:
           if [ -z "$SEMVER_OUTPUT" ]; then
             SEMVER_OUTPUT=$(echo "$SEMVER_OUTPUT_RAW" | grep -oP 'Found git tag v\K[^\s]+')
           fi
-          
+          echo "if using git tag it will just be last made so not guaranteed to be the same branch but ok for now"
           # Export the result to the environment
           echo "SEMVER_OUTPUT=$SEMVER_OUTPUT" >> $GITHUB_ENV
           set -e
@@ -168,9 +168,9 @@ jobs:
           timestamp=$(date +"%y%m%d-%H%M")
           echo "Timestamp $timestamp"
           
-          echo "shouldnt timestamp but ok for now qqqq"
-          echo "if you get a tag like 1.1.1-timestamp or :-nonversion-triggering-change it just means there was a chore before "
-          full_version="${SEMVER_OUTPUT:-nonversion-triggering-change}-${timestamp}"
+          echo "shouldnt timestamp but ok for now"
+          echo "If it is nonversion triggering change and the first on the branch will get the release version because it is the most recent tag"
+          full_version="${SEMVER_OUTPUT}-${timestamp}"
           echo "extracted version $full_version"
           echo "dev-semantic-version=$full_version" >> $GITHUB_OUTPUT
 
