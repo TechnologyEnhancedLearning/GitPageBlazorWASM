@@ -24,10 +24,7 @@
 	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
 	  <RepositoryUrl>https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM</RepositoryUrl>
 	  <RepositoryType>git</RepositoryType>
-	  <!--<PackageReadmeFile>ReadMe.md</PackageReadmeFile> qqqq put in later just needs picking up-->
-	  <!--qqqq would have its own changelog genereate readme later anyway -->
-
-	  <!--qqqq gitignored-->
+	  <!--<PackageReadmeFile>ReadMe.md</PackageReadmeFile> qqqqqqqq put in later just needs picking up-->
 	  <PackageOutputPath>$(NupkgOutputPath)</PackageOutputPath>
 
   </PropertyGroup>

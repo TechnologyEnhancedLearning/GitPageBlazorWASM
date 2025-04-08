@@ -93,7 +93,7 @@ jobs:
         
       - name: Debug Version Output BCL var
         run: echo "Extracted Version $BCL_VERSION "
-      #qqqq are we a commit behind check that we use the new generated version of the package 
+      
 
       # the restore cant be given env values to override values like it can in build so we need to remove this file so we use the env values
       - name: Remove Local PackageSettings (CI Only)
@@ -111,8 +111,7 @@ jobs:
     
       - name: Replace local environment variable in nuget config because cant provide it as a parameter
         run: sed -i "s|%LocalPackagePath%|$BCL_Local_Source|g" nuget.config
-        
-       #qqqq ask binon about this
+
       - name: Clean lock files because the newly generated package file will superseed the locks
         run: |
           find . -name "packages.lock.json" -type f -exec rm -f {} \;
