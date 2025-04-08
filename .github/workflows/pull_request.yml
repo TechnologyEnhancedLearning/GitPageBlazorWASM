@@ -1,0 +1,83 @@
+name: Pull Request Checks
+
+on:
+  pull_request:
+    branches:
+      - '**' 
+      
+jobs:
+
+
+        
+  branch-name-check:
+    name: Enforce Branch Name Convention
+    runs-on: ubuntu-latest
+    if: success() || failure()
+    steps:
+      - name: Validate Branch Name
+        run: |
+          #BRANCH_NAME="${GITHUB_HEAD_REF}"
+          BRANCH_NAME="${GITHUB_HEAD_REF:-${GITHUB_REF_NAME}}"
+          echo "Validating branch name: $BRANCH_NAME"
+
+          if [[ "$BRANCH_NAME" =~ ^(feat|fix|bugfix|hotfix|build|chore|ci|docs|perf|refactor|revert|style|test)-[a-zA-Z0-9._/-]+$ ]] || [[ "$BRANCH_NAME" == "master" ]]; then
+            echo "✅ Branch name is valid"
+          else
+            echo "❌ Invalid branch name: $BRANCH_NAME"
+            echo "Branch names must follow one of the allowed prefixes:"
+            echo "  feat-*, fix-*, bugfix-*, hotfix-*, build-*, chore-*, ci-*, docs-*, perf-*, refactor-*, revert-*, style-*, test-*"
+            exit 1
+          fi
+        #continue-on-error: true
+
+  commitlint:
+  # qqqq repo will need branch protection rules and PR Template
+    runs-on: ubuntu-latest
+    if: success() || failure()
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: wagoid/commitlint-github-action@v5
+        #continue-on-error: true #we dont want to package etc if bad commits also pre-commit preferred
+        
+  gitguardian-scan:
+    runs-on: ubuntu-latest
+    if: success() || failure()
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: GitGuardian Scan
+        uses: GitGuardian/gg-shield-action@v1
+        env:
+          GITGUARDIAN_API_KEY: ${{ secrets.GITGUARDIAN_API_KEY  }}
+        #continue-on-error: true # we dont want secrets going further and the keys need to be changed if this is triggered
+
+  Unit-Tests:
+      runs-on: ubuntu-latest
+      if: success() || failure()
+      steps:
+        - name: See other project pipeline for Tests
+          run: echo "qqqq See other project pipeline for Tests this is a placeholder"
+          #continue-on-error: true
+          
+  
+  E2E-Tests:
+      runs-on: ubuntu-latest
+      if: success() || failure()
+      steps:
+        - name: See other project pipeline for Tests
+          run: echo "qqqq See other project pipeline for Tests this is a placeholder"
+          #continue-on-error: true
+          
+  Code-Coverage:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Code Coverage
+          run: echo "TODO Code Coverage"
+          #continue-on-error: true
+  
+
+        
+
+        

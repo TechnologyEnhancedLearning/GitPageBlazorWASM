@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <!-- Import the PackageSettings.props file -->
+  <Import Project="PackageSettings.props" />
+  <Import Project="PackageSettings.props.local" Condition="Exists('PackageSettings.props.local')"/>
+	<!--<Target Name="DiagnoseProps" BeforeTargets="Build">
+		<Message Text="Loaded LocalPackagePath: $(LocalPackagePath)" Importance="high" />
+		<Message Text="Loaded IsLocalDev: $(IsLocalDev)" Importance="high" />
+	</Target>-->
+</Project>

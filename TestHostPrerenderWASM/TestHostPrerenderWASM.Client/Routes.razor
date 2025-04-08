@@ -1,0 +1,12 @@
+﻿<Router AppAssembly="typeof(Program).Assembly"
+        AdditionalAssemblies="new[]
+            {
+                typeof(_Imports).Assembly,
+                typeof(SharedPages._Imports).Assembly
+            }"
+        >
+    <Found Context="routeData">
+        <RouteView RouteData="routeData" DefaultLayout="typeof(SharedPages.Layout.MainLayout)" />
+        <FocusOnNavigate RouteData="routeData" Selector="h1" />
+    </Found>
+</Router>

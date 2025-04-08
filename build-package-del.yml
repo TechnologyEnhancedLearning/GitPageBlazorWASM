@@ -1,0 +1,186 @@
+name: Build BCL DEV Package On DEV Branch ONLY
+on:
+  # Trigger the workflow for push and pull requests to all branches except 'main' and 'master'
+  push:
+    branches:
+      - '**'  # Match all branches
+    # Exclude 'main' and 'master' branches
+    branches-ignore:
+      - 'main'
+      - 'master'
+
+  pull_request:
+    branches:
+      - '**'  # Match all branches
+    # Exclude 'main' and 'master' branches
+    branches-ignore:
+      - 'main'
+      - 'master'
+env:
+  # BUILD_CONFIGURATION: 'Debug'
+
+
+  NUPKG_OUTPUT_PATH: ${{ github.workspace }}/CICDPackageLocation
+  BCL_Source: ${{ github.workspace }}/CICDPackageLocation
+  IS_LOCAL_DEV: false
+  USE_BCL_PROJECT_REFERENCE: false
+
+
+
+jobs:
+  version-job:
+    runs-on: ubuntu-latest
+    outputs:
+      package-version: ${{ steps.set-version.outputs.full-version }}
+    steps:
+    
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+            fetch-depth: 0  # Required for Semantic Release to analyze commit history
+          
+          
+      - name: Install Semantic Release Packages
+        run: |
+         npm install -D \
+         semantic-release \
+         @semantic-release/changelog \
+         @semantic-release/git \
+         @semantic-release/commit-analyzer \
+         @semantic-release/release-notes-generator
+         
+      - name: Get Semantic Version
+        id: set-version
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          SEMVER_VERSION=$(npx semantic-release --dry-run | grep -oP 'Published release \K[\d.]+')
+          TIMESTAMP=$(date +"%y%m%d-%H-%M-%S")
+          BRANCH_NAME=$(echo "${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" | sed 's/[^a-zA-Z0-9.-]/_/g')
+          FULL_VERSION="${SEMVER_VERSION}-DEV-${BRANCH_NAME}-${TIMESTAMP}"
+          echo "Extracted Version: $FULL_VERSION"
+          echo "full-version=$FULL_VERSION" >> $GITHUB_OUTPUT
+          
+      - name: Debug Version Output
+        run: echo "Extracted Version ${{ steps.set-version.outputs.full-version  }}"
+          
+  build-bcl-package-and-sharedpages-and-artifact-in-single-job:
+    needs: version-job
+    runs-on: ubuntu-latest
+    env:
+      BCL_VERSION: ${{ needs.version-job.outputs.package-version }}
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+
+      - name: Debug Version Output github out put var
+        run: echo "Extracted Version ${{ needs.version-job.outputs.package-version }}"
+        
+      - name: Debug Version Output BCL var
+        run: echo "Extracted Version $BCL_VERSION "
+        
+      #- name: Ensure Package Directory Exists
+      #  run: mkdir -p $BCL_Source
+        
+      # the restore cant be given env values to override values like it can in build so we need to remove this file so we use the env values
+      - name: Remove Local PackageSettings (CI Only)
+        run: rm -f PackageSettings.props.local
+        
+      - name: Replace local environment variable in nuget config because cant provide it as a parameter
+        run: sed -i "s|%LocalPackagePath%|$BCL_Source|g" nuget.config
+        
+        
+
+          
+      - name: Build and Pack BlazorComponentLibrary before solution restore
+        run: |
+          dotnet build Package.BlazorComponentLibrary -c Release \
+            /p:BCLVersion=$BCL_VERSION \
+            /p:NupkgOutputPath=$NUPKG_OUTPUT_PATH
+
+      - name: List Created Package
+        run: ls -l $BCL_Source
+  
+      - name: Debug Environment Variables
+        run: |
+          echo "!!!!!!!!!!!        !!!!!!!!!!        !!!!!!!!!!!!!!!       BCL_Source: $BCL_Source"
+          ls -al $BCL_Source || echo "Directory does not exist"
+
+      - name: Debug Print Workspace and File Path
+        run: |
+          echo "!!!!!!!!!     !!!!!!!!!!!    GitHub Workspace: ${{ github.workspace }}"
+          echo "!!!!!!!!!     !!!!!!!!!!!    Expected BCL_Source: $BCL_Source"
+          ls -al $BCL_Source || echo "Directory does not exist"
+          ls -la ${{ github.workspace }}  # List all files in the workspace
+          echo "!!!!!!!!! nuget below"
+          ls -la ${{ github.workspace }}/nuget.config  # Check if the file exists
+          echo "!!!!!!!!! more variables below"
+          echo "Using BCL Version: $BCL_VERSION"
+          echo "Using Nupkg Output Path: $NUPKG_OUTPUT_PATH"
+
+      - name: Debug Print modified nuget.config
+        run: cat ${{ github.workspace }}/nuget.config
+
+      - name: echo path for artifact
+        run: echo "${{ env.NUPKG_OUTPUT_PATH }}"
+
+      
+      - name: echo hint information about restore
+        run: echo "if a hash error occurs for the bcl package the version number may need increasing or a clean step"
+        
+        #qqqq not sure this is a good idea but are trying to regenerate one file, and do want to update it. concern is dont want other files to change
+      - name: Clean lock files
+        run: |
+          find . -name "packages.lock.json" -type f -exec rm -f {} \;
+        
+        
+      - name: Echo the environment variables
+        run: |
+          echo IS_LOCAL_DEV=$IS_LOCAL_DEV
+          echo BCL_VERSION=$BCL_VERSION
+          echo USE_BCL_PROJECT_REFERENCE=$USE_BCL_PROJECT_REFERENCE
+   
+         
+      - name: echo hint information about restore
+        run: >
+          echo "careful of building wasm and wasm.client they have particular set up for release and debug so they can be used in 
+          testing and standalone as gitpages"
+                 
+      - name: Build SharedPages Using BlazorComponentLibraryPackage
+        run: |
+          dotnet build SharedPages -c Debug \
+            /p:IsLocalDev=$IS_LOCAL_DEV \
+            /p:BCLVersion=$BCL_VERSION \
+            /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE   
+ 
+      - name: Build Blazor hosted debug
+        run: |
+          dotnet build "TestHostPrerenderWASM/TestHostPrerenderWASM/TestHostPrerenderWASM.csproj" -c Debug \
+            /p:IsLocalDev=$IS_LOCAL_DEV \
+            /p:BCLVersion=$BCL_VERSION \
+            /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE
+            
+      - name: Build Blazor Pure WASM Release
+        run: |
+          dotnet build "TestHostPrerenderWASM/TestHostPrerenderWASM.Client/TestHostPrerenderWASM.Client.csproj" -c Release \
+            /p:IsLocalDev=$IS_LOCAL_DEV \
+            /p:BCLVersion=$BCL_VERSION \
+            /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE
+            
+   
+      - name: Publish to GitHub Packages as a dev commit release
+        run: |
+          dotnet nuget push "$BCL_Source/TELBlazorComponentLibrary.GitPageBlazorWasm.*.nupkg" \
+          --source "https://nuget.pkg.github.com/phil-nhs/index.json" \
+          --api-key ${{ secrets.PACKAGES_TOKEN }} \
+          --skip-duplicate
+       
+
+
+  
+  

@@ -150,3 +150,6 @@ _Pvt_Extensions
 /LH.MVCWebUIServer/appsettings.json
 /LH.APIServices/appsettings.json
 /NotesWillMakeIntoReadme.md
+/Package.BlazorComponentLibrary/PackageSettings.props
+/nuget.config
+/Package.BlazorComponentLibrary/PackageSettings.props

@@ -1,0 +1,199 @@
+name: release
+on:
+  push:
+    branches:
+      - master
+
+permissions:
+  contents: write
+  actions: write
+
+env:
+  # BUILD_CONFIGURATION: 'Debug'
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  PACKAGES_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
+  GITHUB_USERNAME: "Phil-NHS"
+
+
+  NUPKG_OUTPUT_PATH: ${{ github.workspace }}/CICDPackageLocation
+  
+  IS_LOCAL_DEV: false
+  USE_BCL_PROJECT_REFERENCE: false
+  
+  BCL_Local_Source: ${{ github.workspace }}/CICDPackageLocation
+  BCL_Source: "https://nuget.pkg.github.com/phil-nhs/index.json"
+
+jobs:
+  generate-semantic-version:
+    runs-on: ubuntu-latest
+    outputs:
+      semantic-release-version: ${{ steps.set-semantic-version.outputs.semantic-release-version }}
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # required for semantic release to analyze commit history
+
+      - name: Install Semantic Release Packages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PACKAGES_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
+        run: |
+          echo "Installing semantic-release packages..."
+          npm install -D \
+            semantic-release \
+            @semantic-release/changelog \
+            @semantic-release/git \
+            @semantic-release/commit-analyzer \
+            @semantic-release/release-notes-generator \
+            @semantic-release/github
+          echo "Semantic Release packages installed."
+          npm ls --depth=0 # Debug: List installed packages
+         
+      - name: Debug Git Remote Branches
+        run: git remote show origin
+          
+      - name: Check Existing Tags
+        run: |
+            echo "Checking existing tags..."
+            git fetch --tags
+            git tag -l  # List all tags to see if there are any conflicts
+
+          ##configured with .releaseseec
+      - name: run semantic release
+        id: set-semantic-version
+        env:
+          github_token: ${{ secrets.github_token }}
+        run: |
+          SEMVER_VERSION=$(npx semantic-release | grep -oP 'Published release \K[\d.]+')
+          echo "semantic-release-version=$SEMVER_VERSION" >> $GITHUB_OUTPUT
+          
+          # Check if SEMVER_VERSION is empty and echo the message if so
+          if [ -z "$SEMVER_VERSION" ]; then
+            echo "Changes do not warrant a version change. gh_pages and packages won't be updated."
+          fi
+      # qqqq are we versioning the whole repo not just the branch???
+      # - name: Run Semantic Version (None Blocking)
+        # env:
+          # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # PACKAGES_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
+        # run: |
+          # set +e
+          # SEMVER_OUTPUT_RAW=$(npx semantic-release)
+          # echo "Raw SEMVER_OUTPUT_RAW=$SEMVER_OUTPUT_RAW"
+          
+          # SEMVER_OUTPUT=$(echo "$SEMVER_OUTPUT_RAW" | grep -oP 'Published release \K[^\s]+')
+
+          # # In dev even if there is no version change we will package and update the website, this means it will for ci which isnt necessary
+          # # but also if we squash a load of commits we will still get the package updated
+          # echo "In dev even if there is no version change we will package and update the website, this means it will for ci which isnt necessary  but also if we squash a load of commits we will still get the package updated"
+          
+          # STATUS=$?
+          # if [ -z "$SEMVER_OUTPUT" ]; then
+            # SEMVER_OUTPUT=$(echo "$SEMVER_OUTPUT_RAW" | grep -oP 'Found git tag v\K[^\s]+')
+          # fi
+          
+          # # Export the result to the environment
+          # echo "SEMVER_OUTPUT=$SEMVER_OUTPUT" >> $GITHUB_ENV
+          # set -e
+    
+    
+  build-bcl-package-and-publish:
+    needs: [generate-semantic-version]
+    runs-on: ubuntu-latest
+    if: ${{ needs.generate-semantic-version.outputs.semantic-release-version != '' }}  # Only run if there's a version
+    env:
+      BCL_VERSION: ${{ needs.generate-semantic-version.outputs.semantic-release-version }}
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+        
+      - name: Debug Version Output BCL var
+        run: echo "Extracted Version $BCL_VERSION "
+      #qqqq are we a commit behind check that we use the new generated version of the package 
+
+      # the restore cant be given env values to override values like it can in build so we need to remove this file so we use the env values
+      - name: Remove Local PackageSettings (CI Only)
+        run: rm -f PackageSettings.props.local
+        
+      - name: Replace local environment variable in nuget config because cant provide it as a parameter
+        run: sed -i "s|%LocalPackagePath%|$BCL_Local_Source|g" nuget.config
+        
+       #qqqq ask binon about this
+      - name: Clean lock files because the newly generated package file will superseed the locks
+        run: |
+          find . -name "packages.lock.json" -type f -exec rm -f {} \;
+          
+      - name: Restore NuGet Packages for Specifically the BCL Package Library Project
+        run: dotnet restore Package.BlazorComponentLibrary/Package.BlazorComponentLibrary.csproj
+       
+       
+      - name: Build and Pack BlazorComponentLibrary
+        run: |
+          dotnet build Package.BlazorComponentLibrary -c Release \
+            /p:BCLVersion=$BCL_VERSION \
+            /p:NupkgOutputPath=$NUPKG_OUTPUT_PATH
+
+      - name: echo hint information about restore
+        run: echo "if a hash error occurs for the bcl package the version number may need increasing or a clean step"
+
+      - name: Publish to GitHub DEV BCL Packages
+        run: |
+          dotnet nuget push "$BCL_Local_Source/TELBlazorComponentLibrary.GitPageBlazorWasm.*.nupkg" \
+          --source "https://nuget.pkg.github.com/phil-nhs/index.json" \
+          --api-key ${{ secrets.PACKAGES_TOKEN }} \
+          --skip-duplicate
+
+
+  Update-gh-pages-site:
+      needs: [build-bcl-package-and-publish, generate-semantic-version]
+      runs-on: ubuntu-latest
+      if: ${{ needs.generate-semantic-version.outputs.semantic-release-version != '' }}  # Only run if there's a version
+      env:
+        BCL_VERSION: ${{ needs.generate-semantic-version.outputs.semantic-release-version }}
+      steps:
+        - name: Checkout Code
+          uses: actions/checkout@v4
+
+        - name: Setup .NET
+          uses: actions/setup-dotnet@v4
+          with:
+            global-json-file: global.json
+          
+        - name: Replace local environment variable in nuget config because cant provide it as a parameter
+          run: |
+            sed -i "s|%LocalPackagePath%|$BCL_Source|g" nuget.config
+            sed -i "s|%GITHUB_USERNAME%|$GITHUB_USERNAME|g" nuget.config
+            sed -i "s|%GITHUB_PACKAGES_TOKEN%|$PACKAGES_TOKEN |g" nuget.config
+
+      
+        - name: Clean lock files because the newly generated package file will superseed the locks
+          run: |
+            find . -name "packages.lock.json" -type f -exec rm -f {} \;
+       
+        - name: Restore NuGet Packages for Specifically the BCL Package Library Project
+          run: dotnet restore TestHostPrerenderWASM/TestHostPrerenderWASM.Client/TestHostPrerenderWASM.Client.csproj      
+        
+        - name: Create docs directory
+          run: mkdir -p docs
+        
+        - name: Publish client using client release .csproj logic
+          run: |
+            dotnet publish ./TestHostPrerenderWASM/TestHostPrerenderWASM.Client/TestHostPrerenderWASM.Client.csproj --configuration Release \
+              /p:IsLocalDev=$IS_LOCAL_DEV \
+              /p:BCLVersion=$BCL_VERSION \
+              /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE
+                  
+      
+      # No this will be in the release branch that we do a prod wiki host
+        - name: Deploy to GitHub Pages
+          uses: JamesIves/github-pages-deploy-action@v4
+          with:
+            folder: docs  # The folder the action should deploy
+            branch: gh-pages  # The branch the action should deploy to
+        

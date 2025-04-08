@@ -1,0 +1,52 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+	<!--<Import Project="PackageSettings.props" Condition="Exists('PackageSettings.props')" />-->
+	<!--<Import Project="..\PackageSettings.props" Condition="Exists('..\PackageSettings.props')" /> auto imported by solution-->
+	<ItemGroup>
+		<None Include="..\README.md" Pack="true" PackagePath="\" />
+	</ItemGroup>
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+
+	  <EnableDefaultEmbeddedResources>true</EnableDefaultEmbeddedResources>
+	  <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+
+
+	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	  <PackageId>TELBlazorComponentLibrary.GitPageBlazorWasm</PackageId>
+	  <Version>$(BCLVersion)</Version>
+	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	  <Authors>TEL</Authors>
+	  <Company>NHS</Company>
+	  <Description>WCAG Progressive Enhancement Blazor Component Library</Description>
+	  <PackageTags>NHS, TEL, blazor, components, library</PackageTags>
+	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
+	  <RepositoryUrl>https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM</RepositoryUrl>
+	  <RepositoryType>git</RepositoryType>
+	  <!--<PackageReadmeFile>ReadMe.md</PackageReadmeFile> qqqq put in later just needs picking up-->
+	  <!--qqqq would have its own changelog genereate readme later anyway -->
+
+	  <!--qqqq gitignored-->
+	  <PackageOutputPath>$(NupkgOutputPath)</PackageOutputPath>
+
+  </PropertyGroup>
+	<!--<Target Name="DebugProperties" BeforeTargets="Build">
+		<Message Importance="high" Text="NupkgOutputPath: $(NupkgOutputPath)" />
+		<Message Importance="high" Text="PackageOutputPath: $(PackageOutputPath)" />
+		<Message Importance="high" Text="LocalPackagePath: $(LocalPackagePath)" />
+	</Target>-->
+
+  <ItemGroup>
+    <SupportedPlatform Include="browser" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" />
+  </ItemGroup>
+	<ItemGroup>
+		<Content Remove="packages.lock.json" />
+	</ItemGroup>
+
+
+</Project>

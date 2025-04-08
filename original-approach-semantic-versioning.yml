@@ -1,0 +1,317 @@
+# Bringing together dev ymls
+# qqqq TODO could share artifacts between jobs to reduce number of builds
+# this should have just been BCLSource %LocalPackagePath% but set locally now
+name: Dev pipeline for test lint packaging artifact and gh-page trigger
+on:
+  # Trigger the workflow for push and pull requests to all branches except 'main' and 'master'
+  push:
+    branches-ignore:
+      - 'main'
+      - 'master'
+
+  pull_request:
+    branches-ignore:
+      - 'main'
+      - 'master'
+      
+permissions:
+  contents: write
+  actions: write
+
+env:
+  # BUILD_CONFIGURATION: 'Debug'
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  PACKAGES_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
+  GITHUB_USERNAME: "Phil-NHS"
+
+
+  NUPKG_OUTPUT_PATH: ${{ github.workspace }}/CICDPackageLocation
+  
+  IS_LOCAL_DEV: false
+  USE_BCL_PROJECT_REFERENCE: false
+  
+  BCL_Local_Source: ${{ github.workspace }}/CICDPackageLocation
+  BCL_Source: "https://nuget.pkg.github.com/phil-nhs/index.json"
+
+
+jobs:
+
+   
+  commitlint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: wagoid/commitlint-github-action@v5
+        continue-on-error: false #we dont want to package etc if bad commits also pre-commit prefered
+        
+  gitguardian-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: GitGuardian Scan
+        uses: GitGuardian/gg-shield-action@v1
+        env:
+          GITGUARDIAN_API_KEY: ${{ secrets.GITGUARDIAN_API_KEY  }}
+        continue-on-error: false # we dont want secrets going further and the keys need to be changed if this is triggered
+
+  Unit-Tests:
+      runs-on: ubuntu-latest
+      steps:
+        - name: See other project pipeline for Tests
+          run: echo "qqqq See other project pipeline for Tests this is a placeholder"
+          continue-on-error: false
+          
+  
+  E2E-Tests:
+      runs-on: ubuntu-latest
+      steps:
+        - name: See other project pipeline for Tests
+          run: echo "qqqq See other project pipeline for Tests this is a placeholder"
+          continue-on-error: false
+
+  # Now we've done due diligence
+  generate-dev-semantic-version:
+    needs: [commitlint, gitguardian-scan, Unit-Tests, E2E-Tests]
+    runs-on: ubuntu-latest
+    outputs:
+      dev-package-version: ${{ steps.set-dev-semantic-version.outputs.dev-semantic-version }}
+    steps:
+    
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+            fetch-depth: 0  # Required for Semantic Release to analyze commit history
+          
+          
+      - name: Install Semantic Release Packages
+        run: |
+          echo "Installing semantic-release packages..."
+          npm install -D \
+            semantic-release \
+            @semantic-release/changelog \
+            @semantic-release/git \
+            @semantic-release/commit-analyzer \
+            @semantic-release/release-notes-generator
+          echo "Semantic Release packages installed."
+          npm ls --depth=0 # Debug: List installed packages
+       
+      #qqqq now pipeline is in use maybe just use git tag
+      - name: Get Semantic Version
+        id: set-dev-semantic-version
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "Running Semantic Release dry run..."
+          SEMVER_OUTPUT=$(npx semantic-release --dry-run)
+          echo "Semantic Release Output: $SEMVER_OUTPUT"
+          
+          # Debug: Check exit code of semantic-release
+          SEMVER_EXIT_CODE=$?
+          echo "Semantic Release Exit Code: $SEMVER_EXIT_CODE"    
+          
+          SEMVER_VERSION=$(npx semantic-release --dry-run | grep -oP 'Published release \K[\d.]+')
+          
+          #SEMVER_VERSION=$(npx semantic-release --dry-run | grep -oP 'Published release \K[\d.]+' || echo "0.1.0")
+          
+          TIMESTAMP=$(date +"%y%m%d-%H-%M-%S")
+          BRANCH_NAME=$(echo "${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" | sed 's/[^a-zA-Z0-9.-]/_/g')
+          FULL_VERSION="${SEMVER_VERSION}-DEV-${BRANCH_NAME}-${TIMESTAMP}"
+          echo "Extracted Version: $FULL_VERSION"
+          echo "dev-semantic-version=$FULL_VERSION" >> $GITHUB_OUTPUT
+          
+  build-bcl-dev-package-and-publish:
+    needs: [generate-dev-semantic-version, commitlint, gitguardian-scan,Unit-Tests,E2E-Tests]
+    runs-on: ubuntu-latest
+    env:
+      BCL_VERSION: ${{ needs.generate-dev-semantic-version.outputs.dev-package-version }}
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+        
+      - name: Debug Version Output BCL var
+        run: echo "Extracted Version $BCL_VERSION "
+      #qqqq are we a commit behind check that we use the new generated version of the package 
+
+      # the restore cant be given env values to override values like it can in build so we need to remove this file so we use the env values
+      - name: Remove Local PackageSettings (CI Only)
+        run: rm -f PackageSettings.props.local
+        
+      - name: Replace local environment variable in nuget config because cant provide it as a parameter
+        run: sed -i "s|%LocalPackagePath%|$BCL_Local_Source|g" nuget.config
+        
+       #qqqq ask binon about this
+      - name: Clean lock files because the newly generated package file will superseed the locks
+        run: |
+          find . -name "packages.lock.json" -type f -exec rm -f {} \;
+          
+      - name: Restore NuGet Packages for Specifically the BCL Package Library Project
+        run: dotnet restore Package.BlazorComponentLibrary/Package.BlazorComponentLibrary.csproj
+       
+       
+      - name: Build and Pack BlazorComponentLibrary
+        run: |
+          dotnet build Package.BlazorComponentLibrary -c Release \
+            /p:BCLVersion=$BCL_VERSION \
+            /p:NupkgOutputPath=$NUPKG_OUTPUT_PATH
+
+      # - name: List Created Package
+        # run: ls -l $BCL_Local_Source
+
+      # - name: echo path for artifact
+        # run: echo "${{ env.NUPKG_OUTPUT_PATH }}"
+
+      - name: echo hint information about restore
+        run: echo "if a hash error occurs for the bcl package the version number may need increasing or a clean step"
+
+      - name: Publish to GitHub DEV BCL Packages
+        run: |
+          dotnet nuget push "$BCL_Local_Source/TELBlazorComponentLibrary.GitPageBlazorWasm.*.nupkg" \
+          --source "https://nuget.pkg.github.com/phil-nhs/index.json" \
+          --api-key ${{ secrets.PACKAGES_TOKEN }} \
+          --skip-duplicate
+       
+          
+  Make-Blazor-Wiki-Artifact-Trigger-GH-Pages-In-BlazorWasmTest:
+    needs: [ build-bcl-dev-package-and-publish,generate-dev-semantic-version, commitlint, gitguardian-scan, Unit-Tests, E2E-Tests]
+    runs-on: ubuntu-latest
+    env:
+      BCL_VERSION: ${{ needs.generate-dev-semantic-version.outputs.dev-package-version }}
+
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '8.0.x'
+          
+      - name: Replace local environment variable in nuget config because cant provide it as a parameter
+        run: |
+          sed -i "s|%LocalPackagePath%|$BCL_Source|g" nuget.config
+          sed -i "s|%GITHUB_USERNAME%|$GITHUB_USERNAME|g" nuget.config
+          sed -i "s|%GITHUB_PACKAGES_TOKEN%|$PACKAGES_TOKEN |g" nuget.config
+
+        
+        
+      - name: debug BCL_VERSION
+        run: |
+          echo "BCL_VERSION  $BCL_VERSION"
+      
+      - name: Clean lock files because the newly generated package file will superseed the locks
+        run: |
+          find . -name "packages.lock.json" -type f -exec rm -f {} \;
+       
+      - name: Restore NuGet Packages for Specifically the BCL Package Library Project
+        run: dotnet restore TestHostPrerenderWASM/TestHostPrerenderWASM.Client/TestHostPrerenderWASM.Client.csproj      
+        
+      - name: Publish client using client release .csproj logic
+        run: |
+          dotnet publish ./TestHostPrerenderWASM/TestHostPrerenderWASM.Client/TestHostPrerenderWASM.Client.csproj --configuration Release \
+            /p:IsLocalDev=$IS_LOCAL_DEV \
+            /p:BCLVersion=$BCL_VERSION \
+            /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE
+        
+
+      #include hidden so we get jekyll
+      - name: Creating artifact of publish folder for test gh page workflow
+        uses: actions/upload-artifact@v4
+        with:
+          name: gh-blazor-components-wiki-site-using-package-${{env.BCL_VERSION}}
+          include-hidden-files: true
+          path: | 
+            ./docs
+            ./docs/.nojekyll  # explicitly include the .nojekyll file
+          retention-days: 90
+          
+      
+      - name: Debug artifact location
+        run: |
+          # Get the artifact list for the current workflow run
+          ARTIFACT_LIST=$(gh api "repos/TechnologyEnhancedLearning/GitPageBlazorWASM/actions/runs/${GITHUB_RUN_ID}/artifacts")
+          # Echo the entire artifact list for debugging purposes
+          echo "Artifact List: $ARTIFACT_LIST"
+          # Extract the download URL from the artifact list (first artifact in the list)
+          #ARTIFACT_URL=$(echo "$ARTIFACT_LIST" | jq -r '.artifacts[0].archive_download_url')
+          ARTIFACT_URL=$(echo "$ARTIFACT_LIST" | jq -r '.artifacts[0].url')
+          # Echo the artifact URL to confirm
+          echo "Artifact URL: $ARTIFACT_URL"
+          echo "artifact_url=$ARTIFACT_URL" >> $GITHUB_ENV
+
+
+      - name: Trigger Workflow in GitPageBlazorWASM-Test Repository
+        run: |
+          # Set the required variables
+          repo_owner="TechnologyEnhancedLearning"  # Replace with the repository owner (organization or user)
+          repo_name="GitPageBlazorWASM-TestGHPage"  # Replace with the repository name
+          event_type="artifact_ready" 
+          #artifact_url="https://api.github.com/repos/TechnologyEnhancedLearning/GitPageBlazorWASM/actions/artifacts/2859947943"
+          # Trigger the workflow in another repository
+          curl -L \
+            -X POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${{ secrets.PACKAGES_TOKEN }}" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            https://api.github.com/repos/$repo_owner/$repo_name/dispatches \
+            -d "{\"event_type\": \"$event_type\", \"client_payload\": {\"artifact_url\": \"$artifact_url\"}}"      
+        
+      - name: Debug - List all files
+        run: |
+         echo "Listing files in the root directory:"
+         ls -al
+         echo "Listing files in the docs directory:"
+         ls -al ./docs
+         echo "Checking artifact details:"
+         gh api "repos/TechnologyEnhancedLearning/GitPageBlazorWASM/actions/runs/${GITHUB_RUN_ID}/artifacts"
+      
+      # No this will be in the release branch that we do a prod wiki host
+      # - name: Deploy to GitHub Pages
+        # uses: JamesIves/github-pages-deploy-action@v4
+        # with:
+          # folder: docs  # The folder the action should deploy
+          # branch: gh-pages  # The branch the action should deploy to
+          
+          
+
+# Previously we passed the value
+# name: Deploy to GitHub Pages
+
+# on:
+  # #push:
+  # #  branches: [ master ] 
+  # workflow_run:
+    # workflows: ["Build BCL Package"] # Name of the workflow to trigger from.
+    # types:
+      # - completed
+  
+   # Same pipeline shouldnt need it now
+  # get-bcl-version:
+    # runs-on: ubuntu-latest
+    # outputs:
+      # bcl-version: ${{ steps.get-bcl-version-from-git-packages.outputs.latest-bcl-version }}
+    # steps:
+      # - name: Checkout repository
+        # uses: actions/checkout@v3
+          
+    
+      # - name: Get BCL Version from Git Packages
+        # id: get-bcl-version-from-git-packages
+        # run: |
+          # TOKEN="$GITHUB_TOKEN"
+          # OWNER="Phil-NHS"
+          # PACKAGE_NAME="TELBlazorComponentLibrary.GitPageBlazorWasm"
+          # BCL_PACKAGE_PATH="https://api.github.com/users/$OWNER/packages/nuget/$PACKAGE_NAME/versions"
+          # echo "API Path: $BCL_PACKAGE_PATH"
+          # VERSION_JSON=$(curl -s -H "Authorization: Bearer $TOKEN" -H "Accept: application/vnd.github+json" $BCL_PACKAGE_PATH)
+          # echo "$VERSION_JSON"
+          # LATEST_VERSION=$(echo "$VERSION_JSON" | jq -r '.[0].name')
+          # echo "latest-bcl-version=$LATEST_VERSION" >> $GITHUB_OUTPUT 

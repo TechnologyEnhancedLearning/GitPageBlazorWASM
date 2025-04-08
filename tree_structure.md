@@ -1,73 +1,4 @@
 
-# About
-
-
-This is a little project for testing the options for creating a wiki style pages to showcase each component on a github page.
-The same setup is ideal for testing as each component has its own page and the browser based no javascript tests require a page
-to go to test the component.
-
-The testing project need prerender so needs server host client blazor webassembly so that the static (though we will put our nojs endpoint forms here)
-server html prerendered html can be provided before the webassembly which needs javascript to get onto the browser.
-If there is no javascript a pure webassembly project will not load anything.
-
-This means testing requires webassembly prerender, github requires pure webassembly.
-
-To acheive both there are two approaches in this project.
-For both, and because we are testing and displaying a package ultimately, we need the package project, and a project for components just
-for the wiki style component pages.
-
-This leaves us with very slim projects for providing delivering the html/wasm.
-
-Option 1:
-Have a prerender project for testing. This involves two project which is standard the server side and the client side.
-And have a seperate pure wasm project for github pages.
-
-Option 2:
-Put in code in csproj and program.cs into the .client project that is release only. This allows us to publish it as a seperate
-project and get a pure wasm project. or run the server project debug for testing which because it is not release still works.
-
-We also need a folder with an index.html end point for this.
-
-Both these options work in this project.
-
-## Details
-
-The 404 page is because the Blazor is a spa the routing does not work as a github page, such that from the blazor entry point page you
-can get to and load your pages. But if you refresh those pages github will not find them at that route. 
-
-The 404 is picked up and redirects to index parses the request and index receives it and sends you there to side step this issue.
-
-For the context we are using this project this is an ok approach.
-
-## How it is published
-It will need gitactions and it will need a hook maybe enforcing prepush rule to run tests as it may be prerender based test may not run
-in the pipeline?
-
-Going into the pure wasm project or .client project and running a publish
- dotnet publish --configuration Release
-
-## Notes
-Also DevServer needed adding to .client
-
-# Where to see the site
-
-
-See the page this creates in github:
-
-See prototype project :
-https://github.com/TechnologyEnhancedLearning/MVCBlazor
-
-This project is public which is required to be github page hosted
-
-It should be at 
-https://github.com/TechnologyEnhancedLearning.github.io/GitPageBlazorWASM
-https://technologyenhancedlearning.github.io/GitPageBlazorWASM/
-# References
-
-- [microsoft official docs (didn't actually use these but if end up needing to change it could start here)](https://learn.microsoft.com/en-us/aspnet/core/blazor/host-and-deploy/webassembly?view=aspnetcore-8.0#github-pages)
- 
-# Project structure
-
 <style>
 tr th:nth-child(2), 
 tr td:nth-child(2) {
@@ -131,4 +62,3 @@ tr td:nth-child(2) {
 |  | &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#9495; index.html |
 |  | &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#9507; Program.cs |
 |  | &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#9495; Routes.razor |
- 

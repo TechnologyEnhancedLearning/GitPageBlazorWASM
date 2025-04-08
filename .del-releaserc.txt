@@ -1,0 +1,211 @@
+//if we were setting the semver chore against its own release branch we would do for a bigger project then having it publish the package would make sense
+  //but we are happy with them all together and less branches
+//qqqq we are using nuget push currently to phil-nhs but i semantic-release can do it for us
+//qqqq this does a few powerful things we could reduce the code in the ymls
+//qqqq this worked{
+//  "branches": [ "master" ],
+//  "plugins": [
+//    "@semantic-release/commit-analyzer",
+//    "@semantic-release/release-notes-generator",
+//    [
+//      "@semantic-release/changelog",
+//      { "changelogFile": "CHANGELOG.md" }
+//    ],
+//    [
+//      "@semantic-release/git",
+//      { "assets": [ "CHANGELOG.md" ] }
+//    ],
+//    [
+//      "@semantic-release/github",
+//      { "assets": "bin/Release/*.nupkg" }
+//    ]
+//  ]
+//}
+
+///
+    {
+      "name": "feat/*",
+      "prerelease": "dev",
+      "channel": "dev"
+    },
+    {
+      "name": "feature/*",
+      "prerelease": "dev",
+      "channel": "dev"
+    },
+    {
+      "name": "fix/*",
+      "prerelease": "dev",
+      "channel": "dev"
+    },
+    {
+      "name": "bugfix/*",
+      "prerelease": "dev",
+      "channel": "dev"
+    },
+    {
+      "name": "hotfix/*",
+      "prerelease": "dev",
+      "channel": "dev"
+    },
+
+
+
+   "master",
+    {
+      "name": "feat/*",
+      "prerelease": true,
+      "channel": "dev"
+    },
+    {
+      "name": "fix-*",
+      "prerelease": true,
+      "channel": "dev"
+    },
+    {
+      "name": "bugfix-*",
+      "prerelease": true,
+      "channel": "dev"
+    },
+    {
+      "name": "hotfix-*",
+      "prerelease": true,
+      "channel": "dev"
+    },
+    {
+      "name": "build-*",
+      "prerelease": true,
+      "channel": "dev"
+    },
+    {
+      "name": "chore-*",
+      "prerelease": true,
+      "channel": "dev"
+    },
+    {
+      "name": "ci-*",
+      "prerelease": true,
+      "channel": "dev"
+    },
+    {
+      "name": "docs-*",
+      "prerelease": true,
+      "channel": "dev"
+    },
+    {
+      "name": "perf-*",
+      "prerelease": true,
+      "channel": "dev"
+    },
+    {
+      "name": "refactor-*",
+      "prerelease": true,
+      "channel": "dev"
+    },
+    {
+      "name": "revert-*",
+      "prerelease": true,
+      "channel": "dev"
+    },
+    {
+      "name": "style-*",
+      "prerelease": true,
+      "channel": "dev"
+    },
+    {
+      "name": "test-*",
+      "prerelease": true,
+      "channel": "dev"
+    }    {
+      "name": "feat/**",
+      "prerelease": "namingWithSlashAndFailingMaybe"
+    }
+
+
+
+{
+  "branches": [
+    "master",
+    {
+      "name": "feat-*",
+      "prerelease": true,
+      "channel": "dev"
+    },
+    {
+      "name": "fix-*",
+      "prerelease": true,
+      "channel": "dev"
+    },
+    {
+      "name": "bugfix-*",
+      "prerelease": true,
+      "channel": "dev"
+    },
+    {
+      "name": "hotfix-*",
+      "prerelease": true,
+      "channel": "dev"
+    },
+    {
+      "name": "build-*",
+      "prerelease": true,
+      "channel": "dev"
+    },
+    {
+      "name": "chore-*",
+      "prerelease": true,
+      "channel": "dev"
+    },
+    {
+      "name": "ci-*",
+      "prerelease": true,
+      "channel": "dev"
+    },
+    {
+      "name": "docs-*",
+      "prerelease": true,
+      "channel": "dev"
+    },
+    {
+      "name": "perf-*",
+      "prerelease": true,
+      "channel": "dev"
+    },
+    {
+      "name": "refactor-*",
+      "prerelease": true,
+      "channel": "dev"
+    },
+    {
+      "name": "revert-*",
+      "prerelease": true,
+      "channel": "dev"
+    },
+    {
+      "name": "style-*",
+      "prerelease": true,
+      "channel": "dev"
+    },
+    {
+      "name": "test-*",
+      "prerelease": true,
+      "channel": "dev"
+    }
+  ],
+  "plugins": [
+    "@semantic-release/commit-analyzer",
+    "@semantic-release/release-notes-generator",
+    [
+      "@semantic-release/changelog",
+      { "changelogFile": "CHANGELOG.md" }
+    ],
+    [
+      "@semantic-release/git",
+      { "assets": [ "CHANGELOG.md" ] }
+    ],
+    "@semantic-release/github"
+  ],
+  "repositoryUrl": "https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM"
+}
+
+s
