@@ -169,7 +169,8 @@ jobs:
           echo "Timestamp $timestamp"
           
           echo "shouldnt timestamp but ok for now qqqq"
-          full_version="${SEMVER_OUTPUT}-${timestamp}"
+          echo "if you get a tag like 1.1.1-timestamp or :-nonversion-triggering-change it just means there was a chore before "
+          full_version="${SEMVER_OUTPUT:-nonversion-triggering-change}-${timestamp}"
           echo "extracted version $full_version"
           echo "dev-semantic-version=$full_version" >> $GITHUB_OUTPUT
 
