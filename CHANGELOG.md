@@ -1,6 +1,18 @@
 # 1.0.0 (2025-04-08)
 
 
+### Bug Fixes
+
+* **fresh:** this should be 001 i think ([43fede3](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/43fede3c46da446e89b6f8647b1d28ec89908c5b))
+
+
+### Features
+
+* **first commit:** first commit ([57e22fd](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/57e22fd85c69baddac8eeeef4302d25e70289026))
+
+# 1.0.0 (2025-04-08)
+
+
 ### Features
 
 * **first commit:** first commit ([57e22fd](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/57e22fd85c69baddac8eeeef4302d25e70289026))
