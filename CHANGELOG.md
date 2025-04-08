@@ -1,3 +1,10 @@
+## [5.5.7](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v5.5.6...v5.5.7) (2025-04-08)
+
+
+### Bug Fixes
+
+* **can i bump twice in a row:** hopefully ([5d64b60](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/5d64b6007fe436c472cebd8b5fcb74b8705a9964))
+
 ## [5.5.6](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v5.5.5...v5.5.6) (2025-04-08)
 
 
