@@ -1,3 +1,10 @@
+# 1.0.0 (2025-04-08)
+
+
+### Features
+
+* **first commit:** first commit ([57e22fd](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/57e22fd85c69baddac8eeeef4302d25e70289026))
+
 # [1.2.0](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.1.0...v1.2.0) (2025-04-08)
 
 
