@@ -1,3 +1,10 @@
+## [7.0.4](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v7.0.3...v7.0.4) (2025-04-08)
+
+
+### Bug Fixes
+
+* **type branch:** should see version number with branch name ([f49478f](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/f49478fd90ca4ca72388c70d3142fc136e531197))
+
 ## [7.0.4-feat-try-make-semantic-more-graceful.1](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v7.0.3...v7.0.4-feat-try-make-semantic-more-graceful.1) (2025-04-08)
 
 
