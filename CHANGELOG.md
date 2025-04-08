@@ -1,3 +1,10 @@
+## [5.5.6](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v5.5.5...v5.5.6) (2025-04-08)
+
+
+### Bug Fixes
+
+* **i think the release are just broken:** broke ([483743d](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/483743d166dd2e5967282d252a9ebe570512b82c))
+
 ## [1.0.1](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v1.0.0...v1.0.1) (2025-04-08)
 
 
