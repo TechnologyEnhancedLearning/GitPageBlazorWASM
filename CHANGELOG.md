@@ -1,3 +1,15 @@
+# [7.0.0](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v6.0.0...v7.0.0) (2025-04-08)
+
+
+### Bug Fixes
+
+* **breaking:** stuff breaks ([08f3e3e](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/08f3e3e421c9c6571aa99eafe5bc93a8f58af1d7))
+
+
+### BREAKING CHANGES
+
+* **breaking:** major needed
+
 # [7.0.0-feat-commit-lint-breaking-change-check.1](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v6.0.0...v7.0.0-feat-commit-lint-breaking-change-check.1) (2025-04-08)
 
 
