@@ -1,3 +1,10 @@
+## [7.0.3](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v7.0.2...v7.0.3) (2025-04-08)
+
+
+### Bug Fixes
+
+* **comitlint config:** config ([7b8cb50](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/7b8cb504ee935d4592c58f5d41bef233a1c5858e))
+
 ## [7.0.2](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v7.0.1...v7.0.2) (2025-04-08)
 
 
