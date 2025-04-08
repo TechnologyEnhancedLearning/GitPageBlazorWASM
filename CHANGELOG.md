@@ -1,3 +1,10 @@
+## [7.0.1](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v7.0.0...v7.0.1) (2025-04-08)
+
+
+### Bug Fixes
+
+* **complete broken:** isit ([443bd34](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/443bd3465fcea3c8362be23a80e249925f43baf0))
+
 # [7.0.0](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v6.0.0...v7.0.0) (2025-04-08)
 
 
