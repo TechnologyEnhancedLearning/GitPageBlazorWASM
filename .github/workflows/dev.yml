@@ -47,12 +47,12 @@ jobs:
           BRANCH_NAME="${GITHUB_HEAD_REF:-${GITHUB_REF_NAME}}"
           echo "Validating branch name: $BRANCH_NAME"
 
-          if [[ "$BRANCH_NAME" =~ ^(feat|fix|bugfix|hotfix|build|chore|ci|docs|perf|refactor|revert|style|test)-[a-zA-Z0-9._/-]+$ ]] || [[ "$BRANCH_NAME" == "master" ]]; then
+          if [[ "$BRANCH_NAME" =~ ^(build|chore|ci|docs|feat|fix|perf|refactor|revert|style|test|sample|security|config|bugfix|hotfix)-[a-zA-Z0-9._/-]+$ ]] || [[ "$BRANCH_NAME" == "master" ]]; then
             echo "✅ Branch name is valid"
           else
             echo "❌ Invalid branch name: $BRANCH_NAME"
             echo "Branch names must follow one of the allowed prefixes:"
-            echo "  feat-*, fix-*, bugfix-*, hotfix-*, build-*, chore-*, ci-*, docs-*, perf-*, refactor-*, revert-*, style-*, test-*"
+            echo "   build-*, feat-*, fix-*, bugfix-*, hotfix-*, build-*, chore-*, ci-*, docs-*, perf-*, refactor-*, revert-*, style-*, test-*, sample-*, security-*, config-*, bugfix-*, hotfix-*"
             exit 1
           fi
         continue-on-error: false
