@@ -16,12 +16,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Package.BlazorComponentLibr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlaywrightBUnitGoesHere", "PlaywrightXUnitGoesHere\PlaywrightBUnitGoesHere.csproj", "{3A0A52E1-117C-4E4B-9731-5AAA8CED114A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitPageBlazorWASMProgressive", "GitPageBlazorWASMProgressive\GitPageBlazorWASMProgressive.csproj", "{1A4888E4-D985-4FEB-B6C4-B84EB845C6BA}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}"
 	ProjectSection(SolutionItems) = preProject
 		.commitlintrc.json = .commitlintrc.json
-		.del-releaserc.txt = .del-releaserc.txt
 		.releaserc.json = .releaserc.json
 		Directory.Build.props = Directory.Build.props
 		Directory.Packages.props = Directory.Packages.props
@@ -35,15 +32,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CICDPackageLocation", "CICDPackageLocation", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 	ProjectSection(SolutionItems) = preProject
 		gitinclude.txt = gitinclude.txt
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Previous working yml taken out of pipeline", "Previous working yml taken out of pipeline", "{60F62104-7665-411D-90F2-757E979F564D}"
-	ProjectSection(SolutionItems) = preProject
-		build-package-del.yml = build-package-del.yml
-		deploy-gh-pages-del.yml = deploy-gh-pages-del.yml
-		enforce-commit-lint-del.yml = enforce-commit-lint-del.yml
-		gitguardian-del.yml = gitguardian-del.yml
-		qqqq.txt = qqqq.txt
 	EndProjectSection
 EndProject
 Global
@@ -72,17 +60,12 @@ Global
 		{3A0A52E1-117C-4E4B-9731-5AAA8CED114A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A0A52E1-117C-4E4B-9731-5AAA8CED114A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A0A52E1-117C-4E4B-9731-5AAA8CED114A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1A4888E4-D985-4FEB-B6C4-B84EB845C6BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1A4888E4-D985-4FEB-B6C4-B84EB845C6BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1A4888E4-D985-4FEB-B6C4-B84EB845C6BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1A4888E4-D985-4FEB-B6C4-B84EB845C6BA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{02EA681E-C7D8-13C7-8484-4AC65E1B71E8} = {8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}
-		{60F62104-7665-411D-90F2-757E979F564D} = {8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4D34DAB5-2332-41DD-A133-3A5765237422}
