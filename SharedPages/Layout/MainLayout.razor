@@ -1,4 +1,68 @@
 ﻿@inherits LayoutComponentBase
+
+
+
+<span class="version-display">@Package.BlazorComponentLibrary.BCLVersion.VersionInfo.Version</span>
 <h1>Main Page Layout</h1>
 @Body
 <h1>Main Page Layout</h1>
+
+
+
+
+
+@* @code {
+    public string Version { get; private set; } = "Unknown";
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            Version = await Http.GetStringAsync("bclversion.txt");
+        }
+        catch (Exception)
+        {
+            Version = "Error fetching version";
+        }
+    }
+} *@
+@* // try
+//     {
+
+
+    //         // Try multiple approaches to find the assembly
+    //     var assemblies = AppDomain.CurrentDomain.GetAssemblies();
+
+    //         // Method 1: Look for exact assembly name
+    //         var assembly = assemblies.FirstOrDefault(a =>
+    //             a.GetName().Name == "LBlazorComponentLibrary.GitPageBlazorWasm" ||
+    //             a.GetName().Name == "Package.BlazorComponentLibrary");
+
+    //         // Method 2: Try partial match if exact match fails
+    //     if (assembly == null)
+    //     {
+    //         assembly = assemblies.FirstOrDefault(a =>
+    //             a.GetName().Name != null &&
+    //             (a.GetName().Name.Contains("GitPageBlazorWasm", StringComparison.OrdinalIgnoreCase) ||
+    //              a.GetName().Name.Contains("BlazorComponentLibrary", StringComparison.OrdinalIgnoreCase)));
+    //     }
+
+    //     if (assembly != null)
+    //     {
+    //         Version = assembly.GetName().Version.ToString();
+    //     }
+    //             else
+    //     {
+    //         Version = "Library not found";
+
+    //         // Optional debugging: Log all assembly names
+    //         // Console.WriteLine("Available assemblies:");
+    //         // foreach (var asm in assemblies)
+    //         // {
+    //         //     Console.WriteLine($"- {asm.GetName().Name}");
+    //         // }
+    //     }
+    // }
+    // catch (Exception ex)
+    // {
+    //     Version = $"Error: {ex.Message}";
+    // } *@

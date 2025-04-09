@@ -9,22 +9,23 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
 
-	  <EnableDefaultEmbeddedResources>true</EnableDefaultEmbeddedResources>
-	  <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+	
+	<EnableDefaultEmbeddedResources>true</EnableDefaultEmbeddedResources>
+	<AddRazorSupportForMvc>true</AddRazorSupportForMvc>
 
 
-	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-	  <PackageId>TELBlazorComponentLibrary.GitPageBlazorWasm</PackageId>
-	  <Version>$(BCLVersion)</Version>
-	  <Authors>TEL</Authors>
-	  <Company>NHS</Company>
-	  <Description>WCAG Progressive Enhancement Blazor Component Library</Description>
-	  <PackageTags>NHS, TEL, blazor, components, library</PackageTags>
-	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
-	  <RepositoryUrl>https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM</RepositoryUrl>
-	  <RepositoryType>git</RepositoryType>
-	  <PackageReadmeFile>README.md</PackageReadmeFile>
-	  <PackageOutputPath>$(NupkgOutputPath)</PackageOutputPath>
+	<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	<PackageId>TELBlazorComponentLibrary.GitPageBlazorWasm</PackageId>
+	<Version>$(BCLVersion)</Version>
+	<Authors>TEL</Authors>
+	<Company>NHS</Company>
+	<Description>WCAG Progressive Enhancement Blazor Component Library</Description>
+	<PackageTags>NHS, TEL, blazor, components, library</PackageTags>
+	<PackageLicenseExpression>MIT</PackageLicenseExpression>
+	<RepositoryUrl>https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM</RepositoryUrl>
+	<RepositoryType>git</RepositoryType>
+	<PackageReadmeFile>README.md</PackageReadmeFile>
+	<PackageOutputPath>$(NupkgOutputPath)</PackageOutputPath>
 
   </PropertyGroup>
 	<!--<Target Name="DebugProperties" BeforeTargets="Build">
@@ -39,10 +40,15 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" />
+    <PackageReference Include="Microsoft.Extensions.Http" />
   </ItemGroup>
 	<ItemGroup>
 		<Content Remove="packages.lock.json" />
 	</ItemGroup>
 
-
+	<Target Name="WriteBclVersionToFile" AfterTargets="Build">
+		<WriteLinesToFile File="wwwroot/bclversion.txt" Lines="$(BCLVersion)" Overwrite="true" Encoding="UTF-8" />
+		<WriteLinesToFile File="BCLVersion/VersionInfo.cs" Lines="namespace Package.BlazorComponentLibrary.BCLVersion { public static class VersionInfo { public static string Version = &quot;$(BCLVersion)&quot; %3B; } }" Overwrite="true" Encoding="UTF-8" />
+	</Target>
+	
 </Project>
