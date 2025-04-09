@@ -1,3 +1,17 @@
+# [8.0.0-feat-graceful-chore-first.1](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v7.0.4...v8.0.0-feat-graceful-chore-first.1) (2025-04-09)
+
+
+### Features
+
+* **breaking:** major version branch ([f8d3ce9](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/f8d3ce90f52a6257aac81eba030838217adb3f61))
+* **topic:** are branches actually getting versioned this is a breaking change ([4b83c7a](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/4b83c7a63bba2ee840c081858808b55dda12f6ee))
+
+
+### BREAKING CHANGES
+
+* **breaking:** to check branch version
+* **topic:** Major version please
+
 ## [7.0.4](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v7.0.3...v7.0.4) (2025-04-08)
 
 
