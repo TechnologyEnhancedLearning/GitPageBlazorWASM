@@ -1,3 +1,10 @@
+# [8.1.0](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.0.0...v8.1.0) (2025-04-09)
+
+
+### Features
+
+* **ReadMe:** added package proj ref ([dbda000](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/dbda000dc48c679170d43a22053738f9fcd197d0))
+
 # [8.0.0](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v7.0.4...v8.0.0) (2025-04-08)
 
 
