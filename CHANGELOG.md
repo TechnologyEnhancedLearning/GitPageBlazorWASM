@@ -1,3 +1,10 @@
+# [8.4.0-feat-version-work-on-branch-maybe.1](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.3.1...v8.4.0-feat-version-work-on-branch-maybe.1) (2025-04-09)
+
+
+### Features
+
+* **version:** number right dev ([02f47b5](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/02f47b527a130b1f01fd79604f63bf4cdfc922c7))
+
 ## [8.3.1](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.3.0...v8.3.1) (2025-04-09)
 
 
