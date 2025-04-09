@@ -1,3 +1,10 @@
+## [8.3.1](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.3.0...v8.3.1) (2025-04-09)
+
+
+### Bug Fixes
+
+* **BCL Version text:** need updating ([2e08393](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/2e08393701624d310da2506baa221724b0a6be19))
+
 # [8.3.0](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.2.0...v8.3.0) (2025-04-09)
 
 

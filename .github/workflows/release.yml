@@ -129,7 +129,7 @@ jobs:
       - name: echo hint information about restore
         run: echo "if a hash error occurs for the bcl package the version number may need increasing or a clean step"
 
-      - name: Publish to GitHub DEV BCL Packages
+      - name: Publish to GitHub Prod BCL Packages
         run: |
           dotnet nuget push "$BCL_Local_Source/TELBlazorComponentLibrary.GitPageBlazorWasm.*.nupkg" \
           --source "https://nuget.pkg.github.com/phil-nhs/index.json" \
