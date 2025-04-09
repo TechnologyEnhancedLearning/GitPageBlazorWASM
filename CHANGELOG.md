@@ -1,3 +1,10 @@
+# [8.3.0](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.2.0...v8.3.0) (2025-04-09)
+
+
+### Features
+
+* **add version to file:** and consume it with library ([4be0903](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/4be0903e2253b4c72f6b76aaa9f719aec5ce81a3))
+
 # [8.2.0](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.1.0...v8.2.0) (2025-04-09)
 
 
