@@ -1,3 +1,10 @@
+# [8.2.0](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.1.0...v8.2.0) (2025-04-09)
+
+
+### Features
+
+* **oops:** commit the change ([6580170](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/6580170d4924f76e6d1257be946c243d3af58c1e))
+
 # [8.1.0](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.0.0...v8.1.0) (2025-04-09)
 
 
