@@ -16,7 +16,6 @@
 	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	  <PackageId>TELBlazorComponentLibrary.GitPageBlazorWasm</PackageId>
 	  <Version>$(BCLVersion)</Version>
-	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	  <Authors>TEL</Authors>
 	  <Company>NHS</Company>
 	  <Description>WCAG Progressive Enhancement Blazor Component Library</Description>
@@ -24,7 +23,7 @@
 	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
 	  <RepositoryUrl>https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM</RepositoryUrl>
 	  <RepositoryType>git</RepositoryType>
-	  <!--<PackageReadmeFile>ReadMe.md</PackageReadmeFile> qqqqqqqq put in later just needs picking up-->
+	  <PackageReadmeFile>README.md</PackageReadmeFile>
 	  <PackageOutputPath>$(NupkgOutputPath)</PackageOutputPath>
 
   </PropertyGroup>

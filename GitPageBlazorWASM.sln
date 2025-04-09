@@ -16,8 +16,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Package.BlazorComponentLibr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlaywrightBUnitGoesHere", "PlaywrightXUnitGoesHere\PlaywrightBUnitGoesHere.csproj", "{3A0A52E1-117C-4E4B-9731-5AAA8CED114A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitPageBlazorWASMProgressive", "GitPageBlazorWASMProgressive\GitPageBlazorWASMProgressive.csproj", "{1A4888E4-D985-4FEB-B6C4-B84EB845C6BA}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}"
 	ProjectSection(SolutionItems) = preProject
 		.commitlintrc.json = .commitlintrc.json
@@ -63,10 +61,6 @@ Global
 		{3A0A52E1-117C-4E4B-9731-5AAA8CED114A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A0A52E1-117C-4E4B-9731-5AAA8CED114A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A0A52E1-117C-4E4B-9731-5AAA8CED114A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1A4888E4-D985-4FEB-B6C4-B84EB845C6BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1A4888E4-D985-4FEB-B6C4-B84EB845C6BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1A4888E4-D985-4FEB-B6C4-B84EB845C6BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1A4888E4-D985-4FEB-B6C4-B84EB845C6BA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
