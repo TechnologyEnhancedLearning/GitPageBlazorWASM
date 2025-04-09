@@ -1,3 +1,10 @@
+# [8.4.0-feat-version-work-on-branch-maybe.2](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.4.0-feat-version-work-on-branch-maybe.1...v8.4.0-feat-version-work-on-branch-maybe.2) (2025-04-09)
+
+
+### Features
+
+* **lowercase:** version branch ([ced7b58](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/ced7b584d1417f2b97c0d6975c22b8a888d70400))
+
 # [8.4.0-feat-version-work-on-branch-maybe.1](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.3.1...v8.4.0-feat-version-work-on-branch-maybe.1) (2025-04-09)
 
 
