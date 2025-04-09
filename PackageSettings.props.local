@@ -7,6 +7,6 @@
     <IsLocalDev>true</IsLocalDev>
     <UseBCLProjectReference>false</UseBCLProjectReference>
       <!--qqqqqq come back to why did i stop using local env variable after git tags may want to rename this bclversionlocal and automate it with build number, and put a shared file so other solutions can use it like lh with now version updates in development-->
-    <BCLVersion>3.0.5</BCLVersion>
+    <BCLVersion>3.0.8</BCLVersion>
   </PropertyGroup>
 </Project>
