@@ -48,7 +48,7 @@
 		<Content Remove="wwwroot\background.png" />
 	</ItemGroup>
 
-	<Target Name="WriteBclVersionToFile" AfterTargets="Build">
+	<Target Name="WriteBclVersionToFile" BeforeTargets="Build">
 		<WriteLinesToFile File="wwwroot/bclversion.txt" Lines="$(BCLVersion)" Overwrite="true" Encoding="UTF-8" />
 		<WriteLinesToFile File="BCLVersion/VersionInfo.cs" Lines="namespace Package.BlazorComponentLibrary.BCLVersion { public static class VersionInfo { public static string Version = &quot;$(BCLVersion)&quot; %3B; } }" Overwrite="true" Encoding="UTF-8" />
 	</Target>

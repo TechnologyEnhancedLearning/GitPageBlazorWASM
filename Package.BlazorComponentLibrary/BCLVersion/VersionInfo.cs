@@ -1,2 +1,2 @@
-﻿namespace Package.BlazorComponentLibrary.BCLVersion { public static class VersionInfo { public static string Version = "3.1.5" ;
+﻿namespace Package.BlazorComponentLibrary.BCLVersion { public static class VersionInfo { public static string Version = "5.5.7" ;
 } }
