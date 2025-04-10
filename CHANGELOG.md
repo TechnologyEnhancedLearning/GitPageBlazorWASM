@@ -1,3 +1,10 @@
+# [8.4.0-feat-version-work-on-branch-maybe.30](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.4.0-feat-version-work-on-branch-maybe.29...v8.4.0-feat-version-work-on-branch-maybe.30) (2025-04-10)
+
+
+### Bug Fixes
+
+* **goat:** coat ([a079caf](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/a079caf599b829c211ffd8c32349d3c92124bf28))
+
 # [8.4.0-feat-version-work-on-branch-maybe.29](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.4.0-feat-version-work-on-branch-maybe.28...v8.4.0-feat-version-work-on-branch-maybe.29) (2025-04-10)
 
 
