@@ -1,3 +1,10 @@
+# [8.4.0-feat-version-work-on-branch-maybe.14](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.4.0-feat-version-work-on-branch-maybe.13...v8.4.0-feat-version-work-on-branch-maybe.14) (2025-04-10)
+
+
+### Bug Fixes
+
+* **cake:** bake ([42cca33](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/42cca333674af4e150c61eef10c2573ba75c3ba4))
+
 # [8.4.0-feat-version-work-on-branch-maybe.13](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.4.0-feat-version-work-on-branch-maybe.12...v8.4.0-feat-version-work-on-branch-maybe.13) (2025-04-10)
 
 
