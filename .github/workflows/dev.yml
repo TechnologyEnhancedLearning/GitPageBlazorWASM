@@ -278,13 +278,18 @@ jobs:
 
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-      
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
       - name: Setup .NET
-        uses: actions/setup-dotnet@v3
+        uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '8.0.x'
+          global-json-file: global.json
+          
+      # - name: Setup .NET
+        # uses: actions/setup-dotnet@v3
+        # with:
+          # dotnet-version: '8.0.x'
           
       - name: Remove Local PackageSettings (CI Only)
         run: rm -f PackageSettings.props.local
@@ -310,10 +315,13 @@ jobs:
           
           echo "Listing packages.lock.json files:"
           find . -name "packages.lock.json" -type f -print
-          echo ""
+          echo "
+          
+      - name: Restoring client, isnt restoring library such that it restores solution enough to get the correct package so restoring the  the whole solution
+        run: dotnet restore GitPageBlazorWASM.sln --no-build
        
       - name: Restore NuGet Packages for Specifically the BCL Package Library Project
-        run: dotnet restore TestHostPrerenderWASM/TestHostPrerenderWASM.Client/TestHostPrerenderWASM.Client.csproj --verbosity detailed 
+        run: dotnet restore TestHostPrerenderWASM/TestHostPrerenderWASM.Client/TestHostPrerenderWASM.Client.csproj
         
       - name: Publish client using client release .csproj logic
         run: |
