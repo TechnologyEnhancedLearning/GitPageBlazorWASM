@@ -224,7 +224,7 @@ jobs:
         run: dotnet restore Package.BlazorComponentLibrary/Package.BlazorComponentLibrary.csproj
         
       - name: echo qqqq here is the issue
-        echo: "qqqq here is the issue"
+        run: echo "qqqq here is the issue"
        
       - name: Debug VersionInfo.cs
         run: |
