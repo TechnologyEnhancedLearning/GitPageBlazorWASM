@@ -3,7 +3,7 @@
 	<!--<Import Project="..\PackageSettings.props" Condition="Exists('..\PackageSettings.props')" /> auto imported by solution-->
 	<ItemGroup>
 		<None Include="..\README.md" Pack="true" PackagePath="\" />
-		<None Include="wwwroot\background.png" />
+		<!--<None Include="wwwroot\background.png" />-->
 	</ItemGroup>
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>

@@ -23,7 +23,7 @@
 	  <!--not for production ideally we test against package version but for expedience can overide nuget package with project reference-->
 	  <!-- Fixed version when UseHighestBCLVersionAvailable is false -->
 	
-	  <PackageReference  Include="TELBlazorComponentLibrary.GitPageBlazorWasm"/>
+	  <PackageReference  Include="TELBlazorComponentLibrary.GitPageBlazorWasm" />
 
 	  <!-- Use the latest available version when UseHighestBCLVersionAvailable is true -->
 	  <!--having floating just isnt possible-->
