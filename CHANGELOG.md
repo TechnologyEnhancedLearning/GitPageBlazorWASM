@@ -1,3 +1,10 @@
+# [8.4.0-feat-version-work-on-branch-maybe.11](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.4.0-feat-version-work-on-branch-maybe.10...v8.4.0-feat-version-work-on-branch-maybe.11) (2025-04-10)
+
+
+### Bug Fixes
+
+* **typo:** go ([ddb131b](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/ddb131b0c9189833160facecca18f603d2bd7177))
+
 # [8.4.0-feat-version-work-on-branch-maybe.10](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.4.0-feat-version-work-on-branch-maybe.9...v8.4.0-feat-version-work-on-branch-maybe.10) (2025-04-10)
 
 
