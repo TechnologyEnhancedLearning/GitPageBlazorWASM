@@ -1,3 +1,10 @@
+# [8.4.0-feat-version-work-on-branch-maybe.19](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.4.0-feat-version-work-on-branch-maybe.18...v8.4.0-feat-version-work-on-branch-maybe.19) (2025-04-10)
+
+
+### Bug Fixes
+
+* **hardcode shared version:** gogo ([95b6912](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/95b6912a0eec8d9f2ebf28228f074ff7c9ef920a))
+
 # [8.4.0-feat-version-work-on-branch-maybe.18](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.4.0-feat-version-work-on-branch-maybe.17...v8.4.0-feat-version-work-on-branch-maybe.18) (2025-04-10)
 
 
