@@ -324,6 +324,15 @@ jobs:
       - name: Restore NuGet Packages for Specifically the BCL Package Library Project
         run: dotnet restore TestHostPrerenderWASM/TestHostPrerenderWASM.Client/TestHostPrerenderWASM.Client.csproj
         
+      - name: Debug client values
+        run: |
+         echo "IsLocalDev: $IS_LOCAL_DEV"
+         echo "BCLVersion: $BCL_VERSION"
+         echo "UseBCLProjectReference: $USE_BCL_PROJECT_REFERENCE"
+         
+      - name: Display Directory.Packages.props
+        run: cat ./Directory.Packages.props
+
       - name: Publish client using client release .csproj logic
         run: |
           dotnet publish ./TestHostPrerenderWASM/TestHostPrerenderWASM.Client/TestHostPrerenderWASM.Client.csproj --configuration Release \
