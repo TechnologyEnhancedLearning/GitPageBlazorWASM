@@ -232,7 +232,7 @@ jobs:
        
       - name: Debug VersionInfo.cs
         run: |
-          echo: "before we build the project where could it be getting this value from?  qqqq"
+          echo "before we build the project where could it be getting this value from?  qqqq"
           cat Package.BlazorComponentLibrary/BCLVersion/VersionInfo.cs
           
           
