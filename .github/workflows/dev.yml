@@ -315,7 +315,7 @@ jobs:
           
           echo "Listing packages.lock.json files:"
           find . -name "packages.lock.json" -type f -print
-          echo "
+
           
       - name: Restoring client, isnt restoring library such that it restores solution enough to get the correct package so restoring the  the whole solution
         run: dotnet restore GitPageBlazorWASM.sln --no-build
