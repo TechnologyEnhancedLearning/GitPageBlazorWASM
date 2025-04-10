@@ -1,3 +1,10 @@
+# [8.4.0-feat-version-work-on-branch-maybe.24](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.4.0-feat-version-work-on-branch-maybe.23...v8.4.0-feat-version-work-on-branch-maybe.24) (2025-04-10)
+
+
+### Bug Fixes
+
+* **typo:** ooo ([05c40a6](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/05c40a61b7f2765a1a211f8a8208e4d74efa41d0))
+
 # [8.4.0-feat-version-work-on-branch-maybe.23](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.4.0-feat-version-work-on-branch-maybe.22...v8.4.0-feat-version-work-on-branch-maybe.23) (2025-04-10)
 
 
