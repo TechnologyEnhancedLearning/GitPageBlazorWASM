@@ -328,12 +328,20 @@ jobs:
           echo "Restoring NuGet packages..."
           dotnet restore GitPageBlazorWASM.sln
           
-
+#qqqqq
 # fails because clieant as id expect if release
-      - name: Build Solution
+# also fails becuase running at the solution level it does not respect the condition on not using the project reference
+      # - name: Build Solution
+        # run: |
+          # echo "Building the solution..."
+          # dotnet build GitPageBlazorWASM.sln -c Debug \
+            # /p:BCLVersion=$BCL_VERSION \
+            # /p:NupkgOutputPath=$NUPKG_OUTPUT_PATH \
+            # /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE
+
+      - name: Build Shared Pages
         run: |
-          echo "Building the solution..."
-          dotnet build GitPageBlazorWASM.sln -c Debug \
+          dotnet build SharedPages -c Release \
             /p:BCLVersion=$BCL_VERSION \
             /p:NupkgOutputPath=$NUPKG_OUTPUT_PATH \
             /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE
