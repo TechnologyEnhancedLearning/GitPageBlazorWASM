@@ -219,10 +219,14 @@ jobs:
           
       - name: Restore NuGet Packages for Specifically the BCL Package Library Project
         run: dotnet restore Package.BlazorComponentLibrary/Package.BlazorComponentLibrary.csproj
+        
        
       - name: Debug VersionInfo.cs
         run: |
           cat Package.BlazorComponentLibrary/BCLVersion/VersionInfo.cs
+          
+      - name: Restore NuGet Packages for Specifically the ClientProject
+        run: dotnet restore TestHostPrerenderWASM/TestHostPrerenderWASM.Client/TestHostPrerenderWASM.Client.csproj
         
       - name: Debug package references
         run: |
