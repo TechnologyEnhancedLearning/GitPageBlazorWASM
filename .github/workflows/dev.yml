@@ -329,11 +329,11 @@ jobs:
           dotnet restore GitPageBlazorWASM.sln
           
 
-
+# fails because clieant as id expect if release
       - name: Build Solution
         run: |
           echo "Building the solution..."
-          dotnet build GitPageBlazorWASM.sln -c Release \
+          dotnet build GitPageBlazorWASM.sln -c Debug \
             /p:BCLVersion=$BCL_VERSION \
             /p:NupkgOutputPath=$NUPKG_OUTPUT_PATH \
             /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE
