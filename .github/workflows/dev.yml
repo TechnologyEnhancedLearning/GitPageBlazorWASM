@@ -291,11 +291,10 @@ jobs:
         
       - name: Replace local environment variable in nuget config because cant provide it as a parameter
         run: |
+          echo 'sed -i "s|%LocalPackagePath%|$BCL_Source|g" nuget.config'
           sed -i "s|%LocalPackagePath%|$BCL_Source|g" nuget.config
           sed -i "s|%GITHUB_USERNAME%|$GITHUB_USERNAME|g" nuget.config
           sed -i "s|%GITHUB_PACKAGES_TOKEN%|$PACKAGES_TOKEN |g" nuget.config
-
-        
         
       - name: debug BCL_VERSION
         run: |
