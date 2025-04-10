@@ -1,3 +1,10 @@
+# [8.4.0-feat-version-work-on-branch-maybe.22](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.4.0-feat-version-work-on-branch-maybe.21...v8.4.0-feat-version-work-on-branch-maybe.22) (2025-04-10)
+
+
+### Bug Fixes
+
+* **remove:** local ([eb83b33](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/eb83b33f4309e952145cf6470fedb89265bf4671))
+
 # [8.4.0-feat-version-work-on-branch-maybe.21](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.4.0-feat-version-work-on-branch-maybe.20...v8.4.0-feat-version-work-on-branch-maybe.21) (2025-04-10)
 
 
