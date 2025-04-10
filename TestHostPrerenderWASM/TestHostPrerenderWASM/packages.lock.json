@@ -220,7 +220,7 @@
         "type": "Project",
         "dependencies": {
           "Microsoft.AspNetCore.Components.Web": "[8.0.14, )",
-          "TELBlazorComponentLibrary.GitPageBlazorWasm": "[8.4.0-feat-version-work-on-branch-maybe.18-250410-1341, )"
+          "TELBlazorComponentLibrary.GitPageBlazorWasm": "[3.0.9, )"
         }
       },
       "testhostprerenderwasm.client": {
