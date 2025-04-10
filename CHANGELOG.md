@@ -1,3 +1,10 @@
+# [8.4.0-feat-version-work-on-branch-maybe.29](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.4.0-feat-version-work-on-branch-maybe.28...v8.4.0-feat-version-work-on-branch-maybe.29) (2025-04-10)
+
+
+### Bug Fixes
+
+* **cant debug sln packages:** may means not there for sharedpages ([a799d18](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/a799d184347bc8515e7785a4d01911e6686a0e66))
+
 # [8.4.0-feat-version-work-on-branch-maybe.28](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.4.0-feat-version-work-on-branch-maybe.27...v8.4.0-feat-version-work-on-branch-maybe.28) (2025-04-10)
 
 
