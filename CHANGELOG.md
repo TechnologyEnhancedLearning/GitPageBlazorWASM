@@ -1,3 +1,10 @@
+# [8.4.0-feat-version-work-on-branch-maybe.10](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.4.0-feat-version-work-on-branch-maybe.9...v8.4.0-feat-version-work-on-branch-maybe.10) (2025-04-10)
+
+
+### Bug Fixes
+
+* **sad:** solution build shouldnt be needed ([7f8f828](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/7f8f8283c3b78343dd3b72f9ad373f89aec9d1d9))
+
 # [8.4.0-feat-version-work-on-branch-maybe.9](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.4.0-feat-version-work-on-branch-maybe.8...v8.4.0-feat-version-work-on-branch-maybe.9) (2025-04-10)
 
 
