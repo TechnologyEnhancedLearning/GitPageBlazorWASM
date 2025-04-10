@@ -369,10 +369,12 @@ jobs:
             # /p:NupkgOutputPath=$NUPKG_OUTPUT_PATH \
             # /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE
 
-      - name: Debug Package References
-        run: |
-          echo "Debugging package references..."
-          dotnet list GitPageBlazorWASM.sln package
+      # - name: Debug Package References
+        # run: |
+          # echo "Debugging package references..."
+          # dotnet restore GitPageBlazorWASM.sln
+          # dotnet list GitPageBlazorWASM.sln package
+          
       - name: Debug Directory package props
         run: |
           echo "Directory.Packages.props : "
