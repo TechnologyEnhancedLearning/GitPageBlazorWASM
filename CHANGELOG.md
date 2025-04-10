@@ -1,3 +1,10 @@
+# [8.4.0-feat-version-work-on-branch-maybe.28](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.4.0-feat-version-work-on-branch-maybe.27...v8.4.0-feat-version-work-on-branch-maybe.28) (2025-04-10)
+
+
+### Bug Fixes
+
+* **colon:** gog ([00fd7ed](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/00fd7ed6e5811d3cf8454a65bd7bb9e4f49c733a))
+
 # [8.4.0-feat-version-work-on-branch-maybe.27](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.4.0-feat-version-work-on-branch-maybe.26...v8.4.0-feat-version-work-on-branch-maybe.27) (2025-04-10)
 
 
