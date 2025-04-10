@@ -307,6 +307,8 @@ jobs:
         # with:
           # dotnet-version: '8.0.x'
           
+      
+          
       - name: Remove Local PackageSettings (CI Only)
         run: rm -f PackageSettings.props.local
         
@@ -395,8 +397,31 @@ jobs:
          echo "UseBCLProjectReference: $USE_BCL_PROJECT_REFERENCE"
          
       #qqqq not showing the value   
-      - name: Display Directory.Packages.props
-        run: cat Directory.Packages.props
+      - name: qqqq Display Directory.Packages.props
+        run: |
+          echo "if we can get this to say the version number then move it higher in the steps i think it may work"
+          echo "we dont want this <PackageVersion Include="TELBlazorComponentLibrary.GitPageBlazorWasm" Version="$(BCLVersion)" />  "
+          echo "try restore"
+          dotnet Restore
+          cat Directory.Packages.props
+          
+      - name: qqqq is it because solution level not receive /p for project so need githun_env values
+        run: |
+         echo "BCLVersion=$BCL_VERSION" >> $GITHUB_ENV
+         echo "LocalPackagePath=$BCL_SOURCE" >> $GITHUB_ENV
+         echo "GITHUB_USERNAME=$GITHUB_USERNAME" >> $GITHUB_ENV
+         echo "IsLocalDev=$IS_LOCAL_DEV" >> $GITHUB_ENV
+         echo "UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE" >> $GITHUB_ENV
+         #echo "GITHUB_PACKAGES_TOKEN=$PACKAGES_TOKEN" >> $GITHUB_ENV
+         
+      - name: qqqq now try restore again
+        run: |
+         dotnet Restore
+         cat Directory.Packages.props
+
+
+
+          
 
       - name: Publish client using client release .csproj logic
         run: |
