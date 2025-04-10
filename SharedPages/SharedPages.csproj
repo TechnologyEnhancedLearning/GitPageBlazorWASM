@@ -22,8 +22,8 @@
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" />
 	  <!--not for production ideally we test against package version but for expedience can overide nuget package with project reference-->
 	  <!-- Fixed version when UseHighestBCLVersionAvailable is false -->
-	  <!--qqqq come back remove version should be centralised-->
-	  <PackageReference  Include="TELBlazorComponentLibrary.GitPageBlazorWasm" Version="8.4.0-feat-version-work-on-branch-maybe.18-250410-1341"/>
+	
+	  <PackageReference  Include="TELBlazorComponentLibrary.GitPageBlazorWasm"/>
 
 	  <!-- Use the latest available version when UseHighestBCLVersionAvailable is true -->
 	  <!--having floating just isnt possible-->
