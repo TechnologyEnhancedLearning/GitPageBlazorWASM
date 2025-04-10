@@ -1,3 +1,10 @@
+# [8.4.0-feat-version-work-on-branch-maybe.8](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.4.0-feat-version-work-on-branch-maybe.7...v8.4.0-feat-version-work-on-branch-maybe.8) (2025-04-10)
+
+
+### Bug Fixes
+
+* **are locks found:** lock check ([1edc57b](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/1edc57b93cb618f8e9e38f0cab62b158623f6e83))
+
 # [8.4.0-feat-version-work-on-branch-maybe.7](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.4.0-feat-version-work-on-branch-maybe.6...v8.4.0-feat-version-work-on-branch-maybe.7) (2025-04-10)
 
 
