@@ -220,7 +220,15 @@ jobs:
       - name: Restore NuGet Packages for Specifically the BCL Package Library Project
         run: dotnet restore Package.BlazorComponentLibrary/Package.BlazorComponentLibrary.csproj
        
-       
+      - name: Debug VersionInfo.cs
+        run: |
+          cat Package.BlazorComponentLibrary/BCLVersion/VersionInfo.cs
+        
+      - name: Debug package references
+        run: |
+          echo "Checking package references in client project..."
+          dotnet list TestHostPrerenderWASM/TestHostPrerenderWASM.Client/TestHostPrerenderWASM.Client.csproj package
+    
       - name: Build and Pack BlazorComponentLibrary
         run: |
           dotnet build Package.BlazorComponentLibrary -c Release \
@@ -234,7 +242,7 @@ jobs:
         # run: echo "${{ env.NUPKG_OUTPUT_PATH }}"
 
       - name: echo hint information about restore
-        run: echo "if a hash error occurs for the bcl package the version number may need increasing or a clean step"
+        run: echo "if a hash error occurs for the bcl package the version number may need increasing or a clean step, hiy only does latest for packages no prerelease like nuget so version filtering is needed by consumers"
 
       - name: Publish to GitHub DEV BCL Packages
         run: |
@@ -261,6 +269,9 @@ jobs:
         with:
           dotnet-version: '8.0.x'
           
+      - name: Remove Local PackageSettings (CI Only)
+        run: rm -f PackageSettings.props.local
+        
       - name: Replace local environment variable in nuget config because cant provide it as a parameter
         run: |
           sed -i "s|%LocalPackagePath%|$BCL_Source|g" nuget.config
