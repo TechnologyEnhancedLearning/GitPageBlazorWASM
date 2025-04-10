@@ -340,10 +340,10 @@ jobs:
             # /p:NupkgOutputPath=$NUPKG_OUTPUT_PATH \
             # /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE
             
-      - name: Build Solution
+      - name: Build Shared Pages
         run: |
           echo "Building the solution..."
-          dotnet build GitPageBlazorWASM.sln -c Release \
+          dotnet build SharedPages -c Release \
             /p:BCLVersion=$BCL_VERSION \
             /p:NupkgOutputPath=$NUPKG_OUTPUT_PATH \
             /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE
@@ -359,7 +359,9 @@ jobs:
         run: |
           echo "Debugging package references..."
           dotnet list GitPageBlazorWASM.sln package
-          
+      - name: Debug Directory package props
+        run: |
+          cat Directory.Package.Props
           
           
       - name: Restoring client, isnt restoring library such that it restores solution enough to get the correct package so restoring the  the whole solution
