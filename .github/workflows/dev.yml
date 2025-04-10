@@ -207,7 +207,9 @@ jobs:
 
       # the restore cant be given env values to override values like it can in build so we need to remove this file so we use the env values
       - name: Remove Local PackageSettings (CI Only)
-        run: rm -f PackageSettings.props.local
+        run: |
+          rm -f PackageSettings.props.local
+          ls
         
       - name: Replace local environment variable in nuget config because cant provide it as a parameter
         run: sed -i "s|%LocalPackagePath%|$BCL_Local_Source|g" nuget.config
@@ -222,14 +224,15 @@ jobs:
         run: |
           find . -name "packages.lock.json" -type f -exec rm -f {} \;
           
-      - name: Restore NuGet Packages for Specifically the BCL Package Library Project
-        run: dotnet restore Package.BlazorComponentLibrary/Package.BlazorComponentLibrary.csproj
+      # - name: Restore NuGet Packages for Specifically the BCL Package Library Project
+        # run: dotnet restore Package.BlazorComponentLibrary/Package.BlazorComponentLibrary.csproj
         
       - name: echo qqqq here is the issue
         run: echo "qqqq here is the issue"
        
       - name: Debug VersionInfo.cs
         run: |
+          echo: "before we build the project where could it be getting this value from?  qqqq"
           cat Package.BlazorComponentLibrary/BCLVersion/VersionInfo.cs
           
           
@@ -263,6 +266,16 @@ jobs:
       - name: echo hint information about restore
         run: echo "if a hash error occurs for the bcl package the version number may need increasing or a clean step, hiy only does latest for packages no prerelease like nuget so version filtering is needed by consumers"
 
+# qqqqq how is this using a local variable
+      - name: DEBUGGING Publish to GitHub DEV BCL Packages
+        run: |
+          echo "Listing .nupkg files in the directory:"
+          ls $BCL_Local_Source/*.nupkg
+          echo "Unzipping .nupkg to inspect contents"
+          unzip -l "$BCL_Local_Source/TELBlazorComponentLibrary.GitPageBlazorWasm.*.nupkg" # List contents of the .nupkg file
+          echo "Displaying the contents of bclversion.txt"
+          cat "Package.BlazorComponentLibrary/wwwroot/bclversion.txt"
+          
       - name: Publish to GitHub DEV BCL Packages
         run: |
           dotnet nuget push "$BCL_Local_Source/TELBlazorComponentLibrary.GitPageBlazorWasm.*.nupkg" \
@@ -272,6 +285,7 @@ jobs:
        
           
   Make-Blazor-Wiki-Artifact-Trigger-GH-Pages-In-BlazorWasmTest:
+  
     if: success() #not needed but being explicit
     needs: [ branch-name-check, build-bcl-dev-package-and-publish,generate-dev-semantic-version, commitlint, gitguardian-scan, Unit-Tests, E2E-Tests]
     runs-on: ubuntu-latest
@@ -323,10 +337,10 @@ jobs:
           echo "Cleaning the solution..."
           dotnet clean GitPageBlazorWASM.sln
 
-      - name: Restore NuGet Packages
-        run: |
-          echo "Restoring NuGet packages..."
-          dotnet restore GitPageBlazorWASM.sln
+      # - name: Restore NuGet Packages
+        # run: |
+          # echo "Restoring NuGet packages..."
+          # dotnet restore GitPageBlazorWASM.sln
           
 #qqqqq
 # fails because clieant as id expect if release
@@ -366,11 +380,11 @@ jobs:
           echo ""
           
           
-      - name: Restoring client, isnt restoring library such that it restores solution enough to get the correct package so restoring the  the whole solution
-        run: dotnet restore GitPageBlazorWASM.sln
+      # - name: Restoring client, isnt restoring library such that it restores solution enough to get the correct package so restoring the  the whole solution
+        # run: dotnet restore GitPageBlazorWASM.sln
        
-      - name: Restore NuGet Packages for Specifically the BCL Package Library Project
-        run: dotnet restore TestHostPrerenderWASM/TestHostPrerenderWASM.Client/TestHostPrerenderWASM.Client.csproj
+      # - name: Restore NuGet Packages for Specifically the BCL Package Library Project
+        # run: dotnet restore TestHostPrerenderWASM/TestHostPrerenderWASM.Client/TestHostPrerenderWASM.Client.csproj
         
       - name: Debug client values
         run: |
