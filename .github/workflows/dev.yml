@@ -248,6 +248,7 @@ jobs:
             /p:BCLVersion=$BCL_VERSION \
             /p:NupkgOutputPath=$NUPKG_OUTPUT_PATH
        
+      #qqqq this works 
       - name: Debug VersionInfo.cs
         run: |
           cat Package.BlazorComponentLibrary/BCLVersion/VersionInfo.cs
@@ -318,7 +319,7 @@ jobs:
 
           
       - name: Restoring client, isnt restoring library such that it restores solution enough to get the correct package so restoring the  the whole solution
-        run: dotnet restore GitPageBlazorWASM.sln --no-build
+        run: dotnet restore GitPageBlazorWASM.sln
        
       - name: Restore NuGet Packages for Specifically the BCL Package Library Project
         run: dotnet restore TestHostPrerenderWASM/TestHostPrerenderWASM.Client/TestHostPrerenderWASM.Client.csproj
