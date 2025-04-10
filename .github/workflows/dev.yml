@@ -317,7 +317,25 @@ jobs:
           echo "Listing packages.lock.json files:"
           find . -name "packages.lock.json" -type f -print
 
-          
+      - name: Clean Solution
+        run: |
+          echo "Cleaning the solution..."
+          dotnet clean GitPageBlazorWASM.sln
+
+      - name: Restore NuGet Packages
+        run: |
+          echo "Restoring NuGet packages..."
+          dotnet restore GitPageBlazorWASM.sln
+
+      - name: Build Solution
+        run: |
+          echo "Building the solution..."
+          dotnet build GitPageBlazorWASM.sln -c Release
+
+      - name: Debug Package References
+        run: |
+          echo "Debugging package references..."
+          dotnet list GitPageBlazorWASM.sln package
           
           
           
