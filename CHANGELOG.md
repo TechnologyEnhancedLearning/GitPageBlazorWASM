@@ -1,3 +1,10 @@
+# [8.4.0-feat-version-work-on-branch-maybe.4](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.4.0-feat-version-work-on-branch-maybe.3...v8.4.0-feat-version-work-on-branch-maybe.4) (2025-04-10)
+
+
+### Features
+
+* **just check runs:** runs ([b508166](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/b508166389c94a74122f0275f02c5174270d1ac7))
+
 # [8.4.0-feat-version-work-on-branch-maybe.3](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.4.0-feat-version-work-on-branch-maybe.2...v8.4.0-feat-version-work-on-branch-maybe.3) (2025-04-10)
 
 
