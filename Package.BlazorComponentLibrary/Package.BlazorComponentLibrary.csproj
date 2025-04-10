@@ -3,6 +3,7 @@
 	<!--<Import Project="..\PackageSettings.props" Condition="Exists('..\PackageSettings.props')" /> auto imported by solution-->
 	<ItemGroup>
 		<None Include="..\README.md" Pack="true" PackagePath="\" />
+		<None Include="wwwroot\background.png" />
 	</ItemGroup>
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -44,6 +45,7 @@
   </ItemGroup>
 	<ItemGroup>
 		<Content Remove="packages.lock.json" />
+		<Content Remove="wwwroot\background.png" />
 	</ItemGroup>
 
 	<Target Name="WriteBclVersionToFile" AfterTargets="Build">
