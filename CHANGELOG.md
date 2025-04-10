@@ -1,3 +1,10 @@
+# [8.4.0-feat-version-work-on-branch-maybe.3](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.4.0-feat-version-work-on-branch-maybe.2...v8.4.0-feat-version-work-on-branch-maybe.3) (2025-04-10)
+
+
+### Features
+
+* **debugging for version:** package component text ([5480dce](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/5480dce5f8c5990ebcf07bc776915b172c9fdec8))
+
 # [8.4.0-feat-version-work-on-branch-maybe.2](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.4.0-feat-version-work-on-branch-maybe.1...v8.4.0-feat-version-work-on-branch-maybe.2) (2025-04-09)
 
 
