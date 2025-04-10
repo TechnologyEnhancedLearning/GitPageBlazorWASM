@@ -1,3 +1,11 @@
+# [8.4.0-feat-version-work-on-branch-maybe.23](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.4.0-feat-version-work-on-branch-maybe.22...v8.4.0-feat-version-work-on-branch-maybe.23) (2025-04-10)
+
+
+### Bug Fixes
+
+* **lAST one:** goplease ([cb5cf5c](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/cb5cf5c743ce8b9959ee66d6da9cf2900bc5cfef))
+* **package lock:** get ([6365e87](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/6365e87b1a689f3b4797efdc80736abe55eedb70))
+
 # [8.4.0-feat-version-work-on-branch-maybe.22](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.4.0-feat-version-work-on-branch-maybe.21...v8.4.0-feat-version-work-on-branch-maybe.22) (2025-04-10)
 
 
