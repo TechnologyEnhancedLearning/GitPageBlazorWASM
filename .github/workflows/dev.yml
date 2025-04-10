@@ -331,7 +331,7 @@ jobs:
          echo "UseBCLProjectReference: $USE_BCL_PROJECT_REFERENCE"
          
       - name: Display Directory.Packages.props
-        run: cat ./Directory.Packages.props
+        run: cat Directory.Packages.props
 
       - name: Publish client using client release .csproj logic
         run: |
