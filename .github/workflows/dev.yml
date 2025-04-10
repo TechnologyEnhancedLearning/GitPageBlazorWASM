@@ -361,7 +361,7 @@ jobs:
           dotnet list GitPageBlazorWASM.sln package
       - name: Debug Directory package props
         run: |
-          cat Directory.Package.Props
+          cat Directory.Packages.Props
           
           
       - name: Restoring client, isnt restoring library such that it restores solution enough to get the correct package so restoring the  the whole solution
