@@ -291,7 +291,7 @@ jobs:
         
       - name: Replace local environment variable in nuget config because cant provide it as a parameter
         run: |
-          echo 'sed -i "s|%LocalPackagePath%|$BCL_Source|g" nuget.config'
+          echo "sed -i \"s|%LocalPackagePath%|$BCL_Source|g\" nuget.config"
           sed -i "s|%LocalPackagePath%|$BCL_Source|g" nuget.config
           sed -i "s|%GITHUB_USERNAME%|$GITHUB_USERNAME|g" nuget.config
           sed -i "s|%GITHUB_PACKAGES_TOKEN%|$PACKAGES_TOKEN |g" nuget.config
@@ -302,10 +302,14 @@ jobs:
       
       - name: Clean lock files because the newly generated package file will superseed the locks
         run: |
+          echo "Listing packages.lock.json files:"
+          find . -name "packages.lock.json" -type f -print
+          echo ""
+          echo "Deleting packages.lock.json files:"
           find . -name "packages.lock.json" -type f -exec rm -f {} \;
        
       - name: Restore NuGet Packages for Specifically the BCL Package Library Project
-        run: dotnet restore TestHostPrerenderWASM/TestHostPrerenderWASM.Client/TestHostPrerenderWASM.Client.csproj      
+        run: dotnet restore TestHostPrerenderWASM/TestHostPrerenderWASM.Client/TestHostPrerenderWASM.Client.csproj --verbosity detailed 
         
       - name: Publish client using client release .csproj logic
         run: |
