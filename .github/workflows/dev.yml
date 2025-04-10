@@ -331,20 +331,29 @@ jobs:
 #qqqqq
 # fails because clieant as id expect if release
 # also fails becuase running at the solution level it does not respect the condition on not using the project reference
+
       # - name: Build Solution
         # run: |
           # echo "Building the solution..."
-          # dotnet build GitPageBlazorWASM.sln -c Debug \
+          # dotnet build GitPageBlazorWASM.sln -c Release \
             # /p:BCLVersion=$BCL_VERSION \
             # /p:NupkgOutputPath=$NUPKG_OUTPUT_PATH \
             # /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE
-
-      - name: Build Shared Pages
+            
+      - name: Build Solution
         run: |
-          dotnet build SharedPages -c Release \
+          echo "Building the solution..."
+          dotnet build GitPageBlazorWASM.sln -c Release \
             /p:BCLVersion=$BCL_VERSION \
             /p:NupkgOutputPath=$NUPKG_OUTPUT_PATH \
             /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE
+
+      # - name: Build Shared Pages
+        # run: |
+          # dotnet build SharedPages -c Release \
+            # /p:BCLVersion=$BCL_VERSION \
+            # /p:NupkgOutputPath=$NUPKG_OUTPUT_PATH \
+            # /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE
 
       - name: Debug Package References
         run: |
