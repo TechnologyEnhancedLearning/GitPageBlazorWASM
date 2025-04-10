@@ -1,3 +1,11 @@
+# [8.4.0-feat-version-work-on-branch-maybe.13](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.4.0-feat-version-work-on-branch-maybe.12...v8.4.0-feat-version-work-on-branch-maybe.13) (2025-04-10)
+
+
+### Bug Fixes
+
+* **run:** while edit ([0e95367](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/0e95367eba0827a7bb539cae2b346c50cb7c3c14))
+* **while:** wait ([2b5c1f5](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/2b5c1f5adb17cb1f1a3c32b0a8e33e0e30dffb16))
+
 # [8.4.0-feat-version-work-on-branch-maybe.12](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.4.0-feat-version-work-on-branch-maybe.11...v8.4.0-feat-version-work-on-branch-maybe.12) (2025-04-10)
 
 
