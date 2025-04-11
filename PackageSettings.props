@@ -9,7 +9,7 @@
 	<UseBCLProjectReference Condition="'$(UseBCLProjectReference)' != '' ">$(UseBCLProjectReference)</UseBCLProjectReference>
 
 	<GhPageRelease Condition="'$(GhPageRelease)' == '' ">false</GhPageRelease>
-	<GhPageRelease Condition="'$(UseBCLProjectReference)' != '' ">$(GhPageRelease)</GhPageRelease>
+	<GhPageRelease Condition="'$(GhPageRelease)' != '' ">$(GhPageRelease)</GhPageRelease>
 
 	<BCLVersion>$(BCLVersion)</BCLVersion>
 
