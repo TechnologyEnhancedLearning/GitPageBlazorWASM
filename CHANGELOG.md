@@ -1,3 +1,12 @@
+# [9.0.0-feat-version-work-on-branch-maybe.4](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.0.0-feat-version-work-on-branch-maybe.3...v9.0.0-feat-version-work-on-branch-maybe.4) (2025-04-11)
+
+
+### Bug Fixes
+
+* **go:** friday ([435c7b3](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/435c7b3c56a905c5d7286916dd18208f6ceac679))
+* **just rewrite:** todo ([66971e2](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/66971e29fa5dca9290063ac5b782a87fbe645c46))
+* **just try it:** gog ([a39c731](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/a39c731cd877889510259784e3128d7fba76401d))
+
 # [9.0.0-feat-version-work-on-branch-maybe.3](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.0.0-feat-version-work-on-branch-maybe.2...v9.0.0-feat-version-work-on-branch-maybe.3) (2025-04-11)
 
 
