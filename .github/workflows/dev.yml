@@ -257,12 +257,14 @@ jobs:
         run: |
           cat Package.BlazorComponentLibrary/BCLVersion/VersionInfo.cs
           
-      - name: build whole solution now package built
-        run: |
-          dotnet build GitPageBlazorWASM.sln -c Release \
-            /p:BCLVersion=$BCL_VERSION \
-            /p:NupkgOutputPath=$NUPKG_OUTPUT_PATH \
-            /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE \
+      # - name: build whole solution now package built qqqqq
+        # run: |
+          # dotnet build GitPageBlazorWASM.sln -c Release \
+            # /p:BCLVersion=$BCL_VERSION \
+            # /p:NupkgOutputPath=$NUPKG_OUTPUT_PATH \
+            # /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE \
+            # /p:LocalPackagePath=$BCL_Local_Source \
+            # /p:GhPageRelease=false
 
       # - name: List Created Package
         # run: ls -l $BCL_Local_Source
