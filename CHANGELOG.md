@@ -1,3 +1,10 @@
+# [9.0.0-feat-version-work-on-branch-maybe.12](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.0.0-feat-version-work-on-branch-maybe.11...v9.0.0-feat-version-work-on-branch-maybe.12) (2025-04-11)
+
+
+### Bug Fixes
+
+* **go:** were using release inprogram ([621daa7](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/621daa7c3d6474d24042b1953645b6a5c8f4531b))
+
 # [9.0.0-feat-version-work-on-branch-maybe.11](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.0.0-feat-version-work-on-branch-maybe.10...v9.0.0-feat-version-work-on-branch-maybe.11) (2025-04-11)
 
 
