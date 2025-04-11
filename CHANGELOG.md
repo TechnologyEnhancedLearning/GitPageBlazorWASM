@@ -1,3 +1,16 @@
+# [9.0.0-feat-version-work-on-branch-maybe.1](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.4.0-feat-version-work-on-branch-maybe.30...v9.0.0-feat-version-work-on-branch-maybe.1) (2025-04-11)
+
+
+### Bug Fixes
+
+* **bccc:** which does and doesnt update ([c9771bd](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/c9771bd825cade68947c42613cbde631a478f584))
+* **cicd:** PrepareForBuild ([2963d4e](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/2963d4e804c6667468325e5a77cc93b453367ecd))
+
+
+### BREAKING CHANGES
+
+* **bccc:** breaks
+
 # [8.4.0-feat-version-work-on-branch-maybe.30](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.4.0-feat-version-work-on-branch-maybe.29...v8.4.0-feat-version-work-on-branch-maybe.30) (2025-04-10)
 
 
