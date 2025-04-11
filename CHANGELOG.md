@@ -1,3 +1,11 @@
+# [9.0.0-feat-version-work-on-branch-maybe.9](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.0.0-feat-version-work-on-branch-maybe.8...v9.0.0-feat-version-work-on-branch-maybe.9) (2025-04-11)
+
+
+### Bug Fixes
+
+* **commit:** lint ([8dd8685](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/8dd86855ca97ffc9842fe74473ca45cba3027339))
+* **so disable package generation on build:** last run worked but broken site ([aa20354](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/aa203546f3e36555eb6793214ea30a21e44b71ac))
+
 # [9.0.0-feat-version-work-on-branch-maybe.8](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.0.0-feat-version-work-on-branch-maybe.7...v9.0.0-feat-version-work-on-branch-maybe.8) (2025-04-11)
 
 
