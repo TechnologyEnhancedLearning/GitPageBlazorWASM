@@ -13,8 +13,8 @@
 	<EnableDefaultEmbeddedResources>true</EnableDefaultEmbeddedResources>
 	<AddRazorSupportForMvc>true</AddRazorSupportForMvc>
 
-
-	<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	<GeneratePackageOnBuild Condition="'$(DisablePackageGeneration)' != 'true'">true</GeneratePackageOnBuild>
+	<!--<GeneratePackageOnBuild>true</GeneratePackageOnBuild>-->
 	<PackageId>TELBlazorComponentLibrary.GitPageBlazorWasm</PackageId>
 	<Version>$(BCLVersion)</Version>
 	<Authors>TEL</Authors>

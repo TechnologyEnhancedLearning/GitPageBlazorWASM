@@ -13,6 +13,8 @@
 
 	<BCLVersion>$(BCLVersion)</BCLVersion>
 
+    <DisablePackageGeneration >$(DisablePackageGeneration)</DisablePackageGeneration>
+
   </PropertyGroup>
 
 </Project>
