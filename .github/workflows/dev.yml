@@ -418,6 +418,18 @@ jobs:
         run: |
          dotnet Restore
          cat Directory.Packages.props
+         echo "doesnt work"
+         
+      - name: Display Environment Variable (for debugging)
+        run: echo "BCLVERSION is: $BCLVERSION"
+        
+      - name: qqqqqqq here now try build
+        run: |
+          -e
+          dotnet build
+          cat Directory.Packages.props
+          echo "doesnt work"
+          +e
 
 
 
