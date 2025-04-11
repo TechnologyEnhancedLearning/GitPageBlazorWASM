@@ -385,24 +385,24 @@ jobs:
           echo "Listing packages.lock.json files:"
           find . -name "packages.lock.json" -type f -print
 
-      - name: Build Solution
-        run: |
-          dotnet build GitPageBlazorWASM.sln -c Release \
-            /p:BCLVersion=$BCL_VERSION \
-            /p:NupkgOutputPath=$NUPKG_OUTPUT_PATH \
-            /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE \
-            /p:GhPageRelease=false \
-            /p:LocalPackagePath=$BCL_Source
+#need to remove publish on build
+      # - name: Build Solution
+        # run: |
+          # dotnet build GitPageBlazorWASM.sln -c Release \
+            # /p:BCLVersion=$BCL_VERSION \
+            # /p:NupkgOutputPath=$NUPKG_OUTPUT_PATH \
+            # /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE \
+            # /p:GhPageRelease=false \
+            # /p:LocalPackagePath=$BCL_Source
             
       - name: Build Shared Pages
         run: |
-          echo "Building the solution..."
           dotnet build SharedPages -c Release \
             /p:BCLVersion=$BCL_VERSION \
             /p:NupkgOutputPath=$NUPKG_OUTPUT_PATH \
             /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE \
             /p:GhPageRelease=false \
-            /p:LocalPackagePath=$NUPKG_OUTPUT_PATH
+            /p:LocalPackagePath=$BCL_Source
 
    
           
