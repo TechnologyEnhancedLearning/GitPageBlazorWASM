@@ -256,6 +256,13 @@ jobs:
       - name: Debug VersionInfo.cs
         run: |
           cat Package.BlazorComponentLibrary/BCLVersion/VersionInfo.cs
+          
+      - name: build whole solution now package built
+        run: |
+          dotnet build GitPageBlazorWASM.sln -c Release \
+            /p:BCLVersion=$BCL_VERSION \
+            /p:NupkgOutputPath=$NUPKG_OUTPUT_PATH \
+            /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE
 
       # - name: List Created Package
         # run: ls -l $BCL_Local_Source
@@ -421,7 +428,7 @@ jobs:
          echo "doesnt work"
          
       - name: Display Environment Variable (for debugging)
-        run: echo "BCLVERSION is: $BCLVERSION"
+        run: echo "BCLVERSION is $BCLVERSION"
         
       - name: qqqqqqq here now try build
         run: |
@@ -441,6 +448,7 @@ jobs:
             /p:IsLocalDev=$IS_LOCAL_DEV \
             /p:BCLVersion=$BCL_VERSION \
             /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE
+            /p:GhPageRelease=true
         
 
       #include hidden so we get jekyll

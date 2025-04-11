@@ -1,5 +1,32 @@
 
+
+
+
 ## qqqq unlike in nuget feed git package feed doesnt display this file so to see it you need to look in the actual nuget package
+
+# Local Development
+- inc the version in local props
+	- save
+- build package project (debug)
+- build solution (debug)
+- run
+	- for wasm use release and client
+	- for hosted wasm use host and debug
+
+## Trouble shooting
+- clean restore solution and try again
+- look in the sharedpages, look in depenency in solution explorer, open the package version drop down
+	- is the version what you expect?
+	- is there an error
+- if it still doesnt work increment the version and use the process again
+
+## Bonus 
+- there is probably a way to increment version with timestamps or build number to automate it more
+
+## extras
+- you can use a local feed two visual studio and see new components in LH for example
+- LH could be setup to automatically update too, system environment variables may help or a txt file to read in csproj to sinc versions
+
 # About
 
 

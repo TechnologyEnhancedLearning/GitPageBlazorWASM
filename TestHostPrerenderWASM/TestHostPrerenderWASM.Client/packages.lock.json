@@ -245,7 +245,7 @@
         "type": "Project",
         "dependencies": {
           "Microsoft.AspNetCore.Components.Web": "[8.0.14, )",
-          "TELBlazorComponentLibrary.GitPageBlazorWasm": "[5.5.8, )"
+          "TELBlazorComponentLibrary.GitPageBlazorWasm": "[10.9.4, )"
         }
       },
       "Microsoft.AspNetCore.Components.Web": {
@@ -278,9 +278,9 @@
       },
       "TELBlazorComponentLibrary.GitPageBlazorWasm": {
         "type": "CentralTransitive",
-        "requested": "[5.5.8, )",
-        "resolved": "5.5.8",
-        "contentHash": "VI3cxBuNHUNnb09kWc1a1a1Vk62A62q5m7nHJu7Mw8BypfwqpQrAk+9XIaw59uhCHESVQmnP5R42ljSkDBsE5A==",
+        "requested": "[10.9.4, )",
+        "resolved": "10.9.4",
+        "contentHash": "6RaXO8UiyYfHPn//WRe73cn0ZI2qXQKlEkBP99yHd2sMAZzKF1N8hMzRrlyz+60GjHslzjQnSQreCQhUnbs+UQ==",
         "dependencies": {
           "Microsoft.AspNetCore.Components.Web": "8.0.14",
           "Microsoft.Extensions.Http": "8.0.0"

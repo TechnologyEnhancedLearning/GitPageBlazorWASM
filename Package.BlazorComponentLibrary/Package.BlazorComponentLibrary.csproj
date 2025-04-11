@@ -3,7 +3,6 @@
 	<!--<Import Project="..\PackageSettings.props" Condition="Exists('..\PackageSettings.props')" /> auto imported by solution-->
 	<ItemGroup>
 		<None Include="..\README.md" Pack="true" PackagePath="\" />
-		<!--<None Include="wwwroot\background.png" />-->
 	</ItemGroup>
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -29,11 +28,6 @@
 	<PackageOutputPath>$(NupkgOutputPath)</PackageOutputPath>
 
   </PropertyGroup>
-	<!--<Target Name="DebugProperties" BeforeTargets="Build">
-		<Message Importance="high" Text="NupkgOutputPath: $(NupkgOutputPath)" />
-		<Message Importance="high" Text="PackageOutputPath: $(PackageOutputPath)" />
-		<Message Importance="high" Text="LocalPackagePath: $(LocalPackagePath)" />
-	</Target>-->
 
   <ItemGroup>
     <SupportedPlatform Include="browser" />
@@ -48,7 +42,7 @@
 		<Content Remove="wwwroot\background.png" />
 	</ItemGroup>
 
-	<Target Name="WriteBclVersionToFile" BeforeTargets="Build">
+	<Target Name="WriteBclVersionToFile" BeforeTargets="PrepareForBuild">
 		<WriteLinesToFile File="wwwroot/bclversion.txt" Lines="$(BCLVersion)" Overwrite="true" Encoding="UTF-8" />
 		<WriteLinesToFile File="BCLVersion/VersionInfo.cs" Lines="namespace Package.BlazorComponentLibrary.BCLVersion { public static class VersionInfo { public static string Version = &quot;$(BCLVersion)&quot; %3B; } }" Overwrite="true" Encoding="UTF-8" />
 	</Target>

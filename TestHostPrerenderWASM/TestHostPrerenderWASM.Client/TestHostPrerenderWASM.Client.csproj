@@ -9,8 +9,9 @@
 
 	<PublishDir>$(MSBuildProjectDirectory)\..\..\docs\</PublishDir>
 	  
-	 <WwwRootDir Condition="'$(Configuration)'=='Release'">$(PublishDir)\wwwroot</WwwRootDir>
-
+	 <!--worked but hindered other stuff qqqq <WwwRootDir Condition="'$(Configuration)'=='Release'">$(PublishDir)\wwwroot</WwwRootDir>-->
+	 <WwwRootDir Condition="'$(GhPageRelease)' == 'true'">$(PublishDir)\wwwroot"</WwwRootDir>
+	 <DefineConstants Condition="'$(GhPageRelease)' == 'true'">$(DefineConstants);GH_PAGE_RELEASE</DefineConstants>
   </PropertyGroup>
 
 
