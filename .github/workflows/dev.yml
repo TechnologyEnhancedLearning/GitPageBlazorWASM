@@ -335,7 +335,6 @@ jobs:
           # --api-key ${{ secrets.PACKAGES_TOKEN }} \
           # --skip-duplicate
        
-          
   Make-Blazor-Wiki-Artifact-Trigger-GH-Pages-In-BlazorWasmTest:
   
     if: success() #not needed but being explicit
@@ -354,10 +353,10 @@ jobs:
         with:
           global-json-file: global.json
           
-      # - name: Setup .NET
-        # uses: actions/setup-dotnet@v3
-        # with:
-          # dotnet-version: '8.0.x'
+      - name: Clean Solution
+        run: |
+          echo "Cleaning the solution..."
+          dotnet clean GitPageBlazorWASM.sln
           
       
           
@@ -386,114 +385,46 @@ jobs:
           echo "Listing packages.lock.json files:"
           find . -name "packages.lock.json" -type f -print
 
-      - name: Clean Solution
+      - name: Build Solution
         run: |
-          echo "Cleaning the solution..."
-          dotnet clean GitPageBlazorWASM.sln
-
-      # - name: Restore NuGet Packages
-        # run: |
-          # echo "Restoring NuGet packages..."
-          # dotnet restore GitPageBlazorWASM.sln
-          
-#qqqqq
-# fails because clieant as id expect if release
-# also fails becuase running at the solution level it does not respect the condition on not using the project reference
-
-      # - name: Build Solution
-        # run: |
-          # echo "Building the solution..."
-          # dotnet build GitPageBlazorWASM.sln -c Release \
-            # /p:BCLVersion=$BCL_VERSION \
-            # /p:NupkgOutputPath=$NUPKG_OUTPUT_PATH \
-            # /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE
-            
+          dotnet build GitPageBlazorWASM.sln -c Release \
+            /p:BCLVersion=$BCL_VERSION \
+            /p:NupkgOutputPath=$NUPKG_OUTPUT_PATH \
+            /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE \
+            /p:GhPageRelease=false \
+            /p:LocalPackagePath=$NUPKG_OUTPUT_PATH
+			
       - name: Build Shared Pages
         run: |
           echo "Building the solution..."
           dotnet build SharedPages -c Release \
             /p:BCLVersion=$BCL_VERSION \
             /p:NupkgOutputPath=$NUPKG_OUTPUT_PATH \
-            /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE
+            /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE \
+            /p:GhPageRelease=false \
+            /p:LocalPackagePath=$NUPKG_OUTPUT_PATH
 
-      # - name: Build Shared Pages
-        # run: |
-          # dotnet build SharedPages -c Release \
-            # /p:BCLVersion=$BCL_VERSION \
-            # /p:NupkgOutputPath=$NUPKG_OUTPUT_PATH \
-            # /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE
-
-      # - name: Debug Package References
-        # run: |
-          # echo "Debugging package references..."
-          # dotnet restore GitPageBlazorWASM.sln
-          # dotnet list GitPageBlazorWASM.sln package
-          
-      - name: Debug Directory package props
-        run: |
-          echo "Directory.Packages.props : "
-          cat Directory.Packages.props
-          echo ""
-          
-          
-      # - name: Restoring client, isnt restoring library such that it restores solution enough to get the correct package so restoring the  the whole solution
-        # run: dotnet restore GitPageBlazorWASM.sln
-       
-      # - name: Restore NuGet Packages for Specifically the BCL Package Library Project
-        # run: dotnet restore TestHostPrerenderWASM/TestHostPrerenderWASM.Client/TestHostPrerenderWASM.Client.csproj
-        
-      - name: Debug client values
-        run: |
-         echo "IsLocalDev: $IS_LOCAL_DEV"
-         echo "BCLVersion: $BCL_VERSION"
-         echo "UseBCLProjectReference: $USE_BCL_PROJECT_REFERENCE"
-         
-      #qqqq not showing the value   
-      - name: qqqq Display Directory.Packages.props
-        run: |
-          echo "if we can get this to say the version number then move it higher in the steps i think it may work"
-          echo "we dont want this <PackageVersion Include="TELBlazorComponentLibrary.GitPageBlazorWasm" Version="$(BCLVersion)" />  "
-          echo "try restore"
-          dotnet Restore
-          cat Directory.Packages.props
+   
           
       - name: qqqq is it because solution level not receive /p for project so need githun_env values
         run: |
          echo "BCLVersion=$BCL_VERSION" >> $GITHUB_ENV
          echo "LocalPackagePath=$BCL_SOURCE" >> $GITHUB_ENV
          echo "GITHUB_USERNAME=$GITHUB_USERNAME" >> $GITHUB_ENV
-         echo "IsLocalDev=$IS_LOCAL_DEV" >> $GITHUB_ENV
          echo "UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE" >> $GITHUB_ENV
          #echo "GITHUB_PACKAGES_TOKEN=$PACKAGES_TOKEN" >> $GITHUB_ENV
          
-      - name: qqqq now try restore again
-        run: |
-         dotnet Restore
-         cat Directory.Packages.props
-         echo "doesnt work"
-         
-      - name: Display Environment Variable (for debugging)
-        run: echo "BCLVERSION is $BCLVERSION"
-        
-      # - name: qqqqqqq here now try build
-        # run: |
-          # -e
-          # dotnet build
-          # cat Directory.Packages.props
-          # echo "doesnt work"
-          # +e
-
-
 
           
 
       - name: Publish client using client release .csproj logic
         run: |
           dotnet publish ./TestHostPrerenderWASM/TestHostPrerenderWASM.Client/TestHostPrerenderWASM.Client.csproj --configuration Release \
-            /p:IsLocalDev=$IS_LOCAL_DEV \
             /p:BCLVersion=$BCL_VERSION \
-            /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE
-            /p:GhPageRelease=true
+            /p:NupkgOutputPath=$NUPKG_OUTPUT_PATH \
+            /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE \
+            /p:GhPageRelease=true \
+            /p:LocalPackagePath=$NUPKG_OUTPUT_PATH
         
 
       #include hidden so we get jekyll
@@ -545,14 +476,224 @@ jobs:
          echo "Listing files in the docs directory:"
          ls -al ./docs
          echo "Checking artifact details:"
-         gh api "repos/TechnologyEnhancedLearning/GitPageBlazorWASM/actions/runs/${GITHUB_RUN_ID}/artifacts"
-      
-      # No this will be in the release branch that we do a prod wiki host
-      # - name: Deploy to GitHub Pages
-        # uses: JamesIves/github-pages-deploy-action@v4
+         gh api "repos/TechnologyEnhancedLearning/GitPageBlazorWASM/actions/runs/${GITHUB_RUN_ID}/artifacts"          
+  # Make-Blazor-Wiki-Artifact-Trigger-GH-Pages-In-BlazorWasmTest:
+  
+    # if: success() #not needed but being explicit
+    # needs: [ branch-name-check, build-bcl-dev-package-and-publish,generate-dev-semantic-version, commitlint, gitguardian-scan, Unit-Tests, E2E-Tests]
+    # runs-on: ubuntu-latest
+    # env:
+      # BCL_VERSION: ${{ needs.generate-dev-semantic-version.outputs.dev-package-version }}
+
+
+    # steps:
+      # - name: Checkout Code
+        # uses: actions/checkout@v4
+
+      # - name: Setup .NET
+        # uses: actions/setup-dotnet@v4
         # with:
-          # folder: docs  # The folder the action should deploy
-          # branch: gh-pages  # The branch the action should deploy to
+          # global-json-file: global.json
+          
+      # # - name: Setup .NET
+        # # uses: actions/setup-dotnet@v3
+        # # with:
+          # # dotnet-version: '8.0.x'
+          
+      
+          
+      # - name: Remove Local PackageSettings (CI Only)
+        # run: rm -f PackageSettings.props.local
+        
+      # - name: Replace local environment variable in nuget config because cant provide it as a parameter
+        # run: |
+          # echo "sed -i \"s|%LocalPackagePath%|$BCL_Source|g\" nuget.config"
+          # sed -i "s|%LocalPackagePath%|$BCL_Source|g" nuget.config
+          # sed -i "s|%GITHUB_USERNAME%|$GITHUB_USERNAME|g" nuget.config
+          # sed -i "s|%GITHUB_PACKAGES_TOKEN%|$PACKAGES_TOKEN |g" nuget.config
+        
+      # - name: debug BCL_VERSION
+        # run: |
+          # echo "BCL_VERSION  $BCL_VERSION"
+      
+      # - name: Clean lock files because the newly generated package file will superseed the locks
+        # run: |
+          # echo "Listing packages.lock.json files:"
+          # find . -name "packages.lock.json" -type f -print
+          # echo ""
+          # echo "Deleting packages.lock.json files:"
+          # find . -name "packages.lock.json" -type f -exec rm -f {} \;
+          
+          # echo "Listing packages.lock.json files:"
+          # find . -name "packages.lock.json" -type f -print
+
+      # - name: Clean Solution
+        # run: |
+          # echo "Cleaning the solution..."
+          # dotnet clean GitPageBlazorWASM.sln
+
+      # # - name: Restore NuGet Packages
+        # # run: |
+          # # echo "Restoring NuGet packages..."
+          # # dotnet restore GitPageBlazorWASM.sln
+          
+# #qqqqq
+# # fails because clieant as id expect if release
+# # also fails becuase running at the solution level it does not respect the condition on not using the project reference
+
+      # # - name: Build Solution
+        # # run: |
+          # # echo "Building the solution..."
+          # # dotnet build GitPageBlazorWASM.sln -c Release \
+            # # /p:BCLVersion=$BCL_VERSION \
+            # # /p:NupkgOutputPath=$NUPKG_OUTPUT_PATH \
+            # # /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE
+            
+      # - name: Build Shared Pages
+        # run: |
+          # echo "Building the solution..."
+          # dotnet build SharedPages -c Release \
+            # /p:BCLVersion=$BCL_VERSION \
+            # /p:NupkgOutputPath=$NUPKG_OUTPUT_PATH \
+            # /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE
+
+      # # - name: Build Shared Pages
+        # # run: |
+          # # dotnet build SharedPages -c Release \
+            # # /p:BCLVersion=$BCL_VERSION \
+            # # /p:NupkgOutputPath=$NUPKG_OUTPUT_PATH \
+            # # /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE
+
+      # # - name: Debug Package References
+        # # run: |
+          # # echo "Debugging package references..."
+          # # dotnet restore GitPageBlazorWASM.sln
+          # # dotnet list GitPageBlazorWASM.sln package
+          
+      # - name: Debug Directory package props
+        # run: |
+          # echo "Directory.Packages.props : "
+          # cat Directory.Packages.props
+          # echo ""
+          
+          
+      # # - name: Restoring client, isnt restoring library such that it restores solution enough to get the correct package so restoring the  the whole solution
+        # # run: dotnet restore GitPageBlazorWASM.sln
+       
+      # # - name: Restore NuGet Packages for Specifically the BCL Package Library Project
+        # # run: dotnet restore TestHostPrerenderWASM/TestHostPrerenderWASM.Client/TestHostPrerenderWASM.Client.csproj
+        
+      # - name: Debug client values
+        # run: |
+         # echo "IsLocalDev: $IS_LOCAL_DEV"
+         # echo "BCLVersion: $BCL_VERSION"
+         # echo "UseBCLProjectReference: $USE_BCL_PROJECT_REFERENCE"
+         
+      # #qqqq not showing the value   
+      # - name: qqqq Display Directory.Packages.props
+        # run: |
+          # echo "if we can get this to say the version number then move it higher in the steps i think it may work"
+          # echo "we dont want this <PackageVersion Include="TELBlazorComponentLibrary.GitPageBlazorWasm" Version="$(BCLVersion)" />  "
+          # echo "try restore"
+          # dotnet Restore
+          # cat Directory.Packages.props
+          
+      # - name: qqqq is it because solution level not receive /p for project so need githun_env values
+        # run: |
+         # echo "BCLVersion=$BCL_VERSION" >> $GITHUB_ENV
+         # echo "LocalPackagePath=$BCL_SOURCE" >> $GITHUB_ENV
+         # echo "GITHUB_USERNAME=$GITHUB_USERNAME" >> $GITHUB_ENV
+         # echo "IsLocalDev=$IS_LOCAL_DEV" >> $GITHUB_ENV
+         # echo "UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE" >> $GITHUB_ENV
+         # #echo "GITHUB_PACKAGES_TOKEN=$PACKAGES_TOKEN" >> $GITHUB_ENV
+         
+      # - name: qqqq now try restore again
+        # run: |
+         # dotnet Restore
+         # cat Directory.Packages.props
+         # echo "doesnt work"
+         
+      # - name: Display Environment Variable (for debugging)
+        # run: echo "BCLVERSION is $BCLVERSION"
+        
+      # # - name: qqqqqqq here now try build
+        # # run: |
+          # # -e
+          # # dotnet build
+          # # cat Directory.Packages.props
+          # # echo "doesnt work"
+          # # +e
+
+
+
+          
+
+      # - name: Publish client using client release .csproj logic
+        # run: |
+          # dotnet publish ./TestHostPrerenderWASM/TestHostPrerenderWASM.Client/TestHostPrerenderWASM.Client.csproj --configuration Release \
+            # /p:IsLocalDev=$IS_LOCAL_DEV \
+            # /p:BCLVersion=$BCL_VERSION \
+            # /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE
+            # /p:GhPageRelease=true
+        
+
+      # #include hidden so we get jekyll
+      # - name: Creating artifact of publish folder for test gh page workflow
+        # uses: actions/upload-artifact@v4
+        # with:
+          # name: gh-blazor-components-wiki-site-using-package-${{env.BCL_VERSION}}
+          # include-hidden-files: true
+          # path: | 
+            # ./docs
+            # ./docs/.nojekyll  # explicitly include the .nojekyll file
+          # retention-days: 90
+          
+      
+      # - name: Debug artifact location
+        # run: |
+          # # Get the artifact list for the current workflow run
+          # ARTIFACT_LIST=$(gh api "repos/TechnologyEnhancedLearning/GitPageBlazorWASM/actions/runs/${GITHUB_RUN_ID}/artifacts")
+          # # Echo the entire artifact list for debugging purposes
+          # echo "Artifact List: $ARTIFACT_LIST"
+          # # Extract the download URL from the artifact list (first artifact in the list)
+          # #ARTIFACT_URL=$(echo "$ARTIFACT_LIST" | jq -r '.artifacts[0].archive_download_url')
+          # ARTIFACT_URL=$(echo "$ARTIFACT_LIST" | jq -r '.artifacts[0].url')
+          # # Echo the artifact URL to confirm
+          # echo "Artifact URL: $ARTIFACT_URL"
+          # echo "artifact_url=$ARTIFACT_URL" >> $GITHUB_ENV
+
+
+      # - name: Trigger Workflow in GitPageBlazorWASM-Test Repository
+        # run: |
+          # # Set the required variables
+          # repo_owner="TechnologyEnhancedLearning"  # Replace with the repository owner (organization or user)
+          # repo_name="GitPageBlazorWASM-TestGHPage"  # Replace with the repository name
+          # event_type="artifact_ready" 
+          # #artifact_url="https://api.github.com/repos/TechnologyEnhancedLearning/GitPageBlazorWASM/actions/artifacts/2859947943"
+          # # Trigger the workflow in another repository
+          # curl -L \
+            # -X POST \
+            # -H "Accept: application/vnd.github+json" \
+            # -H "Authorization: Bearer ${{ secrets.PACKAGES_TOKEN }}" \
+            # -H "X-GitHub-Api-Version: 2022-11-28" \
+            # https://api.github.com/repos/$repo_owner/$repo_name/dispatches \
+            # -d "{\"event_type\": \"$event_type\", \"client_payload\": {\"artifact_url\": \"$artifact_url\"}}"      
+        
+      # - name: Debug - List all files
+        # run: |
+         # echo "Listing files in the root directory:"
+         # ls -al
+         # echo "Listing files in the docs directory:"
+         # ls -al ./docs
+         # echo "Checking artifact details:"
+         # gh api "repos/TechnologyEnhancedLearning/GitPageBlazorWASM/actions/runs/${GITHUB_RUN_ID}/artifacts"
+      
+      # # No this will be in the release branch that we do a prod wiki host
+      # # - name: Deploy to GitHub Pages
+        # # uses: JamesIves/github-pages-deploy-action@v4
+        # # with:
+          # # folder: docs  # The folder the action should deploy
+          # # branch: gh-pages  # The branch the action should deploy to
           
           
 
