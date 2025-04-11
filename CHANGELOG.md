@@ -1,3 +1,11 @@
+# [9.0.0-feat-version-work-on-branch-maybe.5](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.0.0-feat-version-work-on-branch-maybe.4...v9.0.0-feat-version-work-on-branch-maybe.5) (2025-04-11)
+
+
+### Bug Fixes
+
+* **123:** 123 ([4e26e8f](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/4e26e8fd3572db0a44c1f95d75044ad8c88a94d3))
+* **unclear yml issue:** 123 ([1c647ff](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/1c647ff7e99d66d5804088accd02b41aadf0036d))
+
 # [9.0.0-feat-version-work-on-branch-maybe.4](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.0.0-feat-version-work-on-branch-maybe.3...v9.0.0-feat-version-work-on-branch-maybe.4) (2025-04-11)
 
 
