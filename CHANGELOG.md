@@ -1,3 +1,10 @@
+# [9.0.0-feat-version-work-on-branch-maybe.8](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.0.0-feat-version-work-on-branch-maybe.7...v9.0.0-feat-version-work-on-branch-maybe.8) (2025-04-11)
+
+
+### Bug Fixes
+
+* **eee:** www ([a7c5b06](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/a7c5b062bbefcd0d0585bb18089c4285ecc16557))
+
 # [9.0.0-feat-version-work-on-branch-maybe.7](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.0.0-feat-version-work-on-branch-maybe.6...v9.0.0-feat-version-work-on-branch-maybe.7) (2025-04-11)
 
 
