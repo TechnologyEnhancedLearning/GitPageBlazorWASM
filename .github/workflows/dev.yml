@@ -27,7 +27,7 @@ env:
 
   NUPKG_OUTPUT_PATH: ${{ github.workspace }}/CICDPackageLocation
   
-  IS_LOCAL_DEV: false
+
   USE_BCL_PROJECT_REFERENCE: false
   
   BCL_Local_Source: ${{ github.workspace }}/CICDPackageLocation
@@ -412,10 +412,10 @@ jobs:
          echo "LocalPackagePath=$BCL_SOURCE" >> $GITHUB_ENV
          echo "GITHUB_USERNAME=$GITHUB_USERNAME" >> $GITHUB_ENV
          echo "UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE" >> $GITHUB_ENV
-         #echo "GITHUB_PACKAGES_TOKEN=$PACKAGES_TOKEN" >> $GITHUB_ENV
+         echo "GITHUB_PACKAGES_TOKEN=$PACKAGES_TOKEN" >> $GITHUB_ENV
          
 
-          
+
 
       - name: Publish client using client release .csproj logic
         run: |
@@ -424,7 +424,7 @@ jobs:
             /p:NupkgOutputPath=$NUPKG_OUTPUT_PATH \
             /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE \
             /p:GhPageRelease=true \
-            /p:LocalPackagePath=$NUPKG_OUTPUT_PATH
+            /p:LocalPackagePath=$BCL_Source
         
 
       #include hidden so we get jekyll
