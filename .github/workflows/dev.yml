@@ -432,6 +432,15 @@ jobs:
         run: |
           echo "Listing contents of ./docs directory"
           ls -alh ./docs
+          echo "Listing contents of ./docs/wwwroot directory"
+          ls -alh ./docs/wwwroot || echo "wwwroot directory not found"
+          echo "Checking for bclversion.txt in ./docs"
+          if [ -f "./docs/bclversion.txt" ]; then
+            echo "Contents of ./docs/bclversion.txt:"
+            cat ./docs/bclversion.txt
+          else
+            echo "bclversion.txt not found in ./docs"
+          fi
 
         
 
