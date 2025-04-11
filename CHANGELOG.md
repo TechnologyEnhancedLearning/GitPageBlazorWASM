@@ -1,3 +1,10 @@
+# [9.0.0-feat-version-work-on-branch-maybe.2](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.0.0-feat-version-work-on-branch-maybe.1...v9.0.0-feat-version-work-on-branch-maybe.2) (2025-04-11)
+
+
+### Bug Fixes
+
+* **project ref:** should be used in cicd ([d22dc73](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/d22dc73b3cffebed9a59730e540580e859615e79))
+
 # [9.0.0-feat-version-work-on-branch-maybe.1](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.4.0-feat-version-work-on-branch-maybe.30...v9.0.0-feat-version-work-on-branch-maybe.1) (2025-04-11)
 
 
