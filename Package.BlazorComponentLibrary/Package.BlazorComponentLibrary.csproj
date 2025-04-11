@@ -41,7 +41,12 @@
 		<Content Remove="packages.lock.json" />
 		<Content Remove="wwwroot\background.png" />
 	</ItemGroup>
-
+	<!--qqqq building in the solution wasnt an issue before-->
+	<ItemGroup>
+		<Compile Remove="..\CICDPackageLocation\**\*.cs" />
+		<Content Remove="..\CICDPackageLocation\**\*" />
+		<None Remove="..\CICDPackageLocation\**\*" />
+	</ItemGroup>
 	<Target Name="WriteBclVersionToFile" BeforeTargets="PrepareForBuild">
 		<WriteLinesToFile File="wwwroot/bclversion.txt" Lines="$(BCLVersion)" Overwrite="true" Encoding="UTF-8" />
 		<WriteLinesToFile File="BCLVersion/VersionInfo.cs" Lines="namespace Package.BlazorComponentLibrary.BCLVersion { public static class VersionInfo { public static string Version = &quot;$(BCLVersion)&quot; %3B; } }" Overwrite="true" Encoding="UTF-8" />
