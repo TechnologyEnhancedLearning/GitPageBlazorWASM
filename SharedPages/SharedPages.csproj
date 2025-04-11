@@ -19,14 +19,11 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" />
     <PackageReference Include="TELBlazorComponentLibrary.GitPageBlazorWasm" />
-	  <!--not for production ideally we test against package version but for expedience can overide nuget package with project reference-->
-	  <!-- Fixed version when UseHighestBCLVersionAvailable is false -->
-
-	  <!-- Use the latest available version when UseHighestBCLVersionAvailable is true -->
-	  <!--having floating just isnt possible-->
-	  <!--<PackageVersion  Include="TELBlazorComponentLibrary.GitPageBlazorWasm" Version="1.0.2" Condition=" '$(UseHighestBCLVersionAvailable)' == 'true' "/>-->
   </ItemGroup>
 	<ItemGroup>
 		<Content Remove="packages.lock.json" />
 	</ItemGroup>
+	<!--qqqq try putting back in with a condition<ItemGroup>
+	  <ProjectReference Include="..\Package.BlazorComponentLibrary\Package.BlazorComponentLibrary.csproj" />
+	</ItemGroup>-->
 </Project>

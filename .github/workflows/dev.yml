@@ -262,7 +262,7 @@ jobs:
           dotnet build GitPageBlazorWASM.sln -c Release \
             /p:BCLVersion=$BCL_VERSION \
             /p:NupkgOutputPath=$NUPKG_OUTPUT_PATH \
-            /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE
+            /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE \
 
       # - name: List Created Package
         # run: ls -l $BCL_Local_Source
