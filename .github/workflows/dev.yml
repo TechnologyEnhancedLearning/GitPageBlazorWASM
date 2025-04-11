@@ -24,7 +24,7 @@ env:
   PACKAGES_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
   GITHUB_USERNAME: "Phil-NHS"
 
-
+  #DisablePackageGeneration
   NUPKG_OUTPUT_PATH: ${{ github.workspace }}/CICDPackageLocation
   
 
@@ -228,7 +228,8 @@ jobs:
           dotnet nuget push "$BCL_Local_Source/TELBlazorComponentLibrary.GitPageBlazorWasm.*.nupkg" \
           --source "https://nuget.pkg.github.com/phil-nhs/index.json" \
           --api-key ${{ secrets.PACKAGES_TOKEN }} \
-          --skip-duplicate         
+          --skip-duplicate      
+          
   # build-bcl-dev-package-and-publish:
     # if: success() #not needed but being explicit
     # needs: [generate-dev-semantic-version, commitlint, gitguardian-scan,Unit-Tests,E2E-Tests, branch-name-check]
@@ -386,15 +387,15 @@ jobs:
           find . -name "packages.lock.json" -type f -print
 
 #need to remove publish on build
-      - name: Build Solution
-        run: |
-          dotnet build GitPageBlazorWASM.sln -c Release \
-            /p:BCLVersion=$BCL_VERSION \
-            /p:NupkgOutputPath=$NUPKG_OUTPUT_PATH \
-            /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE \
-            /p:GhPageRelease=false \
-            /p:LocalPackagePath=$BCL_Source
-            /p:DisablePackageGeneration=true
+      # - name: Build Solution
+        # run: |
+          # dotnet build GitPageBlazorWASM.sln -c Release \
+            # /p:BCLVersion=$BCL_VERSION \
+            # /p:NupkgOutputPath=$NUPKG_OUTPUT_PATH \
+            # /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE \
+            # /p:GhPageRelease=false \
+            # /p:LocalPackagePath=$BCL_Source
+            # /p:DisablePackageGeneration=true
             
       - name: Build Shared Pages
         run: |
@@ -426,6 +427,12 @@ jobs:
             /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE \
             /p:GhPageRelease=true \
             /p:LocalPackagePath=$BCL_Source
+        
+      - name: Debug - List all files in docs folder
+        run: |
+          echo "Listing contents of ./docs directory"
+          ls -alh ./docs
+
         
 
       #include hidden so we get jekyll
