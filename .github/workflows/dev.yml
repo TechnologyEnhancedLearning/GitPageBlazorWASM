@@ -25,12 +25,12 @@ env:
   GITHUB_USERNAME: "Phil-NHS"
 
 
-  NUPKG_OUTPUT_PATH: ${{ github.workspace }}/CICDPackageLocation
+  NUPKG_OUTPUT_PATH: ${{ runner.temp }}/CICDPackageLocation
   
   IS_LOCAL_DEV: false
   USE_BCL_PROJECT_REFERENCE: false
   
-  BCL_Local_Source: ${{ github.workspace }}/CICDPackageLocation
+  BCL_Local_Source: ${{ runner.temp }}/CICDPackageLocation
   BCL_Source: "https://nuget.pkg.github.com/phil-nhs/index.json"
 
 
@@ -432,13 +432,13 @@ jobs:
       - name: Display Environment Variable (for debugging)
         run: echo "BCLVERSION is $BCLVERSION"
         
-      - name: qqqqqqq here now try build
-        run: |
-          -e
-          dotnet build
-          cat Directory.Packages.props
-          echo "doesnt work"
-          +e
+      # - name: qqqqqqq here now try build
+        # run: |
+          # -e
+          # dotnet build
+          # cat Directory.Packages.props
+          # echo "doesnt work"
+          # +e
 
 
 
