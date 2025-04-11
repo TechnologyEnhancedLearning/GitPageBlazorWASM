@@ -25,12 +25,12 @@ env:
   GITHUB_USERNAME: "Phil-NHS"
 
 
-  NUPKG_OUTPUT_PATH: ${{ runner.temp }}/CICDPackageLocation
+  NUPKG_OUTPUT_PATH: ${{ github.workspace }}/CICDPackageLocation
   
   IS_LOCAL_DEV: false
   USE_BCL_PROJECT_REFERENCE: false
   
-  BCL_Local_Source: ${{ runner.temp }}/CICDPackageLocation
+  BCL_Local_Source: ${{ github.workspace }}/CICDPackageLocation
   BCL_Source: "https://nuget.pkg.github.com/phil-nhs/index.json"
 
 
@@ -185,7 +185,6 @@ jobs:
           echo "Commit Type/Scope: $(git log -1 --pretty=%s $GITHUB_SHA | cut -d':' -f1)"
       
 
-          
   build-bcl-dev-package-and-publish:
     if: success() #not needed but being explicit
     needs: [generate-dev-semantic-version, commitlint, gitguardian-scan,Unit-Tests,E2E-Tests, branch-name-check]
@@ -203,7 +202,6 @@ jobs:
         
       - name: Debug Version Output BCL var
         run: echo "Extracted Version $BCL_VERSION "
-      #qqqq are we a commit behind check that we use the new generated version of the package 
 
       # the restore cant be given env values to override values like it can in build so we need to remove this file so we use the env values
       - name: Remove Local PackageSettings (CI Only)
@@ -213,84 +211,129 @@ jobs:
         
       - name: Replace local environment variable in nuget config because cant provide it as a parameter
         run: sed -i "s|%LocalPackagePath%|$BCL_Local_Source|g" nuget.config
-      
-     
-        
-      - name: Show updated nuget.config
-        run: cat nuget.config
-        
-       #qqqq ask binon about this
+       
       - name: Clean lock files because the newly generated package file will superseed the locks
         run: |
           find . -name "packages.lock.json" -type f -exec rm -f {} \;
           
-      # - name: Restore NuGet Packages for Specifically the BCL Package Library Project
-        # run: dotnet restore Package.BlazorComponentLibrary/Package.BlazorComponentLibrary.csproj
-        
-      - name: echo qqqq here is the issue
-        run: echo "qqqq here is the issue"
-       
-      - name: Debug VersionInfo.cs
-        run: |
-          echo "before we build the project where could it be getting this value from?  qqqq"
-          cat Package.BlazorComponentLibrary/BCLVersion/VersionInfo.cs
-          
-          
-       # why qqqq were not doing anything with the client here   
-      # - name: Restore NuGet Packages for Specifically the ClientProject
-        # run: dotnet restore TestHostPrerenderWASM/TestHostPrerenderWASM.Client/TestHostPrerenderWASM.Client.csproj
-        
-      # - name: Debug package references
-        # run: |
-          # echo "Checking package references in client project..."
-          # dotnet list TestHostPrerenderWASM/TestHostPrerenderWASM.Client/TestHostPrerenderWASM.Client.csproj package
-    
-      - name: Build and Pack BlazorComponentLibrary
+      - name: Build BlazorComponentLibrary (it publishes on build)
         run: |
           dotnet build Package.BlazorComponentLibrary -c Release \
             /p:BCLVersion=$BCL_VERSION \
             /p:NupkgOutputPath=$NUPKG_OUTPUT_PATH \
             /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE
-       
-      #qqqq this works 
-      - name: Debug VersionInfo.cs
-        run: |
-          cat Package.BlazorComponentLibrary/BCLVersion/VersionInfo.cs
-          
-      # - name: build whole solution now package built qqqqq
-        # run: |
-          # dotnet build GitPageBlazorWASM.sln -c Release \
-            # /p:BCLVersion=$BCL_VERSION \
-            # /p:NupkgOutputPath=$NUPKG_OUTPUT_PATH \
-            # /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE \
-            # /p:LocalPackagePath=$BCL_Local_Source \
-            # /p:GhPageRelease=false
-
-      # - name: List Created Package
-        # run: ls -l $BCL_Local_Source
-
-      # - name: echo path for artifact
-        # run: echo "${{ env.NUPKG_OUTPUT_PATH }}"
-
-      - name: echo hint information about restore
-        run: echo "if a hash error occurs for the bcl package the version number may need increasing or a clean step, hiy only does latest for packages no prerelease like nuget so version filtering is needed by consumers"
-
-# qqqqq how is this using a local variable
-      - name: DEBUGGING Publish to GitHub DEV BCL Packages
-        run: |
-          echo "Listing .nupkg files in the directory:"
-          ls $BCL_Local_Source/*.nupkg
-          echo "Unzipping .nupkg to inspect contents"
-          unzip -l "$BCL_Local_Source/TELBlazorComponentLibrary.GitPageBlazorWasm.*.nupkg" # List contents of the .nupkg file
-          echo "Displaying the contents of bclversion.txt"
-          cat "Package.BlazorComponentLibrary/wwwroot/bclversion.txt"
-          
+ 
       - name: Publish to GitHub DEV BCL Packages
         run: |
           dotnet nuget push "$BCL_Local_Source/TELBlazorComponentLibrary.GitPageBlazorWasm.*.nupkg" \
           --source "https://nuget.pkg.github.com/phil-nhs/index.json" \
           --api-key ${{ secrets.PACKAGES_TOKEN }} \
-          --skip-duplicate
+          --skip-duplicate         
+  # build-bcl-dev-package-and-publish:
+    # if: success() #not needed but being explicit
+    # needs: [generate-dev-semantic-version, commitlint, gitguardian-scan,Unit-Tests,E2E-Tests, branch-name-check]
+    # runs-on: ubuntu-latest
+    # env:
+      # BCL_VERSION: ${{ needs.generate-dev-semantic-version.outputs.dev-package-version }}
+    # steps:
+      # - name: Checkout Code
+        # uses: actions/checkout@v4
+
+      # - name: Setup .NET
+        # uses: actions/setup-dotnet@v4
+        # with:
+          # global-json-file: global.json
+        
+      # - name: Debug Version Output BCL var
+        # run: echo "Extracted Version $BCL_VERSION "
+      # #qqqq are we a commit behind check that we use the new generated version of the package 
+
+      # # the restore cant be given env values to override values like it can in build so we need to remove this file so we use the env values
+      # - name: Remove Local PackageSettings (CI Only)
+        # run: |
+          # rm -f PackageSettings.props.local
+          # ls
+        
+      # - name: Replace local environment variable in nuget config because cant provide it as a parameter
+        # run: sed -i "s|%LocalPackagePath%|$BCL_Local_Source|g" nuget.config
+      
+     
+        
+      # - name: Show updated nuget.config
+        # run: cat nuget.config
+        
+       # #qqqq ask binon about this
+      # - name: Clean lock files because the newly generated package file will superseed the locks
+        # run: |
+          # find . -name "packages.lock.json" -type f -exec rm -f {} \;
+          
+      # # - name: Restore NuGet Packages for Specifically the BCL Package Library Project
+        # # run: dotnet restore Package.BlazorComponentLibrary/Package.BlazorComponentLibrary.csproj
+        
+      # - name: echo qqqq here is the issue
+        # run: echo "qqqq here is the issue"
+       
+      # - name: Debug VersionInfo.cs
+        # run: |
+          # echo "before we build the project where could it be getting this value from?  qqqq"
+          # cat Package.BlazorComponentLibrary/BCLVersion/VersionInfo.cs
+          
+          
+       # # why qqqq were not doing anything with the client here   
+      # # - name: Restore NuGet Packages for Specifically the ClientProject
+        # # run: dotnet restore TestHostPrerenderWASM/TestHostPrerenderWASM.Client/TestHostPrerenderWASM.Client.csproj
+        
+      # # - name: Debug package references
+        # # run: |
+          # # echo "Checking package references in client project..."
+          # # dotnet list TestHostPrerenderWASM/TestHostPrerenderWASM.Client/TestHostPrerenderWASM.Client.csproj package
+    
+      # - name: Build and Pack BlazorComponentLibrary
+        # run: |
+          # dotnet build Package.BlazorComponentLibrary -c Release \
+            # /p:BCLVersion=$BCL_VERSION \
+            # /p:NupkgOutputPath=$NUPKG_OUTPUT_PATH \
+            # /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE
+       
+      # #qqqq this works 
+      # - name: Debug VersionInfo.cs
+        # run: |
+          # cat Package.BlazorComponentLibrary/BCLVersion/VersionInfo.cs
+          
+      # # - name: build whole solution now package built qqqqq
+        # # run: |
+          # # dotnet build GitPageBlazorWASM.sln -c Release \
+            # # /p:BCLVersion=$BCL_VERSION \
+            # # /p:NupkgOutputPath=$NUPKG_OUTPUT_PATH \
+            # # /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE \
+            # # /p:LocalPackagePath=$BCL_Local_Source \
+            # # /p:GhPageRelease=false
+
+      # # - name: List Created Package
+        # # run: ls -l $BCL_Local_Source
+
+      # # - name: echo path for artifact
+        # # run: echo "${{ env.NUPKG_OUTPUT_PATH }}"
+
+      # - name: echo hint information about restore
+        # run: echo "if a hash error occurs for the bcl package the version number may need increasing or a clean step, hiy only does latest for packages no prerelease like nuget so version filtering is needed by consumers"
+
+# # qqqqq how is this using a local variable
+      # - name: DEBUGGING Publish to GitHub DEV BCL Packages
+        # run: |
+          # echo "Listing .nupkg files in the directory:"
+          # ls $BCL_Local_Source/*.nupkg
+          # echo "Unzipping .nupkg to inspect contents"
+          # unzip -l "$BCL_Local_Source/TELBlazorComponentLibrary.GitPageBlazorWasm.*.nupkg" # List contents of the .nupkg file
+          # echo "Displaying the contents of bclversion.txt"
+          # cat "Package.BlazorComponentLibrary/wwwroot/bclversion.txt"
+          
+      # - name: Publish to GitHub DEV BCL Packages
+        # run: |
+          # dotnet nuget push "$BCL_Local_Source/TELBlazorComponentLibrary.GitPageBlazorWasm.*.nupkg" \
+          # --source "https://nuget.pkg.github.com/phil-nhs/index.json" \
+          # --api-key ${{ secrets.PACKAGES_TOKEN }} \
+          # --skip-duplicate
        
           
   Make-Blazor-Wiki-Artifact-Trigger-GH-Pages-In-BlazorWasmTest:
