@@ -393,7 +393,7 @@ jobs:
             /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE \
             /p:GhPageRelease=false \
             /p:LocalPackagePath=$NUPKG_OUTPUT_PATH
-			
+            
       - name: Build Shared Pages
         run: |
           echo "Building the solution..."
