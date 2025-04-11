@@ -392,7 +392,7 @@ jobs:
             /p:NupkgOutputPath=$NUPKG_OUTPUT_PATH \
             /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE \
             /p:GhPageRelease=false \
-            /p:LocalPackagePath=$NUPKG_OUTPUT_PATH
+            /p:LocalPackagePath=$BCL_Source
             
       - name: Build Shared Pages
         run: |
