@@ -1,3 +1,10 @@
+# [9.0.0-feat-version-work-on-branch-maybe.17](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.0.0-feat-version-work-on-branch-maybe.16...v9.0.0-feat-version-work-on-branch-maybe.17) (2025-04-14)
+
+
+### Bug Fixes
+
+* **not getting val:** try direct passing ([0e643a9](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/0e643a9be012f29d44cfc26653c9c34c60144bd5))
+
 # [9.0.0-feat-version-work-on-branch-maybe.16](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.0.0-feat-version-work-on-branch-maybe.15...v9.0.0-feat-version-work-on-branch-maybe.16) (2025-04-14)
 
 
