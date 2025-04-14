@@ -421,7 +421,7 @@ jobs:
 
       - name: Publish client using client release .csproj logic
         env:
-          INDEPENDANT_CLIENT_GH_PAGES: true
+          INDEPENDENT_CLIENT_GH_PAGES: true
         run: |
           dotnet publish ./TestHostPrerenderWASM/TestHostPrerenderWASM.Client/TestHostPrerenderWASM.Client.csproj --configuration Release \
             /p:BCLVersion=$BCL_VERSION \
