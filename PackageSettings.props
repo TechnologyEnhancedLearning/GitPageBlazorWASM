@@ -2,7 +2,9 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <!-- Define the output path where the package will be stored -->
-    <!--<NupkgOutputPath>$(LocalPackagePath)</NupkgOutputPath>
+	 
+	<!-- being set in csproj directly in cicd at the moment -->
+    <NupkgOutputPath>$(LocalPackagePath)</NupkgOutputPath>
 
 
 	<UseBCLProjectReference Condition="'$(UseBCLProjectReference)' == '' ">false</UseBCLProjectReference>
@@ -13,7 +15,7 @@
 
 	<BCLVersion>$(BCLVersion)</BCLVersion>
 
-    <DisablePackageGeneration >$(DisablePackageGeneration)</DisablePackageGeneration>-->
+    <DisablePackageGeneration >$(DisablePackageGeneration)</DisablePackageGeneration>
 
   </PropertyGroup>
 

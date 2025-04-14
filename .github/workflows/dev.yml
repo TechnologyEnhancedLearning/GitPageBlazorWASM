@@ -316,6 +316,20 @@ jobs:
 #           /p:INDEPENDENT_CLIENT_GH_PAGES=true \
 #         env:
 #          INDEPENDENT_CLIENT_GH_PAGES: true
+
+      # Hardcode the INDEPENDENT_CLIENT_GH_PAGES value
+      - name: Modify appsettings.json with hardcoded value
+        run: |
+          jq '.INDEPENDENT_CLIENT_GH_PAGES = "true"' appsettings.json > tmp.json && mv tmp.json appsettings.json
+
+      # List files in the root to ensure appsettings.json exists
+      - name: List files
+        run: ls -la
+
+      # Print the contents of appsettings.json to verify the value
+      - name: Display appsettings.json content
+        run: cat appsettings.json
+
       - name: Publish client using client release .csproj logic
         run: |
           dotnet publish ./TestHostPrerenderWASM/TestHostPrerenderWASM.Client/TestHostPrerenderWASM.Client.csproj --configuration Release \
@@ -452,7 +466,7 @@ jobs:
           # # echo "Restoring NuGet packages..."
           # # dotnet restore GitPageBlazorWASM.sln
           
-# #qqqqq
+# 
 # # fails because clieant as id expect if release
 # # also fails becuase running at the solution level it does not respect the condition on not using the project reference
 

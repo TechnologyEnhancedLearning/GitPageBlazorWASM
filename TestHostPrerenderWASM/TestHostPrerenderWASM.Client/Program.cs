@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.JSInterop;
 using TestHostPrerenderWASM.Client;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
@@ -10,8 +11,20 @@ var builder = WebAssemblyHostBuilder.CreateDefault(args);
 //Console.WriteLine($"INDEPENDENT_CLIENT_GH_PAGES value: '{Environment.GetEnvironmentVariable("INDEPENDENT_CLIENT_GH_PAGES", EnvironmentVariableTarget.Process)}'");
 
 //if (Environment.GetEnvironmentVariable("INDEPENDENT_CLIENT_GH_PAGES", EnvironmentVariableTarget.Process) != null)
-if (builder.HostEnvironment.IsProduction())
-{
+
+
+// Access configuration value from appsettings.json
+var independentClientGhPages = builder.Configuration["INDEPENDENT_CLIENT_GH_PAGES"];
+Console.WriteLine($"INDEPENDENT_CLIENT_GH_PAGES value: {independentClientGhPages}");
+
+
+
+// Use the value in your app logic
+if (independentClientGhPages == "true") { 
+
+
+//if (builder.HostEnvironment.IsProduction())
+//{
     //Console.WriteLine("Condition is TRUE - Adding root components");
     builder.RootComponents.Add<App>("#app");
     builder.RootComponents.Add<HeadOutlet>("head::after");
