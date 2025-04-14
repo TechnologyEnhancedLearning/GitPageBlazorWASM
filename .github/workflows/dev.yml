@@ -320,15 +320,15 @@ jobs:
       # Hardcode the INDEPENDENT_CLIENT_GH_PAGES value
       - name: Modify appsettings.json with hardcoded value
         run: |
-          jq '.INDEPENDENT_CLIENT_GH_PAGES = "true"' appsettings.json > tmp.json && mv tmp.json appsettings.json
+          jq '.INDEPENDENT_CLIENT_GH_PAGES = "true"' TestHostPrerenderWASM/TestHostPrerenderWASM.Client/appsettings.json > tmp.json && mv tmp.json TestHostPrerenderWASM/TestHostPrerenderWASM.Client/appsettings.json
 
       # List files in the root to ensure appsettings.json exists
-      - name: List files
-        run: ls -la
+      - name: List files in TestHostPrerenderWASM.Client
+        run: ls -la TestHostPrerenderWASM/TestHostPrerenderWASM.Client
 
-      # Print the contents of appsettings.json to verify the value
+      # Print the contents of appsettings.json inside 'TestHostPrerenderWASM.Client' folder
       - name: Display appsettings.json content
-        run: cat appsettings.json
+        run: cat TestHostPrerenderWASM/TestHostPrerenderWASM.Client/appsettings.json
 
       - name: Publish client using client release .csproj logic
         run: |
