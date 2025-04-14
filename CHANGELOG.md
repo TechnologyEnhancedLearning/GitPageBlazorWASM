@@ -1,3 +1,10 @@
+# [9.0.0-feat-version-work-on-branch-maybe.15](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.0.0-feat-version-work-on-branch-maybe.14...v9.0.0-feat-version-work-on-branch-maybe.15) (2025-04-14)
+
+
+### Bug Fixes
+
+* **provide custom flag not release:** tryit ([2ec4a56](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/2ec4a56bdab1282a7a5502bb52c5663f7e5a8f7e))
+
 # [9.0.0-feat-version-work-on-branch-maybe.14](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.0.0-feat-version-work-on-branch-maybe.13...v9.0.0-feat-version-work-on-branch-maybe.14) (2025-04-11)
 
 
