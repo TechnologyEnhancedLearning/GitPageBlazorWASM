@@ -1,3 +1,10 @@
+# [9.0.0-feat-version-work-on-branch-maybe.24](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.0.0-feat-version-work-on-branch-maybe.23...v9.0.0-feat-version-work-on-branch-maybe.24) (2025-04-14)
+
+
+### Features
+
+* **poke:** gog ([412cc00](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/412cc00a4d638bbdf51a17b6109926c03838c8ee))
+
 # [9.0.0-feat-version-work-on-branch-maybe.23](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.0.0-feat-version-work-on-branch-maybe.22...v9.0.0-feat-version-work-on-branch-maybe.23) (2025-04-14)
 
 
