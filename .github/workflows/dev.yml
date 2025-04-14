@@ -418,12 +418,12 @@ jobs:
          
 
 
-
+#qqqq make release again made debug
       - name: Publish client using client release .csproj logic
         env:
           INDEPENDENT_CLIENT_GH_PAGES: true
         run: |
-          dotnet publish ./TestHostPrerenderWASM/TestHostPrerenderWASM.Client/TestHostPrerenderWASM.Client.csproj --configuration Release \
+          dotnet publish ./TestHostPrerenderWASM/TestHostPrerenderWASM.Client/TestHostPrerenderWASM.Client.csproj --configuration Debug \
             /p:INDEPENDENT_CLIENT_GH_PAGES=true \
             /p:BCLVersion=$BCL_VERSION \
             /p:NupkgOutputPath=$NUPKG_OUTPUT_PATH \

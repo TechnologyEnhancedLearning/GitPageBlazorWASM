@@ -6,10 +6,10 @@ using TestHostPrerenderWASM.Client;
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 
 
-
 Console.WriteLine($"INDEPENDENT_CLIENT_GH_PAGES value: '{Environment.GetEnvironmentVariable("INDEPENDENT_CLIENT_GH_PAGES")}'");
+Console.WriteLine($"INDEPENDENT_CLIENT_GH_PAGES value: '{Environment.GetEnvironmentVariable("INDEPENDENT_CLIENT_GH_PAGES", EnvironmentVariableTarget.Process)}'");
 
-if (Environment.GetEnvironmentVariable("INDEPENDENT_CLIENT_GH_PAGES") != null)
+if (Environment.GetEnvironmentVariable("INDEPENDENT_CLIENT_GH_PAGES", EnvironmentVariableTarget.Process) != null)
 {
     Console.WriteLine("Condition is TRUE - Adding root components");
     builder.RootComponents.Add<App>("#app");
