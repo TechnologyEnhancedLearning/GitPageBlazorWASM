@@ -6,20 +6,21 @@ using TestHostPrerenderWASM.Client;
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 
 
-Console.WriteLine($"INDEPENDENT_CLIENT_GH_PAGES value: '{Environment.GetEnvironmentVariable("INDEPENDENT_CLIENT_GH_PAGES")}'");
-Console.WriteLine($"INDEPENDENT_CLIENT_GH_PAGES value: '{Environment.GetEnvironmentVariable("INDEPENDENT_CLIENT_GH_PAGES", EnvironmentVariableTarget.Process)}'");
+//Console.WriteLine($"INDEPENDENT_CLIENT_GH_PAGES value: '{Environment.GetEnvironmentVariable("INDEPENDENT_CLIENT_GH_PAGES")}'");
+//Console.WriteLine($"INDEPENDENT_CLIENT_GH_PAGES value: '{Environment.GetEnvironmentVariable("INDEPENDENT_CLIENT_GH_PAGES", EnvironmentVariableTarget.Process)}'");
 
-if (Environment.GetEnvironmentVariable("INDEPENDENT_CLIENT_GH_PAGES", EnvironmentVariableTarget.Process) != null)
+//if (Environment.GetEnvironmentVariable("INDEPENDENT_CLIENT_GH_PAGES", EnvironmentVariableTarget.Process) != null)
+if (builder.HostEnvironment.IsProduction())
 {
-    Console.WriteLine("Condition is TRUE - Adding root components");
+    //Console.WriteLine("Condition is TRUE - Adding root components");
     builder.RootComponents.Add<App>("#app");
     builder.RootComponents.Add<HeadOutlet>("head::after");
     builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 }
-else
-{
-    Console.WriteLine("Condition is FALSE - Environment variable is null");
-}
+//else
+//{
+//    Console.WriteLine("Condition is FALSE - Environment variable is null");
+//}
 
 
 await builder.Build().RunAsync();
