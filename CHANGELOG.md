@@ -1,3 +1,10 @@
+# [9.0.0-feat-version-work-on-branch-maybe.20](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.0.0-feat-version-work-on-branch-maybe.19...v9.0.0-feat-version-work-on-branch-maybe.20) (2025-04-14)
+
+
+### Features
+
+* **just run:** gogo ([67b1458](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/67b14586484efdb7a0d5ce3b3e9050abbd38609f))
+
 # [9.0.0-feat-version-work-on-branch-maybe.19](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.0.0-feat-version-work-on-branch-maybe.18...v9.0.0-feat-version-work-on-branch-maybe.19) (2025-04-14)
 
 
