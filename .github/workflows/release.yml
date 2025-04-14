@@ -173,7 +173,11 @@ jobs:
           run: |
             dotnet publish ./TestHostPrerenderWASM/TestHostPrerenderWASM.Client/TestHostPrerenderWASM.Client.csproj --configuration Release \
               /p:BCLVersion=$BCL_VERSION \
+              /p:NupkgOutputPath=$NUPKG_OUTPUT_PATH \
               /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE
+              /p:GhPageRelease=true \
+              /p:LocalPackagePath=$BCL_Source
+              
                   
       
       # No this will be in the release branch that we do a prod wiki host
