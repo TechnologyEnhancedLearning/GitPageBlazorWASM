@@ -1,3 +1,10 @@
+# [9.0.0-feat-version-work-on-branch-maybe.25](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.0.0-feat-version-work-on-branch-maybe.24...v9.0.0-feat-version-work-on-branch-maybe.25) (2025-04-14)
+
+
+### Bug Fixes
+
+* **appsetting:** sdg ([9b0ddb9](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/9b0ddb9bbb9bc2cc6e780efe0e04221d23833d2c))
+
 # [9.0.0-feat-version-work-on-branch-maybe.24](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.0.0-feat-version-work-on-branch-maybe.23...v9.0.0-feat-version-work-on-branch-maybe.24) (2025-04-14)
 
 
