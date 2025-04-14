@@ -1,3 +1,10 @@
+# [9.0.0-feat-version-work-on-branch-maybe.19](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.0.0-feat-version-work-on-branch-maybe.18...v9.0.0-feat-version-work-on-branch-maybe.19) (2025-04-14)
+
+
+### Features
+
+* **jsut use production:** prod ([98a4ac5](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/98a4ac51b251ee8e38a1d5e7d4dccfb3db38d422))
+
 # [9.0.0-feat-version-work-on-branch-maybe.18](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.0.0-feat-version-work-on-branch-maybe.17...v9.0.0-feat-version-work-on-branch-maybe.18) (2025-04-14)
 
 
