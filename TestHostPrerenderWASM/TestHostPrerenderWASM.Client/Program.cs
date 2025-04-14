@@ -14,6 +14,14 @@ if (builder.HostEnvironment.IsProduction()) //qqqq worked but want release mode 
     builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
 }
+
+if (Environment.GetEnvironmentVariable("INDEPENDANT_CLIENT_GH_PAGES") != null)
+{
+    builder.RootComponents.Add<App>("#app");
+    builder.RootComponents.Add<HeadOutlet>("head::after");
+    builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+}
+
 //#if GH_PAGE_RELEASE //put something like this back in
 //builder.RootComponents.Add<App>("#app");
 //builder.RootComponents.Add<HeadOutlet>("head::after");

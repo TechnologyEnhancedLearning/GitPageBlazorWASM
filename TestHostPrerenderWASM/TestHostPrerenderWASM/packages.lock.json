@@ -220,14 +220,7 @@
         "type": "Project",
         "dependencies": {
           "Microsoft.AspNetCore.Components.Web": "[8.0.14, )",
-          "TELBlazorComponentLibrary.GitPageBlazorWasm": "[10.9.4, )"
-        }
-      },
-      "TELBlazorComponentLibrary.GitPageBlazorWasm": {
-        "type": "Project",
-        "dependencies": {
-          "Microsoft.AspNetCore.Components.Web": "[8.0.14, )",
-          "Microsoft.Extensions.Http": "[8.0.0, )"
+          "TELBlazorComponentLibrary.GitPageBlazorWasm": "[10.9.7, )"
         }
       },
       "testhostprerenderwasm.client": {
@@ -283,6 +276,16 @@
           "Microsoft.Extensions.Logging": "8.0.0",
           "Microsoft.Extensions.Logging.Abstractions": "8.0.0",
           "Microsoft.Extensions.Options": "8.0.0"
+        }
+      },
+      "TELBlazorComponentLibrary.GitPageBlazorWasm": {
+        "type": "CentralTransitive",
+        "requested": "[10.9.7, )",
+        "resolved": "10.9.7",
+        "contentHash": "+dWmXBnL84HBWfTGiYZOxK8UGITQHbp4IO6bso+naGa9IxYNjcsOCjY/uczQmBfUPsuCZS/BKLq8Aznm5+Q4iA==",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components.Web": "8.0.14",
+          "Microsoft.Extensions.Http": "8.0.0"
         }
       }
     }
