@@ -80,19 +80,19 @@ jobs:
           run: echo "TODO Code Coverage"
           #continue-on-error: true
 
-  All-Checks-Passed:
-    name: all checks passed
-    runs-on: ubuntu-latest
-    needs:
-      - branch-name-check
-      - commitlint
-      - gitguardian-scan
-      - Unit-Tests
-      - E2E-Tests
-      - Code-Coverage
-    if: ${{ success() }}
-    steps:
-     - name: all checks passed steps
-       run: echo "allow all checks to run incase multiple fails then fail here"
+  # All-Checks-Passed:
+    # name: all checks passed
+    # runs-on: ubuntu-latest
+    # needs:
+      # - branch-name-check
+      # - commitlint
+      # - gitguardian-scan
+      # - Unit-Tests
+      # - E2E-Tests
+      # - Code-Coverage
+    # #if: ${{ success() }}
+    # steps:
+     # - name: all checks passed steps
+       # run: echo "allow all checks to run incase multiple fails then fail here"
        
 
