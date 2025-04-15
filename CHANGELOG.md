@@ -1,13 +1,6 @@
-# [9.1.0](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.0.0...v9.1.0) (2025-04-15)
+## [9.1.1-fix-pr-release-yml.1](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.1.0...v9.1.1-fix-pr-release-yml.1) (2025-04-15)
 
 
-### Features
+### Bug Fixes
 
-* **pr and rel:** to master ([25d0f7b](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/25d0f7bd4be8deebf4ac61922e2fb039ccf3b705))
-
-# [9.1.0-feat-version-work-on-branch-maybe.1](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.0.0...v9.1.0-feat-version-work-on-branch-maybe.1) (2025-04-15)
-
-
-### Features
-
-* **pr and rel:** to master ([25d0f7b](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/25d0f7bd4be8deebf4ac61922e2fb039ccf3b705))
+* **pr check:** check ([ae4bbad](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/ae4bbadd17de402900431967692b1d2792023318))

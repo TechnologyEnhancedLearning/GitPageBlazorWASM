@@ -1,10 +1,8 @@
 name: Pull Request Checks
-on:
-  pull_request:
-    # branches:
-      # - '**' 
-      
+
+on: pull_request
 jobs:
+
   branch-name-check:
     name: Enforce Branch Name Convention
     runs-on: ubuntu-latest
@@ -27,6 +25,7 @@ jobs:
         #continue-on-error: true
 
   commitlint:
+    name: commitlint
   # qqqq repo will need branch protection rules and PR Template
     runs-on: ubuntu-latest
     if: success() || failure()
@@ -41,6 +40,7 @@ jobs:
         
         
   gitguardian-scan:
+    name: gitguardian
     runs-on: ubuntu-latest
     if: success() || failure()
     steps:
@@ -53,6 +53,7 @@ jobs:
         #continue-on-error: true # we dont want secrets going further and the keys need to be changed if this is triggered
 
   Unit-Tests:
+      name: todo unit tests
       runs-on: ubuntu-latest
       if: success() || failure()
       steps:
@@ -62,6 +63,7 @@ jobs:
           
   
   E2E-Tests:
+      name: todo e2e tests
       runs-on: ubuntu-latest
       if: success() || failure()
       steps:
@@ -70,9 +72,27 @@ jobs:
           #continue-on-error: true
           
   Code-Coverage:
+      name: code coverage
       runs-on: ubuntu-latest
       if: success() || failure()
       steps:
         - name: Code Coverage
           run: echo "TODO Code Coverage"
           #continue-on-error: true
+
+  All-Checks-Passed:
+    name: all checks passed
+    runs-on: ubuntu-latest
+    needs:
+      - branch-name-check
+      - commitlint
+      - gitguardian-scan
+      - Unit-Tests
+      - E2E-Tests
+      - Code-Coverage
+    if: ${{ success() }}
+    steps:
+     - name: all checks passed steps
+       run: echo "allow all checks to run incase multiple fails then fail here"
+       
+
