@@ -171,9 +171,9 @@ jobs:
           
       # Hardcode the INDEPENDENT_CLIENT_GH_PAGES value
       # Blazor client so appsetting in wwwroot and public
-      - name: Modify appsettings.json with hardcoded value
-        run: |
-          jq '.INDEPENDENT_CLIENT_GH_PAGES = "true"' TestHostPrerenderWASM/TestHostPrerenderWASM.Client/wwwroot/appsettings.json > tmp.json && mv tmp.json TestHostPrerenderWASM/TestHostPrerenderWASM.Client/wwwroot/appsettings.json
+        - name: Modify appsettings.json with hardcoded value
+          run: |
+            jq '.INDEPENDENT_CLIENT_GH_PAGES = "true"' TestHostPrerenderWASM/TestHostPrerenderWASM.Client/wwwroot/appsettings.json > tmp.json && mv tmp.json TestHostPrerenderWASM/TestHostPrerenderWASM.Client/wwwroot/appsettings.json
 
 
 
@@ -181,14 +181,14 @@ jobs:
       # - name: Display appsettings.json content
         # run: cat TestHostPrerenderWASM/TestHostPrerenderWASM.Client/wwwroot/appsettings.json
 
-      - name: Publish client using client release .csproj logic
-        run: |
-          dotnet publish ./TestHostPrerenderWASM/TestHostPrerenderWASM.Client/TestHostPrerenderWASM.Client.csproj --configuration Release \
-            /p:BCLVersion=$BCL_VERSION \
-            /p:NupkgOutputPath=$NUPKG_OUTPUT_PATH \
-            /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE \
-            /p:GhPageRelease=true \
-            /p:LocalPackagePath=$BCL_Source
+        - name: Publish client using client release .csproj logic
+          run: |
+            dotnet publish ./TestHostPrerenderWASM/TestHostPrerenderWASM.Client/TestHostPrerenderWASM.Client.csproj --configuration Release \
+              /p:BCLVersion=$BCL_VERSION \
+              /p:NupkgOutputPath=$NUPKG_OUTPUT_PATH \
+              /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE \
+              /p:GhPageRelease=true \
+              /p:LocalPackagePath=$BCL_Source
                   
       
       # No this will be in the release branch that we do a prod wiki host
