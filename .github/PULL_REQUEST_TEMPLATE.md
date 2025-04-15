@@ -1,5 +1,10 @@
 # PR Template
 
+## TODO:
+Test it here too
+https://technologyenhancedlearning.github.io/GitPageBlazorWASM-TestGHPage/
+check version matches branch name and pullrequest release
+
 ## TODO: About
 - SO FAR no js controllers are not going to be covered in testing in the package it will be done by how used in LH
 But in future we could simulate them with just an api with stock response or find a programatic way, or build a hosted environment.
