@@ -195,11 +195,6 @@ jobs:
         - name: Create docs directory
           run: mkdir -p docs
           
-       
-
-      # Print the contents of appsettings.json inside 'TestHostPrerenderWASM.Client' folder
-      # - name: Display appsettings.json content
-        # run: cat TestHostPrerenderWASM/TestHostPrerenderWASM.Client/wwwroot/appsettings.json
 
         - name: Publish client using client release .csproj logic
           run: |

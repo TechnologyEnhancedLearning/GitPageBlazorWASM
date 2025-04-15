@@ -34,7 +34,7 @@ jobs:
         with:
           configFile: .commitlintrc.json
         
-        
+        # built in to our organisation anyway
   # gitguardian-scan:
     # name: gitguardian
     # runs-on: ubuntu-latest
@@ -53,7 +53,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: See other project pipeline for Tests
-          run: echo "qqqq See other project pipeline for Tests this is a placeholder"
+          run: echo " See other project pipeline for Tests this is a placeholder"
           
   
   E2E-Tests:
@@ -61,7 +61,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: See other project pipeline for Tests
-          run: echo "qqqq See other project pipeline for Tests this is a placeholder"
+          run: echo " See other project pipeline for Tests this is a placeholder"
 
           
   Code-Coverage:
@@ -86,7 +86,7 @@ jobs:
      # - name: all checks passed steps
        # run: echo "allow all checks to run incase multiple fails then fail here"
        
-# wanted to do it like this
+# wanted to do it like this it worked neither is putting check in pr git ui but is running in pipeline
  # Code-Coverage:
   #    name: code coverage
   #    runs-on: ubuntu-latest
