@@ -174,7 +174,7 @@ jobs:
 
       # - name: debug github commands
         # run: |
-          # echo "but we want more complex versioning currently so wont use tag but will for release qqqq"
+          # echo "but we want more complex versioning currently so wont use tag but will for release"
           # echo "as we will name commits like fix(broken-thing): changed broken line, and branches fix/broken-thing  we should be able to use them in package names"
           # echo "branch tag $(git describe --tags --abbrev=0)"
           # echo "branch name $(git branch --show-current)"
@@ -518,16 +518,9 @@ jobs:
          # echo "BCLVersion: $BCL_VERSION"
          # echo "UseBCLProjectReference: $USE_BCL_PROJECT_REFERENCE"
          
-      # #qqqq not showing the value   
-      # - name: qqqq Display Directory.Packages.props
-        # run: |
-          # echo "if we can get this to say the version number then move it higher in the steps i think it may work"
-          # echo "we dont want this <PackageVersion Include="TELBlazorComponentLibrary.GitPageBlazorWasm" Version="$(BCLVersion)" />  "
-          # echo "try restore"
-          # dotnet Restore
-          # cat Directory.Packages.props
+
           
-      # - name: qqqq is it because solution level not receive /p for project so need githun_env values
+      # - name:  is it because solution level not receive /p for project so need githun_env values
         # run: |
          # echo "BCLVersion=$BCL_VERSION" >> $GITHUB_ENV
          # echo "LocalPackagePath=$BCL_SOURCE" >> $GITHUB_ENV
@@ -536,7 +529,7 @@ jobs:
          # echo "UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE" >> $GITHUB_ENV
          # #echo "GITHUB_PACKAGES_TOKEN=$PACKAGES_TOKEN" >> $GITHUB_ENV
          
-      # - name: qqqq now try restore again
+      # - name: now try restore again
         # run: |
          # dotnet Restore
          # cat Directory.Packages.props
@@ -545,39 +538,9 @@ jobs:
       # - name: Display Environment Variable (for debugging)
         # run: echo "BCLVERSION is $BCLVERSION"
         
-      # # - name: qqqqqqq here now try build
-        # # run: |
-          # # -e
-          # # dotnet build
-          # # cat Directory.Packages.props
-          # # echo "doesnt work"
-          # # +e
 
 
-
-          
-
-      # - name: Publish client using client release .csproj logic
-        # run: |
-          # dotnet publish ./TestHostPrerenderWASM/TestHostPrerenderWASM.Client/TestHostPrerenderWASM.Client.csproj --configuration Release \
-            # /p:IsLocalDev=$IS_LOCAL_DEV \
-            # /p:BCLVersion=$BCL_VERSION \
-            # /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE
-            # /p:GhPageRelease=true
         
-
-      # #include hidden so we get jekyll
-      # - name: Creating artifact of publish folder for test gh page workflow
-        # uses: actions/upload-artifact@v4
-        # with:
-          # name: gh-blazor-components-wiki-site-using-package-${{env.BCL_VERSION}}
-          # include-hidden-files: true
-          # path: | 
-            # ./docs
-            # ./docs/.nojekyll  # explicitly include the .nojekyll file
-          # retention-days: 90
-          
-      
       # - name: Debug artifact location
         # run: |
           # # Get the artifact list for the current workflow run

@@ -6,7 +6,7 @@ jobs:
   branch-name-check:
     name: Enforce Branch Name Convention
     runs-on: ubuntu-latest
-    if: success() || failure()
+    #if: success() || failure()
     steps:
       - name: Validate Branch Name
         run: |
@@ -28,7 +28,7 @@ jobs:
     name: commitlint
   # qqqq repo will need branch protection rules and PR Template
     runs-on: ubuntu-latest
-    if: success() || failure()
+    #if: success() || failure()
     steps:
       - uses: actions/checkout@v4
         with:
@@ -42,7 +42,7 @@ jobs:
   gitguardian-scan:
     name: gitguardian
     runs-on: ubuntu-latest
-    if: success() || failure()
+    #if: success() || failure()
     steps:
       - uses: actions/checkout@v3
 
@@ -55,7 +55,7 @@ jobs:
   Unit-Tests:
       name: todo unit tests
       runs-on: ubuntu-latest
-      if: success() || failure()
+      #if: success() || failure()
       steps:
         - name: See other project pipeline for Tests
           run: echo "qqqq See other project pipeline for Tests this is a placeholder"
@@ -65,7 +65,7 @@ jobs:
   E2E-Tests:
       name: todo e2e tests
       runs-on: ubuntu-latest
-      if: success() || failure()
+      #if: success() || failure()
       steps:
         - name: See other project pipeline for Tests
           run: echo "qqqq See other project pipeline for Tests this is a placeholder"
@@ -74,7 +74,7 @@ jobs:
   Code-Coverage:
       name: code coverage
       runs-on: ubuntu-latest
-      if: success() || failure()
+      #if: success() || failure()
       steps:
         - name: Code Coverage
           run: echo "TODO Code Coverage"

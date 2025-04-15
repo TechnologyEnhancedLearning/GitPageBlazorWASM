@@ -41,7 +41,6 @@
 		<Content Remove="packages.lock.json" />
 		<Content Remove="wwwroot\background.png" />
 	</ItemGroup>
-	<!--qqqq building in the solution wasnt an issue before-->
 	<ItemGroup>
 		<Compile Remove="..\CICDPackageLocation\**\*.cs" />
 		<Content Remove="..\CICDPackageLocation\**\*" />
