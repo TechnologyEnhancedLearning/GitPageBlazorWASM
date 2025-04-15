@@ -1,20 +1,29 @@
-# Good to know
 
-A purpose is quick cicd.
-You can change your version of your package in the centralised solution and it will be picked up in consuming projects.
-You can optionally use a project reference for faster development by setting a flag.
-A build number could be automated into package names, the package already is automatically created on build. 
-So it should be possible to have a consuming project automatically get the version as a flag also for fast development across the package and consuming project.
 
-The pipeline is similar pushing to your branch makes a package if tests are passed and updates the test page to show it. Merging does the same 
-but makes a production package and gh-page site.
 
-(Dependabot should automatically merge none breaking update too)
 
-Strict branch and commit naming is enforced for versioning, and versioning and changelog of the repo and packages are automated from them.
+# Local Development
+- inc the version in local props
+	- save
+- build package project (debug)
+- build solution (debug)
+- run
+	- for wasm use release and client
+	- for hosted wasm use host and debug
 
-Having testing, package build, github pages in the same solution is to enable quick development and automatic testing of packages before being built,
-and automatic version and release of pages and packages.
+## Trouble shooting
+- clean restore solution and try again
+- look in the sharedpages, look in depenency in solution explorer, open the package version drop down
+	- is the version what you expect?
+	- is there an error
+- if it still doesnt work increment the version and use the process again
+
+## Bonus 
+- there is probably a way to increment version with timestamps or build number to automate it more
+
+## extras
+- you can use a local feed two visual studio and see new components in LH for example
+- LH could be setup to automatically update too, system environment variables may help or a txt file to read in csproj to sinc versions
 
 # About
 
@@ -47,8 +56,6 @@ We also need a folder with an index.html end point for this.
 
 Both these options work in this project.
 
-On push the project make a package, hosts it, makes a testpage, on merging the branch to master it makes a production page and package.
-
 ## Details
 
 The 404 page is because the Blazor is a spa the routing does not work as a github page, such that from the blazor entry point page you
@@ -65,54 +72,8 @@ in the pipeline?
 Going into the pure wasm project or .client project and running a publish
  dotnet publish --configuration Release
 
-## What to look at
-
-yml files, and csproj, and solution configurations, appsettings in client, the githubs themselves.
-
-
-
-### YML files
-
-It would be better if everywhere system environmental variables can be used that github environmental variables can be used.
-Due to centralisation, and projects having different debug and release behavior and automatic package building these advantages coming together caused challenges.
-In addition blazor client has its own challenges in receiving values. So sed is used a bit. Recommend for future just deleting and renaming files
-for simplicity where the variables are safe. 
-
-Nektos Act has also been used with this project to run local pipelines as a test
-
-The desired output would be environment value for whether gh_pages are being generated as a flag for how the client builds, a flag for whether to build the package,
-and then building the whole solution. This may be worth exploring again if there are issues with lock files being out of sync for example. As the pipeline 
-builds projects not a whole solution build.
-
-#### Dev
-- multiple checks run, all of them run so that you can see if multiple fail but all must suceed to have package creating
-- semver can fail if a change isnt required so has a an error catch "--dry run" may actaully be better first
-	- semver versions the repo, and it provides the version we will apply to the package
-	 - the package also has a timestamp added so its always updated, this is not best practice however suits our purpose in development
-	 - if there isnt a new version needed we can use the git tag version value, which isnt a recalculation using other commits so isnt as good but useful still
-	 - in development packages have branch names in them (they cant be marked prerelease in the git package feed)
-- the package is built
-- the package is then used in a build of sharedpages, which is then used in the release client build which generates published files for gh-pages
-- the published pages is put in an artifact
-- a script in a separate repo so there can be a separate test page is run (there is a copy in this repo) it consumes the artifact and makes the page 
-
-#### Pull request
-- just some checks they can be run even if they fail to see if there are multiple errors. They only show temporarily in the pr ui section of the
-git pull request but can be seen in actions.
-
-
-#### Release
-- similar to dev but without tests as these have already happened and no feature name in package, and the gh-page is released on this repo.
-
-
 ## Notes
 Also DevServer needed adding to .client
-
-# Future Recommendation
-
-There are options for making packing the blazor more efficient, as in smaller for the browser using it.
-The would be worth exploring there are recommendations in the build tasks when the pipeline runs, also mudblazor is open and any process they have is 
-worth considering.
 
 # Where to see the site
 
@@ -124,13 +85,9 @@ https://github.com/TechnologyEnhancedLearning/MVCBlazor
 
 This project is public which is required to be github page hosted
 
-It should be at:
+It should be at 
+https://github.com/TechnologyEnhancedLearning.github.io/GitPageBlazorWASM
 https://technologyenhancedlearning.github.io/GitPageBlazorWASM/
-https://technologyenhancedlearning.github.io/GitPageBlazorWASM-TestGHPage/
-
-Packages:
-https://github.com/users/Phil-NHS/packages/nuget/package/TELBlazorComponentLibrary.GitPageBlazorWasm
-
 # References
 
 - [microsoft official docs (didn't actually use these but if end up needing to change it could start here)](https://learn.microsoft.com/en-us/aspnet/core/blazor/host-and-deploy/webassembly?view=aspnetcore-8.0#github-pages)
@@ -150,35 +107,54 @@ tr td:nth-child(2) {
 # Project Structure
 |  Description  | File Structure |
 |----------------|-------------|
-| Centralised package dependancy and config file for cicd  | &#9507; GitPageBlazorWasm |
-| Test host client, and if built with release standalone client | &#160;&#160;&#160;&#160;&#9507; GitPageBlazorWASM.Client |
-| The package that will be consumed by LH for example | &#160;&#160;&#160;&#160;&#9507; Package.BlazorComponentLibrary |
-| A seperate component rewriten in the pipeline with the package number | &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#9507; BCLVersion |
-|  | &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#9495; VersionInfo.cs |
-| minimal examples | &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#9507; Components |
+|   | &#9507; GitPageBlazorWASM |
+| The github page is aimed at this and gets the version from gh-page branch. .Client publishes a standalone wasm site here | &#160;&#160;&#160;&#160;&#9507; docs |
+|  | &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#9507; _content |
+|  | &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#9507; Package.BlazorComponentLibrary |
+|  | &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#9495; SharedPages |
+|  | &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#9495; css |
+|  | &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#9507; _framework |
+| Because its a spa we need to redirect 404 back to our index page parse them to take users to pages on refresh or if they go there directly | &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#9507; 404.html |
+|  | &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#9495; index.html |
+| the pure webassembly project which was initially progressive publishes here | &#160;&#160;&#160;&#160;&#9507; docsReferenceNow |
+|  | &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#9507; _content |
+|  | &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#9507; Package.BlazorComponentLibrary |
+|  | &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#9495; SharedPages |
+|  | &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#9495; css |
+|  | &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#9507; _framework |
+|  | &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#9495; index.html |
+| just for making wiki style site if we decide to use the .client for testing and for creating the github page site then we dont need this | &#160;&#160;&#160;&#160;&#9507; GitPageBlazorWASMProgressive |
+|  | &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#9507; _Imports.razor |
+|  | &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#9507; App.razor |
+|  | &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#9495; Program.cs |
+| This would be out blazor component package | &#160;&#160;&#160;&#160;&#9507; Package.BlazorComponentLibrary |
+|  | &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#9507; _Imports.razor |
+|  | &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#9495; Components |
 |  | &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#9495; SimpleCounter.razor |
-|  | &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#9495; DependencyInjection |
-|  | &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#9495; DependencyInjection.cs |
-| there will be unit and e2e, e2e needs the test host client environment | &#160;&#160;&#160;&#160;&#9507; PlaywrightXUnitGoesHere |
-|  | &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#9507; justcheckinggitguardian.cs |
-| these are the wiki style pages for gh-page sites | &#160;&#160;&#160;&#160;&#9507; SharedPages |
-|  | &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#9507; Layout |
+| Bunit and E2E tests, the E2E none javascript tests require prerendering and hence the server wasm project for testing | &#160;&#160;&#160;&#160;&#9507; PlaywrightXUnitGoesHere |
+|  | &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#9495; UnitTest1.cs |
+| to keep the projects slim, and if we decide to have seperate programs for creating the sites we put the site in a seperate project that everything can use, this wouldnt be packaged | &#160;&#160;&#160;&#160;&#9507; SharedPages |
+|  | &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#9507; _Imports.razor |
+|  there is just enough complexity to see things working| &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#9507; Layout |
 |  | &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#9507; ComponentPageLayout.razor |
 |  | &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#9495; MainLayout.razor |
 |  | &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#9495; Pages |
 |  | &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#9507; ComponentPages |
 |  | &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#9495; CounterComponentPage.razor |
-|  | &#160;&#160;&#160;&#160;&#9495; TestHostPrerenderWASM |
-| Provides prerendering and host client for testing | &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#9507; TestHostPrerenderWASM |
+|  | &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#9507; Error.razor |
+|  | &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#9495; Home.razor |
+| we need this for prerendering this is the same kind of set up we would use when we consume our libraries (though see MVCBlazor project for actual setup) | &#160;&#160;&#160;&#160;&#9495; TestHostPrerenderWASM |
+| slim | &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#9507; TestHostPrerenderWASM |
 |  | &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#9507; Components |
 |  | &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#9507; _Imports.razor |
 |  | &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#9495; App.razor |
 |  | &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#9495; Program.cs |
-| Debug hosted by test host, standalone on release for gh-pages | &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#9495; TestHostPrerenderWASM.Client |
+| the client is standalone on release and used by TestHostPrerenderWASM in debug for testing. Look for the release conditions to see how it does both | &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#9495; TestHostPrerenderWASM.Client |
 |  | &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#9507; _Imports.razor |
 |  | &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#9507; App.razor |
-| Files copied to wwwroot on release to enable to standalone | &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#9507; GitPagesEntryPoint |
-| Blazor is a spa and we are hosted by github so it is necassary to redirect 404s for routing | &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#9507; 404.html |
+| if we put these in wwwroot then when running debug we would have two entry points so we keep them here and copy them on publish | &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#9507; GitPagesEntryPoint |
+|  | &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#9507; 404.html |
 |  | &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#9495; index.html |
 |  | &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#9507; Program.cs |
 |  | &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#9495; Routes.razor |
+ 

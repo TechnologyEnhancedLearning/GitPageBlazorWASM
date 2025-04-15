@@ -11,10 +11,11 @@
 	  
 	 <WwwRootDir Condition="'$(Configuration)'=='Release'">$(PublishDir)\wwwroot</WwwRootDir>
 
+	 <!--<DefineConstants Condition="'$(GhPageRelease)' == 'true'">$(DefineConstants);GH_PAGE_RELEASE</DefineConstants>-->
   </PropertyGroup>
 
 
-	<Target Name="PublishGitHubPages" AfterTargets="Publish">
+	<Target Name="PublishGitHubPages" AfterTargets="Publish" Condition="'$(Configuration)'=='Release'">
 		<Message Text="SolutionDir: $(SolutionDir)" Importance="high" />
 		<Message Text="MSBuildProjectDirectory: $(MSBuildProjectDirectory)" Importance="high" />
 		<Message Text="PublishDir: $(PublishDir)" Importance="high" />
@@ -26,11 +27,11 @@
 		<Touch Files="$(PublishDir).nojekyll" AlwaysCreate="true" />
 
 		<!-- Move wwwroot contents to docs root and remove wwwroot folder -->
-		<ItemGroup>
+		<ItemGroup Condition="'$(Configuration)'=='Release'">
 			<WwwRootFiles Include="$(WwwRootDir)\**\*.*" />
 		</ItemGroup>
 
-		<Copy SourceFiles="@(WwwRootFiles)" DestinationFolder="$(PublishDir)\%(RecursiveDir)" OverwriteReadOnlyFiles="true" />
+		<Copy Condition="'$(Configuration)'=='Release'" SourceFiles="@(WwwRootFiles)" DestinationFolder="$(PublishDir)\%(RecursiveDir)" OverwriteReadOnlyFiles="true" />
 		
 		<!--Provide and entry point-->
 		<ItemGroup>

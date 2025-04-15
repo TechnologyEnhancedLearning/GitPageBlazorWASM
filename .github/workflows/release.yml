@@ -152,29 +152,63 @@ jobs:
           with:
             global-json-file: global.json
           
+        - name: Remove Local PackageSettings (CI Only)
+          run: rm -f PackageSettings.props.local
+        
         - name: Replace local environment variable in nuget config because cant provide it as a parameter
           run: |
+            echo "sed -i \"s|%LocalPackagePath%|$BCL_Source|g\" nuget.config"
             sed -i "s|%LocalPackagePath%|$BCL_Source|g" nuget.config
             sed -i "s|%GITHUB_USERNAME%|$GITHUB_USERNAME|g" nuget.config
             sed -i "s|%GITHUB_PACKAGES_TOKEN%|$PACKAGES_TOKEN |g" nuget.config
-
+        
+        - name: debug BCL_VERSION
+          run: |
+            echo "BCL_VERSION  $BCL_VERSION"
       
         - name: Clean lock files because the newly generated package file will superseed the locks
           run: |
+            echo "Listing packages.lock.json files:"
+            find . -name "packages.lock.json" -type f -print
+            echo ""
+            echo "Deleting packages.lock.json files:"
             find . -name "packages.lock.json" -type f -exec rm -f {} \;
-       
-        - name: Restore NuGet Packages for Specifically the BCL Package Library Project
-          run: dotnet restore TestHostPrerenderWASM/TestHostPrerenderWASM.Client/TestHostPrerenderWASM.Client.csproj      
+          
+            echo "Listing packages.lock.json files:"
+            find . -name "packages.lock.json" -type f -print
         
+        - name: Build Shared Pages
+          run: |
+            dotnet build SharedPages -c Release \
+              /p:BCLVersion=$BCL_VERSION \
+              /p:NupkgOutputPath=$NUPKG_OUTPUT_PATH \
+              /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE \
+              /p:GhPageRelease=false \
+              /p:LocalPackagePath=$BCL_Source
+              
+        # Blazor client so appsetting in wwwroot and public
+        - name: Modify appsettings.json with hardcoded value
+          run: |
+            jq '.INDEPENDENT_CLIENT_GH_PAGES = "true"' TestHostPrerenderWASM/TestHostPrerenderWASM.Client/wwwroot/appsettings.json > tmp.json && mv tmp.json TestHostPrerenderWASM/TestHostPrerenderWASM.Client/wwwroot/appsettings.json
+
+            
         - name: Create docs directory
           run: mkdir -p docs
-        
+          
+       
+
+      # Print the contents of appsettings.json inside 'TestHostPrerenderWASM.Client' folder
+      # - name: Display appsettings.json content
+        # run: cat TestHostPrerenderWASM/TestHostPrerenderWASM.Client/wwwroot/appsettings.json
+
         - name: Publish client using client release .csproj logic
           run: |
             dotnet publish ./TestHostPrerenderWASM/TestHostPrerenderWASM.Client/TestHostPrerenderWASM.Client.csproj --configuration Release \
-              /p:IsLocalDev=$IS_LOCAL_DEV \
               /p:BCLVersion=$BCL_VERSION \
-              /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE
+              /p:NupkgOutputPath=$NUPKG_OUTPUT_PATH \
+              /p:UseBCLProjectReference=$USE_BCL_PROJECT_REFERENCE \
+              /p:GhPageRelease=true \
+              /p:LocalPackagePath=$BCL_Source
                   
       
       # No this will be in the release branch that we do a prod wiki host
