@@ -1,3 +1,10 @@
+## [9.1.4-fix-last-branch-check.3](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.1.4-fix-last-branch-check.2...v9.1.4-fix-last-branch-check.3) (2025-04-15)
+
+
+### Bug Fixes
+
+* **pr:** gogo ([cce48fe](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/cce48feb3cf1aa73005bbc44f6e798792d63edc3))
+
 ## [9.1.4-fix-last-branch-check.2](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.1.4-fix-last-branch-check.1...v9.1.4-fix-last-branch-check.2) (2025-04-15)
 
 
