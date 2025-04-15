@@ -5,9 +5,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
-	<!--<Target Name="PrintIsLocalDev" BeforeTargets="Build">
-		<Message Text="!!!!!!!!!!!!!!!!!!!!!!!    !!!!!!!!!!!!   IsLocalDevVS: $(IsLocalDevVS)" Importance="high" />
-	</Target>-->
+
 	<!--<ItemGroup>
 	put back in
 		<None Update="wwwroot\**">
@@ -18,24 +16,14 @@
 	<ItemGroup>
     <SupportedPlatform Include="browser" />
   </ItemGroup>
-
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" />
-	  <!--not for production ideally we test against package version but for expedience can overide nuget package with project reference-->
-	  <!-- Fixed version when UseHighestBCLVersionAvailable is false -->
-	  <PackageReference  Include="TELBlazorComponentLibrary.GitPageBlazorWasm"/>
-
-	  <!-- Use the latest available version when UseHighestBCLVersionAvailable is true -->
-	  <!--having floating just isnt possible-->
-	  <!--<PackageVersion  Include="TELBlazorComponentLibrary.GitPageBlazorWasm" Version="1.0.2" Condition=" '$(UseHighestBCLVersionAvailable)' == 'true' "/>-->
+    <PackageReference Include="TELBlazorComponentLibrary.GitPageBlazorWasm" />
   </ItemGroup>
 	<ItemGroup>
 		<Content Remove="packages.lock.json" />
 	</ItemGroup>
-
-
-	<ItemGroup>
-	  <ProjectReference Include="..\Package.BlazorComponentLibrary\Package.BlazorComponentLibrary.csproj"  Condition="'$(UseBCLProjectReference)' == 'true'" />	  
-		<!--<ProjectReference Include="..\Package.BlazorComponentLibrary\Package.BlazorComponentLibrary.csproj" Condition="false" />-->
-    </ItemGroup>
+	<!--qqqq try putting back in with a condition<ItemGroup>
+	  <ProjectReference Include="..\Package.BlazorComponentLibrary\Package.BlazorComponentLibrary.csproj" />
+	</ItemGroup>-->
 </Project>

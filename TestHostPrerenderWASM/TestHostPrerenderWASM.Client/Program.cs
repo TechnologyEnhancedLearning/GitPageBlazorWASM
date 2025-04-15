@@ -1,19 +1,35 @@
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.JSInterop;
 using TestHostPrerenderWASM.Client;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 
-//Be careful we have two entry points to enable the client to be both a standalone app and the client for the server app. 
-// removing the below, app.razor, and index.html would put the project back to being just for the testing host (WebAssembly.DevServer could be removed from nuget too)
-if (builder.HostEnvironment.IsProduction())
+// Use the value in your app logic
+var independentClientGhPagesString = builder.Configuration["INDEPENDENT_CLIENT_GH_PAGES"];
+bool independentClientGhPages = false; // Default value if not found or invalid
+
+if (!string.IsNullOrEmpty(independentClientGhPagesString))
 {
+    if (independentClientGhPagesString.ToLowerInvariant() == "true")
+    {
+        independentClientGhPages = true;
+    }
+    else if (independentClientGhPagesString.ToLowerInvariant() == "false")
+    {
+        independentClientGhPages = false;
+    }
+
+}
+if (independentClientGhPages) { 
+
     builder.RootComponents.Add<App>("#app");
     builder.RootComponents.Add<HeadOutlet>("head::after");
     builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
-    
 }
+
+
 
 await builder.Build().RunAsync();
 

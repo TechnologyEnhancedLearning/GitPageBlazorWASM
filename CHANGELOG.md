@@ -1,3 +1,426 @@
+# [9.0.0-feat-version-work-on-branch-maybe.28](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.0.0-feat-version-work-on-branch-maybe.27...v9.0.0-feat-version-work-on-branch-maybe.28) (2025-04-15)
+
+
+### Features
+
+* **all the way:** to release ([657c722](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/657c7225ad7c008c99d41dc13b4248181d7d58b5))
+
+# [9.0.0-feat-version-work-on-branch-maybe.27](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.0.0-feat-version-work-on-branch-maybe.26...v9.0.0-feat-version-work-on-branch-maybe.27) (2025-04-14)
+
+
+### Features
+
+* **seems:** to work ([701f41e](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/701f41ee24d1bf731b887eea9565f841c1f26e56))
+
+# [9.0.0-feat-version-work-on-branch-maybe.26](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.0.0-feat-version-work-on-branch-maybe.25...v9.0.0-feat-version-work-on-branch-maybe.26) (2025-04-14)
+
+
+### Bug Fixes
+
+* **www:** root ([b86dc89](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/b86dc8983983c2100a9c9fa83ba12f7cf7face32))
+
+# [9.0.0-feat-version-work-on-branch-maybe.25](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.0.0-feat-version-work-on-branch-maybe.24...v9.0.0-feat-version-work-on-branch-maybe.25) (2025-04-14)
+
+
+### Bug Fixes
+
+* **appsetting:** sdg ([9b0ddb9](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/9b0ddb9bbb9bc2cc6e780efe0e04221d23833d2c))
+
+# [9.0.0-feat-version-work-on-branch-maybe.24](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.0.0-feat-version-work-on-branch-maybe.23...v9.0.0-feat-version-work-on-branch-maybe.24) (2025-04-14)
+
+
+### Features
+
+* **poke:** gog ([412cc00](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/412cc00a4d638bbdf51a17b6109926c03838c8ee))
+
+# [9.0.0-feat-version-work-on-branch-maybe.23](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.0.0-feat-version-work-on-branch-maybe.22...v9.0.0-feat-version-work-on-branch-maybe.23) (2025-04-14)
+
+
+### Bug Fixes
+
+* **fggg:** ggg ([7a3ff0c](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/7a3ff0cbc3c365436b20a5c7a4ea912570f56ff4))
+
+# [9.0.0-feat-version-work-on-branch-maybe.22](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.0.0-feat-version-work-on-branch-maybe.21...v9.0.0-feat-version-work-on-branch-maybe.22) (2025-04-14)
+
+
+### Bug Fixes
+
+* **are solution level vars:** used ([e135a6c](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/e135a6cdfbed58b2140366b6318d160badf98617))
+
+# [9.0.0-feat-version-work-on-branch-maybe.21](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.0.0-feat-version-work-on-branch-maybe.20...v9.0.0-feat-version-work-on-branch-maybe.21) (2025-04-14)
+
+
+### Bug Fixes
+
+* **double check:** still works ([d639fba](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/d639fbaa0670a3b0eee87a0c47c561bc99a292d6))
+
+# [9.0.0-feat-version-work-on-branch-maybe.20](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.0.0-feat-version-work-on-branch-maybe.19...v9.0.0-feat-version-work-on-branch-maybe.20) (2025-04-14)
+
+
+### Features
+
+* **just run:** gogo ([67b1458](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/67b14586484efdb7a0d5ce3b3e9050abbd38609f))
+
+# [9.0.0-feat-version-work-on-branch-maybe.19](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.0.0-feat-version-work-on-branch-maybe.18...v9.0.0-feat-version-work-on-branch-maybe.19) (2025-04-14)
+
+
+### Features
+
+* **jsut use production:** prod ([98a4ac5](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/98a4ac51b251ee8e38a1d5e7d4dccfb3db38d422))
+
+# [9.0.0-feat-version-work-on-branch-maybe.18](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.0.0-feat-version-work-on-branch-maybe.17...v9.0.0-feat-version-work-on-branch-maybe.18) (2025-04-14)
+
+
+### Bug Fixes
+
+* **fssdf:** dfg ([c50a4d7](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/c50a4d7bc85d755bcd9edef1ed69117ebedfec57))
+
+# [9.0.0-feat-version-work-on-branch-maybe.17](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.0.0-feat-version-work-on-branch-maybe.16...v9.0.0-feat-version-work-on-branch-maybe.17) (2025-04-14)
+
+
+### Bug Fixes
+
+* **not getting val:** try direct passing ([0e643a9](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/0e643a9be012f29d44cfc26653c9c34c60144bd5))
+
+# [9.0.0-feat-version-work-on-branch-maybe.16](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.0.0-feat-version-work-on-branch-maybe.15...v9.0.0-feat-version-work-on-branch-maybe.16) (2025-04-14)
+
+
+### Features
+
+* **test breaking:** heres a change ([47a10bb](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/47a10bbf3b6a5bd65ac8743f1d1106f125865bc5))
+
+
+### BREAKING CHANGES
+
+* **test breaking:** 10
+
+# [9.0.0-feat-version-work-on-branch-maybe.15](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.0.0-feat-version-work-on-branch-maybe.14...v9.0.0-feat-version-work-on-branch-maybe.15) (2025-04-14)
+
+
+### Bug Fixes
+
+* **provide custom flag not release:** tryit ([2ec4a56](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/2ec4a56bdab1282a7a5502bb52c5663f7e5a8f7e))
+
+# [9.0.0-feat-version-work-on-branch-maybe.14](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.0.0-feat-version-work-on-branch-maybe.13...v9.0.0-feat-version-work-on-branch-maybe.14) (2025-04-11)
+
+
+### Bug Fixes
+
+* **11:** 33dd ([3cf657c](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/3cf657c876831b514316004ebce59daa6a99fa2c))
+
+# [9.0.0-feat-version-work-on-branch-maybe.13](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.0.0-feat-version-work-on-branch-maybe.12...v9.0.0-feat-version-work-on-branch-maybe.13) (2025-04-11)
+
+
+### Bug Fixes
+
+* **dd:** ddd ([8f7433e](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/8f7433e88e0d3df40d893ef3a46bb39e75153da3))
+
+# [9.0.0-feat-version-work-on-branch-maybe.12](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.0.0-feat-version-work-on-branch-maybe.11...v9.0.0-feat-version-work-on-branch-maybe.12) (2025-04-11)
+
+
+### Bug Fixes
+
+* **go:** were using release inprogram ([621daa7](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/621daa7c3d6474d24042b1953645b6a5c8f4531b))
+
+# [9.0.0-feat-version-work-on-branch-maybe.11](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.0.0-feat-version-work-on-branch-maybe.10...v9.0.0-feat-version-work-on-branch-maybe.11) (2025-04-11)
+
+
+### Bug Fixes
+
+* **more:** debug ([967fa5b](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/967fa5b65679d75d49b698c917badc6dac249c34))
+
+# [9.0.0-feat-version-work-on-branch-maybe.10](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.0.0-feat-version-work-on-branch-maybe.9...v9.0.0-feat-version-work-on-branch-maybe.10) (2025-04-11)
+
+
+### Bug Fixes
+
+* **fds:** fff ([1982062](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/1982062730facc78f51fc9be7189e5232b51edfc))
+
+# [9.0.0-feat-version-work-on-branch-maybe.9](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.0.0-feat-version-work-on-branch-maybe.8...v9.0.0-feat-version-work-on-branch-maybe.9) (2025-04-11)
+
+
+### Bug Fixes
+
+* **commit:** lint ([8dd8685](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/8dd86855ca97ffc9842fe74473ca45cba3027339))
+* **so disable package generation on build:** last run worked but broken site ([aa20354](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/aa203546f3e36555eb6793214ea30a21e44b71ac))
+
+# [9.0.0-feat-version-work-on-branch-maybe.8](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.0.0-feat-version-work-on-branch-maybe.7...v9.0.0-feat-version-work-on-branch-maybe.8) (2025-04-11)
+
+
+### Bug Fixes
+
+* **eee:** www ([a7c5b06](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/a7c5b062bbefcd0d0585bb18089c4285ecc16557))
+
+# [9.0.0-feat-version-work-on-branch-maybe.7](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.0.0-feat-version-work-on-branch-maybe.6...v9.0.0-feat-version-work-on-branch-maybe.7) (2025-04-11)
+
+
+### Bug Fixes
+
+* **shouldnt work:** fjfg ([3b882ce](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/3b882ce73cb3989e493efe3757a81fa0c9a2f5c0))
+
+# [9.0.0-feat-version-work-on-branch-maybe.6](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.0.0-feat-version-work-on-branch-maybe.5...v9.0.0-feat-version-work-on-branch-maybe.6) (2025-04-11)
+
+
+### Bug Fixes
+
+* **dont get from local:** fix ([85c5289](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/85c5289b675e0056947033236ddcf9caa5badb72))
+
+# [9.0.0-feat-version-work-on-branch-maybe.5](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.0.0-feat-version-work-on-branch-maybe.4...v9.0.0-feat-version-work-on-branch-maybe.5) (2025-04-11)
+
+
+### Bug Fixes
+
+* **123:** 123 ([4e26e8f](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/4e26e8fd3572db0a44c1f95d75044ad8c88a94d3))
+* **unclear yml issue:** 123 ([1c647ff](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/1c647ff7e99d66d5804088accd02b41aadf0036d))
+
+# [9.0.0-feat-version-work-on-branch-maybe.4](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.0.0-feat-version-work-on-branch-maybe.3...v9.0.0-feat-version-work-on-branch-maybe.4) (2025-04-11)
+
+
+### Bug Fixes
+
+* **go:** friday ([435c7b3](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/435c7b3c56a905c5d7286916dd18208f6ceac679))
+* **just rewrite:** todo ([66971e2](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/66971e29fa5dca9290063ac5b782a87fbe645c46))
+* **just try it:** gog ([a39c731](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/a39c731cd877889510259784e3128d7fba76401d))
+
+# [9.0.0-feat-version-work-on-branch-maybe.3](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.0.0-feat-version-work-on-branch-maybe.2...v9.0.0-feat-version-work-on-branch-maybe.3) (2025-04-11)
+
+
+### Bug Fixes
+
+* **cicd:** cicd ([904da3b](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/904da3ba7a18bd81663263016f3da4e00359a35f))
+
+# [9.0.0-feat-version-work-on-branch-maybe.2](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.0.0-feat-version-work-on-branch-maybe.1...v9.0.0-feat-version-work-on-branch-maybe.2) (2025-04-11)
+
+
+### Bug Fixes
+
+* **project ref:** should be used in cicd ([d22dc73](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/d22dc73b3cffebed9a59730e540580e859615e79))
+
+# [9.0.0-feat-version-work-on-branch-maybe.1](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.4.0-feat-version-work-on-branch-maybe.30...v9.0.0-feat-version-work-on-branch-maybe.1) (2025-04-11)
+
+
+### Bug Fixes
+
+* **bccc:** which does and doesnt update ([c9771bd](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/c9771bd825cade68947c42613cbde631a478f584))
+* **cicd:** PrepareForBuild ([2963d4e](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/2963d4e804c6667468325e5a77cc93b453367ecd))
+
+
+### BREAKING CHANGES
+
+* **bccc:** breaks
+
+# [8.4.0-feat-version-work-on-branch-maybe.30](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.4.0-feat-version-work-on-branch-maybe.29...v8.4.0-feat-version-work-on-branch-maybe.30) (2025-04-10)
+
+
+### Bug Fixes
+
+* **goat:** coat ([a079caf](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/a079caf599b829c211ffd8c32349d3c92124bf28))
+
+# [8.4.0-feat-version-work-on-branch-maybe.29](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.4.0-feat-version-work-on-branch-maybe.28...v8.4.0-feat-version-work-on-branch-maybe.29) (2025-04-10)
+
+
+### Bug Fixes
+
+* **cant debug sln packages:** may means not there for sharedpages ([a799d18](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/a799d184347bc8515e7785a4d01911e6686a0e66))
+
+# [8.4.0-feat-version-work-on-branch-maybe.28](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.4.0-feat-version-work-on-branch-maybe.27...v8.4.0-feat-version-work-on-branch-maybe.28) (2025-04-10)
+
+
+### Bug Fixes
+
+* **colon:** gog ([00fd7ed](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/00fd7ed6e5811d3cf8454a65bd7bb9e4f49c733a))
+
+# [8.4.0-feat-version-work-on-branch-maybe.27](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.4.0-feat-version-work-on-branch-maybe.26...v8.4.0-feat-version-work-on-branch-maybe.27) (2025-04-10)
+
+
+### Bug Fixes
+
+* **plz:** dhhf ([573d007](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/573d0072cf2ef87b9db62e67a3fb7fab441926ba))
+
+# [8.4.0-feat-version-work-on-branch-maybe.26](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.4.0-feat-version-work-on-branch-maybe.25...v8.4.0-feat-version-work-on-branch-maybe.26) (2025-04-10)
+
+
+### Bug Fixes
+
+* **lots changed:** no idea ([0d9bbec](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/0d9bbec7e39492505178df591bf6df41c8bfa65b))
+
+# [8.4.0-feat-version-work-on-branch-maybe.25](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.4.0-feat-version-work-on-branch-maybe.24...v8.4.0-feat-version-work-on-branch-maybe.25) (2025-04-10)
+
+
+### Bug Fixes
+
+* **noo:** gg ([02855e2](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/02855e24a55c6619babc990bf65aea7cf2cbe6ec))
+
+# [8.4.0-feat-version-work-on-branch-maybe.24](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.4.0-feat-version-work-on-branch-maybe.23...v8.4.0-feat-version-work-on-branch-maybe.24) (2025-04-10)
+
+
+### Bug Fixes
+
+* **typo:** ooo ([05c40a6](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/05c40a61b7f2765a1a211f8a8208e4d74efa41d0))
+
+# [8.4.0-feat-version-work-on-branch-maybe.23](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.4.0-feat-version-work-on-branch-maybe.22...v8.4.0-feat-version-work-on-branch-maybe.23) (2025-04-10)
+
+
+### Bug Fixes
+
+* **lAST one:** goplease ([cb5cf5c](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/cb5cf5c743ce8b9959ee66d6da9cf2900bc5cfef))
+* **package lock:** get ([6365e87](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/6365e87b1a689f3b4797efdc80736abe55eedb70))
+
+# [8.4.0-feat-version-work-on-branch-maybe.22](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.4.0-feat-version-work-on-branch-maybe.21...v8.4.0-feat-version-work-on-branch-maybe.22) (2025-04-10)
+
+
+### Bug Fixes
+
+* **remove:** local ([eb83b33](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/eb83b33f4309e952145cf6470fedb89265bf4671))
+
+# [8.4.0-feat-version-work-on-branch-maybe.21](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.4.0-feat-version-work-on-branch-maybe.20...v8.4.0-feat-version-work-on-branch-maybe.21) (2025-04-10)
+
+
+### Bug Fixes
+
+* **fff:** no build background ([63a9d28](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/63a9d2812776c6a15e30e64360cc683c8d9de195))
+
+# [8.4.0-feat-version-work-on-branch-maybe.20](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.4.0-feat-version-work-on-branch-maybe.19...v8.4.0-feat-version-work-on-branch-maybe.20) (2025-04-10)
+
+
+### Bug Fixes
+
+* **hardcode package:** version centrally ([2dbe8d6](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/2dbe8d69bf388720f29ee42cced1274fddb9ea81))
+
+# [8.4.0-feat-version-work-on-branch-maybe.19](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.4.0-feat-version-work-on-branch-maybe.18...v8.4.0-feat-version-work-on-branch-maybe.19) (2025-04-10)
+
+
+### Bug Fixes
+
+* **hardcode shared version:** gogo ([95b6912](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/95b6912a0eec8d9f2ebf28228f074ff7c9ef920a))
+
+# [8.4.0-feat-version-work-on-branch-maybe.18](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.4.0-feat-version-work-on-branch-maybe.17...v8.4.0-feat-version-work-on-branch-maybe.18) (2025-04-10)
+
+
+### Bug Fixes
+
+* **sfd:** just build shared ([dea9cf3](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/dea9cf3e8c77c3e3420956a0559d912a32e6e18e))
+
+# [8.4.0-feat-version-work-on-branch-maybe.17](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.4.0-feat-version-work-on-branch-maybe.16...v8.4.0-feat-version-work-on-branch-maybe.17) (2025-04-10)
+
+
+### Bug Fixes
+
+* **fsdsf:** sff ([fc12a07](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/fc12a07eab888ccbc9d69e6508f4199bff61a4e2))
+
+# [8.4.0-feat-version-work-on-branch-maybe.16](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.4.0-feat-version-work-on-branch-maybe.15...v8.4.0-feat-version-work-on-branch-maybe.16) (2025-04-10)
+
+
+### Bug Fixes
+
+* **dfsf:** sdf ([9ae22ee](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/9ae22ee686bdf592d1601ce8fe12e62ec949a422))
+
+# [8.4.0-feat-version-work-on-branch-maybe.15](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.4.0-feat-version-work-on-branch-maybe.14...v8.4.0-feat-version-work-on-branch-maybe.15) (2025-04-10)
+
+
+### Bug Fixes
+
+* **nuke:** clean build ([9d7f58a](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/9d7f58a40c18ec67b30a52bcbbaa38abb9ee70d8))
+
+# [8.4.0-feat-version-work-on-branch-maybe.14](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.4.0-feat-version-work-on-branch-maybe.13...v8.4.0-feat-version-work-on-branch-maybe.14) (2025-04-10)
+
+
+### Bug Fixes
+
+* **cake:** bake ([42cca33](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/42cca333674af4e150c61eef10c2573ba75c3ba4))
+
+# [8.4.0-feat-version-work-on-branch-maybe.13](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.4.0-feat-version-work-on-branch-maybe.12...v8.4.0-feat-version-work-on-branch-maybe.13) (2025-04-10)
+
+
+### Bug Fixes
+
+* **run:** while edit ([0e95367](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/0e95367eba0827a7bb539cae2b346c50cb7c3c14))
+* **while:** wait ([2b5c1f5](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/2b5c1f5adb17cb1f1a3c32b0a8e33e0e30dffb16))
+
+# [8.4.0-feat-version-work-on-branch-maybe.12](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.4.0-feat-version-work-on-branch-maybe.11...v8.4.0-feat-version-work-on-branch-maybe.12) (2025-04-10)
+
+
+### Bug Fixes
+
+* **no build:** let go ([da42efc](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/da42efc9071e274cb6d5c222de00191c78220292))
+
+# [8.4.0-feat-version-work-on-branch-maybe.11](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.4.0-feat-version-work-on-branch-maybe.10...v8.4.0-feat-version-work-on-branch-maybe.11) (2025-04-10)
+
+
+### Bug Fixes
+
+* **typo:** go ([ddb131b](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/ddb131b0c9189833160facecca18f603d2bd7177))
+
+# [8.4.0-feat-version-work-on-branch-maybe.10](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.4.0-feat-version-work-on-branch-maybe.9...v8.4.0-feat-version-work-on-branch-maybe.10) (2025-04-10)
+
+
+### Bug Fixes
+
+* **sad:** solution build shouldnt be needed ([7f8f828](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/7f8f8283c3b78343dd3b72f9ad373f89aec9d1d9))
+
+# [8.4.0-feat-version-work-on-branch-maybe.9](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.4.0-feat-version-work-on-branch-maybe.8...v8.4.0-feat-version-work-on-branch-maybe.9) (2025-04-10)
+
+
+### Bug Fixes
+
+* **are we really:** getting 1.0.0 ([f0b1a62](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/f0b1a62604f72b78f52f263eaa37ea4cbbef8ac1))
+
+# [8.4.0-feat-version-work-on-branch-maybe.8](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.4.0-feat-version-work-on-branch-maybe.7...v8.4.0-feat-version-work-on-branch-maybe.8) (2025-04-10)
+
+
+### Bug Fixes
+
+* **are locks found:** lock check ([1edc57b](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/1edc57b93cb618f8e9e38f0cab62b158623f6e83))
+
+# [8.4.0-feat-version-work-on-branch-maybe.7](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.4.0-feat-version-work-on-branch-maybe.6...v8.4.0-feat-version-work-on-branch-maybe.7) (2025-04-10)
+
+
+### Bug Fixes
+
+* **debug:** debug ([40c2120](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/40c212012dccff8afe462c90955f1f76529aef40))
+
+# [8.4.0-feat-version-work-on-branch-maybe.6](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.4.0-feat-version-work-on-branch-maybe.5...v8.4.0-feat-version-work-on-branch-maybe.6) (2025-04-10)
+
+
+### Bug Fixes
+
+* **simplify:** plz ([5275c48](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/5275c48aacdd0cfd49256b86855c9e85313c1e17))
+
+# [8.4.0-feat-version-work-on-branch-maybe.5](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.4.0-feat-version-work-on-branch-maybe.4...v8.4.0-feat-version-work-on-branch-maybe.5) (2025-04-10)
+
+
+### Bug Fixes
+
+* **oops:** ah ([81c138a](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/81c138a703f720bd2360a2e93896304e39feecdd))
+
+# [8.4.0-feat-version-work-on-branch-maybe.4](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.4.0-feat-version-work-on-branch-maybe.3...v8.4.0-feat-version-work-on-branch-maybe.4) (2025-04-10)
+
+
+### Features
+
+* **just check runs:** runs ([b508166](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/b508166389c94a74122f0275f02c5174270d1ac7))
+
+# [8.4.0-feat-version-work-on-branch-maybe.3](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.4.0-feat-version-work-on-branch-maybe.2...v8.4.0-feat-version-work-on-branch-maybe.3) (2025-04-10)
+
+
+### Features
+
+* **debugging for version:** package component text ([5480dce](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/5480dce5f8c5990ebcf07bc776915b172c9fdec8))
+
+# [8.4.0-feat-version-work-on-branch-maybe.2](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.4.0-feat-version-work-on-branch-maybe.1...v8.4.0-feat-version-work-on-branch-maybe.2) (2025-04-09)
+
+
+### Features
+
+* **lowercase:** version branch ([ced7b58](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/ced7b584d1417f2b97c0d6975c22b8a888d70400))
+
+# [8.4.0-feat-version-work-on-branch-maybe.1](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.3.1...v8.4.0-feat-version-work-on-branch-maybe.1) (2025-04-09)
+
+
+### Features
+
+* **version:** number right dev ([02f47b5](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/02f47b527a130b1f01fd79604f63bf4cdfc922c7))
+
 ## [8.3.1](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.3.0...v8.3.1) (2025-04-09)
 
 
