@@ -2,8 +2,6 @@
 
 
 
-## qqqq unlike in nuget feed git package feed doesnt display this file so to see it you need to look in the actual nuget package
-
 # Local Development
 - inc the version in local props
 	- save
