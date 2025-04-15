@@ -1,3 +1,10 @@
+## [9.1.4-fix-last-branch-check.1](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.1.3...v9.1.4-fix-last-branch-check.1) (2025-04-15)
+
+
+### Bug Fixes
+
+* **last:** check ([6c7a8c5](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/6c7a8c5afae46ad3aba910045a0650b3b2aaf8c7))
+
 ## [9.1.3](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.1.2...v9.1.3) (2025-04-15)
 
 
