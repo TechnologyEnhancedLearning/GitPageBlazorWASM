@@ -1,3 +1,10 @@
+## [9.1.6-fix-did-pull-break-yml.1](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.1.5...v9.1.6-fix-did-pull-break-yml.1) (2025-04-15)
+
+
+### Bug Fixes
+
+* **chore but want:** to see build ([27af663](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/27af6630c8aadfe4bdffc3504cd0931bf55206c5))
+
 ## [9.1.5](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.1.4...v9.1.5) (2025-04-15)
 
 
