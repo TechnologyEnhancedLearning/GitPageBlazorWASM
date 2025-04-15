@@ -23,7 +23,7 @@
 	<ItemGroup>
 		<Content Remove="packages.lock.json" />
 	</ItemGroup>
-	<!--qqqq try putting back in with a condition<ItemGroup>
+	<!--qqqq try putting back  in with a condition<ItemGroup>
 	  <ProjectReference Include="..\Package.BlazorComponentLibrary\Package.BlazorComponentLibrary.csproj" />
 	</ItemGroup>-->
 </Project>
