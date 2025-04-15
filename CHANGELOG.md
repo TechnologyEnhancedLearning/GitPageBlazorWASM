@@ -1,3 +1,10 @@
+## [9.1.4-fix-last-branch-check.2](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.1.4-fix-last-branch-check.1...v9.1.4-fix-last-branch-check.2) (2025-04-15)
+
+
+### Bug Fixes
+
+* **pr:** not being detect ([c58ca63](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/c58ca63c40cac107205467e022fefa54eda9f54c))
+
 ## [9.1.4-fix-last-branch-check.1](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.1.3...v9.1.4-fix-last-branch-check.1) (2025-04-15)
 
 
