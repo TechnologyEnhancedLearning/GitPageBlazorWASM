@@ -1,3 +1,10 @@
+## [9.0.1-fix-pr-release-yml.1](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.0.0...v9.0.1-fix-pr-release-yml.1) (2025-04-15)
+
+
+### Bug Fixes
+
+* **pr check:** check ([ae4bbad](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/ae4bbadd17de402900431967692b1d2792023318))
+
 # [9.0.0](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v8.3.1...v9.0.0) (2025-04-15)
 
 
