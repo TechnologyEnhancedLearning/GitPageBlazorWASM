@@ -1,14 +1,10 @@
 name: Pull Request Checks
-
 on:
   pull_request:
-    branches:
-      - '**' 
+    # branches:
+      # - '**' 
       
 jobs:
-
-
-        
   branch-name-check:
     name: Enforce Branch Name Convention
     runs-on: ubuntu-latest
@@ -75,12 +71,8 @@ jobs:
           
   Code-Coverage:
       runs-on: ubuntu-latest
+      if: success() || failure()
       steps:
         - name: Code Coverage
           run: echo "TODO Code Coverage"
           #continue-on-error: true
-  
-
-        
-
-        
