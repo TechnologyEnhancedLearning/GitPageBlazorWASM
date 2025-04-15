@@ -74,11 +74,12 @@ jobs:
   Code-Coverage:
       name: code coverage
       runs-on: ubuntu-latest
+      if: success() || failure()
       steps:
         - name: Code Coverage
           run: echo "TODO Code Coverage"
           #continue-on-error: true
-  
+
   All-Checks-Passed:
     name: all checks passed
     runs-on: ubuntu-latest
@@ -94,8 +95,4 @@ jobs:
      - name: all checks passed steps
        run: echo "allow all checks to run incase multiple fails then fail here"
        
- 
 
-        
-
-        
