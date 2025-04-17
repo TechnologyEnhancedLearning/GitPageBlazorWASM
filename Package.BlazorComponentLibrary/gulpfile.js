@@ -14,9 +14,11 @@ gulp.task("sass", function () {
 });
 
 // Copy Bootstrap CSS from node_modules
-gulp.task("bootstrap", function () {
+//     .src("node_modules/bootstrap/dist/css/bootstrap.min.css")
+//.src("node_modules/nhsuk-frontend/dist/nhsuk-9.0.1.min.css") //if providing the css too 
+gulp.task("copy-nhsuk-css", function () {
     return gulp
-        .src("node_modules/bootstrap/dist/css/bootstrap.min.css")
+        .src("node_modules/nhse-tel-frontend/dist/nhsuk.css")
         .pipe(gulp.dest("wwwroot/css"));
 });
 
@@ -24,6 +26,6 @@ gulp.task("bootstrap", function () {
 gulp.task("watch", function () {
     gulp.watch("./scss/**/*.scss", gulp.series("sass"));
 });
-
+//,"watch"
 // Default task
-gulp.task("default", gulp.series("bootstrap", "sass", "watch"));
+gulp.task("default", gulp.series("copy-nhsuk-css", "sass"));

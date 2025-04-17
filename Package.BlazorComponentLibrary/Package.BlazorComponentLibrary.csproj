@@ -55,13 +55,9 @@
 		<WriteLinesToFile File="wwwroot/bclversion.txt" Lines="$(BCLVersion)" Overwrite="true" Encoding="UTF-8" />
 		<WriteLinesToFile File="BCLVersion/VersionInfo.cs" Lines="namespace Package.BlazorComponentLibrary.BCLVersion { public static class VersionInfo { public static string Version = &quot;$(BCLVersion)&quot; %3B; } }" Overwrite="true" Encoding="UTF-8" />
 	</Target>
-
-<!--<Target Name="RunGulp" BeforeTargets="Build">
-  <Exec Command="gulp" WorkingDirectory="Assets" />
-</Target>--> qqqq try this
 	
-<Target Name="RunGulp" BeforeTargets="Build">
-  <Exec Command="npx gulp" />
-</Target>
+	<Target Name="RunGulp" BeforeTargets="Build">
+	  <Exec Command="npx gulp" WorkingDirectory="$(ProjectDir)"/>
+	</Target>
 
 </Project>

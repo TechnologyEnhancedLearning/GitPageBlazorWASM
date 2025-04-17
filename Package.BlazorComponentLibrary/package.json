@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "bootstrap": "^5.3.5",
+    "nhse-tel-frontend": "^0.0.2",
     "nhsuk-frontend": "^9.0.1",
     "nunjucks": "^3.2.4"
   },
