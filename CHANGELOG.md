@@ -1,3 +1,10 @@
+# [9.2.0-feat-add-tel-frontend-package.2](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.2.0-feat-add-tel-frontend-package.1...v9.2.0-feat-add-tel-frontend-package.2) (2025-04-17)
+
+
+### Features
+
+* **builds:** we have the nhsuk.css ([4963859](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/4963859baecfb394e806247e9c7815f8468deda8))
+
 # [9.2.0-feat-add-tel-frontend-package.1](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.1.6...v9.2.0-feat-add-tel-frontend-package.1) (2025-04-17)
 
 
