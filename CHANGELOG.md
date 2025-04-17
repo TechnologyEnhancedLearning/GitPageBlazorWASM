@@ -1,3 +1,10 @@
+# [9.2.0-feat-add-tel-frontend-package.1](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.1.6...v9.2.0-feat-add-tel-frontend-package.1) (2025-04-17)
+
+
+### Features
+
+* **shouldnt just push:** but incase common desktop ([9039c17](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/9039c1787af8e8d6f4cdee75f84610faf9cb389f))
+
 ## [9.1.6](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.1.5...v9.1.6) (2025-04-15)
 
 
