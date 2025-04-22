@@ -1,3 +1,10 @@
+## [9.2.4-feat-add-tel-frontend-package.3](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.2.4-feat-add-tel-frontend-package.2...v9.2.4-feat-add-tel-frontend-package.3) (2025-04-22)
+
+
+### Bug Fixes
+
+* **will it still work with ref:** try it ([af28fde](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/af28fde2ca18d74c1dd83eab5dd5995853f03020))
+
 ## [9.2.4-feat-add-tel-frontend-package.2](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.2.4-feat-add-tel-frontend-package.1...v9.2.4-feat-add-tel-frontend-package.2) (2025-04-22)
 
 
