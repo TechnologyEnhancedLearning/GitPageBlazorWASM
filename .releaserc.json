@@ -4,6 +4,9 @@
       "name": "master"
     },
     {
+      "name": "Automatic_version_update_dependabot"
+    },
+    {
       "name": "feat-*",
       "prerelease": true
     },
