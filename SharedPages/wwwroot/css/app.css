@@ -75,9 +75,9 @@
 code {
     color: #c02d76;
 }
-body {
-background-color: red;
-/*qqqq test*/
+.shared-pages-red-text {
+    color: red;
+    /*qqqq test*/
 }
 /* RCL Styles remember bundled scoped css we may not use it but it is extremely normal to so we may in future*/
 @import '_content/Package.BlazorComponentLibrary/Package.BlazorComponentLibrary.bundle.scp.css';
