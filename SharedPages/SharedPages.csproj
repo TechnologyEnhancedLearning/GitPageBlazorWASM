@@ -5,14 +5,6 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
-
-	<!--<ItemGroup>
-	put back in
-		<None Update="wwwroot\**">
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</None>
-	</ItemGroup>-->
-
 	<ItemGroup>
     <SupportedPlatform Include="browser" />
   </ItemGroup>
@@ -23,7 +15,7 @@
 	<ItemGroup>
 		<Content Remove="packages.lock.json" />
 	</ItemGroup>
-	<!--qqqq try putting back  in with a condition<ItemGroup>
-	  <ProjectReference Include="..\Package.BlazorComponentLibrary\Package.BlazorComponentLibrary.csproj" />
-	</ItemGroup>-->
+	<ItemGroup>
+	  <ProjectReference Include="..\Package.BlazorComponentLibrary\Package.BlazorComponentLibrary.csproj" Condition="'$(UseBCLProjectReference)' == 'true'" />
+	</ItemGroup>
 </Project>
