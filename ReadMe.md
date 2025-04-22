@@ -1,6 +1,6 @@
 # Good to know
 
-A purpose is quick cicd.
+The purpose is quick cicd.
 You can change your version of your package in the centralised solution and it will be picked up in consuming projects.
 You can optionally use a project reference for faster development by setting a flag.
 A build number could be automated into package names, the package already is automatically created on build. 
@@ -99,20 +99,54 @@ builds projects not a whole solution build.
 #### Pull request
 - just some checks they can be run even if they fail to see if there are multiple errors. They only show temporarily in the pr ui section of the
 git pull request but can be seen in actions.
+They have been added in the branch rules which runs jobs selected from existing pipelines. This should add them to the list of checks.
 
 
 #### Release
 - similar to dev but without tests as these have already happened and no feature name in package, and the gh-page is released on this repo.
 
+## local development
+- use project reference
+- or
+	- in local packages increase bcl version
+	- build the package
+	- run TestHostPrerenderWASM (not client) 
 
 ## Notes
 Also DevServer needed adding to .client
+NPM is not centralised like nuget because only using for just the TEL package css
+
+### Branch naming and commit naming see realserc
+
+feat: A new feature
+fix: A bug fix
+docs: Documentation only changes
+style: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
+refactor: A code change that neither fixes a bug nor adds a feature
+perf: A code change that improves performance
+test: Adding missing or correcting existing tests
+chore: Changes to the build process or auxiliary tools and libraries such as documentation generation
+
+### Refs
+[How to make 404 redirect for spa behaviour](https://blog.elmah.io/blazor-wasm-404-error-and-fix-for-github-pages/)
+[git nektos act](https://github.com/nektos/act)
+[nektos](https://nektosact.com/)
+	- [Confluence gitguardian](https://hee-tis.atlassian.net/wiki/spaces/TP/pages/3855253505/GitGuardian+Setup+-+Simplified+Version)
+	- [Confluence gitguardian extra](https://hee-tis.atlassian.net/wiki/spaces/TP/pages/3849289743/Secrete+Detection+-+GitGuardian+Setup+Extensive+Version)
+
+
+# Outstanding
+- git checks off branch rules and pull request yml seem not to be triggering
+- auto merge pr doesnt seem to trigger atm
+- some of the local variable set bools like for using project references are disabled
 
 # Future Recommendation
 
 There are options for making packing the blazor more efficient, as in smaller for the browser using it.
 The would be worth exploring there are recommendations in the build tasks when the pipeline runs, also mudblazor is open and any process they have is 
 worth considering.
+
+Use hooks for gitguardian and commitlint
 
 # Where to see the site
 
