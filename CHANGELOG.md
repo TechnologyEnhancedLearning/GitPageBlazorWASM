@@ -1,3 +1,10 @@
+# [9.2.0-feat-add-tel-frontend-package.6](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.2.0-feat-add-tel-frontend-package.5...v9.2.0-feat-add-tel-frontend-package.6) (2025-04-22)
+
+
+### Bug Fixes
+
+* **go to release:** css pipeline ([06d3df6](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/06d3df62a326d17c2c17483ce7412ae95c313816))
+
 # [9.2.0-feat-add-tel-frontend-package.5](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.2.0-feat-add-tel-frontend-package.4...v9.2.0-feat-add-tel-frontend-package.5) (2025-04-22)
 
 
