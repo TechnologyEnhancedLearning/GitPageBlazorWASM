@@ -3,7 +3,9 @@ h3[b-y7cips57ri] {
     color: blue;
     font-size: 24px;
 }
-
+.scoped-css-simple-counter-red[b-y7cips57ri] {
+color: red;
+}
 button[b-y7cips57ri] {
     background-color: lightblue;
     color: white;
