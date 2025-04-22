@@ -1,12 +1,12 @@
 name: Pull Request Checks
-
-on: pull_request
+on: 
+  pull_request:
     branches:
       - master
 jobs:
 
   branch-name-check:
-    name: Enforce Branch Name Convention
+    name: PR Check Enforce Branch Name Convention 
     runs-on: ubuntu-latest
     steps:
       - name: Validate Branch Name
@@ -26,7 +26,7 @@ jobs:
 
   # qqqq repo will need branch protection rules and PR Templatebr
   commitlint:
-    name: commitlint
+    name: PR Check  commitlint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -51,7 +51,7 @@ jobs:
         # #continue-on-error: true # we dont want secrets going further and the keys need to be changed if this is triggered
 
   Unit-Tests:
-      name: todo unit tests
+      name: PR Check Unit Tests
       runs-on: ubuntu-latest
       steps:
         - name: See other project pipeline for Tests
@@ -59,7 +59,7 @@ jobs:
           
   
   E2E-Tests:
-      name: todo e2e tests
+      name: PR Check E2E Tests
       runs-on: ubuntu-latest
       steps:
         - name: See other project pipeline for Tests
@@ -67,7 +67,7 @@ jobs:
 
           
   Code-Coverage:
-      name: code coverage
+      name: PR Check Code Coverage
       runs-on: ubuntu-latest
       steps:
         - name: Code Coverage
