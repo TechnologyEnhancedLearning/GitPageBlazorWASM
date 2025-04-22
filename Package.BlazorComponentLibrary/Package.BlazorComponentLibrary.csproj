@@ -51,6 +51,11 @@
 	  <Folder Include="wwwroot\css\" />
 	  <Folder Include="wwwroot\js\" />
 	</ItemGroup>
+	<ItemGroup>
+		<Content Update="wwwroot\**\*.*">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
 	<Target Name="WriteBclVersionToFile" BeforeTargets="PrepareForBuild">
 		<WriteLinesToFile File="wwwroot/bclversion.txt" Lines="$(BCLVersion)" Overwrite="true" Encoding="UTF-8" />
 		<WriteLinesToFile File="BCLVersion/VersionInfo.cs" Lines="namespace Package.BlazorComponentLibrary.BCLVersion { public static class VersionInfo { public static string Version = &quot;$(BCLVersion)&quot; %3B; } }" Overwrite="true" Encoding="UTF-8" />
