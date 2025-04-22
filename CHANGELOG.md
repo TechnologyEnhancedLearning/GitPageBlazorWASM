@@ -1,3 +1,10 @@
+## [9.2.4-feat-add-tel-frontend-package.1](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.2.3...v9.2.4-feat-add-tel-frontend-package.1) (2025-04-22)
+
+
+### Bug Fixes
+
+* **dependabot:** fix ([3276815](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/3276815c8cb7c4250bcbfe39521b59f1286115f3))
+
 ## [9.2.3](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.2.2...v9.2.3) (2025-04-22)
 
 
