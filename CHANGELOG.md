@@ -1,3 +1,45 @@
+# [9.2.0-feat-add-tel-frontend-package.6](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.2.0-feat-add-tel-frontend-package.5...v9.2.0-feat-add-tel-frontend-package.6) (2025-04-22)
+
+
+### Bug Fixes
+
+* **go to release:** css pipeline ([06d3df6](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/06d3df62a326d17c2c17483ce7412ae95c313816))
+
+# [9.2.0-feat-add-tel-frontend-package.5](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.2.0-feat-add-tel-frontend-package.4...v9.2.0-feat-add-tel-frontend-package.5) (2025-04-22)
+
+
+### Bug Fixes
+
+* **pipe:** npm ([cf9780a](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/cf9780ac5eb6d3b2ddb4d26e4358f795abf0f6a4))
+
+# [9.2.0-feat-add-tel-frontend-package.4](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.2.0-feat-add-tel-frontend-package.3...v9.2.0-feat-add-tel-frontend-package.4) (2025-04-22)
+
+
+### Bug Fixes
+
+* **try npm in ci:** ci for npm ([74e6df9](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/74e6df9f94caaf09ff800ab47546c5674dbcbd5d))
+
+# [9.2.0-feat-add-tel-frontend-package.3](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.2.0-feat-add-tel-frontend-package.2...v9.2.0-feat-add-tel-frontend-package.3) (2025-04-22)
+
+
+### Bug Fixes
+
+* **is it read:** is it red ([660b5ab](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/660b5ab5156c14941dba4f5252bb6997a0303c3a))
+
+# [9.2.0-feat-add-tel-frontend-package.2](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.2.0-feat-add-tel-frontend-package.1...v9.2.0-feat-add-tel-frontend-package.2) (2025-04-17)
+
+
+### Features
+
+* **builds:** we have the nhsuk.css ([4963859](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/4963859baecfb394e806247e9c7815f8468deda8))
+
+# [9.2.0-feat-add-tel-frontend-package.1](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.1.6...v9.2.0-feat-add-tel-frontend-package.1) (2025-04-17)
+
+
+### Features
+
+* **shouldnt just push:** but incase common desktop ([9039c17](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/9039c1787af8e8d6f4cdee75f84610faf9cb389f))
+
 ## [9.1.6](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.1.5...v9.1.6) (2025-04-15)
 
 

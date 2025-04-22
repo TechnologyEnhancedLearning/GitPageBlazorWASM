@@ -212,7 +212,17 @@ jobs:
       - name: Clean lock files because the newly generated package file will superseed the locks
         run: |
           find . -name "packages.lock.json" -type f -exec rm -f {} \;
-          
+      
+      - name: Set up Node.js so we have gulp for retrieving TEL Frontend Css
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+    
+      - name: Install npm packages so we have gulp for retrieving TEL Frontend Css
+        working-directory: ./Package.BlazorComponentLibrary
+        run: npm ci
+        #CI is an install with adhering to package-lock
+      
       - name: Build BlazorComponentLibrary (it publishes on build)
         run: |
           dotnet build Package.BlazorComponentLibrary -c Release \

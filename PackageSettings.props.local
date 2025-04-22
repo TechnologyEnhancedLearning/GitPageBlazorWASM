@@ -6,7 +6,7 @@
     <NupkgOutputPath>C:\LocalDevelopmentPackageVersions</NupkgOutputPath>
 	<GhPageRelease>false</GhPageRelease>
     <UseBCLProjectReference>false</UseBCLProjectReference>
-    <BCLVersion>10.9.7</BCLVersion>
+    <BCLVersion>10.9.8</BCLVersion>
 	<DisablePackageGeneration>false</DisablePackageGeneration>
   </PropertyGroup>
 </Project>
