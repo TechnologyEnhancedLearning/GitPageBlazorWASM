@@ -20,4 +20,4 @@ automerge:
     - update-type: "pin"
     - update-type: "digest"
 
-versioning-strategy: auto
+#versioning-strategy: auto
