@@ -1,3 +1,10 @@
+# [9.2.0-feat-add-tel-frontend-package.3](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.2.0-feat-add-tel-frontend-package.2...v9.2.0-feat-add-tel-frontend-package.3) (2025-04-22)
+
+
+### Bug Fixes
+
+* **is it read:** is it red ([660b5ab](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/660b5ab5156c14941dba4f5252bb6997a0303c3a))
+
 # [9.2.0-feat-add-tel-frontend-package.2](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.2.0-feat-add-tel-frontend-package.1...v9.2.0-feat-add-tel-frontend-package.2) (2025-04-17)
 
 
