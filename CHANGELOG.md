@@ -1,3 +1,10 @@
+## [9.2.4-feat-add-tel-frontend-package.4](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.2.4-feat-add-tel-frontend-package.3...v9.2.4-feat-add-tel-frontend-package.4) (2025-04-22)
+
+
+### Bug Fixes
+
+* **just qqqqs tidy up:** a chore really ([9800d0d](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/9800d0dcbda4fd175fe3931d811d1d9e4d7f69af))
+
 ## [9.2.4-feat-add-tel-frontend-package.3](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.2.4-feat-add-tel-frontend-package.2...v9.2.4-feat-add-tel-frontend-package.3) (2025-04-22)
 
 
