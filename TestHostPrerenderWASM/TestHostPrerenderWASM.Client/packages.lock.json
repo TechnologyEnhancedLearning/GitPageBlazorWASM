@@ -23,15 +23,15 @@
       },
       "Microsoft.NET.ILLink.Tasks": {
         "type": "Direct",
-        "requested": "[8.0.14, )",
-        "resolved": "8.0.14",
-        "contentHash": "4U2fd7PexNKrK5ZqfqIcXZj9/lRRjFsLgA/pxuFQTuGQuLYP/+7yACz/j7EmWbEj/fspOf4mafi/vHIy/rKDzQ=="
+        "requested": "[8.0.15, )",
+        "resolved": "8.0.15",
+        "contentHash": "s4eXlcRGyHeCgFUGQnhq0e/SCHBPp0jOHgMqZg3fQ2OCHJSm1aOUhI6RFWuVIcEb9ig2WgI2kWukk8wu72EbUQ=="
       },
       "Microsoft.NET.Sdk.WebAssembly.Pack": {
         "type": "Direct",
-        "requested": "[8.0.14, )",
-        "resolved": "8.0.14",
-        "contentHash": "PVKBB7RYzYzCMnKKHjG/sVUhTHtToCO0ewuZvrRuATsmxYiG1e01m1p7Mbg9CTkbj72KPnrMuq9pBiypA7sOyg=="
+        "requested": "[8.0.15, )",
+        "resolved": "8.0.15",
+        "contentHash": "Q/RDNqyGuVXcXdtAO1PknxbEjYbiYs9ONoClC91G16PZ/i4U+Jhzy+XiTywO/+dvVsvb7JZmsPqlNYuuBvGMBg=="
       },
       "Microsoft.AspNetCore.Authorization": {
         "type": "Transitive",
@@ -280,7 +280,7 @@
         "type": "CentralTransitive",
         "requested": "[10.9.8, )",
         "resolved": "10.9.8",
-        "contentHash": "ZRWHO6o0r176VlyG7hLl8VVlh7MKC3FXE4Okpd4yJM+5b3yDtKmvAylasP0wFMHm16JtU704+hiZfmjc762HOw==",
+        "contentHash": "FXxUCn5fCRscdHLcxMpk31YcRzUX2a+wEdahOlRiXtXgCN8+suZ5tzVrjr8R4rij9iU0Fq5XtT7hrexQeinEpg==",
         "dependencies": {
           "Microsoft.AspNetCore.Components.Web": "8.0.14",
           "Microsoft.Extensions.Http": "8.0.0"

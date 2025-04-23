@@ -49,6 +49,17 @@ Both these options work in this project.
 
 On push the project make a package, hosts it, makes a testpage, on merging the branch to master it makes a production page and package.
 
+# Setup notes - (incomplete but a starting point)
+1. Env vars (local is source controlled because its a prototype so will need some env vars)
+   - May need to set these system wide and then restart or just restart vs
+1. increment the bclversion because otherwise you will generate the same version but with a different hash
+1. Clean project
+1. build package project
+ - need to run npm i at this level for gulp (its not centralised)
+1. build solution potentially or just individual projects so package rebuilding isnt out of sync
+1. run TestHostPrerenderWASM
+
+
 ## Details
 
 The 404 page is because the Blazor is a spa the routing does not work as a github page, such that from the blazor entry point page you
