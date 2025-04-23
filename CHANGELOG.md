@@ -1,3 +1,11 @@
+## [9.2.6](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.2.5...v9.2.6) (2025-04-23)
+
+
+### Bug Fixes
+
+* **should trigger version change:** does it ([8f3c3d8](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/8f3c3d8715f9fee1265cc2ba543bfad3de642484))
+* **version:** change ([1332498](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/13324984f5ec20040032a0dd6848293c9b0f909c))
+
 ## [9.2.5](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.2.4...v9.2.5) (2025-04-22)
 
 
