@@ -1,3 +1,10 @@
+## [9.2.7-fix-example-cicd.1](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.2.6...v9.2.7-fix-example-cicd.1) (2025-04-23)
+
+
+### Bug Fixes
+
+* **just show cicd:** minor fix ([8432fef](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/8432fef07dcd441618cee3f8ff2be7e1a2040226))
+
 ## [9.2.6](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.2.5...v9.2.6) (2025-04-23)
 
 
