@@ -153,3 +153,4 @@ _Pvt_Extensions
 /Package.BlazorComponentLibrary/PackageSettings.props
 #/nuget.config
 /Package.BlazorComponentLibrary/PackageSettings.props
+/PackageSettings.props.local
