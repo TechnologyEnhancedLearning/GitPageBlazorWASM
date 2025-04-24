@@ -1,3 +1,10 @@
+## [9.2.8](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.2.7...v9.2.8) (2025-04-24)
+
+
+### Bug Fixes
+
+* **prepush:** test ([89db8c8](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/commit/89db8c8a6a30c72190b4e7b7f6c2301592e31885))
+
 ## [9.2.7](https://github.com/TechnologyEnhancedLearning/GitPageBlazorWASM/compare/v9.2.6...v9.2.7) (2025-04-23)
 
 
