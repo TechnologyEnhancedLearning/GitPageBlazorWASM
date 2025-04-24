@@ -1,0 +1,16 @@
+name: Local Pre-push
+
+on:
+  workflow_dispatch:  # This allows you to manually trigger the workflow with Act
+
+jobs:
+  commitlint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: wagoid/commitlint-github-action@v5
+        with:
+          configFile: .commitlintrc.json
+       
