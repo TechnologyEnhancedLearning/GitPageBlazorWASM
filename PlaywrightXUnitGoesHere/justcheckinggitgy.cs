@@ -1,5 +1,5 @@
-﻿string aws_access_keygg = "AKIAF6TdfgdfgNTPANIC5678";
-string secretgg = "hjohnkTEdfdfgdfONTPANICjyjad";
-string aws_access_key1 = "AKIAF6TESTDONTPANIC5678";
-string secret1 = "hjohnkTESTDONTPANICjyjad";
+﻿string aws_access_keygg = "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY";
+string secretgg = "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY";
+string aws_access_key1 = "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY";
+string secret1 = "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY";
 //had to remove git guardian couldnt work with repos made by raised admin and not go necessary privilage to do whats needs
