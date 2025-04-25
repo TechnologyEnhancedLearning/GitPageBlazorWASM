@@ -127,6 +127,15 @@ They have been added in the branch rules which runs jobs selected from existing 
 Also DevServer needed adding to .client
 NPM is not centralised like nuget because only using for just the TEL package css
 
+### Other bits
+- some githooks are in this project for local pre-push to automatically trigger nektos act or commitlint
+the global local hooks from ggshield is overriding local hooks in repos. 
+One option was something like husky but the right hook manager to have global and local hooks
+its out of scope was just a nice to have. But in the hooks folder can see working examples
+but they only work when triggered by git bash. they would work assumedly if put globally.
+You can put in global scripts commands to run local hooks.
+
+
 ### Branch naming and commit naming see realserc
 
 feat: A new feature
