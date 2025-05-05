@@ -21,6 +21,6 @@
     <PackageVersion Include="TELBlazorComponentLibrary.GitPageBlazorWasm" Version="$(BCLVersion)" />
     <!--<PackageVersion Include="TELBlazorComponentLibrary.GitPageBlazorWasm" Version="8.4.0-feat-version-work-on-branch-maybe.19-250410-1414" />-->
     <PackageVersion Include="xunit" Version="2.5.3" />
-    <PackageVersion Include="xunit.runner.visualstudio" Version="2.5.3" />
+    <PackageVersion Include="xunit.runner.visualstudio" Version="3.1.0" />
   </ItemGroup>
 </Project>
