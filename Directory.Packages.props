@@ -11,16 +11,16 @@
     <!-- Microsoft packages tied to .NET 8 - need version constraints -->
     <PackageVersion Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.14" />
     <PackageVersion Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.14" PrivateAssets="all" />
-    <PackageVersion Include="Microsoft.AspNetCore.Components.Web" Version="8.0.14" />
+    <PackageVersion Include="Microsoft.AspNetCore.Components.Web" Version="8.0.17" />
     <PackageVersion Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.14" />
-    <PackageVersion Include="Microsoft.Extensions.Http" Version="8.0.0" />
-    <PackageVersion Include="Newtonsoft.Json" Version="13.0.1" />
-    <PackageVersion Include="AutoMapper" Version="1.1.0.118" />
-    <PackageVersion Include="coverlet.collector" Version="6.0.0" />
-    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
+    <PackageVersion Include="Microsoft.Extensions.Http" Version="9.0.6" />
+    <PackageVersion Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageVersion Include="AutoMapper" Version="14.0.0" />
+    <PackageVersion Include="coverlet.collector" Version="6.0.4" />
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
     <PackageVersion Include="TELBlazorComponentLibrary.GitPageBlazorWasm" Version="$(BCLVersion)" />
     <!--<PackageVersion Include="TELBlazorComponentLibrary.GitPageBlazorWasm" Version="8.4.0-feat-version-work-on-branch-maybe.19-250410-1414" />-->
-    <PackageVersion Include="xunit" Version="2.5.3" />
-    <PackageVersion Include="xunit.runner.visualstudio" Version="2.5.3" />
+    <PackageVersion Include="xunit" Version="2.9.3" />
+    <PackageVersion Include="xunit.runner.visualstudio" Version="3.1.1" />
   </ItemGroup>
 </Project>
