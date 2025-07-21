@@ -62,7 +62,7 @@
 	</Target>
 	
 	<Target Name="RunGulp" BeforeTargets="Build">
-	  <Exec Command="npx gulp" WorkingDirectory="$(ProjectDir)"/>
+	  <Exec Command="npx gulp" WorkingDirectory="$(ProjectDir)" />
 	</Target>
 
 </Project>
