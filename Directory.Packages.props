@@ -16,7 +16,7 @@
     <PackageVersion Include="Microsoft.Extensions.Http" Version="8.0.0" />
     <PackageVersion Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageVersion Include="AutoMapper" Version="1.1.0.118" />
-    <PackageVersion Include="coverlet.collector" Version="6.0.0" />
+    <PackageVersion Include="coverlet.collector" Version="6.0.4" />
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
     <PackageVersion Include="TELBlazorComponentLibrary.GitPageBlazorWasm" Version="$(BCLVersion)" />
     <!--<PackageVersion Include="TELBlazorComponentLibrary.GitPageBlazorWasm" Version="8.4.0-feat-version-work-on-branch-maybe.19-250410-1414" />-->
