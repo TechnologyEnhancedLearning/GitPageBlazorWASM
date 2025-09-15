@@ -4,15 +4,15 @@
     "net8.0": {
       "Microsoft.AspNetCore.Components.Web": {
         "type": "Direct",
-        "requested": "[8.0.14, )",
-        "resolved": "8.0.14",
-        "contentHash": "h/XSCAHmBywDF6San0FGPyXxK6PZh1g/xz4Ln9yeJNgSmKq5F1ehgVStDkJr4d6pWGr2RRkNxgGYMLRnULMnKw==",
+        "requested": "[8.0.20, )",
+        "resolved": "8.0.20",
+        "contentHash": "I4gboA+JSe1cJgohZvsZYz8uZ2LAh0d68A7tY7If8h+H+QJg3aEQJd0HDtF/cD1C9QzLZCDhD0lXbi+DSvTcGA==",
         "dependencies": {
-          "Microsoft.AspNetCore.Components": "8.0.14",
-          "Microsoft.AspNetCore.Components.Forms": "8.0.14",
+          "Microsoft.AspNetCore.Components": "8.0.20",
+          "Microsoft.AspNetCore.Components.Forms": "8.0.20",
           "Microsoft.Extensions.DependencyInjection": "8.0.1",
           "Microsoft.Extensions.Primitives": "8.0.0",
-          "Microsoft.JSInterop": "8.0.14",
+          "Microsoft.JSInterop": "8.0.20",
           "System.IO.Pipelines": "8.0.0"
         }
       },
@@ -32,40 +32,40 @@
       },
       "Microsoft.AspNetCore.Authorization": {
         "type": "Transitive",
-        "resolved": "8.0.14",
-        "contentHash": "lcKWEvzaJz+ahDj5J0zz05NGyv4vqEa2vLalBuBf69vL0qrWqqB/rwI4/zdyloun+fLTq1bCnsAwiplbFgQtAA==",
+        "resolved": "8.0.20",
+        "contentHash": "295bKuC0id+di1sGf/flQHLvnlwD+9yuvd43Eq2ITEMtqfb5SxvcVA0xcXvNo/Zd3uS/VRXQGJ3CHIMlPgDwtw==",
         "dependencies": {
-          "Microsoft.AspNetCore.Metadata": "8.0.14",
+          "Microsoft.AspNetCore.Metadata": "8.0.20",
           "Microsoft.Extensions.Logging.Abstractions": "8.0.3",
           "Microsoft.Extensions.Options": "8.0.2"
         }
       },
       "Microsoft.AspNetCore.Components": {
         "type": "Transitive",
-        "resolved": "8.0.14",
-        "contentHash": "b/6dwE/ESturk5VHHzq/GP15qkcxb196T+qxFs4wzUkeZtCx2OuK+1rPIHSgsOjthnHNOAhCY7/9n5uLqyenKA==",
+        "resolved": "8.0.20",
+        "contentHash": "ZSgRdT6bUeq2h4jR8g3nGMy/k8e/9uQAIok8YNesgn+MiTt6szdNLCyBwKyvkUOkxtPFSiquN8Lq43WUHF86xw==",
         "dependencies": {
-          "Microsoft.AspNetCore.Authorization": "8.0.14",
-          "Microsoft.AspNetCore.Components.Analyzers": "8.0.14"
+          "Microsoft.AspNetCore.Authorization": "8.0.20",
+          "Microsoft.AspNetCore.Components.Analyzers": "8.0.20"
         }
       },
       "Microsoft.AspNetCore.Components.Analyzers": {
         "type": "Transitive",
-        "resolved": "8.0.14",
-        "contentHash": "pHPb1bqV2ECTfOw2QcGQzO1/fdpo8mwekY8Jbycm2UZ6yvqLtZRRPd+RVzL74oXR/HTakvqSh2Un1W1rIFTnoQ=="
+        "resolved": "8.0.20",
+        "contentHash": "n3GLOh3bLTQqxs2gDXXg+6QFF9rMtR51mS0lXbe0YtqxXtWEfj+Jdm+SOuZV2l3kZGuxxjzo6MU/LwmNA4dngw=="
       },
       "Microsoft.AspNetCore.Components.Forms": {
         "type": "Transitive",
-        "resolved": "8.0.14",
-        "contentHash": "U83TX0obbdIh1DeIGCix62RILHRa4HC7h0fgEYrV9Gl8tz0wzv6AoYkU4PvnxXAqpYA2wPTMgNOuqt1X2XxCoQ==",
+        "resolved": "8.0.20",
+        "contentHash": "b2Xj7WgiNFHxVW9lk59T9Q4xkKg1JJwgHc3O/drzfDxYs9aMOY7TRnc4rqb0a56u+4daHcEym806gO2MSQRFDg==",
         "dependencies": {
-          "Microsoft.AspNetCore.Components": "8.0.14"
+          "Microsoft.AspNetCore.Components": "8.0.20"
         }
       },
       "Microsoft.AspNetCore.Metadata": {
         "type": "Transitive",
-        "resolved": "8.0.14",
-        "contentHash": "4dkb/7GoyaFtEggCEHStc/t05nKgnEr1QUJIP8QaDvxdZTXk9SebVeMMPBSR4zbj6dK2tUwBAOdHLA215lmOWg=="
+        "resolved": "8.0.20",
+        "contentHash": "0tULF+2scqnCEDbvd6w6+wU12O3KJgTle3UsrsglJElhXI1w5otkOrfyAKk4UyWhexKUXl99ttXzScP3X3+7gA=="
       },
       "Microsoft.Extensions.Configuration": {
         "type": "Transitive",
@@ -171,8 +171,8 @@
       },
       "Microsoft.JSInterop": {
         "type": "Transitive",
-        "resolved": "8.0.14",
-        "contentHash": "eg5HYSshwlO1oOzOg4WdT2ZSPKOu3hv556zPkfNpKEi5qoLuQt49mE1tegsL4H7ENl1dL0vBLRv4+YAuLKt/nA=="
+        "resolved": "8.0.20",
+        "contentHash": "0jdxTuYqGKmPVuiMMzz0G3k0X/hcrXWm8H1kPFzQQHoN72DDZJ+os/i2yM7CWznnvAdRkSNfCKnYJt7Q7Qhr0g=="
       },
       "System.Diagnostics.DiagnosticSource": {
         "type": "Transitive",
